@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true // 保存时使用eslint校验文件
+  },
+  "git.ignoreLimitWarning": true
+}

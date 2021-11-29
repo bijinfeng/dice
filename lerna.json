@@ -1,0 +1,23 @@
+{
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": false,
+  "ignoreChanges": [
+    "ignored-file",
+    "**/__tests__/**",
+    "**/*.md"
+  ],
+  "workspaces": [
+    "packages/dice-ui",
+    "packages/icons"
+  ],
+  "command": {
+    "publish": {
+      "registry": "https://registry.npmjs.org"
+    },
+    "version": {
+      "conventionalCommits": true,
+      "message": "chore(release): publish"
+    }
+  }
+}

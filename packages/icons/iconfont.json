@@ -1,0 +1,7 @@
+{
+  "symbol_url": "http://at.alicdn.com/t/font_2952809_5g6arpw0l42.js",
+  "use_typescript": true,
+  "save_dir": "./src",
+  "trim_icon_prefix": "dice",
+  "default_icon_size": 18
+}

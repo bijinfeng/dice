@@ -1,0 +1,23 @@
+name: github pages
+on:
+  push:
+    branches:
+      - master # default branch
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn install
+      - run: yarn bootstrap
+      - run: yarn build:dumi
+      - uses: expo/expo-github-action@v6
+        with:
+          expo-version: 4.x
+      - run: yarn build:expo-example
+      - run: mv packages/expo-example/web-build/ dist/example
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
