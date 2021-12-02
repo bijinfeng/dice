@@ -1,7 +1,7 @@
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import { Type, Size } from './index';
+import type { Type, Size } from './index';
 
-const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain) => {
+const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolean) => {
   const miniHeight = 24;
   const miniPaddingHorizontal = theme.padding.base;
   const miniFontSize = theme.font.fontSizeXs;
@@ -149,6 +149,8 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain) => {
     },
     icon: {
       color: textTypeStyleMaps[type].color,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       fontSize: textSizeStyleMaps[size].fontSize * 1.2,
     },
     plain: {

@@ -12,7 +12,7 @@ type State = {
  * Portal host is the component which actually renders all Portals.
  */
 export default class PortalManager extends React.PureComponent<any, State> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
 
     this.state = {

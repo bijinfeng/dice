@@ -35,6 +35,8 @@ export default function overlay<T extends Animated.Value | number>(
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   return calculateColor(surfaceColor, elevation as number);
 }
 

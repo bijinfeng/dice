@@ -40,7 +40,7 @@ export default class KeyboardSpace extends PureComponent<Props, State> {
     }
   }
 
-  componentDidUpdate(prevProps: Props, prevState: State): void {
+  componentDidUpdate(_: Props, prevState: State): void {
     if (prevState.keyboardHeight !== this.state.keyboardHeight) {
       LayoutAnimation.configureNext({
         duration: 500,

@@ -17,7 +17,7 @@ interface Props {
   style?: ViewStyle;
 }
 
-const getPercent = (count: number) => `${(count / 24) * 100}%`;
+const getPercent = (count?: number) => (count ? `${(count / 24) * 100}%` : undefined);
 
 const LayoutCol: FC<Props> = ({ span, offset, style, children }) => {
   const { gutter } = useContext(RowContext);

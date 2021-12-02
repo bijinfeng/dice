@@ -5,10 +5,6 @@ import Navigation from './navigation';
 
 const Layout: FC = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  // const title = useMemo(
-  //   () => routes.find(route => route.href === location.pathname)?.name,
-  //   [location.pathname]
-  // );
 
   // const theme = isDarkMode ? DarkTheme : DefaultTheme;
 

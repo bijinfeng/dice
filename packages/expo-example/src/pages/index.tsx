@@ -13,9 +13,11 @@ const Home = () => {
       </View>
       <View>
         {routes.map(item => (
-          <Link style={styles.item} key={item.href} to={{ screen: item.href, params: {} }}>
-            <Text style={styles.text}>{item.name}</Text>
-            <Icon name="arrow" size={16} />
+          <Link key={item.href} to={{ screen: item.href, params: {} }}>
+            <View style={styles.item}>
+              <Text style={styles.text}>{item.name}</Text>
+              <Icon name="arrow" size={16} />
+            </View>
           </Link>
         ))}
       </View>

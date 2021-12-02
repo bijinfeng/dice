@@ -88,7 +88,7 @@ export default class OverlayView<
       },
       // 用户放开了所有的触摸点，且此时视图已经成为了响应者。
       // 一般来说这意味着一个手势操作已经成功完成。
-      onPanResponderRelease: (e, gestureState) =>
+      onPanResponderRelease: (_, gestureState) =>
         this.touchStateID === gestureState.stateID ? this.closeRequest() : null,
     });
     this.state = {

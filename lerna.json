@@ -1,15 +1,11 @@
 {
   "version": "independent",
   "npmClient": "yarn",
-  "useWorkspaces": false,
+  "useWorkspaces": true,
   "ignoreChanges": [
     "ignored-file",
     "**/__tests__/**",
     "**/*.md"
-  ],
-  "workspaces": [
-    "packages/dice-ui",
-    "packages/icons"
   ],
   "command": {
     "publish": {

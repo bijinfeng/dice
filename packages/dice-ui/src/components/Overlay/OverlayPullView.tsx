@@ -103,7 +103,6 @@ class OverlayPullView extends OverlayView<Props, State> {
           default:
             return [{ translateY: -this.viewLayout.height }];
         }
-        break;
       case 'scale':
         return [{ scaleX: defaultOverlayRootScale }, { scaleY: defaultOverlayRootScale }];
       default:
@@ -210,6 +209,8 @@ class OverlayPullView extends OverlayView<Props, State> {
       }
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return roundstyle;
   }
 

@@ -1,7 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "lib",
+    "paths": {
+      "dice-ui": ["./src/index"],
+    },
   },
-  "include": ["src/**/*"]
+  "exclude": ["lib/**/*"]
 }

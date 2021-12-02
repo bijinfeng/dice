@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { DeviceEventEmitter } from 'react-native';
 
 let keyValue = 0;

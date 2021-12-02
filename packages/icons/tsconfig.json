@@ -1,7 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "lib",
+    "paths": {
+      "@dice-ui/icons": ["./src/index"],
+    },
+    "allowUnreachableCode": true,
+    "importsNotUsedAsValues": "remove"
   },
-  "include": ["src/**/*"]
+  "exclude": ["lib/**/*"]
 }

@@ -1,4 +1,4 @@
 import React from 'react';
-import Layout from './src';
+import App from './src';
 
-export default () => <Layout />;
+export default () => <App />;

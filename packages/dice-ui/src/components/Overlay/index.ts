@@ -32,6 +32,8 @@ export default class Overlay {
       });
       key = add(element);
     }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return key;
   }
 }

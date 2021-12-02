@@ -9,28 +9,49 @@
   ],
   "author": "bijinfeng <bijinfeng@bytedance.com>",
   "license": "MIT",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "tsc",
     "prebuild": "npx iconfont-rn",
-    "prepublishOnly": "yarn build"
+    "build": "bob build"
   },
   "devDependencies": {
     "react-native-iconfont-cli": "^2.2.3",
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^12.1.1",
+    "react-native-builder-bob": "^0.18.2",
+    "typescript": "^4.4.3"
   },
   "peerDependencies": {
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^12.1.1",
+    "react": "*",
+    "react-native": "*"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
   }
 }

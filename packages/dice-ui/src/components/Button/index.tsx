@@ -129,25 +129,18 @@ const Button: FC<Props> = memo(
       );
     };
 
-    const buildWrapperStyle = () => {
-      return StyleSheet.flatten([
-        styles.button,
-        plain && styles.plain,
-        round && styles.round,
-        square && styles.square,
-        disabled && styles.disabled,
-        color && (plain ? { borderColor: color } : { backgroundColor: color }),
-      ]);
-    };
-
-    const buildTextStyle = () => {
-      return StyleSheet.flatten([styles.text, color && { color: plain ? color : 'white' }]);
-    };
-
     return (
       <TouchableOpacity
         disabled={disabled}
-        style={[buildWrapperStyle(), style]}
+        style={[
+          styles.button,
+          plain && styles.plain,
+          round && styles.round,
+          square && styles.square,
+          disabled && styles.disabled,
+          color ? (plain ? { borderColor: color } : { backgroundColor: color }) : undefined,
+          style,
+        ]}
         onPressIn={() => setPressing(true)}
         onPressOut={() => setPressing(false)}
         activeOpacity={1}
@@ -155,7 +148,11 @@ const Button: FC<Props> = memo(
       >
         <View style={[styles.content, contentStyle]}>
           {iconPosition === 'left' && renderIcon()}
-          <Text selectable={false} numberOfLines={1} style={buildTextStyle()}>
+          <Text
+            selectable={false}
+            numberOfLines={1}
+            style={[styles.text, color ? { color: plain ? color : 'white' } : undefined]}
+          >
             {children}
           </Text>
           {iconPosition === 'right' && renderIcon()}

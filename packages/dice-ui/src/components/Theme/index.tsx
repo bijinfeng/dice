@@ -1,6 +1,6 @@
 import { createTheming } from '@callstack/react-theme-provider';
 import { useMemo } from 'react';
-import { StyleSheet } from 'react-native';
+import type { StyleSheet } from 'react-native';
 import { DefaultTheme } from '../../styles';
 import ThemeView from './View';
 import ThemeText from './Text';

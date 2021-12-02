@@ -1,4 +1,4 @@
-const getShortHand = (style: string, ...values) => {
+const getShortHand = (style: string, ...values: any[]) => {
   if (values.length === 1) {
     return { [style]: values[0] };
   }

@@ -1,7 +1,7 @@
 import React from 'react';
-import { ViewStyle, View } from 'react-native';
+import { View } from 'react-native';
 import Overlay from '../Overlay';
-import OverlayPullView from '../Overlay/OverlayPullView';
+import type OverlayPullView from '../Overlay/OverlayPullView';
 import TouchableRipple from '../TouchableRipple';
 import Icon, { IconNames, isIcon } from '../Icon';
 
@@ -23,8 +23,8 @@ export default class Popup extends Overlay {
   static PopupView = Overlay.PullView;
 
   static open(view: React.ReactNode, options?: Partial<PopupProps>) {
-    const { closeable, closeIcon = 'cross', closeIconPosition, ...rest } = options;
-    let popup: OverlayPullView;
+    const { closeable, closeIcon = 'cross', closeIconPosition, ...rest } = options ?? {};
+    let popup: OverlayPullView | null;
 
     const close = (animated = false) => popup?.close(animated);
 
@@ -39,7 +39,9 @@ export default class Popup extends Overlay {
           {closeable && (
             <TouchableRipple
               style={[this.buildIconStyle(closeIconPosition), { position: 'absolute', zIndex: 1 }]}
-              onPress={() => close()}
+              onPress={() => {
+                close();
+              }}
             >
               {/* TODO: color 应该使用 theme 里的颜色 */}
               {isIcon(closeIcon) ? <Icon name={closeIcon} size={22} color="#c8c9cc" /> : closeIcon}
@@ -54,35 +56,31 @@ export default class Popup extends Overlay {
   }
 
   static buildIconStyle(iconPosition: IconPosition = 'top-right') {
-    let iconStyle: ViewStyle;
     switch (iconPosition) {
       case 'top-left':
-        iconStyle = {
+        return {
           left: iconMargin,
           top: iconMargin,
         };
-        break;
       case 'top-right':
-        iconStyle = {
+        return {
           right: iconMargin,
           top: iconMargin,
         };
-        break;
       case 'bottom-left':
-        iconStyle = {
+        return {
           left: iconMargin,
           bottom: iconMargin,
         };
-        break;
       case 'bottom-right':
-        iconStyle = {
+        return {
           right: iconMargin,
           bottom: iconMargin,
         };
-        break;
       default:
         break;
     }
-    return iconStyle;
+
+    return undefined;
   }
 }

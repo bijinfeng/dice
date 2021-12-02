@@ -8,19 +8,21 @@
   ],
   "author": "bijinfeng <bijinfeng@bytedance.com>",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "scripts": {
-    "prebuild": "rimraf lib",
-    "build": "tsc",
-    "dev": "yarn build -w",
-    "prepublishOnly": "yarn build"
+    "build": "bob build"
   },
   "dependencies": {
     "@callstack/react-theme-provider": "^3.0.6",
@@ -31,7 +33,28 @@
     "react-native-svg": "^12.1.1"
   },
   "devDependencies": {
+    "@types/color": "^3.0.2",
     "@types/lodash": "^4.14.175",
-    "@types/react-native": "^0.65.5"
+    "@types/react-native": "^0.65.5",
+    "react-native-builder-bob": "^0.18.2",
+    "typescript": "^4.4.3"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
   }
 }
