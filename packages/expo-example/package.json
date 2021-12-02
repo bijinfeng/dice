@@ -37,12 +37,7 @@
     "typescript": "~4.3.5"
   },
   "expo-yarn-workspaces": {
-    "symlinks": [
-      "react",
-      "react-dom",
-      "react-native",
-      "react-native-web"
-    ]
+    "symlinks": ["react"]
   },
   "private": true
 }
