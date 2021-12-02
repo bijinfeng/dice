@@ -1,6 +1,6 @@
 {
   "name": "expo-example",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "__generated__/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -17,7 +17,7 @@
     "@react-navigation/elements": "^1.2.1",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
-    "dice-ui": "^0.1.0",
+    "dice-ui": "^0.2.0",
     "expo": "~43.0.2",
     "expo-linking": "~2.4.2",
     "expo-status-bar": "~1.1.0",
