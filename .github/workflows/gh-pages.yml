@@ -9,7 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - run: yarn bootstrap
       - run: yarn build:dumi
       - uses: expo/expo-github-action@v6
         with:

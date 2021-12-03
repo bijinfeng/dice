@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Cell, Popup, PopupProps } from 'dice-ui';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { DemoBlock } from '../../../components';
 
 type Side = 'top' | 'bottom' | 'left' | 'right';
@@ -19,7 +19,7 @@ const onPress1 = (side: Side = 'bottom', options?: Partial<PopupProps>) => {
 
 const PopupDemo: FC = () => {
   return (
-    <View>
+    <ScrollView>
       <DemoBlock title="基础用法">
         <Cell.Group inset>
           <Cell title="展示弹出层" isLink onPress={onPress1} />
@@ -65,7 +65,7 @@ const PopupDemo: FC = () => {
           <Cell title="圆角弹窗" isLink onPress={() => onPress1('bottom', { round: true })} />
         </Cell.Group>
       </DemoBlock>
-    </View>
+    </ScrollView>
   );
 };
 
