@@ -36,7 +36,7 @@ const CellGroup: FC<CellGroupProps> = memo(props => {
   };
 
   return (
-    <>
+    <View>
       {title && <Text style={[styles.title, inset ? styles.titleInset : undefined]}>{title}</Text>}
       <View
         style={[
@@ -47,7 +47,7 @@ const CellGroup: FC<CellGroupProps> = memo(props => {
       >
         {renderChildren()}
       </View>
-    </>
+    </View>
   );
 });
 

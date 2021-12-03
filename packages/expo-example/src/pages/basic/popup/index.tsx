@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Cell, Popup, PopupProps } from 'dice-ui';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { DemoBlock } from '../../../components';
 
 type Side = 'top' | 'bottom' | 'left' | 'right';
@@ -20,12 +20,12 @@ const onPress1 = (side: Side = 'bottom', options?: Partial<PopupProps>) => {
 const PopupDemo: FC = () => {
   return (
     <View>
-      <DemoBlock title="基础用法" contentStyle={styles.content}>
+      <DemoBlock title="基础用法">
         <Cell.Group inset>
           <Cell title="展示弹出层" isLink onPress={onPress1} />
         </Cell.Group>
       </DemoBlock>
-      <DemoBlock title="弹出位置" contentStyle={styles.content}>
+      <DemoBlock title="弹出位置">
         <Cell.Group inset>
           <Cell title="顶部弹出" isLink onPress={() => onPress1('top')} />
           <Cell title="底部弹出" isLink onPress={() => onPress1('bottom')} />
@@ -33,7 +33,7 @@ const PopupDemo: FC = () => {
           <Cell title="右侧弹出" isLink onPress={() => onPress1('right')} />
         </Cell.Group>
       </DemoBlock>
-      <DemoBlock title="关闭图标" contentStyle={styles.content}>
+      <DemoBlock title="关闭图标">
         <Cell.Group inset>
           <Cell
             title="关闭图标"
@@ -60,7 +60,7 @@ const PopupDemo: FC = () => {
           />
         </Cell.Group>
       </DemoBlock>
-      <DemoBlock title="圆角弹窗" contentStyle={styles.content}>
+      <DemoBlock title="圆角弹窗">
         <Cell.Group inset>
           <Cell title="圆角弹窗" isLink onPress={() => onPress1('bottom', { round: true })} />
         </Cell.Group>
@@ -68,11 +68,5 @@ const PopupDemo: FC = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  content: {
-    marginHorizontal: 12,
-  },
-});
 
 export default PopupDemo;

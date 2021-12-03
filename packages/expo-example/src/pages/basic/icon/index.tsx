@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Icon, IconNames } from 'dice-ui';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { DemoBlock } from '../../../components';
 
 const basicArray: IconNames[] = [
@@ -254,7 +254,7 @@ const list1: IconNames[] = [
 
 const IconExample: FC = () => {
   return (
-    <View>
+    <ScrollView>
       <DemoBlock title="基础图标" contentStyle={styles.container}>
         {basicArray.map(it => (
           <View style={styles.iconItem} key={it}>
@@ -279,7 +279,7 @@ const IconExample: FC = () => {
           </View>
         ))}
       </DemoBlock>
-    </View>
+    </ScrollView>
   );
 };
 

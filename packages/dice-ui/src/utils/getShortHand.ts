@@ -1,4 +1,4 @@
-const getShortHand = (style: string, ...values: any[]) => {
+const getShortHand = (style: 'padding' | 'margin', ...values: any[]) => {
   if (values.length === 1) {
     return { [style]: values[0] };
   }
@@ -17,7 +17,8 @@ const getShortHand = (style: string, ...values: any[]) => {
   return _genCss(values[0], values[1], values[2], values[3]);
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+/**
+ * 简写 padding 和 margin
+ */
 export const padding = (...values: Array<number | string>) => getShortHand('padding', ...values);
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const margin = (...values: Array<number | string>) => getShortHand('margin', ...values);

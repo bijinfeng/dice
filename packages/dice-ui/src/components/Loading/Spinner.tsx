@@ -1,8 +1,6 @@
 import React, { FC, memo, useRef, useEffect } from 'react';
 import { View, StyleSheet, Animated, Platform, Easing } from 'react-native';
 
-const AnimateView = Animated.createAnimatedComponent(View);
-
 interface Props {
   color: string;
   size: number;
@@ -30,7 +28,8 @@ const Spinner: FC<Props> = memo(({ color, size }) => {
   }, []);
 
   return (
-    <AnimateView
+    <Animated.View
+      collapsable={false}
       style={[
         styles.container,
         {
@@ -63,12 +62,13 @@ const Spinner: FC<Props> = memo(({ color, size }) => {
             <View style={[styles.line, { backgroundColor: color, borderRadius: size * 0.4 }]} />
           </View>
         ))}
-    </AnimateView>
+    </Animated.View>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     position: 'relative',
   },
   line: {

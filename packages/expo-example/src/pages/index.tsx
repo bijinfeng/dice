@@ -13,7 +13,7 @@ const Home = () => {
       </View>
       <View>
         {routes.map(item => (
-          <Link key={item.href} to={{ screen: item.href, params: {} }}>
+          <Link style={styles.link} key={item.href} to={{ screen: item.href, params: {} }}>
             <View style={styles.item}>
               <Text style={styles.text}>{item.name}</Text>
               <Icon name="arrow" size={16} />
@@ -38,9 +38,13 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 12,
     paddingLeft: 20,
     paddingRight: 16,
+    width: '100%',
+  },
+  link: {
+    height: 40,
+    marginBottom: 12,
   },
   logo: {
     height: 32,
