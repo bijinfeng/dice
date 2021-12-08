@@ -1,5 +1,5 @@
 import React, { FC, memo, useRef, useEffect } from 'react';
-import { View, StyleSheet, Animated, Platform, Easing } from 'react-native';
+import { View, Animated, Platform, Easing } from 'react-native';
 
 interface Props {
   color: string;
@@ -30,60 +30,48 @@ const Spinner: FC<Props> = memo(({ color, size }) => {
   return (
     <Animated.View
       collapsable={false}
-      style={[
-        styles.container,
-        {
-          width: size,
-          height: size,
-          transform: [
-            {
-              rotate: rotate.interpolate({
-                inputRange: [0, 1],
-                outputRange: ['0deg', '360deg'],
-              }),
-            },
-          ],
-        },
-      ]}
+      style={{
+        position: 'relative',
+        width: size,
+        height: size,
+        transform: [
+          {
+            rotate: rotate.interpolate({
+              inputRange: [0, 1],
+              outputRange: ['0deg', '360deg'],
+            }),
+          },
+        ],
+      }}
     >
       {Array(12)
         .fill(null)
         .map((_, index) => (
           <View
-            style={[
-              styles.wrapper,
-              {
-                transform: [{ rotate: `${(index + 1) * 30}deg` }],
-                opacity: 1 - (0.75 / 12) * index,
-              },
-            ]}
+            style={{
+              left: 0,
+              position: 'absolute',
+              top: 0,
+              transform: [{ rotate: `${(index + 1) * 30}deg` }],
+              opacity: 1 - (0.75 / 12) * index,
+              width: size,
+              height: size,
+            }}
             key={index.toString()}
           >
-            <View style={[styles.line, { backgroundColor: color, borderRadius: size * 0.4 }]} />
+            <View
+              style={{
+                width: 2,
+                backgroundColor: color,
+                borderRadius: size * 0.4,
+                height: 0.25 * size,
+                marginHorizontal: (size - 2) / 2,
+              }}
+            />
           </View>
         ))}
     </Animated.View>
   );
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: 'relative',
-  },
-  line: {
-    height: '25%',
-    marginHorizontal: 'auto',
-    marginVertical: 0,
-    width: 2,
-  },
-  wrapper: {
-    height: '100%',
-    left: 0,
-    position: 'absolute',
-    top: 0,
-    width: '100%',
-  },
 });
 
 export default Spinner;

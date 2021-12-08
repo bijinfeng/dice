@@ -69,12 +69,9 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
   };
 
   const buttonSizeStyleMaps: Record<Size, ViewStyle> = {
-    normal: {
-      paddingHorizontal: normalPaddingHorizontal,
-    },
+    normal: {},
     small: {
       height: smallHeight,
-      paddingHorizontal: smallPaddingHorizontal,
     },
     large: {
       height: largeHeight,
@@ -82,6 +79,18 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
     },
     mini: {
       height: miniHeight,
+    },
+  };
+
+  const contentPadding: Record<Size, ViewStyle> = {
+    normal: {
+      paddingHorizontal: normalPaddingHorizontal,
+    },
+    small: {
+      paddingHorizontal: smallPaddingHorizontal,
+    },
+    large: {},
+    mini: {
       paddingHorizontal: miniPaddingHorizontal,
     },
   };
@@ -124,8 +133,10 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
       backgroundColor: black,
       borderColor: black,
       height: '100%',
+      left: 0,
       opacity: 0,
       position: 'absolute',
+      right: 0,
       width: '100%',
     },
     button: {
@@ -143,6 +154,7 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
       alignItems: 'center',
       flexDirection: 'row',
       justifyContent: 'center',
+      ...contentPadding[size],
     },
     disabled: {
       opacity: disabledOpacity,

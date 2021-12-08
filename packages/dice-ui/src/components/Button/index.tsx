@@ -132,32 +132,35 @@ const Button: FC<Props> = memo(
     return (
       <TouchableOpacity
         disabled={disabled}
-        style={[
-          styles.button,
-          plain && styles.plain,
-          round && styles.round,
-          square && styles.square,
-          disabled && styles.disabled,
-          color ? (plain ? { borderColor: color } : { backgroundColor: color }) : undefined,
-          style,
-        ]}
         onPressIn={() => setPressing(true)}
         onPressOut={() => setPressing(false)}
         activeOpacity={1}
+        style={style}
         {...rest}
       >
-        <View style={[styles.content, contentStyle]}>
-          {iconPosition === 'left' && renderIcon()}
-          <Text
-            selectable={false}
-            numberOfLines={1}
-            style={[styles.text, color ? { color: plain ? color : 'white' } : undefined]}
-          >
-            {children}
-          </Text>
-          {iconPosition === 'right' && renderIcon()}
+        <View
+          style={[
+            styles.button,
+            plain && styles.plain,
+            round && styles.round,
+            square && styles.square,
+            disabled && styles.disabled,
+            color ? (plain ? { borderColor: color } : { backgroundColor: color }) : undefined,
+          ]}
+        >
+          <View style={[styles.content, contentStyle]}>
+            {iconPosition === 'left' && renderIcon()}
+            <Text
+              selectable={false}
+              numberOfLines={1}
+              style={[styles.text, color ? { color: plain ? color : 'white' } : undefined]}
+            >
+              {children}
+            </Text>
+            {iconPosition === 'right' && renderIcon()}
+          </View>
+          <View style={[styles.back, { opacity: pressing ? 0.1 : 0 }]} />
         </View>
-        <View style={[styles.back, { opacity: pressing ? 0.1 : 0 }]} />
       </TouchableOpacity>
     );
   }

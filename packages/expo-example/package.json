@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "build:web": "expo build:web",
-    "postinstall": "expo-yarn-workspaces postinstall"
+    "postinstall": "expo-yarn-workspaces postinstall",
+    "build:ios-simulator": "expo build:ios -t simulator"
   },
   "homepage": "/dice/example/",
   "dependencies": {

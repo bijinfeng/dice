@@ -8,13 +8,16 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - run: yarn install
-      - run: yarn build:dumi
       - uses: expo/expo-github-action@v6
         with:
           expo-version: 4.x
+          expo-cache: true
+          token: ${{ secrets.EXPO_TOKEN }}
+      - run: yarn install
+      - run: yarn build:dumi
       - run: yarn build:expo-example
       - run: mv packages/expo-example/web-build/ dist/example
+      - run: lerna run build:ios-simulator --scope=expo-example
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

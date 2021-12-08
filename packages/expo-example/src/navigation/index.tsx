@@ -32,7 +32,7 @@ const Navigation: FC<{ colorScheme: ColorSchemeName }> = ({ colorScheme }) => (
     }}
   >
     <Stack.Navigator>
-      <Stack.Screen name="/" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="/" component={Home} options={{ headerShown: false, title: '首页' }} />
       {routes.map(it => (
         <Stack.Screen
           key={it.href}
