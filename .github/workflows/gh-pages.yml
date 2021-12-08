@@ -17,7 +17,7 @@ jobs:
       - run: yarn build:dumi
       - run: yarn build:expo-example
       - run: mv packages/expo-example/web-build/ dist/example
-      - run: lerna run build:ios-simulator --scope=expo-example
+      - run: cd packages/expo-example/ && yarn run build:ios-simulator
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
