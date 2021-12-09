@@ -17,9 +17,20 @@ jobs:
       - run: yarn build:dumi
       - run: yarn build:expo-example
       - run: mv packages/expo-example/web-build/ dist/example
-      - run: cd packages/expo-example/ && yarn run build:ios-simulator
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+  build-for-ios-simulator:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: expo/expo-github-action@v6
+        with:
+          expo-version: 4.x
+          expo-cache: true
+          token: ${{ secrets.EXPO_TOKEN }}
+      - run: yarn install
+      - run: yarn build
+      - run: cd packages/expo-example/ && yarn run build:ios-simulator
