@@ -9,6 +9,7 @@ export { default as Cell } from './components/Cell';
 export { default as Checkbox } from './components/Checkbox';
 export { default as ConfigProvider } from './components/ConfigProvider';
 export { default as Divider } from './components/Divider';
+export { default as Image } from './components/Image';
 export { default as KeyboardSpace } from './components/KeyboardSpace';
 export { default as Layout } from './components/Layout';
 export { default as Loading } from './components/Loading';

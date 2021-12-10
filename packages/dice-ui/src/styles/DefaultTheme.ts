@@ -143,3 +143,13 @@ export const checkbox_label_color = text_color;
 export const checkbox_label_margin = padding_xs;
 export const checkbox_disabled_label_color = text_color_3;
 export const checkbox_disabled_icon_color = gray_5;
+
+// Image
+export const image_default_size = 100; // 图片默认尺寸
+export const image_placeholder_text_color = gray_6;
+export const image_placeholder_font_size = font_size_md;
+export const image_placeholder_background_color = background_color;
+export const image_loading_icon_size = 32;
+export const image_loading_icon_color = gray_4;
+export const image_error_icon_size = 32;
+export const image_error_icon_color = gray_4;
