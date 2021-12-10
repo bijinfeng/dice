@@ -9,6 +9,7 @@ import Button from '../pages/basic/button';
 import Overlay from '../pages/basic/overlay';
 import Popup from '../pages/basic/popup';
 import Toast from '../pages/basic/toast';
+import Checkbox from '../pages/basic/checkbox';
 
 type RouteItem = {
   name: string;
@@ -61,5 +62,10 @@ export const routes: RouteItem[] = [
     name: 'Toast 轻提示',
     href: '/basic/toast',
     component: Toast,
+  },
+  {
+    name: 'Checkbox 复选框',
+    href: '/basic/checkbox',
+    component: Checkbox,
   },
 ];

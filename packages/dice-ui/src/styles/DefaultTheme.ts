@@ -1,8 +1,25 @@
 import color from 'color';
-import { black, white, pinkA400 } from './colors';
+import { pinkA400 } from './colors';
 import configureFonts from './fonts';
 
 const text = '#191919';
+
+const black = '#000';
+const white = '#fff';
+const gray1 = '#f7f8fa';
+const gray2 = '#f2f3f5';
+const gray3 = '#ebedf0';
+const gray4 = '#dcdee0';
+const gray5 = '#c8c9cc';
+const gray6 = '#969799';
+const gray7 = '#646566';
+const gray8 = '#323233';
+const red = '#ee0a24';
+const blue = '#1989fa';
+const orange = '#ff976a';
+const orangeDark = '#ed6a0c';
+const orangeLight = '#fffbe8';
+const green = '#07c160';
 
 const DefaultTheme: DiceUI.Theme = {
   dark: false,
@@ -14,7 +31,6 @@ const DefaultTheme: DiceUI.Theme = {
     surface: white, // 包含内容的元素的背景颜色，例如卡片。
     error: '#B00020',
     text: text, // 内容的文本颜色。
-    gray1: color(black).alpha(0.12).rgb().string(), // gray-1
     textSecondary: '#878787', // 文本的次要颜色
     content: text, // 正文的文本颜色
     contentBackground: '#f6f6f6', // 正文的背景颜色
@@ -26,32 +42,35 @@ const DefaultTheme: DiceUI.Theme = {
     popupText: text, // popup 组件内文本和按钮的颜色
     notification: pinkA400,
 
-    black: '#000',
-    white: '#fff',
-    gray2: '#f2f3f5',
-    gray3: '#ebedf0',
-    gray4: '#dcdee0',
-    gray5: '#c8c9cc',
-    gray6: '#969799',
-    gray7: '#646566',
-    gray8: '#323233',
-    red: '#ee0a24',
-    blue: '#1989fa',
-    orange: '#ff976a',
-    orangeDark: '#ed6a0c',
-    orangeLight: '#fffbe8',
-    green: '#07c160',
+    black,
+    white,
+    gray1,
+    gray2,
+    gray3,
+    gray4,
+    gray5,
+    gray6,
+    gray7,
+    gray8,
+    red,
+    blue,
+    orange,
+    orangeDark,
+    orangeLight,
+    green,
 
-    primaryColor: '#1989fa',
-    successColor: '#07c160',
-    dangerColor: '#ee0a24',
-    warningColor: '#ff976a',
-    textColor: '#323233',
-    activeColor: '#f2f3f5',
+    primaryColor: blue,
+    successColor: green,
+    dangerColor: red,
+    warningColor: orange,
+    textColor: gray8,
+    textColor2: gray6,
+    textColor3: gray5,
+    activeColor: gray2,
     activeOpacity: 0.7,
     disabledOpacity: 0.5,
-    backgroundColor: '#f7f8fa',
-    backgroundColorLight: '#fafafa',
+    backgroundColor: gray1,
+    backgroundColorLight: white,
     textLinkColor: '#576b95',
   },
   fonts: configureFonts(),
@@ -59,7 +78,7 @@ const DefaultTheme: DiceUI.Theme = {
     scale: 1.0,
   },
   border: {
-    color: '#ebedf0',
+    color: gray3,
     widthBase: 1,
     radiusSm: 2,
     radiusMd: 4,

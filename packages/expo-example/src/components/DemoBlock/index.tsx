@@ -5,9 +5,10 @@ interface Props extends ViewProps {
   title?: string;
   card?: boolean;
   contentStyle?: ViewProps['style'];
+  inset?: boolean;
 }
 
-const DemoBlock: FC<Props> = ({ title, card, children, contentStyle, ...rest }) => {
+const DemoBlock: FC<Props> = ({ title, card, children, contentStyle, inset, ...rest }) => {
   return (
     <View {...rest}>
       {title && (
@@ -15,7 +16,7 @@ const DemoBlock: FC<Props> = ({ title, card, children, contentStyle, ...rest }) 
           <Text style={{ color: '#455a6499' }}>{title}</Text>
         </View>
       )}
-      <View style={contentStyle}>
+      <View style={[inset && styles.contentInset, contentStyle]}>
         {card ? (
           <View style={[styles.card, title ? styles.titleCard : null]}>{children}</View>
         ) : (
@@ -30,6 +31,9 @@ const styles = StyleSheet.create({
   card: {
     marginHorizontal: 12,
     marginTop: 12,
+  },
+  contentInset: {
+    paddingHorizontal: 16,
   },
   title: {
     margin: 0,

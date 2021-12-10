@@ -80,12 +80,14 @@ declare global {
         dangerColor: string;
         warningColor: string;
         textColor: string;
+        textColor2: string;
+        textColor3: string;
+        textLinkColor: string;
         activeColor: string;
         activeOpacity: number;
         disabledOpacity: number;
         backgroundColor: string;
         backgroundColorLight: string;
-        textLinkColor: string;
       };
       fonts: Fonts;
       animation: {

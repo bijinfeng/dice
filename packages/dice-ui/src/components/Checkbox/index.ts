@@ -1,20 +1,19 @@
-import CheckboxComponent from './Checkbox';
-import CheckboxItem from './CheckboxItem';
-import CheckboxAndroid from './CheckboxAndroid';
-import CheckboxIOS from './CheckboxIOS';
+import InternalCheckbox from './Checkbox';
+import Group from './Group';
 
-type CheckboxType = typeof CheckboxComponent;
+export type { CheckboxProps } from './Checkbox';
+export type { CheckboxGroupProps, CheckboxOptionType } from './Group';
+
+type CheckboxType = typeof InternalCheckbox;
 
 interface CheckboxProps extends CheckboxType {
-  Item: typeof CheckboxItem;
-  Android: typeof CheckboxAndroid;
-  IOS: typeof CheckboxIOS;
+  Group: typeof Group;
+  __ANT_CHECKBOX: boolean;
 }
 
-const Checkbox = CheckboxComponent as CheckboxProps;
+const Checkbox = InternalCheckbox as CheckboxProps;
 
-Checkbox.Item = CheckboxItem;
-Checkbox.Android = CheckboxAndroid;
-Checkbox.IOS = CheckboxIOS;
+Checkbox.Group = Group;
+Checkbox.__ANT_CHECKBOX = true;
 
 export default Checkbox;

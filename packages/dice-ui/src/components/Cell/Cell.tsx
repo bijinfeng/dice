@@ -4,6 +4,7 @@ import { useThemeFactory } from '../Theme';
 import Icon, { IconNames } from '../Icon';
 import TouchableRipple from '../TouchableRipple';
 import Divider from '../Divider';
+import { isString } from '../../utils/typeof';
 import { createStyle } from './cell.style';
 
 type Direction = 'left' | 'right' | 'up' | 'down';
@@ -77,6 +78,14 @@ const Cell: FC<CellProps> = memo(props => {
   const isLarge = size === 'large';
   const styles = useThemeFactory(createStyle);
 
+  // value 是文本的话，需要用 Text 包裹一下
+  const getValue = () => {
+    if (isString(value)) {
+      return <Text style={[styles.value, hasTitle ? undefined : styles.valueAlone]}>{value}</Text>;
+    }
+    return value;
+  };
+
   return (
     <>
       {border && <Divider style={styles.wrapperBorder} />}
@@ -104,9 +113,7 @@ const Cell: FC<CellProps> = memo(props => {
             </View>
           )}
           <View style={styles.right}>
-            {value && (
-              <Text style={[styles.value, hasTitle ? undefined : styles.valueAlone]}>{value}</Text>
-            )}
+            {value && getValue()}
             {isLink && (
               <View style={[styles.icon, { marginLeft: 4 }]}>
                 <Icon name={directionIcons[arrowDirection]} />
