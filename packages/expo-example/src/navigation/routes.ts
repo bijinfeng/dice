@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Switch from '../pages/basic/switch';
 import Icon from '../pages/basic/icon';
 import Layout from '../pages/basic/layout';
 import Cell from '../pages/basic/cell';
@@ -32,11 +31,6 @@ export const routes: RouteItem[] = [
     name: 'Icon 图标',
     href: '/basic/icon',
     component: Icon,
-  },
-  {
-    name: 'Switch 开关',
-    href: '/basic/switch',
-    component: Switch,
   },
   {
     name: 'Loading 加载',

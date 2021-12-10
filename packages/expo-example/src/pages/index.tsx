@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
 import { Link } from '@react-navigation/native';
-import { Icon, Theme } from 'dice-ui';
+import { Icon } from 'dice-ui';
 import { routes } from '../navigation/routes';
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     <View style={styles.wrapper}>
       <View style={styles.header}>
         <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
-        <Theme.Text style={styles.title}>Dice</Theme.Text>
+        <Text style={styles.title}>Dice</Text>
       </View>
       <View>
         {routes.map(item => (

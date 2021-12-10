@@ -38,12 +38,12 @@ const TouchableRipple: FC<Props> = ({
   children,
   ...rest
 }) => {
-  const { dark, colors } = useTheme();
+  const theme = useTheme();
   const disabled = disabledProp || !rest.onPress;
   const calculatedRippleColor =
     rippleColor ||
-    color(colors.text)
-      .alpha(dark ? 0.32 : 0.2)
+    color(theme.text_color)
+      .alpha(theme.dark ? 0.32 : 0.2)
       .rgb()
       .string();
 

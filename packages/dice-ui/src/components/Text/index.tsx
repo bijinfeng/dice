@@ -21,8 +21,7 @@ const Text = React.forwardRef<any, Props>(({ style, ...rest }, ref) => {
       ref={root}
       style={[
         {
-          ...theme.fonts.regular,
-          color: theme.colors.text,
+          color: theme.text_color,
         },
         styles.text,
         style,

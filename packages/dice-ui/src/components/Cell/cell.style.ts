@@ -1,27 +1,11 @@
 import { StyleSheet, StyleProp, TextStyle } from 'react-native';
 
 export const createStyle = (theme: DiceUI.Theme) => {
-  const cellFontSize = theme.font.fontSizeMd;
-  const cellLineHeight = 24;
-  const cellVerticalPadding = 10;
-  const cellHorizontalPadding = theme.padding.md;
-  const cellTextColor = theme.colors.textColor;
-  const cellBackgroundColor = theme.colors.white;
-  const cellBorderColor = theme.border.color;
-  const cellLabelColor = theme.colors.gray6;
-  const cellLabelFontSize = theme.font.fontSizeSm;
-  const cellLabelLineHeight = theme.font.lineHeightSm;
-  const cellLabelMarginTop = theme.padding.base;
-  const cellValueColor = theme.colors.gray5;
-  const cellLargeVerticalPadding = theme.padding.sm;
-  const cellLargeTitleFontSize = theme.font.fontSizeLg;
-  const cellLargeLabelFontSize = theme.font.fontSizeMd;
-
   const text: StyleProp<TextStyle> = {
     alignItems: 'center',
-    lineHeight: cellLineHeight,
-    color: cellTextColor,
-    fontSize: cellFontSize,
+    lineHeight: theme.cell_line_height,
+    color: theme.cell_text_color,
+    fontSize: theme.cell_font_size,
   };
 
   return StyleSheet.create({
@@ -30,13 +14,13 @@ export const createStyle = (theme: DiceUI.Theme) => {
       justifyContent: 'center',
     },
     label: {
-      color: cellLabelColor,
-      fontSize: cellLabelFontSize,
-      lineHeight: cellLabelLineHeight,
-      marginTop: cellLabelMarginTop,
+      color: theme.cell_label_color,
+      fontSize: theme.cell_label_font_size,
+      lineHeight: theme.cell_label_line_height,
+      marginTop: theme.cell_label_margin_top,
     },
     larbelLarge: {
-      fontSize: cellLargeLabelFontSize,
+      fontSize: theme.cell_large_label_font_size,
     },
     left: {
       flex: 1,
@@ -49,29 +33,29 @@ export const createStyle = (theme: DiceUI.Theme) => {
       ...text,
     },
     titleLarge: {
-      fontSize: cellLargeTitleFontSize,
+      fontSize: theme.cell_large_title_font_size,
     },
     value: {
       ...text,
-      color: cellValueColor,
+      color: theme.cell_value_color,
     },
     valueAlone: {
-      color: cellTextColor,
+      color: theme.cell_background_color,
     },
     wrapper: {
-      backgroundColor: cellBackgroundColor,
+      backgroundColor: theme.cell_background_color,
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      paddingHorizontal: cellHorizontalPadding,
-      paddingVertical: cellVerticalPadding,
+      paddingHorizontal: theme.cell_padding_horizontal,
+      paddingVertical: theme.cell_padding_vertical,
     },
     wrapperBorder: {
-      backgroundColor: cellBorderColor,
-      marginHorizontal: cellHorizontalPadding,
+      backgroundColor: theme.cell_border_color,
+      marginHorizontal: theme.cell_padding_horizontal,
     },
     wrapperLarge: {
-      paddingVertical: cellLargeVerticalPadding,
+      paddingVertical: theme.cell_large_padding_vertical,
     },
   });
 };

@@ -1,14 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const createStyle = (theme: DiceUI.Theme) => {
-  const borderColor = theme.colors.gray5;
-  const labelMargin = theme.padding.xs;
-  const labelColor = theme.colors.textColor;
-  const checkedIconColor = theme.colors.primaryColor;
-  const disabledIconColor = theme.colors.gray5;
-  const disabledLabelColor = theme.colors.textColor3;
-  const disabledBackgroundColor = theme.border.color;
-
   return StyleSheet.create({
     checkbox: {
       alignItems: 'center',
@@ -16,26 +8,26 @@ const createStyle = (theme: DiceUI.Theme) => {
     },
     icon: {
       alignItems: 'center',
-      borderColor: borderColor,
+      borderColor: theme.checkbox_icon_border_color,
       borderWidth: 1,
       justifyContent: 'center',
     },
     iconChecked: {
-      backgroundColor: checkedIconColor,
-      borderColor: checkedIconColor,
+      backgroundColor: theme.checkbox_checked_icon_color,
+      borderColor: theme.checkbox_checked_icon_color,
     },
     iconDisabled: {
-      backgroundColor: disabledBackgroundColor,
-      borderColor: disabledIconColor,
+      backgroundColor: theme.checkbox_disabled_background_color,
+      borderColor: theme.checkbox_disabled_icon_color,
     },
     label: {
-      color: labelColor,
+      color: theme.checkbox_label_color,
     },
     labelContainer: {
-      marginLeft: labelMargin,
+      marginLeft: theme.checkbox_label_margin,
     },
     labelDisabled: {
-      color: disabledLabelColor,
+      color: theme.checkbox_disabled_label_color,
     },
   });
 };

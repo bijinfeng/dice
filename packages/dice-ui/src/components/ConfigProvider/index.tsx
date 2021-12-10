@@ -4,7 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from '../Theme';
 import PortalHost from '../Portal/PortalHost';
 import TopView from '../Overlay/TopView';
-import { DefaultTheme, DarkTheme } from '../../styles';
+import { defaultTheme, darkTheme } from '../../styles';
 import { LayoutProvider } from '../../context';
 
 interface Props {
@@ -19,16 +19,18 @@ const ConfigProvider: FC<Props> = ({ children, theme: providedTheme }) => {
 
   const [colorScheme, setColorScheme] = React.useState<ColorSchemeName>(scheme);
 
-  const getTheme = () => {
+  const getTheme = (): DiceUI.Theme => {
     if (providedTheme) {
       return providedTheme;
     }
-    const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
+    const theme = colorScheme === 'dark' ? darkTheme : defaultTheme;
 
     return {
       ...theme,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      dark: colorScheme === 'dark',
       animation: {
-        ...theme.animation,
         scale: reduceMotionEnabled ? 0 : 1,
       },
     };

@@ -48,7 +48,7 @@ const Loading: FC<LoadingProps> = memo(props => {
     ...rest
   } = props;
   const theme = useTheme();
-  const color = props.color ?? theme.colors.gray5;
+  const color = props.color ?? theme.gray_5;
   const styles = useThemeFactory(createStyle);
 
   return (
@@ -76,16 +76,16 @@ const Loading: FC<LoadingProps> = memo(props => {
 });
 
 const createStyle = (theme: DiceUI.Theme) => {
-  const textFontSize = theme.font.fontSizeMd;
+  const textFontSize = theme.font_size_md;
 
   return StyleSheet.create({
     text: {
       fontSize: textFontSize,
-      marginLeft: theme.padding.xs,
+      marginLeft: theme.padding_xs,
     },
     verticalText: {
       fontSize: textFontSize,
-      marginTop: theme.padding.xs,
+      marginTop: theme.padding_xs,
     },
   });
 };

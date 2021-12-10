@@ -61,7 +61,7 @@ const Checkbox = React.forwardRef<View, CheckboxProps>((props, ref) => {
   const prevValue = React.useRef(restProps.value);
   const styles = useThemeFactory(createStyle);
   const theme = useTheme();
-  const disabledIconColor = theme.colors.gray5;
+  const disabledIconColor = theme.gray_5;
 
   // success 图标大小
   const successIconSize = 0.8 * iconSie;

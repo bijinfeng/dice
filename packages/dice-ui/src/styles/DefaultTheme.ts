@@ -1,109 +1,145 @@
-import color from 'color';
-import { pinkA400 } from './colors';
-import configureFonts from './fonts';
+/* eslint-disable camelcase */
+import type { TextStyle } from 'react-native';
 
-const text = '#191919';
+export const dark = false;
 
-const black = '#000';
-const white = '#fff';
-const gray1 = '#f7f8fa';
-const gray2 = '#f2f3f5';
-const gray3 = '#ebedf0';
-const gray4 = '#dcdee0';
-const gray5 = '#c8c9cc';
-const gray6 = '#969799';
-const gray7 = '#646566';
-const gray8 = '#323233';
-const red = '#ee0a24';
-const blue = '#1989fa';
-const orange = '#ff976a';
-const orangeDark = '#ed6a0c';
-const orangeLight = '#fffbe8';
-const green = '#07c160';
+export const black = '#000';
+export const white = '#fff';
+export const gray_1 = '#f7f8fa';
+export const gray_2 = '#f2f3f5';
+export const gray_3 = '#ebedf0';
+export const gray_4 = '#dcdee0';
+export const gray_5 = '#c8c9cc';
+export const gray_6 = '#969799';
+export const gray_7 = '#646566';
+export const gray_8 = '#323233';
+export const red = '#ee0a24';
+export const blue = '#1989fa';
+export const orange = '#ff976a';
+export const orange_dark = '#ed6a0c';
+export const orange_light = '#fffbe8';
+export const green = '#07c160';
+export const primary = blue;
+export const success = green;
+export const danger = red;
+export const warning = orange;
 
-const DefaultTheme: DiceUI.Theme = {
-  dark: false,
-  roundness: 4,
-  colors: {
-    primary: '#e5343e', // 主题色
-    accent: '#03dac4', // 辅助颜色
-    background: '#ffffff', // 背景颜色，例如列表
-    surface: white, // 包含内容的元素的背景颜色，例如卡片。
-    error: '#B00020',
-    text: text, // 内容的文本颜色。
-    textSecondary: '#878787', // 文本的次要颜色
-    content: text, // 正文的文本颜色
-    contentBackground: '#f6f6f6', // 正文的背景颜色
-    onSurface: '#000000', // snackbars的背景颜色
-    disabled: color(black).alpha(0.26).rgb().string(), // 禁用元素的背景颜色
-    placeholder: color(black).alpha(0.54).rgb().string(),
-    backdrop: color(black).alpha(0.5).rgb().string(), // modal 组件的背景颜色
-    popupBackground: '#fff', // popup 组件的背景颜色
-    popupText: text, // popup 组件内文本和按钮的颜色
-    notification: pinkA400,
+// Component Colors
+export const text_color = gray_8;
+export const text_color_2 = gray_6;
+export const text_color_3 = gray_5;
+export const active_color = gray_2;
+export const active_opacity = 0.7;
+export const disabled_opacity = 0.5;
+export const background_color = gray_1;
+export const background_color_light = white;
+export const text_link_color = '#576b95';
 
-    black,
-    white,
-    gray1,
-    gray2,
-    gray3,
-    gray4,
-    gray5,
-    gray6,
-    gray7,
-    gray8,
-    red,
-    blue,
-    orange,
-    orangeDark,
-    orangeLight,
-    green,
+// Padding
+export const padding_base = 4;
+export const padding_xs = padding_base * 2;
+export const padding_sm = padding_base * 3;
+export const padding_md = padding_base * 4;
+export const padding_lg = padding_base * 6;
+export const padding_xl = padding_base * 8;
 
-    primaryColor: blue,
-    successColor: green,
-    dangerColor: red,
-    warningColor: orange,
-    textColor: gray8,
-    textColor2: gray6,
-    textColor3: gray5,
-    activeColor: gray2,
-    activeOpacity: 0.7,
-    disabledOpacity: 0.5,
-    backgroundColor: gray1,
-    backgroundColorLight: white,
-    textLinkColor: '#576b95',
-  },
-  fonts: configureFonts(),
-  animation: {
-    scale: 1.0,
-  },
-  border: {
-    color: gray3,
-    widthBase: 1,
-    radiusSm: 2,
-    radiusMd: 4,
-    radiusLg: 8,
-    radiusMax: 999,
-  },
-  padding: {
-    base: 4,
-    xs: 8,
-    sm: 12,
-    md: 16,
-    lg: 24,
-    xl: 32,
-  },
-  font: {
-    fontSizeXs: 10,
-    fontSizeSm: 12,
-    fontSizeMd: 14,
-    fontSizeLg: 16,
-    fontWeightBold: '500',
-    lineHeightXs: 14,
-    lineHeightSm: 18,
-    lineHeightMd: 20,
-    lineHeightLg: 22,
-  },
-};
+// Font
+export const font_size_xs = 10;
+export const font_size_sm = 12;
+export const font_size_md = 14;
+export const font_size_lg = 16;
+export const font_weight_bold: TextStyle['fontWeight'] = 'bold';
+export const line_height_xs = 14;
+export const line_height_sm = 18;
+export const line_height_md = 20;
+export const line_height_lg = 22;
+export const base_font_family = `-apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB',
+'Microsoft Yahei', sans-serif`;
+export const price_integer_font_family = `Avenir-Heavy, PingFang SC, Helvetica Neue, Arial,
+sans-serif`;
 
-export default DefaultTheme;
+// Animation
+export const animation_duration_base = 300;
+export const animation_duration_fast = 200;
+
+// Border
+export const border_color = gray_3;
+export const border_width_base = 1;
+export const border_radius_sm = 2;
+export const border_radius_md = 4;
+export const border_radius_lg = 8;
+export const border_radius_max = 999;
+
+// Button
+export const button_mini_height = 24;
+export const button_mini_padding_horizontal = padding_base;
+export const button_mini_font_size = font_size_xs;
+export const button_small_height = 32;
+export const button_small_padding_horizontal = padding_xs;
+export const button_small_font_size = font_size_sm;
+export const button_normal_padding_horizontal = 15;
+export const button_normal_font_size = font_size_md;
+export const button_large_height = 50;
+export const button_default_height = 44;
+export const button_default_font_size = font_size_lg;
+export const button_default_color = text_color;
+export const button_default_background_color = white;
+export const button_default_border_color = border_color;
+export const button_primary_color = white;
+export const button_primary_background_color = primary;
+export const button_primary_border_color = primary;
+export const button_success_color = white;
+export const button_success_background_color = green;
+export const button_success_border_color = green;
+export const button_danger_color = white;
+export const button_danger_background_color = red;
+export const button_danger_border_color = red;
+export const button_warning_color = white;
+export const button_warning_background_color = orange;
+export const button_warning_border_color = orange;
+export const button_border_width = border_width_base;
+export const button_border_radius = border_radius_sm;
+export const button_round_border_radius = border_radius_max;
+export const button_plain_background_color = white;
+export const button_disabled_opacity = disabled_opacity;
+
+// Cell
+export const cell_font_size = font_size_md;
+export const cell_line_height = 24;
+export const cell_padding_vertical = 10;
+export const cell_padding_horizontal = padding_md;
+export const cell_text_color = text_color;
+export const cell_background_color = white;
+export const cell_border_color = border_color;
+export const cell_active_color = active_color;
+export const cell_required_color = red;
+export const cell_label_color = gray_6;
+export const cell_label_font_size = font_size_sm;
+export const cell_label_line_height = line_height_sm;
+export const cell_label_margin_top = padding_base;
+export const cell_value_color = gray_6;
+export const cell_icon_size = 16;
+export const cell_right_icon_color = gray_6;
+export const cell_large_padding_vertical = padding_sm;
+export const cell_large_title_font_size = font_size_lg;
+export const cell_large_label_font_size = font_size_md;
+
+// CellGroup
+export const cell_group_background_color = white;
+export const cell_group_title_color = gray_6;
+export const cell_group_title_padding_horizontal = padding_md;
+export const cell_group_title_padding_top = padding_md;
+export const cell_group_title_padding_bottom = padding_xs;
+export const cell_group_title_font_size = font_size_md;
+export const cell_group_title_line_height = 16;
+
+// Checkbox
+export const checkbox_icon_border_color = gray_5;
+export const checkbox_icon_size = 20;
+export const checkbox_disabled_background_color = border_color;
+export const checkbox_checked_icon_color = primary;
+export const checkbox_label_color = text_color;
+export const checkbox_label_margin = padding_xs;
+export const checkbox_disabled_label_color = text_color_3;
+export const checkbox_disabled_icon_color = gray_5;

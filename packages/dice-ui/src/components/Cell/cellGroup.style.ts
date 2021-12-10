@@ -1,43 +1,33 @@
 import { StyleSheet } from 'react-native';
-import { padding } from '../../utils/getShortHand';
 
 export const createStyle = (theme: DiceUI.Theme) => {
-  const backgroundColor = theme.colors.white;
-  const titleColor = theme.colors.gray6;
-  const titlePadding = padding(theme.padding.md, theme.padding.md, theme.padding.xs);
-  const titleFontSize = theme.font.fontSizeMd;
-  const titleLineHeight = 16;
-  const insetBorderRadius = theme.border.radiusLg;
-  const insetTitlePadding = padding(
-    theme.padding.md,
-    theme.padding.md,
-    theme.padding.xs,
-    theme.padding.xl
-  );
-  const borderColor = theme.border.color;
-
   return StyleSheet.create({
     inset: {
-      borderRadius: insetBorderRadius,
-      margin: theme.padding.md,
+      borderRadius: theme.border_radius_lg,
+      margin: theme.padding_md,
       overflow: 'hidden',
     },
     title: {
-      color: titleColor,
-      fontSize: titleFontSize,
-      lineHeight: titleLineHeight,
-      ...titlePadding,
+      color: theme.cell_group_title_color,
+      fontSize: theme.cell_group_title_font_size,
+      lineHeight: theme.cell_group_title_line_height,
+      paddingBottom: theme.cell_group_title_padding_bottom,
+      paddingHorizontal: theme.cell_group_title_padding_horizontal,
+      paddingTop: theme.cell_group_title_padding_top,
     },
     titleInset: {
-      ...insetTitlePadding,
+      paddingBottom: theme.padding_xs,
+      paddingLeft: theme.padding_xl,
+      paddingRight: theme.padding_md,
+      paddingTop: theme.padding_md,
     },
     wrapper: {
-      backgroundColor,
+      backgroundColor: theme.cell_group_background_color,
     },
     wrapperBorder: {
-      borderBottomColor: borderColor,
+      borderBottomColor: theme.border_color,
       borderBottomWidth: 1,
-      borderTopColor: borderColor,
+      borderTopColor: theme.border_color,
       borderTopWidth: 1,
     },
   });
