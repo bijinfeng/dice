@@ -43,11 +43,6 @@ const createStyles = (themeVar: DiceUI.Theme, { round, radius }: ExtraProps) => 
       position: 'relative',
       width: themeVar.image_default_size,
     },
-
-    // hintIcon: {
-    //   fontSize: themeVar.image_placeholder_font_size,
-    //   color: themeVar.image_placeholder_text_color,
-    // },
   });
 };
 

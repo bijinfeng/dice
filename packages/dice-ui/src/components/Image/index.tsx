@@ -1,18 +1,11 @@
-import React, { useRef, memo } from 'react';
-import type {
-  NativeSyntheticEvent,
-  ImageLoadEventData,
-  ImageErrorEventData,
-  ViewStyle,
-  ImageStyle,
-} from 'react-native';
-import { View, Text, Animated, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useRef, memo, useState } from 'react';
+import type { NativeSyntheticEvent, ImageLoadEventData, ImageErrorEventData } from 'react-native';
+import { View, Text, Animated, TouchableOpacity, Platform } from 'react-native';
 
 import Icon from '../Icon';
 import type { ImageProps } from './interface';
 import createStyles from './style';
 import { useTheme } from '../Theme';
-import useState from '../../hooks/useStateUpdate';
 
 /**
  * Image 图片
@@ -37,28 +30,30 @@ const Image: React.FC<ImageProps> = props => {
     fadeDuration = 0,
     ...resetProps
   } = props;
-  const [state, setState] = useState<{ loaded: boolean; error: boolean }>({
-    loaded: false,
-    error: false,
-  });
-  const ImageAnimated = useRef(new Animated.Value(0));
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const ImageAnimated = useRef(new Animated.Value(0)).current;
 
   const theme = useTheme();
-  const Styles = createStyles(theme, {
-    round,
-    radius,
-  });
+  const Styles = React.useMemo(
+    () =>
+      createStyles(theme, {
+        round,
+        radius,
+      }),
+    [round, radius, theme]
+  );
 
   /**
    * 图片加载好了
    */
   const onLoadImage = (event: NativeSyntheticEvent<ImageLoadEventData>) => {
-    setState({ loaded: true });
+    setIsLoaded(true);
 
-    Animated.timing(ImageAnimated.current, {
+    Animated.timing(ImageAnimated, {
       toValue: 1,
       duration: animated ? duration : 0,
-      useNativeDriver: true,
+      useNativeDriver: Platform.OS !== 'web',
     }).start();
 
     onLoad && onLoad(event);
@@ -68,32 +63,26 @@ const Image: React.FC<ImageProps> = props => {
    * 图片加载失败
    */
   const onErrorImage = (event: NativeSyntheticEvent<ImageErrorEventData>) => {
-    setState({ loaded: true, error: true });
+    setIsLoaded(true);
+    setIsError(true);
     onError && onError(event);
   };
 
-  const wrapperStyleSummary: ViewStyle = StyleSheet.flatten([Styles.wrapper, wrapperStyle]);
-  const imageStyleSummary: ImageStyle = StyleSheet.flatten([
-    Styles.image,
-    { opacity: ImageAnimated.current as unknown as number },
-    style,
-  ]);
-
   return (
     <TouchableOpacity
-      style={wrapperStyleSummary}
+      style={[Styles.wrapper, wrapperStyle]}
       activeOpacity={theme.active_opacity}
       onPress={onPress}
     >
       <Animated.Image
         {...resetProps}
-        style={imageStyleSummary}
+        style={[Styles.image, { opacity: ImageAnimated }, style]}
         fadeDuration={fadeDuration}
         onLoad={onLoadImage}
         onError={onErrorImage}
       />
 
-      {!state.loaded && showLoading ? (
+      {!isLoaded && showLoading ? (
         <View style={Styles.hintWrapper}>
           {loading || (
             <Icon
@@ -105,7 +94,7 @@ const Image: React.FC<ImageProps> = props => {
         </View>
       ) : null}
 
-      {state.error && showError ? (
+      {isError && showError ? (
         <View style={Styles.hintWrapper}>
           {alt ? (
             <Text style={Styles.hintText}>{alt}</Text>

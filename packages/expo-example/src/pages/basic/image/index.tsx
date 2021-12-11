@@ -5,6 +5,9 @@ import { DemoBlock } from '../../../components';
 
 const resizeMode: ImageResizeMode[] = ['center', 'contain', 'cover', 'repeat', 'stretch'];
 
+const imageSource = { uri: 'https://img.yzcdn.cn/vant/cat.jpeg' };
+const errorImageSource = { uri: 'https://img.yzcdn.cn/vant/cat1.jpeg' };
+
 const ImageExample = memo(() => {
   const theme = useTheme();
 
@@ -12,7 +15,7 @@ const ImageExample = memo(() => {
     <ScrollView>
       <DemoBlock title="基础用法" inset>
         <Image
-          source={{ uri: 'https://img.yzcdn.cn/vant/cat.jpeg' }}
+          source={imageSource}
           onPress={() => {
             console.log('??');
           }}
@@ -22,7 +25,7 @@ const ImageExample = memo(() => {
         <View style={styles.container}>
           {resizeMode.map(it => (
             <View style={styles.block} key={it}>
-              <Image source={{ uri: 'https://img.yzcdn.cn/vant/cat.jpeg' }} resizeMode={it} />
+              <Image source={imageSource} resizeMode={it} />
               <Text style={[styles.text, { color: theme.gray_7 }]}>{it}</Text>
             </View>
           ))}
@@ -32,7 +35,7 @@ const ImageExample = memo(() => {
         <View style={styles.container}>
           {resizeMode.map(it => (
             <View style={styles.block} key={it}>
-              <Image source={{ uri: 'https://img.yzcdn.cn/vant/cat.jpeg' }} resizeMode={it} round />
+              <Image source={imageSource} resizeMode={it} round />
               <Text style={[styles.text, { color: theme.gray_7 }]}>{it}</Text>
             </View>
           ))}
@@ -41,14 +44,11 @@ const ImageExample = memo(() => {
       <DemoBlock title="加载中提示" inset>
         <View style={styles.container}>
           <View style={styles.block}>
-            <Image source={{ uri: 'https://img.yzcdn.cn/vant/cat.jpeg' }} />
+            <Image source={imageSource} />
             <Text style={[styles.text, { color: theme.gray_7 }]}>默认提示</Text>
           </View>
           <View style={styles.block}>
-            <Image
-              source={{ uri: 'https://img.yzcdn.cn/vant/cat.jpeg' }}
-              loading={<Loading size={20} type="spinner" />}
-            />
+            <Image source={imageSource} loading={<Loading size={20} type="spinner" />} />
             <Text style={[styles.text, { color: theme.gray_7 }]}>自定义提示</Text>
           </View>
         </View>
@@ -56,11 +56,11 @@ const ImageExample = memo(() => {
       <DemoBlock title="加载失败提示" inset>
         <View style={styles.container}>
           <View style={styles.block}>
-            <Image source={{ uri: 'https://img.yzcdn.cn/vant/cat1.jpeg' }} />
+            <Image source={errorImageSource} />
             <Text style={[styles.text, { color: theme.gray_7 }]}>默认提示</Text>
           </View>
           <View style={styles.block}>
-            <Image source={{ uri: 'https://img.yzcdn.cn/vant/cat1.jpeg' }} alt="加载失败" />
+            <Image source={errorImageSource} alt="加载失败" />
             <Text style={[styles.text, { color: theme.gray_7 }]}>自定义提示</Text>
           </View>
         </View>
