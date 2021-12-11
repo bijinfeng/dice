@@ -1,3 +1,4 @@
+import type React from 'react';
 import type {
   ImageProps as ImageReactNativeProps,
   ViewStyle,
@@ -29,6 +30,11 @@ export interface ImageProps extends ImageReactNativeProps {
    * 替代文本
    */
   alt?: string;
+
+  /**
+   * 自定义加载中的提示内容
+   */
+  loading?: React.ReactNode;
 
   /**
    * 圆角大小

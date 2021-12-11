@@ -8,11 +8,10 @@ import type {
 } from 'react-native';
 import { View, Text, Animated, TouchableOpacity, StyleSheet } from 'react-native';
 
+import Icon from '../Icon';
 import type { ImageProps } from './interface';
 import createStyles from './style';
 import { useTheme } from '../Theme';
-import IconPhotoFailFill from './IconPhotoFailFill';
-import IconPhotoFill from './IconPhotoFill';
 import useState from '../../hooks/useStateUpdate';
 
 /**
@@ -30,6 +29,7 @@ const Image: React.FC<ImageProps> = props => {
     alt,
     radius = 0,
     round,
+    loading,
     showError = true,
     showLoading = true,
     animated = true,
@@ -95,25 +95,27 @@ const Image: React.FC<ImageProps> = props => {
 
       {!state.loaded && showLoading ? (
         <View style={Styles.hintWrapper}>
-          <IconPhotoFill
-            size={theme.image_loading_icon_size}
-            color={theme.image_loading_icon_color}
-          />
+          {loading || (
+            <Icon
+              name="photo"
+              size={theme.image_loading_icon_size}
+              color={theme.image_loading_icon_color}
+            />
+          )}
         </View>
       ) : null}
 
-      {state.error && !alt && showError ? (
+      {state.error && showError ? (
         <View style={Styles.hintWrapper}>
-          <IconPhotoFailFill
-            size={theme.image_error_icon_size}
-            color={theme.image_error_icon_color}
-          />
-        </View>
-      ) : null}
-
-      {state.error && alt && showError ? (
-        <View style={Styles.hintWrapper}>
-          <Text style={Styles.hintText}>{alt}</Text>
+          {alt ? (
+            <Text style={Styles.hintText}>{alt}</Text>
+          ) : (
+            <Icon
+              name="photo-fail"
+              size={theme.image_error_icon_size}
+              color={theme.image_error_icon_color}
+            />
+          )}
         </View>
       ) : null}
     </TouchableOpacity>
