@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text } from 'react-native';
+import { View, ScrollView, Image, StyleSheet, Text } from 'react-native';
 import { Link } from '@react-navigation/native';
 import { Icon } from 'dice-ui';
 import { routes } from '../navigation/routes';
@@ -11,7 +11,7 @@ const Home = () => {
         <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
         <Text style={styles.title}>Dice</Text>
       </View>
-      <View>
+      <ScrollView>
         {routes.map(item => (
           <Link style={styles.link} key={item.href} to={{ screen: item.href, params: {} }}>
             <View style={styles.item}>
@@ -20,7 +20,7 @@ const Home = () => {
             </View>
           </Link>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 };
