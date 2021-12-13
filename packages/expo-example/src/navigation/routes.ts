@@ -10,6 +10,7 @@ import Popup from '../pages/basic/popup';
 import Toast from '../pages/basic/toast';
 import Checkbox from '../pages/basic/checkbox';
 import Image from '../pages/basic/image';
+import Radio from '../pages/basic/radio';
 
 type RouteItem = {
   name: string;
@@ -67,5 +68,10 @@ export const routes: RouteItem[] = [
     name: 'Image 图片',
     href: '/basic/image',
     component: Image,
+  },
+  {
+    name: 'Radio 单选框',
+    href: '/basic/radio',
+    component: Radio,
   },
 ];

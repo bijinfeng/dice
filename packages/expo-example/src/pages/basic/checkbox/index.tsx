@@ -47,7 +47,7 @@ const CheckboxExample = memo(() => {
       </DemoBlock>
       <DemoBlock title="自定义图标" inset>
         <Checkbox
-          icon={checked => (
+          icon={({ checked }) => (
             <Image style={styles.imgIcon} source={{ uri: checked ? activeIcon : inactiveIcon }} />
           )}
         >
@@ -89,8 +89,8 @@ const CheckboxExample = memo(() => {
           </Button>
         </View>
       </DemoBlock>
-      <DemoBlock title="搭配单元格组件使用">
-        <Cell.Group inset>
+      <DemoBlock title="搭配单元格组件使用" inset>
+        <Cell.Group>
           <Cell
             title="复选框a"
             value={<Checkbox checked={cellValue.includes('a')} />}

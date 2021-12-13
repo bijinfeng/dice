@@ -144,6 +144,16 @@ export const checkbox_label_margin = padding_xs;
 export const checkbox_disabled_label_color = text_color_3;
 export const checkbox_disabled_icon_color = gray_5;
 
+// Radio
+export const radio_icon_border_color = gray_5;
+export const radio_icon_size = 20;
+export const radio_disabled_background_color = border_color;
+export const radio_checked_icon_color = primary;
+export const radio_label_color = text_color;
+export const radio_label_margin = padding_xs;
+export const radio_disabled_label_color = text_color_3;
+export const radio_disabled_icon_color = gray_5;
+
 // Image
 export const image_default_size = 100; // 图片默认尺寸
 export const image_placeholder_text_color = gray_6;

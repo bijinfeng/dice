@@ -16,6 +16,7 @@ export { default as Loading } from './components/Loading';
 export { default as Overlay } from './components/Overlay';
 export { default as Popup } from './components/Popup';
 export { default as Portal } from './components/Portal';
+export { default as Radio } from './components/Radio';
 export { default as Text } from './components/Text';
 export { default as Toast } from './components/Toast';
 export { default as TouchableRipple } from './components/TouchableRipple';
