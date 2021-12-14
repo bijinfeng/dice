@@ -1,5 +1,8 @@
 import { StyleSheet, Platform } from 'react-native';
 
+const webBoxShadow =
+  '0 3px 1px 0 rgba(0, 0, 0, .05), 0 2px 2px 0 rgba(0, 0, 0, .1), 0 3px 3px 0 rgba(0, 0, 0, .05)';
+
 const createStyle = (theme: DiceUI.Theme, size?: number) => {
   const unitSize = size || theme.switch_size;
   const switchWidth = unitSize * theme.switch_width_ratio;
@@ -26,6 +29,9 @@ const createStyle = (theme: DiceUI.Theme, size?: number) => {
           shadowOffset: { width: 0, height: 3 },
           shadowOpacity: 1,
           shadowRadius: 2,
+        },
+        web: {
+          boxShadow: webBoxShadow,
         },
       }),
     },
