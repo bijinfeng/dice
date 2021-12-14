@@ -12,6 +12,7 @@ import Checkbox from '../pages/basic/checkbox';
 import Image from '../pages/basic/image';
 import Radio from '../pages/basic/radio';
 import Switch from '../pages/basic/switch';
+import Tag from '../pages/basic/tag';
 
 type RouteItem = {
   name: string;
@@ -79,5 +80,10 @@ export const routes: RouteItem[] = [
     name: 'Switch 开关',
     href: '/basic/switch',
     component: Switch,
+  },
+  {
+    name: 'Tag 标签',
+    href: '/basic/tag',
+    component: Tag,
   },
 ];
