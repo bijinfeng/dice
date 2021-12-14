@@ -76,7 +76,7 @@ const Cell: FC<CellProps> = memo(props => {
   } = props;
   const hasTitle = !!title;
   const isLarge = size === 'large';
-  const styles = useThemeFactory(createStyle);
+  const { styles } = useThemeFactory(createStyle);
 
   // value 是文本的话，需要用 Text 包裹一下
   const getValue = () => {

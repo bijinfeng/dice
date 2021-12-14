@@ -21,7 +21,7 @@ interface CellGroupProps {
 
 const CellGroup: FC<CellGroupProps> = memo(props => {
   const { children, title, border = true, inset } = props;
-  const styles = useThemeFactory(createStyle);
+  const { styles } = useThemeFactory(createStyle);
   const hasBorder = border && !inset;
   const renderChildren = () => {
     return React.Children.map(children, (child, i) => {

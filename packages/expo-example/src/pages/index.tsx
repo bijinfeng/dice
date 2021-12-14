@@ -6,12 +6,12 @@ import { routes } from '../navigation/routes';
 
 const Home = () => {
   return (
-    <View style={styles.wrapper}>
+    <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
         <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
         <Text style={styles.title}>Dice</Text>
       </View>
-      <ScrollView>
+      <View>
         {routes.map(item => (
           <Link style={styles.link} key={item.href} to={{ screen: item.href, params: {} }}>
             <View style={styles.item}>
@@ -20,8 +20,8 @@ const Home = () => {
             </View>
           </Link>
         ))}
-      </ScrollView>
-    </View>
+      </View>
+    </ScrollView>
   );
 };
 

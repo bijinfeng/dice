@@ -11,6 +11,7 @@ import Toast from '../pages/basic/toast';
 import Checkbox from '../pages/basic/checkbox';
 import Image from '../pages/basic/image';
 import Radio from '../pages/basic/radio';
+import Switch from '../pages/basic/switch';
 
 type RouteItem = {
   name: string;
@@ -73,5 +74,10 @@ export const routes: RouteItem[] = [
     name: 'Radio 单选框',
     href: '/basic/radio',
     component: Radio,
+  },
+  {
+    name: 'Switch 开关',
+    href: '/basic/switch',
+    component: Switch,
   },
 ];

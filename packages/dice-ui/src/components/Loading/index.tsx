@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 import { View, Text, ViewProps, StyleSheet } from 'react-native';
-import { useTheme, useThemeFactory } from '../Theme';
+import { useThemeFactory } from '../Theme';
 import Circular from './Circular';
 import Spinner from './Spinner';
 
@@ -47,9 +47,8 @@ const Loading: FC<LoadingProps> = memo(props => {
     style,
     ...rest
   } = props;
-  const theme = useTheme();
+  const { styles, theme } = useThemeFactory(createStyle);
   const color = props.color ?? theme.gray_5;
-  const styles = useThemeFactory(createStyle);
 
   return (
     <View

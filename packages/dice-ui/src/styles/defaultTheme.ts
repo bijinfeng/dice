@@ -163,3 +163,16 @@ export const image_loading_icon_size = 32;
 export const image_loading_icon_color = gray_4;
 export const image_error_icon_size = 32;
 export const image_error_icon_color = gray_4;
+
+// Switch
+export const switch_size = 30;
+export const switch_width_ratio = 2; // 原变量中使用了 em，这里改成对应的比例
+export const switch_height_ratio = 1; // 原变量中使用了 em，这里改成对应的比例
+export const switch_node_size_ratio = 1; // 原变量中使用了 em，这里改成对应的比例
+export const switch_node_background_color = white;
+export const switch_background_color = background_color_light;
+export const switch_on_background_color = primary;
+export const switch_transition_duration = animation_duration_base;
+export const switch_disabled_opacity = disabled_opacity;
+export const switch_border_width = border_width_base;
+export const switch_border_color = 'rgba(0, 0, 0, 0.1)';

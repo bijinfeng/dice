@@ -3,7 +3,7 @@ import { View, StyleProp, ViewStyle, Text, TouchableWithoutFeedback } from 'reac
 import { GroupContext } from './Group';
 import Icon from '../Icon';
 import createStyle from './index.style';
-import { useThemeFactory, useTheme } from '../Theme';
+import { useThemeFactory } from '../Theme';
 import { useControllableValue } from '../../hooks';
 import { isFunction } from '../../utils/typeof';
 
@@ -64,8 +64,7 @@ const Checkbox = React.forwardRef<View, CheckboxProps>((props, ref) => {
   });
   const checkboxGroup = React.useContext(GroupContext);
   const prevValue = React.useRef(restProps.value);
-  const styles = useThemeFactory(createStyle);
-  const theme = useTheme();
+  const { styles, theme } = useThemeFactory(createStyle);
   const disabledIconColor = theme.gray_5;
 
   // success 图标大小
