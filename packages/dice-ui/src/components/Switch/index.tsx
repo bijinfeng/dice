@@ -1,6 +1,6 @@
-import React, { FC, useRef, useEffect } from 'react';
-import { TouchableWithoutFeedback, Animated, Platform } from 'react-native';
-import { useControllableValue } from '../../hooks';
+import React, { FC, useRef } from 'react';
+import { TouchableWithoutFeedback, Animated, Platform, StyleSheet } from 'react-native';
+import { useControllableValue, useUpdateEffect } from '../../hooks';
 import { useThemeFactory } from '../Theme';
 import Loading from '../Loading';
 import createStyle from './style';
@@ -23,8 +23,8 @@ const Switch: FC<SwitchProps> = props => {
   const { styles, theme } = useThemeFactory(createStyle, size);
 
   const isChecked = checked === activeValue;
-  const translateXValueEnd = styles.nodeRight.left as number;
-  const translateXValueStart = styles.nodeLeft.left as number;
+  const translateXValueEnd = StyleSheet.flatten(styles.nodeRight).left as number;
+  const translateXValueStart = StyleSheet.flatten(styles.nodeLeft).left as number;
   const duration = theme.switch_transition_duration;
 
   const translateX = useRef(
@@ -39,7 +39,7 @@ const Switch: FC<SwitchProps> = props => {
     }
   };
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     let actionAnimated: Animated.CompositeAnimation | null;
     actionAnimated = Animated.timing(translateX, {
       toValue: isChecked ? translateXValueEnd : translateXValueStart,
@@ -77,7 +77,7 @@ const Switch: FC<SwitchProps> = props => {
           {loading ? (
             <Loading
               type="circular"
-              size={(styles.node.width as number) / 2}
+              size={(StyleSheet.flatten(styles.node).width as number) / 2}
               color={isChecked ? activeColor : inactiveColor}
             />
           ) : null}

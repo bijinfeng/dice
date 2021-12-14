@@ -27,7 +27,7 @@ const SwitchExample = memo(() => {
         <Switch checked={value} />
       </DemoBlock>
       <DemoBlock title="搭配单元格使用" inset>
-        <Cell title="标题" value={<Switch defaultChecked />} />
+        <Cell title="标题" value={<Switch defaultChecked />} center />
       </DemoBlock>
     </ScrollView>
   );
