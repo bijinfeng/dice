@@ -11,7 +11,7 @@ import {
   TransformParams,
   RestoreParams,
 } from './context';
-import useAnimatedValue from '../../utils/useAnimatedValue';
+import useAnimatedValue from '../utils/useAnimatedValue';
 
 const screenColor = '#444';
 

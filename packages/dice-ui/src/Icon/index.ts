@@ -1,5 +1,5 @@
 import Icon, { IconNames } from '@dice-ui/icons';
-import isString from '../../utils/isString';
+import isString from '../utils/isString';
 
 export const isIcon = (icon: IconNames | React.ReactNode): icon is IconNames => isString(icon);
 

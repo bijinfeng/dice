@@ -1,5 +1,5 @@
 import { createTheming } from '@callstack/react-theme-provider';
-import { defaultTheme } from '../../styles';
+import { defaultTheme } from '../styles';
 import useThemeFactory from './useThemeFactory';
 
 export const { ThemeProvider, withTheme, useTheme } = createTheming<DiceUI.Theme>(

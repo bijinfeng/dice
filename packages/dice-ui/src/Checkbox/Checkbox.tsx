@@ -4,15 +4,15 @@ import { GroupContext } from './Group';
 import Icon from '../Icon';
 import createStyle from './index.style';
 import { useThemeFactory } from '../Theme';
-import { useControllableValue } from '../../hooks';
-import { isFunction } from '../../utils/typeof';
+import { useControllableValue } from '../hooks';
+import { isFunction } from '../utils/typeof';
 
-export type RadioIconRenderParams = {
+export type CheckboxIconRenderParams = {
   checked: boolean;
   disabled?: boolean;
 };
 
-export interface RadioProps {
+export interface CheckboxProps {
   /**
    * 失效状态
    */
@@ -45,10 +45,10 @@ export interface RadioProps {
   /**
    * 自定义图标
    */
-  icon?: (params: RadioIconRenderParams) => React.ReactNode | React.ReactNode;
+  icon?: (params: CheckboxIconRenderParams) => React.ReactNode | React.ReactNode;
 }
 
-const Radio = React.forwardRef<View, RadioProps>((props, ref) => {
+const Checkbox = React.forwardRef<View, CheckboxProps>((props, ref) => {
   const {
     style,
     children,
@@ -62,21 +62,36 @@ const Radio = React.forwardRef<View, RadioProps>((props, ref) => {
     valuePropName: 'checked',
     defaultValuePropName: 'defaultChecked',
   });
-  const radioGroup = React.useContext(GroupContext);
+  const checkboxGroup = React.useContext(GroupContext);
+  const prevValue = React.useRef(restProps.value);
   const { styles, theme } = useThemeFactory(createStyle);
   const disabledIconColor = theme.gray_5;
 
   // success 图标大小
   const successIconSize = 0.8 * iconSie;
 
-  // radioGroup 存在时，已 group 的为准，否则以 props 为准
-  const checked = radioGroup ? radioGroup.value === restProps.value : value;
-  const disabled = radioGroup ? restProps.disabled || radioGroup.disabled : restProps.disabled;
+  React.useEffect(() => {
+    checkboxGroup?.registerValue(restProps.value);
+  }, []);
+
+  React.useEffect(() => {
+    if (restProps.value !== prevValue.current) {
+      checkboxGroup?.cancelValue(prevValue.current);
+      checkboxGroup?.registerValue(restProps.value);
+    }
+    return () => checkboxGroup?.cancelValue(restProps.value);
+  }, [restProps.value]);
+
+  // checkboxGroup 存在时，已 group 的为准，否则以 props 为准
+  const checked = checkboxGroup ? checkboxGroup.value.indexOf(restProps.value) !== -1 : value;
+  const disabled = checkboxGroup
+    ? restProps.disabled || checkboxGroup.disabled
+    : restProps.disabled;
 
   const handleCheckChange = () => {
     onChange(!checked);
-    if (radioGroup && radioGroup.toggleOption) {
-      radioGroup.toggleOption({ label: children, value: restProps.value });
+    if (checkboxGroup && checkboxGroup.toggleOption) {
+      checkboxGroup.toggleOption({ label: children, value: restProps.value });
     }
   };
 
@@ -116,7 +131,7 @@ const Radio = React.forwardRef<View, RadioProps>((props, ref) => {
 
   return (
     <TouchableWithoutFeedback disabled={disabled} onPress={handleCheckChange}>
-      <View style={[styles.radio, style]} ref={ref}>
+      <View style={[styles.checkbox, style]} ref={ref}>
         {renderIcon()}
         <View style={styles.labelContainer}>
           {typeof children === 'string' ? (
@@ -132,6 +147,6 @@ const Radio = React.forwardRef<View, RadioProps>((props, ref) => {
   );
 });
 
-Radio.displayName = 'Radio';
+Checkbox.displayName = 'Checkbox';
 
-export default Radio;
+export default Checkbox;

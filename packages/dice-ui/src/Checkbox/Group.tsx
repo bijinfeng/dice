@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
 import Checkbox from './Checkbox';
-import { useControllableValue } from '../../hooks';
+import { useControllableValue } from '../hooks';
 
 export type CheckboxValueType = string | number | boolean;
 

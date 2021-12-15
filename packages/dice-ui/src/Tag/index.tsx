@@ -2,7 +2,7 @@ import React, { FC, useRef } from 'react';
 import { View, TouchableWithoutFeedback, StyleSheet, Text, Animated, Platform } from 'react-native';
 import type { TextStyle } from 'react-native';
 
-import { useUpdateEffect } from '../../hooks';
+import { useUpdateEffect } from '../hooks';
 import { useThemeFactory } from '../Theme';
 import Icon from '../Icon';
 import type { TagProps } from './interface';

@@ -1,6 +1,6 @@
 import React, { FC, useRef } from 'react';
 import { TouchableWithoutFeedback, Animated, Platform, StyleSheet } from 'react-native';
-import { useControllableValue, useUpdateEffect } from '../../hooks';
+import { useControllableValue, useUpdateEffect } from '../hooks';
 import { useThemeFactory } from '../Theme';
 import Loading from '../Loading';
 import createStyle from './style';

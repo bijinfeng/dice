@@ -3,7 +3,7 @@ import { AccessibilityInfo, Appearance, ColorSchemeName } from 'react-native';
 import { ThemeProvider } from '../Theme';
 import PortalHost from '../Portal/PortalHost';
 import TopView from '../Overlay/TopView';
-import { defaultTheme, darkTheme } from '../../styles';
+import { defaultTheme, darkTheme } from '../styles';
 
 interface Props {
   children: React.ReactNode;

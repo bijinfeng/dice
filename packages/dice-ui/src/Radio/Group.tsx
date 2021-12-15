@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
 import Radio from './Radio';
-import { useControllableValue } from '../../hooks';
+import { useControllableValue } from '../hooks';
 
 export type RadioValueType = string | number | boolean;
 

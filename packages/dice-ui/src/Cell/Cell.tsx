@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { useThemeFactory } from '../Theme';
 import Icon, { IconNames } from '../Icon';
 import TouchableRipple from '../TouchableRipple';
-import { isString } from '../../utils/typeof';
+import { isString } from '../utils/typeof';
 import { createStyle } from './cell.style';
 
 type Direction = 'left' | 'right' | 'up' | 'down';

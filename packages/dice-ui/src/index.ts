@@ -1,30 +1,30 @@
-export { default as Theme } from './components/Theme';
-export * from './components/Theme';
+export { default as Theme } from './Theme';
+export * from './Theme';
 
-export { default as Icon } from './components/Icon';
-export * from './components/Icon';
+export { default as Icon } from './Icon';
+export * from './Icon';
 
-export { default as Button } from './components/Button';
-export { default as Cell } from './components/Cell';
-export { default as Checkbox } from './components/Checkbox';
-export { default as ConfigProvider } from './components/ConfigProvider';
-export { default as Dash } from './components/Dash';
-export { default as Divider } from './components/Divider';
-export { default as Image } from './components/Image';
-export { default as KeyboardSpace } from './components/KeyboardSpace';
-export { default as Layout } from './components/Layout';
-export { default as Loading } from './components/Loading';
-export { default as Overlay } from './components/Overlay';
-export { default as Popup } from './components/Popup';
-export { default as Portal } from './components/Portal';
-export { default as Radio } from './components/Radio';
-export { default as Switch } from './components/Switch';
-export { default as Tag } from './components/Tag';
-export { default as Text } from './components/Text';
-export { default as Toast } from './components/Toast';
-export { default as TouchableRipple } from './components/TouchableRipple';
+export { default as Button } from './Button';
+export { default as Cell } from './Cell';
+export { default as Checkbox } from './Checkbox';
+export { default as ConfigProvider } from './ConfigProvider';
+export { default as Dash } from './Dash';
+export { default as Divider } from './Divider';
+export { default as Image } from './Image';
+export { default as KeyboardSpace } from './KeyboardSpace';
+export { default as Layout } from './Layout';
+export { default as Loading } from './Loading';
+export { default as Overlay } from './Overlay';
+export { default as Popup } from './Popup';
+export { default as Portal } from './Portal';
+export { default as Radio } from './Radio';
+export { default as Switch } from './Switch';
+export { default as Tag } from './Tag';
+export { default as Text } from './Text';
+export { default as Toast } from './Toast';
+export { default as TouchableRipple } from './TouchableRipple';
 
 export { defaultTheme, darkTheme } from './styles';
 
 /** types */
-export type { PopupProps } from './components/Popup';
+export type { PopupProps } from './Popup';
