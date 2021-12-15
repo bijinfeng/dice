@@ -8,6 +8,7 @@ export { default as Button } from './components/Button';
 export { default as Cell } from './components/Cell';
 export { default as Checkbox } from './components/Checkbox';
 export { default as ConfigProvider } from './components/ConfigProvider';
+export { default as Dash } from './components/Dash';
 export { default as Divider } from './components/Divider';
 export { default as Image } from './components/Image';
 export { default as KeyboardSpace } from './components/KeyboardSpace';
@@ -23,7 +24,6 @@ export { default as Text } from './components/Text';
 export { default as Toast } from './components/Toast';
 export { default as TouchableRipple } from './components/TouchableRipple';
 
-export { LayoutContext } from './context';
 export { defaultTheme, darkTheme } from './styles';
 
 /** types */

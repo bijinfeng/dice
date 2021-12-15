@@ -1,11 +1,9 @@
 import React, { FC } from 'react';
 import { AccessibilityInfo, Appearance, ColorSchemeName } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from '../Theme';
 import PortalHost from '../Portal/PortalHost';
 import TopView from '../Overlay/TopView';
 import { defaultTheme, darkTheme } from '../../styles';
-import { LayoutProvider } from '../../context';
 
 interface Props {
   children: React.ReactNode;
@@ -60,15 +58,11 @@ const ConfigProvider: FC<Props> = ({ children, theme: providedTheme }) => {
   }, [providedTheme]);
 
   return (
-    <SafeAreaProvider>
-      <LayoutProvider>
-        <PortalHost>
-          <TopView>
-            <ThemeProvider theme={getTheme()}>{children}</ThemeProvider>
-          </TopView>
-        </PortalHost>
-      </LayoutProvider>
-    </SafeAreaProvider>
+    <PortalHost>
+      <TopView>
+        <ThemeProvider theme={getTheme()}>{children}</ThemeProvider>
+      </TopView>
+    </PortalHost>
   );
 };
 

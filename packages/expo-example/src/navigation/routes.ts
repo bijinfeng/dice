@@ -13,6 +13,7 @@ import Image from '../pages/basic/image';
 import Radio from '../pages/basic/radio';
 import Switch from '../pages/basic/switch';
 import Tag from '../pages/basic/tag';
+import Divider from '../pages/basic/divider';
 
 type RouteItem = {
   name: string;
@@ -85,5 +86,10 @@ export const routes: RouteItem[] = [
     name: 'Tag 标签',
     href: '/basic/tag',
     component: Tag,
+  },
+  {
+    name: 'Divider 分割线',
+    href: '/basic/divider',
+    component: Divider,
   },
 ];

@@ -51,7 +51,10 @@ export const createStyle = (theme: DiceUI.Theme) => {
       paddingVertical: theme.cell_padding_vertical,
     },
     wrapperBorder: {
-      backgroundColor: theme.cell_border_color,
+      borderTopColor: theme.cell_border_color,
+      borderTopWidth: 1,
+      flex: 1,
+      height: 0,
       marginHorizontal: theme.cell_padding_horizontal,
     },
     wrapperLarge: {

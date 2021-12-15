@@ -1,47 +1,51 @@
-import * as React from 'react';
-import color from 'color';
-import { StyleSheet, View, ViewStyle, StyleProp } from 'react-native';
-import { useTheme } from '../Theme';
-import { black, white } from '../../styles/defaultTheme';
-import type { $RemoveChildren } from '../../types';
+import React, { FC, memo } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import type { ViewStyle } from 'react-native';
 
-type Props = $RemoveChildren<typeof View> & {
-  /**
-   *  Whether divider has a left inset.
-   */
-  inset?: boolean;
-  margin?: number;
-  style?: StyleProp<ViewStyle>;
+import Dash from '../Dash';
+import { useThemeFactory } from '../Theme';
+import { createStyle } from './style';
+import type { DividerProps } from './interface';
+
+const Divider: FC<DividerProps> = props => {
+  const {
+    children,
+    textStyle,
+    lineStyle,
+    style,
+    dashed = false,
+    hairline = true,
+    contentPosition = 'center',
+  } = props;
+  const { styles } = useThemeFactory(createStyle, { dashed, hairline, contentPosition });
+
+  const styleSummary: ViewStyle = StyleSheet.flatten([styles.divider, style]);
+
+  const renderLine = (extraStyle: ViewStyle = {}) => {
+    const styleFlatten = StyleSheet.flatten([styles.line, extraStyle, lineStyle]);
+
+    return dashed ? (
+      <Dash
+        style={[styleFlatten, { borderWidth: 0 }]}
+        dashColor={styleFlatten.borderColor}
+        dashThickness={styleFlatten.borderBottomWidth}
+      />
+    ) : (
+      <View style={styleFlatten} />
+    );
+  };
+
+  if (children) {
+    return (
+      <View style={styleSummary}>
+        {renderLine(styles.lineLeft)}
+        <Text style={[styles.text, textStyle]}>{children}</Text>
+        {renderLine(styles.lineRight)}
+      </View>
+    );
+  }
+
+  return <View style={styleSummary}>{renderLine()}</View>;
 };
 
-const Divider = ({ inset, style, margin = 0, ...rest }: Props) => {
-  const { dark: isDarkTheme } = useTheme();
-
-  return (
-    <View
-      {...rest}
-      style={[
-        isDarkTheme ? styles.dark : styles.light,
-        inset && styles.inset,
-        { marginHorizontal: margin },
-        style,
-      ]}
-    />
-  );
-};
-
-const styles = StyleSheet.create({
-  dark: {
-    backgroundColor: color(white).alpha(0.12).rgb().string(),
-    height: StyleSheet.hairlineWidth,
-  },
-  inset: {
-    marginLeft: 72,
-  },
-  light: {
-    backgroundColor: color(black).alpha(0.12).rgb().string(),
-    height: StyleSheet.hairlineWidth,
-  },
-});
-
-export default Divider;
+export default memo(Divider);

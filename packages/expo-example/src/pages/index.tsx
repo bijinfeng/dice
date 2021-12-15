@@ -1,27 +1,30 @@
 import React from 'react';
 import { View, ScrollView, Image, StyleSheet, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Link } from '@react-navigation/native';
 import { Icon } from 'dice-ui';
 import { routes } from '../navigation/routes';
 
 const Home = () => {
   return (
-    <ScrollView style={styles.wrapper}>
-      <View style={styles.header}>
-        <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
-        <Text style={styles.title}>Dice</Text>
-      </View>
-      <View>
-        {routes.map(item => (
-          <Link style={styles.link} key={item.href} to={{ screen: item.href, params: {} }}>
-            <View style={styles.item}>
-              <Text style={styles.text}>{item.name}</Text>
-              <Icon name="arrow" size={16} />
-            </View>
-          </Link>
-        ))}
-      </View>
-    </ScrollView>
+    <SafeAreaView style={styles.wrapper}>
+      <ScrollView>
+        <View style={styles.header}>
+          <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
+          <Text style={styles.title}>Dice</Text>
+        </View>
+        <View>
+          {routes.map(item => (
+            <Link style={styles.link} key={item.href} to={{ screen: item.href, params: {} }}>
+              <View style={styles.item}>
+                <Text style={styles.text}>{item.name}</Text>
+                <Icon name="arrow" size={16} />
+              </View>
+            </Link>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -64,10 +67,7 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#fff',
     flex: 1,
-    paddingBottom: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 46,
+    padding: 20,
   },
 });
 

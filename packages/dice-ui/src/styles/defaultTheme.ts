@@ -196,3 +196,14 @@ export const tag_success_color = green;
 export const tag_warning_color = orange;
 export const tag_default_color = gray_6;
 export const tag_plain_background_color = white;
+
+// Divider
+export const divider_margin_vertical = padding_md;
+export const divider_margin_horizontal = padding_md;
+export const divider_text_color = text_color_2;
+export const divider_font_size = font_size_md;
+export const divider_line_height = 24;
+export const divider_border_color = border_color;
+export const divider_content_padding = padding_md;
+export const divider_content_left_width = '10%';
+export const divider_content_right_width = '10%';

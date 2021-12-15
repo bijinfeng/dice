@@ -3,7 +3,6 @@ import { View, Text } from 'react-native';
 import { useThemeFactory } from '../Theme';
 import Icon, { IconNames } from '../Icon';
 import TouchableRipple from '../TouchableRipple';
-import Divider from '../Divider';
 import { isString } from '../../utils/typeof';
 import { createStyle } from './cell.style';
 
@@ -88,7 +87,7 @@ const Cell: FC<CellProps> = memo(props => {
 
   return (
     <>
-      {border && <Divider style={styles.wrapperBorder} />}
+      {border && <View style={styles.wrapperBorder} />}
       <TouchableRipple onPress={onPress}>
         <View
           style={[
