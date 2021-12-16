@@ -8,7 +8,7 @@ import { routes } from '../navigation/routes';
 const Home = () => {
   return (
     <SafeAreaView style={styles.wrapper}>
-      <ScrollView>
+      <ScrollView style={{ padding: 20 }}>
         <View style={styles.header}>
           <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
           <Text style={styles.title}>Dice</Text>
@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
     borderRadius: 99,
     display: 'flex',
     flexDirection: 'row',
+    flex: 1,
     justifyContent: 'space-between',
     paddingLeft: 20,
     paddingRight: 16,
-    width: '100%',
   },
   link: {
     height: 40,
@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#fff',
     flex: 1,
-    padding: 20,
   },
 });
 

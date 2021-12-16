@@ -1,25 +1,10 @@
 import React from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
+
 import Radio from './Radio';
 import { useControllableValue } from '../hooks';
-
-export type RadioValueType = string | number | boolean;
-
-export interface RadioOptionType {
-  label: React.ReactNode;
-  value: RadioValueType;
-  style?: StyleProp<ViewStyle>;
-  disabled?: boolean;
-  onChange?: () => void;
-}
-
-export interface RadioGroupContext {
-  toggleOption?: (option: RadioOptionType) => void;
-  value?: any;
-  disabled?: boolean;
-}
-
-export const GroupContext = React.createContext<RadioGroupContext | null>(null);
+import type { RadioValueType, RadioOptionType } from './context';
+import { GroupContext } from './context';
 
 export interface RadioGroupProps {
   /**

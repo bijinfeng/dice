@@ -14,6 +14,7 @@ export { default as Image } from './Image';
 export { default as KeyboardSpace } from './KeyboardSpace';
 export { default as Layout } from './Layout';
 export { default as Loading } from './Loading';
+export { default as NavBar } from './NavBar';
 export { default as Overlay } from './Overlay';
 export { default as Popup } from './Popup';
 export { default as Portal } from './Portal';

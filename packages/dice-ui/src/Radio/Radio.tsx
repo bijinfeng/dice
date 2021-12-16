@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleProp, ViewStyle, Text, TouchableWithoutFeedback } from 'react-native';
-import { GroupContext } from './Group';
+import { GroupContext } from './context';
 import Icon from '../Icon';
 import createStyle from './index.style';
 import { useThemeFactory } from '../Theme';

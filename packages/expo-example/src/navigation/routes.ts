@@ -14,6 +14,7 @@ import Radio from '../pages/basic/radio';
 import Switch from '../pages/basic/switch';
 import Tag from '../pages/basic/tag';
 import Divider from '../pages/basic/divider';
+import NavBar from '../pages/basic/navbar';
 
 type RouteItem = {
   name: string;
@@ -91,5 +92,10 @@ export const routes: RouteItem[] = [
     name: 'Divider 分割线',
     href: '/basic/divider',
     component: Divider,
+  },
+  {
+    name: 'NavBar 导航栏',
+    href: '/basic/navbar',
+    component: NavBar,
   },
 ];

@@ -1,27 +1,10 @@
 import React from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
+
 import Checkbox from './Checkbox';
 import { useControllableValue } from '../hooks';
-
-export type CheckboxValueType = string | number | boolean;
-
-export interface CheckboxOptionType {
-  label: React.ReactNode;
-  value: CheckboxValueType;
-  style?: StyleProp<ViewStyle>;
-  disabled?: boolean;
-  onChange?: () => void;
-}
-
-export interface CheckboxGroupContext {
-  toggleOption?: (option: CheckboxOptionType) => void;
-  value?: any;
-  disabled?: boolean;
-  registerValue: (val: string) => void;
-  cancelValue: (val: string) => void;
-}
-
-export const GroupContext = React.createContext<CheckboxGroupContext | null>(null);
+import type { CheckboxValueType, CheckboxOptionType } from './content';
+import { GroupContext } from './content';
 
 export interface CheckboxGroupProps {
   /**

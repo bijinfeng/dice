@@ -207,3 +207,13 @@ export const divider_border_color = border_color;
 export const divider_content_padding = padding_md;
 export const divider_content_left_width = '10%';
 export const divider_content_right_width = '10%';
+
+// NavBar
+export const nav_bar_height = 46;
+export const nav_bar_background_color = white;
+export const nav_bar_arrow_size = 16;
+export const nav_bar_icon_color = primary;
+export const nav_bar_text_color = primary;
+export const nav_bar_title_font_size = font_size_lg;
+export const nav_bar_title_text_color = text_color;
+export const nav_bar_z_index = 1;

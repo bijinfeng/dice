@@ -2,7 +2,8 @@ import InternalCheckbox from './Checkbox';
 import Group from './Group';
 
 export type { CheckboxProps } from './Checkbox';
-export type { CheckboxGroupProps, CheckboxOptionType } from './Group';
+export type { CheckboxGroupProps } from './Group';
+export type { CheckboxOptionType } from './content';
 
 type CheckboxType = typeof InternalCheckbox;
 

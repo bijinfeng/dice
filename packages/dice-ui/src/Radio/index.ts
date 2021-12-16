@@ -2,7 +2,8 @@ import InternalRadio from './Radio';
 import Group from './Group';
 
 export type { RadioProps } from './Radio';
-export type { RadioGroupProps, RadioOptionType } from './Group';
+export type { RadioGroupProps } from './Group';
+export type { RadioOptionType } from './context';
 
 type RadioType = typeof InternalRadio;
 
