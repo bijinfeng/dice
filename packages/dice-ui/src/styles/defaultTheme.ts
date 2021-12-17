@@ -217,3 +217,16 @@ export const nav_bar_text_color = primary;
 export const nav_bar_title_font_size = font_size_lg;
 export const nav_bar_title_text_color = text_color;
 export const nav_bar_z_index = 1;
+
+// NoticeBar
+export const notice_bar_height = 40;
+export const notice_bar_padding_horizontal = padding_md;
+export const notice_bar_padding_vertical = 0;
+export const notice_bar_wrapable_padding_horizontal = padding_md;
+export const notice_bar_wrapable_padding_vertical = padding_xs;
+export const notice_bar_text_color = orange_dark;
+export const notice_bar_font_size = font_size_md;
+export const notice_bar_line_height = 24;
+export const notice_bar_background_color = orange_light;
+export const notice_bar_icon_size = 16;
+export const notice_bar_icon_min_width = 24;

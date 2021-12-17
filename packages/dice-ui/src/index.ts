@@ -15,6 +15,7 @@ export { default as KeyboardSpace } from './KeyboardSpace';
 export { default as Layout } from './Layout';
 export { default as Loading } from './Loading';
 export { default as NavBar } from './NavBar';
+export { default as NoticeBar } from './NoticeBar';
 export { default as Overlay } from './Overlay';
 export { default as Popup } from './Popup';
 export { default as Portal } from './Portal';

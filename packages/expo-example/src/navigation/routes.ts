@@ -15,6 +15,7 @@ import Switch from '../pages/basic/switch';
 import Tag from '../pages/basic/tag';
 import Divider from '../pages/basic/divider';
 import NavBar from '../pages/basic/navbar';
+import NoticeBar from '../pages/basic/notice-bar';
 
 type RouteItem = {
   name: string;
@@ -97,5 +98,10 @@ export const routes: RouteItem[] = [
     name: 'NavBar 导航栏',
     href: '/basic/navbar',
     component: NavBar,
+  },
+  {
+    name: 'NoticeBar 通知栏',
+    href: '/basic/notice-bar',
+    component: NoticeBar,
   },
 ];
