@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: 20,
     paddingRight: 16,
+    width: '100%',
   },
   link: {
     height: 40,

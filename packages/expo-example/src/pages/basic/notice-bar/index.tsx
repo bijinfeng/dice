@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { NoticeBar } from 'dice-ui';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { DemoBlock } from '../../../components';
 
 const NoticeBarDemo: FC = () => {
@@ -20,7 +20,9 @@ const NoticeBarDemo: FC = () => {
       </DemoBlock>
       <DemoBlock title="通知栏状态">
         <NoticeBar mode="closeable">技术是开发它的人的共同灵魂。</NoticeBar>
-        <NoticeBar mode="link">技术是开发它的人的共同灵魂。</NoticeBar>
+        <View style={{ marginTop: 4 }}>
+          <NoticeBar mode="link">技术是开发它的人的共同灵魂。</NoticeBar>
+        </View>
       </DemoBlock>
       <DemoBlock title="自定义样式">
         <NoticeBar

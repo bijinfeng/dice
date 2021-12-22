@@ -1,38 +1,37 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
-import { View, Text } from 'react-native';
+import React, { forwardRef, useState } from 'react';
+import { View, TouchableWithoutFeedback } from 'react-native';
 
 import Icon, { IconNames } from '../Icon';
-import { useSetState } from '../hooks';
 import { useThemeFactory } from '../Theme';
-import { isString } from '../utils/typeof';
 import { createStyle } from './style';
+import Marquee from './Marquee';
 import type { NoticeBarInstance, NoticeBarProps } from './interface';
 
 const NoticeBar = forwardRef<NoticeBarInstance, NoticeBarProps>((props, ref) => {
-  const { text, style, wrapable, scrollable, speed = 60, delay = 1000 } = props;
-  const [state, setState] = useSetState({
-    show: true,
-    offset: 0,
-    duration: 0,
-  });
+  const {
+    style,
+    wrapable,
+    background,
+    color,
+    mode,
+    onClose,
+    leftIcon,
+    rightIcon,
+    onPress,
+    ...rest
+  } = props;
+  const [show, setShow] = useState<boolean>(true);
 
-  const { styles } = useThemeFactory(createStyle);
+  const { styles, theme } = useThemeFactory(createStyle);
 
-  const renderLeftIcon = () => {
-    if (typeof props.leftIcon !== 'string' && React.isValidElement(props.leftIcon)) {
-      return props.leftIcon;
-    }
-    if (props.leftIcon) {
-      return <Icon style={styles.leftIcon} name={props.leftIcon as IconNames} />;
-    }
-    return null;
-  };
+  const iconSize = theme.notice_bar_icon_size;
+  const iconColor = color || theme.notice_bar_text_color;
 
   const getRightIconName = (): IconNames | undefined => {
-    if (props.mode === 'closeable') {
+    if (mode === 'closeable') {
       return 'cross';
     }
-    if (props.mode === 'link') {
+    if (mode === 'link') {
       return 'arrow';
     }
 
@@ -40,56 +39,72 @@ const NoticeBar = forwardRef<NoticeBarInstance, NoticeBarProps>((props, ref) => 
   };
 
   const onPressRightIcon = () => {
-    if (props.mode === 'closeable') {
-      setState({ show: false });
-      if (props.onClose) {
-        props.onClose();
-      }
+    if (mode === 'closeable') {
+      setShow(false);
+      onClose?.();
     }
+  };
+
+  const renderLeftIcon = () => {
+    if (typeof leftIcon !== 'string' && React.isValidElement(leftIcon)) {
+      return leftIcon;
+    }
+    if (leftIcon) {
+      return (
+        <Icon
+          style={styles.leftIcon}
+          name={leftIcon as IconNames}
+          size={iconSize}
+          color={iconColor}
+        />
+      );
+    }
+    return null;
   };
 
   //  右侧图标
   const renderRightIcon = () => {
-    if (props.rightIcon) {
-      return props.rightIcon;
+    if (rightIcon) {
+      return rightIcon;
     }
     const name = getRightIconName();
     if (name) {
-      return <Icon name={name} style={styles.rightIcon} onPress={onPressRightIcon} />;
+      return (
+        <TouchableWithoutFeedback onPress={onPressRightIcon}>
+          <Icon name={name} style={styles.rightIcon} size={iconSize} color={iconColor} />
+        </TouchableWithoutFeedback>
+      );
     }
     return null;
   };
 
-  //  文字部分
-  const renderMarquee = () => {
-    const ellipsis = scrollable === false && !props.wrapable;
-    const children = props.children || text;
-
-    return (
-      <View style={styles.wrap}>
-        <View style={styles.content}>
-          {isString(children) ? <Text>{children}</Text> : children}
-        </View>
-      </View>
-    );
-  };
-
-  const reset = () => {};
-
-  useImperativeHandle(ref, () => ({
-    reset,
-  }));
-
-  if (!state.show) {
+  if (!show) {
     return null;
   }
 
   return (
-    <View style={[styles.wrapper, wrapable ? styles.wrapable : styles.noWrapable, style]}>
-      {renderLeftIcon()}
-      {renderMarquee()}
-      {renderRightIcon()}
-    </View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View
+        style={[
+          styles.wrapper,
+          wrapable ? styles.wrapable : styles.noWrapable,
+          background ? { backgroundColor: background } : undefined,
+          style,
+        ]}
+      >
+        {renderLeftIcon()}
+        <View style={styles.wrap}>
+          <Marquee
+            style={[styles.content, color ? { color } : undefined]}
+            wrapable={wrapable}
+            {...rest}
+            text={rest.children || rest.text}
+            ref={ref}
+          />
+        </View>
+        {renderRightIcon()}
+      </View>
+    </TouchableWithoutFeedback>
   );
 });
 
