@@ -1,0 +1,16 @@
+{
+  "name": "@dice-ui/dumi-theme-vant",
+  "version": "0.0.1",
+  "description": "The vant theme of vant",
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "dependencies": {
+    "@docsearch/react": "^3.0.0-alpha.42",
+    "clsx": "^1.1.1"
+  }
+}

@@ -22,7 +22,9 @@
     "src"
   ],
   "scripts": {
-    "build": "bob build"
+    "build": "bob build",
+    "site": "dumi dev",
+    "build:site": "dumi build"
   },
   "dependencies": {
     "@callstack/react-theme-provider": "^3.0.6",
@@ -32,9 +34,11 @@
     "react-native-svg": "^12.1.1"
   },
   "devDependencies": {
+    "@dice-ui/dumi-theme-vant": "^0.0.1",
     "@types/color": "^3.0.2",
     "@types/lodash": "^4.14.175",
     "@types/react-native": "^0.65.5",
+    "dumi": "^1.1.37",
     "react-native-builder-bob": "^0.18.2",
     "typescript": "^4.4.3"
   },

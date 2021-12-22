@@ -43,13 +43,12 @@ export default defineConfig({
   navs: [
     null,
     {
-      title: 'Github',
+      logo: 'https://b.yzcdn.cn/vant/logo/github.svg',
       path: 'https://github.com/bijinfeng/dice',
     },
   ],
   resolve: {
-    includes: ['docs', 'packages/dice-ui/src'],
-    excludes: ['packages/example'],
+    includes: ['docs', 'src'],
     passivePreview: true,
   },
   hash: isProd,
