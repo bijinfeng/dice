@@ -3,8 +3,7 @@ title: Layout 布局
 desc: Layout 提供了 Layout.Row 和 Layout.Col 两个组件来进行行列布局。
 demo: /basic/layout
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

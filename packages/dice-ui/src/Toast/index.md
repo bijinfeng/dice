@@ -4,8 +4,7 @@ desc: 在页面中间弹出黑色半透明提示，用于消息通知、加载�
 demo: /basic/toast
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

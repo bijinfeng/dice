@@ -4,8 +4,7 @@ desc: 在一组备选项中进行多选。
 demo: /basic/checkbox
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

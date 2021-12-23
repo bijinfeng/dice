@@ -2,15 +2,13 @@
 demo: /
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 开发指南
-  order: 1
 
 title: 快速上手
-order: 1
+order: 2
 ---
 
 ## 安装

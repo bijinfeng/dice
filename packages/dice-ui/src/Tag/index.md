@@ -4,8 +4,7 @@ desc: 用于标记关键词和概括主要内容。
 demo: /basic/tag
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

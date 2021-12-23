@@ -4,8 +4,7 @@ desc: 创建一个遮罩层，用于强调特定的页面元素，并阻止用�
 demo: /basic/overlay
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

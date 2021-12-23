@@ -4,8 +4,7 @@ desc: 加载图标，用于表示加载中的过渡状态。
 demo: /basic/loading
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

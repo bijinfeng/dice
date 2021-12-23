@@ -3,8 +3,7 @@ title: NoticeBar 通知栏
 desc: 用于循环播放展示一组消息通知。
 demo: /basic/notice-bar
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

@@ -4,8 +4,7 @@ desc: 按钮用于触发一个操作，如提交表单。
 demo: /basic/button
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

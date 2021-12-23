@@ -4,8 +4,7 @@ desc: 用于将内容分隔为多个区域。
 demo: /basic/divider
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

@@ -4,8 +4,7 @@ desc: 单元格为列表中的单个展示项。
 demo: /basic/cell
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

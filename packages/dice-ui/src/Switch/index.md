@@ -4,8 +4,7 @@ desc: 用于在打开和关闭状态之间进行切换。
 demo: /basic/switch
 
 nav:
-  title: 文档
-  path: /docs
+  path: /
 
 group:
   title: 基础组件

@@ -18,6 +18,7 @@ const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
   const { demoUrl } = useThemeConfig();
 
   const showSideMenu = meta.sidemenu !== false;
+  const hasSimulator = !!demoUrl && !!demo;
 
   return (
     <div className="vant-doc">
@@ -26,7 +27,7 @@ const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
       {/* 侧边栏 */}
       {showSideMenu && <SideMenu />}
 
-      <Container hasSimulator={!!demoUrl}>
+      <Container hasSimulator={hasSimulator}>
         <Content>
           <Renderer title={title} desc={desc}>
             {children}
@@ -34,7 +35,7 @@ const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
         </Content>
       </Container>
 
-      <Simulator src={demoUrl + demo} />
+      {hasSimulator && <Simulator src={demoUrl} />}
     </div>
   );
 };
