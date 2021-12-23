@@ -16,13 +16,7 @@ const SearchInput: FC<SearchInputProps> = props => {
 
   return (
     <div className="van-doc-search">
-      <DocSearch
-        appId="R2IYF7ETH7"
-        apiKey="599cec31baffa4868cae4e79f180729b"
-        indexName="docsearch"
-        placeholder={placeholder}
-        {...searchConfig}
-      />
+      <DocSearch placeholder={placeholder} {...searchConfig} />
     </div>
   );
 };

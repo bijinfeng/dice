@@ -67,7 +67,7 @@ const Header: FC<HeaderProps> = ({ location }) => {
                 </Link>
               </li>
             )}
-            <SearchInput searchConfig={config.algolia} />
+            {config.algolia && <SearchInput searchConfig={config.algolia} />}
           </ul>
         </div>
       </div>

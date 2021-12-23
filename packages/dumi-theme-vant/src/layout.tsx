@@ -9,10 +9,13 @@ import Content from './components/Content';
 import Simulator from './components/Simulator';
 import { Renderer } from './pages';
 
+import { useMeta, useThemeConfig } from './hooks';
 import './style/layout.less';
 
 const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
   const { meta } = useContext(context);
+  const { title, desc, demo } = useMeta();
+  const { demoUrl } = useThemeConfig();
 
   const showSideMenu = meta.sidemenu !== false;
 
@@ -23,13 +26,15 @@ const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
       {/* 侧边栏 */}
       {showSideMenu && <SideMenu />}
 
-      <Container hasSimulator>
+      <Container hasSimulator={!!demoUrl}>
         <Content>
-          <Renderer>{children}</Renderer>
+          <Renderer title={title} desc={desc}>
+            {children}
+          </Renderer>
         </Content>
       </Container>
 
-      <Simulator src="https://vant-contrib.gitee.io/vant/v3/mobile.html#/zh-CN" />
+      <Simulator src={demoUrl + demo} />
     </div>
   );
 };

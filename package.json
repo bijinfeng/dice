@@ -6,8 +6,8 @@
   ],
   "scripts": {
     "build:expo-example": "lerna run build:web --scope=expo-example",
-    "build:site": "lerna run build:site --scope=dice-ui",
-    "build": "lerna run build && yarn run build:site",
+    "build:site": "yarn run build && lerna run build:site --scope=dice-ui",
+    "build": "lerna run build",
     "bootstrap": "lerna bootstrap",
     "commit": "git cz",
     "test": "jest",

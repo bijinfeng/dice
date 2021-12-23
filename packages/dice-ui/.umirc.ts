@@ -12,19 +12,6 @@ export default defineConfig({
     ['en', 'English'],
   ],
   favicon: 'https://img01.yzcdn.cn/vant/logo.png',
-  extraBabelPlugins: [
-    [
-      'import',
-      {
-        libraryName: 'antd',
-        libraryDirectory: 'es',
-        style: 'css',
-      },
-    ],
-  ],
-  theme: {
-    '@primary-color': '#ff4800',
-  },
   logo: 'https://img01.yzcdn.cn/vant/logo.png',
   themeConfig: {
     repository: {

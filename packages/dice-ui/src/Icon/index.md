@@ -20,7 +20,3 @@ import { Switch } from 'dice-ui'
 
 <Switch value={true} />
 ```
-
-## API
-
-<API></API>
