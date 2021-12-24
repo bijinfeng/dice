@@ -5,7 +5,6 @@ import { context } from 'dumi/theme';
 import Header from './components/Header';
 import SideMenu from './components/Nav';
 import Container from './components/Container';
-import Content from './components/Content';
 import Simulator from './components/Simulator';
 import { Renderer } from './pages';
 
@@ -28,11 +27,9 @@ const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
       {showSideMenu && <SideMenu />}
 
       <Container hasSimulator={hasSimulator}>
-        <Content>
-          <Renderer title={title} desc={desc}>
-            {children}
-          </Renderer>
-        </Content>
+        <Renderer title={title} desc={desc}>
+          {children}
+        </Renderer>
       </Container>
 
       {hasSimulator && <Simulator src={demoUrl} />}

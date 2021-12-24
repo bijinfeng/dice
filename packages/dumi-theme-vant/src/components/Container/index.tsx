@@ -13,7 +13,7 @@ const Container: FC<ContainerProps> = ({ hasSimulator, children }) => (
       'van-doc-container--with-simulator': hasSimulator,
     })}
   >
-    {children}
+    <div className="van-doc-content">{children}</div>
   </div>
 );
 
