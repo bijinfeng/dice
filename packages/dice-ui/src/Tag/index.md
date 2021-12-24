@@ -1,7 +1,7 @@
 ---
 title: Tag 标签
 desc: 用于标记关键词和概括主要内容。
-demo: /basic/tag
+demo: /tag
 
 nav:
   path: /

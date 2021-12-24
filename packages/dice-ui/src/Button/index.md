@@ -1,7 +1,7 @@
 ---
 title: Button 按钮
 desc: 按钮用于触发一个操作，如提交表单。
-demo: /basic/button
+demo: /button
 
 nav:
   path: /

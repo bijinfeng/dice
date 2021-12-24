@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import * as Linking from 'expo-linking';
-import { ColorSchemeName, Text } from 'react-native';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { ColorSchemeName, Text, Platform } from 'react-native';
+import { NavigationContainer, DefaultTheme, DarkTheme, useLinkTo } from '@react-navigation/native';
 import { HeaderBackButton } from '@react-navigation/elements';
 import { createStackNavigator } from '@react-navigation/stack';
 import { routes } from './routes';
@@ -17,20 +17,21 @@ const screens = routes.reduce<Record<string, string>>((result, it) => {
   return result;
 }, {});
 
-const Navigation: FC<{ colorScheme: ColorSchemeName }> = ({ colorScheme }) => (
-  <NavigationContainer
-    theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-    fallback={<Text>Loading...</Text>}
-    linking={{
-      prefixes: [prefix],
-      config: {
-        screens: {
-          '/': '/',
-          ...screens,
-        },
-      },
-    }}
-  >
+const StackNavigator = () => {
+  const linkTo = useLinkTo();
+
+  useEffect(() => {
+    if (Platform.OS === 'web') {
+      window.addEventListener('message', (event: MessageEvent<any>) => {
+        const { method, data } = event?.data ?? {};
+        if (method === 'navigate') {
+          linkTo(data);
+        }
+      });
+    }
+  }, []);
+
+  return (
     <Stack.Navigator>
       <Stack.Screen name="/" component={Home} options={{ headerShown: false, title: '首页' }} />
       {routes.map(it => (
@@ -48,6 +49,24 @@ const Navigation: FC<{ colorScheme: ColorSchemeName }> = ({ colorScheme }) => (
         />
       ))}
     </Stack.Navigator>
+  );
+};
+
+const Navigation: FC<{ colorScheme: ColorSchemeName }> = ({ colorScheme }) => (
+  <NavigationContainer
+    theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+    fallback={<Text>Loading...</Text>}
+    linking={{
+      prefixes: [prefix],
+      config: {
+        screens: {
+          '/': '/',
+          ...screens,
+        },
+      },
+    }}
+  >
+    <StackNavigator />
   </NavigationContainer>
 );
 

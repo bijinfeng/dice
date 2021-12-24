@@ -1,7 +1,7 @@
 ---
 title: Loading 加载
 desc: 加载图标，用于表示加载中的过渡状态。
-demo: /basic/loading
+demo: /loading
 
 nav:
   path: /

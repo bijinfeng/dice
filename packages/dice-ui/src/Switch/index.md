@@ -1,7 +1,7 @@
 ---
 title: Switch 开关
 desc: 用于在打开和关闭状态之间进行切换。
-demo: /basic/switch
+demo: /switch
 
 nav:
   path: /

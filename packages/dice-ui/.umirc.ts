@@ -9,7 +9,7 @@ export default defineConfig({
   mode: 'site',
   algolia: {
     appId: 'TM4VZTMTDL',
-    apiKey: '2b50f181fd5c1746eff1301b8a271318',
+    apiKey: 'c0a3916beb89f5500d092ab4e19143b6',
     indexName: 'docsearch',
   },
   favicon: 'https://img01.yzcdn.cn/vant/logo.png',

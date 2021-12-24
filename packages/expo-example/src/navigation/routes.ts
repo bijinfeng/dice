@@ -1,23 +1,23 @@
 import React from 'react';
 
-import Icon from '../pages/basic/icon';
-import Layout from '../pages/basic/layout';
-import Cell from '../pages/basic/cell';
-import Loading from '../pages/basic/loading';
-import Button from '../pages/basic/button';
-import Overlay from '../pages/basic/overlay';
-import Popup from '../pages/basic/popup';
-import Toast from '../pages/basic/toast';
-import Checkbox from '../pages/basic/checkbox';
-import Image from '../pages/basic/image';
-import Radio from '../pages/basic/radio';
-import Switch from '../pages/basic/switch';
-import Tag from '../pages/basic/tag';
-import Divider from '../pages/basic/divider';
-import NavBar from '../pages/basic/navbar';
-import NoticeBar from '../pages/basic/notice-bar';
+import Icon from '../pages/icon';
+import Layout from '../pages/layout';
+import Cell from '../pages/cell';
+import Loading from '../pages/loading';
+import Button from '../pages/button';
+import Overlay from '../pages/overlay';
+import Popup from '../pages/popup';
+import Toast from '../pages/toast';
+import Checkbox from '../pages/checkbox';
+import Image from '../pages/image';
+import Radio from '../pages/radio';
+import Switch from '../pages/switch';
+import Tag from '../pages/tag';
+import Divider from '../pages/divider';
+import NavBar from '../pages/navbar';
+import NoticeBar from '../pages/notice-bar';
 
-type RouteItem = {
+export type RouteItem = {
   name: string;
   href: string;
   component: React.FC;
@@ -26,82 +26,82 @@ type RouteItem = {
 export const routes: RouteItem[] = [
   {
     name: 'Cell 单元格',
-    href: '/basic/cell',
+    href: '/cell',
     component: Cell,
   },
   {
     name: 'Layout 布局',
-    href: '/basic/layout',
+    href: '/layout',
     component: Layout,
   },
   {
     name: 'Icon 图标',
-    href: '/basic/icon',
+    href: '/icon',
     component: Icon,
   },
   {
     name: 'Loading 加载',
-    href: '/basic/loading',
+    href: '/loading',
     component: Loading,
   },
   {
     name: 'Button 按钮',
-    href: '/basic/button',
+    href: '/button',
     component: Button,
   },
   {
     name: 'Overlay 遮罩层',
-    href: '/basic/overlay',
+    href: '/overlay',
     component: Overlay,
   },
   {
     name: 'Popup 弹出层',
-    href: '/basic/popup',
+    href: '/popup',
     component: Popup,
   },
   {
     name: 'Toast 轻提示',
-    href: '/basic/toast',
+    href: '/toast',
     component: Toast,
   },
   {
     name: 'Checkbox 复选框',
-    href: '/basic/checkbox',
+    href: '/checkbox',
     component: Checkbox,
   },
   {
     name: 'Image 图片',
-    href: '/basic/image',
+    href: '/image',
     component: Image,
   },
   {
     name: 'Radio 单选框',
-    href: '/basic/radio',
+    href: '/radio',
     component: Radio,
   },
   {
     name: 'Switch 开关',
-    href: '/basic/switch',
+    href: '/switch',
     component: Switch,
   },
   {
     name: 'Tag 标签',
-    href: '/basic/tag',
+    href: '/tag',
     component: Tag,
   },
   {
     name: 'Divider 分割线',
-    href: '/basic/divider',
+    href: '/divider',
     component: Divider,
   },
   {
     name: 'NavBar 导航栏',
-    href: '/basic/navbar',
+    href: '/nav-bar',
     component: NavBar,
   },
   {
     name: 'NoticeBar 通知栏',
-    href: '/basic/notice-bar',
+    href: '/notice-bar',
     component: NoticeBar,
   },
 ];

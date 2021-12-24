@@ -1,7 +1,7 @@
 ---
 title: Checkbox 复选框
 desc: 在一组备选项中进行多选。
-demo: /basic/checkbox
+demo: /checkbox
 
 nav:
   path: /

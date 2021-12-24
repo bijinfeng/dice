@@ -1,7 +1,7 @@
 ---
 title: Cell 单元格
 desc: 单元格为列表中的单个展示项。
-demo: /basic/cell
+demo: /cell
 
 nav:
   path: /

@@ -1,7 +1,7 @@
 ---
 title: Image 图片
 desc: 增强版的 img 标签，提供多种图片填充模式，支持图片懒加载、加载中提示、加载失败提示。
-demo: /basic/image
+demo: /image
 nav:
   path: /
 

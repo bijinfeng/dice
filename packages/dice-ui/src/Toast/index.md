@@ -1,7 +1,7 @@
 ---
 title: Toast 轻提示
 desc: 在页面中间弹出黑色半透明提示，用于消息通知、加载提示、操作结果提示等场景。
-demo: /basic/toast
+demo: /toast
 
 nav:
   path: /

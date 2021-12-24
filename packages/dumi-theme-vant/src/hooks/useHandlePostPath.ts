@@ -5,10 +5,11 @@ import { scrollDoc } from '../utils/scrollDoc';
 
 export const useHandlePostPath = () => {
   const history = useHistory();
+
   useEffect(() => {
     const handle = (event: MessageEvent<any>) => {
-      const href = event?.data?.data;
-      if (href) {
+      const { method, data: href } = event?.data ?? {};
+      if (method === 'navigate' && href) {
         history.push(href);
         const scrollElement = scrollDoc();
         scrollElement.scrollTop = 0;

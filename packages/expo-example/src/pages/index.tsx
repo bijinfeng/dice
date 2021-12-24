@@ -1,11 +1,17 @@
 import React from 'react';
-import { View, ScrollView, Image, StyleSheet, Text } from 'react-native';
+import { View, ScrollView, Image, StyleSheet, Text, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Link } from '@react-navigation/native';
 import { Icon } from 'dice-ui';
-import { routes } from '../navigation/routes';
+import { routes, RouteItem } from '../navigation/routes';
 
 const Home = () => {
+  const onLinkPress = (item: RouteItem) => {
+    if (Platform.OS === 'web') {
+      window.parent.postMessage({ method: 'navigate', data: item.href }, '*');
+    }
+  };
+
   return (
     <SafeAreaView style={styles.wrapper}>
       <ScrollView style={{ padding: 20 }}>
@@ -15,7 +21,12 @@ const Home = () => {
         </View>
         <View>
           {routes.map(item => (
-            <Link style={styles.link} key={item.href} to={{ screen: item.href, params: {} }}>
+            <Link
+              style={styles.link}
+              key={item.href}
+              to={{ screen: item.href, params: {} }}
+              onPress={() => onLinkPress(item)}
+            >
               <View style={styles.item}>
                 <Text style={styles.text}>{item.name}</Text>
                 <Icon name="arrow" size={16} />

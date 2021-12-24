@@ -1,7 +1,7 @@
 ---
 title: Radio 单选框
 desc: 在一组备选项中进行单选。
-demo: /basic/radio
+demo: /radio
 
 nav:
   path: /

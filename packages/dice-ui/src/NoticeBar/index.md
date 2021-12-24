@@ -1,7 +1,7 @@
 ---
 title: NoticeBar 通知栏
 desc: 用于循环播放展示一组消息通知。
-demo: /basic/notice-bar
+demo: /notice-bar
 nav:
   path: /
 

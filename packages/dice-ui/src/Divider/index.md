@@ -1,7 +1,7 @@
 ---
 title: Divider 分割线
 desc: 用于将内容分隔为多个区域。
-demo: /basic/divider
+demo: /divider
 
 nav:
   path: /
