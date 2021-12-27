@@ -48,27 +48,31 @@ const Marquee = forwardRef<NoticeBarInstance, MarqueeProps>((props, ref) => {
 
   // 开始滚动
   const startMove = () => {
-    translateAnimated.current = Animated.timing(translateX, {
-      toValue: -contentWidth.current,
-      duration: (contentWidth.current / speed) * 1000,
-      easing: Easing.linear,
-      useNativeDriver: !isWeb,
-    });
+    translateAnimated.current = Animated.loop(
+      Animated.sequence([
+        Animated.timing(translateX, {
+          toValue: -contentWidth.current,
+          duration: (contentWidth.current / speed) * 1000,
+          easing: Easing.linear,
+          useNativeDriver: !isWeb,
+        }),
+        Animated.timing(translateX, {
+          toValue: wrapWidth.current,
+          duration: 0,
+          easing: Easing.linear,
+          useNativeDriver: !isWeb,
+        }),
+        Animated.timing(translateX, {
+          toValue: 0,
+          duration: (contentWidth.current / speed) * 1000,
+          easing: Easing.linear,
+          useNativeDriver: !isWeb,
+        }),
+      ])
+    );
 
     translateAnimated.current.start(() => {
-      moveToHeader();
       onReplay?.();
-    });
-  };
-
-  // 移动到头部重新开始滚动
-  const moveToHeader = () => {
-    Animated.timing(translateX, {
-      toValue: wrapWidth.current,
-      duration: 0,
-      useNativeDriver: Platform.OS !== 'web',
-    }).start(() => {
-      startMove();
     });
   };
 
