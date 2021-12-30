@@ -230,3 +230,10 @@ export const notice_bar_line_height = 24;
 export const notice_bar_background_color = orange_light;
 export const notice_bar_icon_size = 16;
 export const notice_bar_icon_min_width = 24;
+
+// Rate
+export const rate_icon_size = 20;
+export const rate_icon_gutter = padding_base;
+export const rate_icon_void_color = gray_5;
+export const rate_icon_full_color = danger;
+export const rate_icon_disabled_color = gray_5;

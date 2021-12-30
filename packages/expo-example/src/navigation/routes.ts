@@ -16,6 +16,7 @@ import Tag from '../pages/tag';
 import Divider from '../pages/divider';
 import NavBar from '../pages/navbar';
 import NoticeBar from '../pages/notice-bar';
+import Rate from '../pages/rate';
 
 export type RouteItem = {
   name: string;
@@ -103,5 +104,10 @@ export const routes: RouteItem[] = [
     name: 'NoticeBar 通知栏',
     href: '/notice-bar',
     component: NoticeBar,
+  },
+  {
+    name: 'Rate 评分',
+    href: '/rate',
+    component: Rate,
   },
 ];
