@@ -1,8 +1,10 @@
 name: github pages
+
 on:
   push:
     branches:
       - master # default branch
+
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -22,15 +24,13 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./packages/dice-ui/dist
-  build-for-ios-simulator:
+
+  docsearch:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - uses: expo/expo-github-action@v6
+      - uses: darrenjennings/algolia-docsearch-action@master
         with:
-          expo-version: 4.x
-          expo-cache: true
-          token: ${{ secrets.EXPO_TOKEN }}
-      - run: yarn install
-      - run: yarn build
-      - run: cd packages/expo-example/ && yarn run build:ios-simulator
+          algolia_application_id: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          algolia_api_key: ${{ secrets.ALGOLIA_API_KEY }}
+          file: 'algolia/docsearch.json'
