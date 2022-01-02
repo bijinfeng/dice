@@ -19,6 +19,7 @@ export { default as NoticeBar } from './NoticeBar';
 export { default as Overlay } from './Overlay';
 export { default as Popup } from './Popup';
 export { default as Portal } from './Portal';
+export { default as Progress } from './Progress';
 export { default as Radio } from './Radio';
 export { default as Rate } from './Rate';
 export { default as Switch } from './Switch';

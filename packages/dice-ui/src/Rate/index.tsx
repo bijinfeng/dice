@@ -48,6 +48,7 @@ const Rate = forwardRef<View, RateProps>((props, ref) => {
     allowHalf,
     readonly,
     disabled,
+    style,
   } = props;
   const [value, setValue] = useControllableValue<number>(props);
   const { styles, theme } = useThemeFactory(createStyle);
@@ -155,7 +156,7 @@ const Rate = forwardRef<View, RateProps>((props, ref) => {
   return (
     <View
       ref={ref}
-      style={styles.wrapper}
+      style={[styles.wrapper, style]}
       {...(untouchable ? panResponder.panHandlers : {})}
       onLayout={onContainerLayout}
     >

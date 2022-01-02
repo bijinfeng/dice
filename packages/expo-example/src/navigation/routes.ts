@@ -17,6 +17,7 @@ import Divider from '../pages/divider';
 import NavBar from '../pages/navbar';
 import NoticeBar from '../pages/notice-bar';
 import Rate from '../pages/rate';
+import Progress from '../pages/progress';
 
 export type RouteItem = {
   name: string;
@@ -109,5 +110,10 @@ export const routes: RouteItem[] = [
     name: 'Rate 评分',
     href: '/rate',
     component: Rate,
+  },
+  {
+    name: 'Progress 进度条',
+    href: '/progress',
+    component: Progress,
   },
 ];

@@ -237,3 +237,14 @@ export const rate_icon_gutter = padding_base;
 export const rate_icon_void_color = gray_5;
 export const rate_icon_full_color = danger;
 export const rate_icon_disabled_color = gray_5;
+
+// Progress
+export const progress_height = 4;
+export const progress_color = primary;
+export const progress_inactive_color = gray_5;
+export const progress_background_color = gray_3;
+export const progress_pivot_padding_horizontal = 5;
+export const progress_pivot_padding_vertical = 0;
+export const progress_pivot_text_color = white;
+export const progress_pivot_font_size = font_size_xs;
+export const progress_pivot_line_height = 1.6 * progress_pivot_font_size;

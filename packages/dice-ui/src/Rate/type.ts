@@ -1,3 +1,4 @@
+import type { StyleProp, ViewStyle } from 'react-native';
 import type { IconNames } from '../Icon';
 
 export interface RateProps {
@@ -54,4 +55,5 @@ export interface RateProps {
    * @default 5
    */
   count?: number;
+  style?: StyleProp<ViewStyle>;
 }
