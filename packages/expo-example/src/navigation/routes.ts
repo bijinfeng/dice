@@ -18,6 +18,7 @@ import NavBar from '../pages/navbar';
 import NoticeBar from '../pages/notice-bar';
 import Rate from '../pages/rate';
 import Progress from '../pages/progress';
+import Badge from '../pages/badge';
 
 export type RouteItem = {
   name: string;
@@ -115,5 +116,10 @@ export const routes: RouteItem[] = [
     name: 'Progress 进度条',
     href: '/progress',
     component: Progress,
+  },
+  {
+    name: 'Badge 徽标',
+    href: '/badge',
+    component: Badge,
   },
 ];

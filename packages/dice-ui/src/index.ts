@@ -4,6 +4,7 @@ export * from './Theme';
 export { default as Icon } from './Icon';
 export * from './Icon';
 
+export { default as Badge } from './Badge';
 export { default as Button } from './Button';
 export { default as Cell } from './Cell';
 export { default as Checkbox } from './Checkbox';

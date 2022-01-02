@@ -248,3 +248,15 @@ export const progress_pivot_padding_vertical = 0;
 export const progress_pivot_text_color = white;
 export const progress_pivot_font_size = font_size_xs;
 export const progress_pivot_line_height = 1.6 * progress_pivot_font_size;
+
+// Badge
+export const badge_size = 16;
+export const badge_color = white;
+export const badge_padding_horizontal = 3;
+export const badge_padding_vertical = 0;
+export const badge_font_size = font_size_sm;
+export const badge_font_weight = font_weight_bold;
+export const badge_border_width = border_width_base;
+export const badge_background_color = danger;
+export const badge_dot_color = danger;
+export const badge_dot_size = 8;

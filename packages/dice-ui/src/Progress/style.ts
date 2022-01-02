@@ -11,15 +11,23 @@ interface Styles {
 
 type ExtraParams = Pick<
   ProgressProps,
-  'color' | 'trackColor' | 'inactive' | 'textColor' | 'pivotColor' | 'percentage'
+  'color' | 'trackColor' | 'inactive' | 'textColor' | 'pivotColor' | 'percentage' | 'strokeWidth'
 >;
 
 export const createStyle = (theme: DiceUI.Theme, params: ExtraParams): Styles => {
-  const { color, trackColor, inactive, textColor, pivotColor, percentage = 0 } = params;
+  const {
+    color,
+    trackColor,
+    inactive,
+    textColor,
+    pivotColor,
+    strokeWidth,
+    percentage = 0,
+  } = params;
 
   const progressBackgroundColor = trackColor ?? theme.progress_background_color;
   const progressColor = inactive ? theme.progress_inactive_color : color ?? theme.progress_color;
-  const progressHeight = theme.progress_height;
+  const progressHeight = strokeWidth ?? theme.progress_height;
   const pivotTextColor = textColor ?? theme.progress_pivot_text_color;
   const pivotBackgroundColor = pivotColor ?? progressColor;
   const pivotTextHeight = theme.progress_pivot_line_height;
