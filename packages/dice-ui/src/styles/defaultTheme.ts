@@ -260,3 +260,12 @@ export const badge_border_width = border_width_base;
 export const badge_background_color = danger;
 export const badge_dot_color = danger;
 export const badge_dot_size = 8;
+
+// Circle
+export const circle_size = 100;
+export const circle_color = primary;
+export const circle_layer_color = white;
+export const circle_text_color = text_color;
+export const circle_text_font_weight = font_weight_bold;
+export const circle_text_font_size = font_size_md;
+export const circle_text_line_height = line_height_md;

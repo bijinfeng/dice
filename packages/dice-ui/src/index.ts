@@ -8,6 +8,7 @@ export { default as Badge } from './Badge';
 export { default as Button } from './Button';
 export { default as Cell } from './Cell';
 export { default as Checkbox } from './Checkbox';
+export { default as Circle } from './Circle';
 export { default as ConfigProvider } from './ConfigProvider';
 export { default as Dash } from './Dash';
 export { default as Divider } from './Divider';

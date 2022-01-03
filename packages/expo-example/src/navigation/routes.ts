@@ -19,6 +19,7 @@ import NoticeBar from '../pages/notice-bar';
 import Rate from '../pages/rate';
 import Progress from '../pages/progress';
 import Badge from '../pages/badge';
+import Circle from '../pages/circle';
 
 export type RouteItem = {
   name: string;
@@ -121,5 +122,10 @@ export const routes: RouteItem[] = [
     name: 'Badge 徽标',
     href: '/badge',
     component: Badge,
+  },
+  {
+    name: 'Circle  环形进度条',
+    href: '/circle',
+    component: Circle,
   },
 ];
