@@ -269,3 +269,12 @@ export const circle_text_color = text_color;
 export const circle_text_font_weight = font_weight_bold;
 export const circle_text_font_size = font_size_md;
 export const circle_text_line_height = line_height_md;
+
+// Slider
+export const slider_active_background_color = primary;
+export const slider_inactive_background_color = gray_3;
+export const slider_disabled_opacity = disabled_opacity;
+export const slider_bar_height = 2;
+export const slider_button_width = 24;
+export const slider_button_height = 24;
+export const slider_button_background_color = white;

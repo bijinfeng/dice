@@ -1,0 +1,82 @@
+import type { ViewProps } from 'react-native';
+
+export type SliderValue = number | number[];
+
+export interface SliderBaseProps<T extends SliderValue> extends ViewProps {
+  /**
+   * 当前进度百分比，在双滑块模式下为数组格式
+   */
+  value?: T;
+  /**
+   * 是否开启双滑块模式
+   */
+  range?: boolean;
+  /**
+   * 是否禁用滑块
+   */
+  disabled?: boolean;
+  /**
+   * 是否将进度条反转
+   */
+  reverse?: boolean;
+  /**
+   * 是否为只读状态，只读状态下无法修改滑块的值
+   */
+  readonly?: boolean;
+  /**
+   * 是否垂直展示
+   */
+  vertical?: boolean;
+  /**
+   * 进度条高度
+   */
+  barHeight?: number;
+  /**
+   * 滑块按钮大小
+   */
+  buttonSize?: number;
+  /**
+   * 进度条激活态颜色
+   */
+  activeColor?: string;
+  /**
+   * 进度条非激活态颜色
+   */
+  inactiveColor?: string;
+  /**
+   * 最小值
+   * @default 0
+   */
+  min?: number;
+  /**
+   * 最大值
+   * @default 100
+   */
+  max?: number;
+  /**
+   * 步长
+   * @default 1
+   */
+  step?: number;
+  /**
+   * 自定义滑块按钮
+   */
+  button?: React.ReactNode;
+  /**
+   * 进度变化时实时触发
+   */
+  onChange?: (value: T) => void;
+  /**
+   * 开始拖动时触发
+   */
+  onDragStart?: () => void;
+  /**
+   * 结束拖动时触发
+   */
+  onDragEnd?: () => void;
+}
+
+export type SliderSingleProps = SliderBaseProps<number>;
+export type SliderRangeProps = SliderBaseProps<number[]>;
+
+export type SliderProps = SliderSingleProps | SliderRangeProps;
