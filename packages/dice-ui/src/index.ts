@@ -25,6 +25,7 @@ export { default as Progress } from './Progress';
 export { default as Radio } from './Radio';
 export { default as Rate } from './Rate';
 export { default as Slider } from './Slider';
+export { default as Swiper } from './Swiper';
 export { default as Switch } from './Switch';
 export { default as Tag } from './Tag';
 export { default as Text } from './Text';

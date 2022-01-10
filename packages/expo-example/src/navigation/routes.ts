@@ -21,6 +21,7 @@ import Progress from '../pages/progress';
 import Badge from '../pages/badge';
 import Circle from '../pages/circle';
 import Slider from '../pages/slider';
+import Swiper from '../pages/swiper';
 
 export type RouteItem = {
   name: string;
@@ -133,5 +134,10 @@ export const routes: RouteItem[] = [
     name: 'Slider 滑块',
     href: '/slider',
     component: Slider,
+  },
+  {
+    name: 'Swiper 轮播',
+    href: '/swiper',
+    component: Swiper,
   },
 ];

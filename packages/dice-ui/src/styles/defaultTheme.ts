@@ -278,3 +278,11 @@ export const slider_bar_height = 2;
 export const slider_button_width = 24;
 export const slider_button_height = 24;
 export const slider_button_background_color = white;
+
+// Swiper
+export const swiper_indicator_size = 6;
+export const swiper_indicator_margin = padding_sm;
+export const swiper_indicator_active_opacity = 1;
+export const swiper_indicator_inactive_opacity = 0.3;
+export const swiper_indicator_active_background_color = primary;
+export const swiper_indicator_inactive_background_color = border_color;
