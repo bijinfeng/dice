@@ -24,7 +24,7 @@ const items = colors.map((color, index) => (
       style={{
         backgroundColor: index % 2 === 0 ? '#3f45ff' : '#686dff',
         alignItems: 'center',
-        height: '100%',
+        height: 150,
         justifyContent: 'center',
       }}
     >
