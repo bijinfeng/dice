@@ -12,6 +12,8 @@ export function isDef<T>(val: T): val is NonNullable<T> {
 /** 是数组 */
 export const isArray = <T>(v: unknown): v is T[] => isType('Array')(v);
 
+export const isNumber = <T = number>(v: unknown): v is T => isType('Number')(v);
+
 /** 是对象 */
 export const isObject = <T>(v: T): v is T => isType('Object')(v);
 

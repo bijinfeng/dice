@@ -7,12 +7,7 @@ const SwiperItem = forwardRef<View, SwiperItemProps>((props, ref) => {
   const { children, onPress, style, ...rest } = props;
 
   return (
-    <Pressable
-      ref={ref}
-      onPress={onPress}
-      style={[{ width: '100%', height: '100%' }, style]}
-      {...rest}
-    >
+    <Pressable ref={ref} onPress={onPress} style={style} {...rest}>
       {children}
     </Pressable>
   );

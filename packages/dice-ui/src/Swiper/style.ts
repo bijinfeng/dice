@@ -2,8 +2,6 @@ import { StyleSheet } from 'react-native';
 import type { ViewStyle } from 'react-native';
 
 interface Styles {
-  container: ViewStyle;
-  wrapperIOS: ViewStyle;
   indicatorX: ViewStyle;
   indicatorY: ViewStyle;
   dot: ViewStyle;
@@ -21,12 +19,6 @@ export const createStyle = (theme: DiceUI.Theme): Styles => {
       width: theme.swiper_indicator_size,
     },
 
-    container: {
-      backgroundColor: 'transparent',
-      flex: 1,
-      position: 'relative',
-    },
-
     dot: {
       backgroundColor: theme.swiper_indicator_inactive_background_color,
       borderRadius: theme.swiper_indicator_size,
@@ -37,31 +29,11 @@ export const createStyle = (theme: DiceUI.Theme): Styles => {
     },
 
     indicatorX: {
-      alignItems: 'center',
-      backgroundColor: 'transparent',
       bottom: theme.swiper_indicator_margin,
-      flexDirection: 'row',
-      flex: 1,
-      justifyContent: 'center',
-      left: 0,
-      position: 'absolute',
-      right: 0,
     },
 
     indicatorY: {
-      alignItems: 'center',
-      backgroundColor: 'transparent',
-      bottom: 0,
-      flexDirection: 'column',
-      flex: 1,
-      justifyContent: 'center',
-      left: theme.swiper_indicator_margin,
-      position: 'absolute',
-      top: 0,
-    },
-
-    wrapperIOS: {
-      backgroundColor: 'transparent',
+      right: theme.swiper_indicator_margin,
     },
   });
 };

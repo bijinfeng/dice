@@ -23,8 +23,8 @@ const items = colors.map((color, index) => (
       }}
       style={{
         backgroundColor: index % 2 === 0 ? '#3f45ff' : '#686dff',
-        height: 150,
         alignItems: 'center',
+        height: '100%',
         justifyContent: 'center',
       }}
     >
@@ -36,18 +36,18 @@ const items = colors.map((color, index) => (
 const SwiperExample = memo(() => {
   return (
     <ScrollView>
-      <DemoBlock title="基础用法">
+      <DemoBlock title="基础用法" contentStyle={styles.contentStyle}>
         <Swiper autoplay={5000}>{items}</Swiper>
       </DemoBlock>
-      <DemoBlock title="监听onChange事件">
+      <DemoBlock title="监听onChange事件" contentStyle={styles.contentStyle}>
         <Swiper onChange={i => Toast.message(`当前索引${i}`)}>{items}</Swiper>
       </DemoBlock>
-      <DemoBlock title="纵向滚动">
-        <Swiper autoplay={5000} vertical style={{ height: 150 }}>
+      <DemoBlock title="纵向滚动" contentStyle={styles.contentStyle}>
+        <Swiper autoplay={5000} vertical>
           {items}
         </Swiper>
       </DemoBlock>
-      <DemoBlock title="自定义指示器">
+      <DemoBlock title="自定义指示器" contentStyle={styles.contentStyle}>
         <Swiper
           indicator={(total, current) => (
             <View style={styles.indicator}>
@@ -65,6 +65,9 @@ const SwiperExample = memo(() => {
 });
 
 const styles = StyleSheet.create({
+  contentStyle: {
+    height: 150,
+  },
   indicator: {
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
     borderRadius: 2,
