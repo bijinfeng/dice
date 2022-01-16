@@ -5,13 +5,13 @@ import { DemoBlock } from '../../components';
 
 const SliderExample = memo(() => {
   const [value1, setValue1] = useState(10);
-  const [value2, setValue2] = useState<number[]>([10, 50]);
+  const [value2, setValue2] = useState<[number, number]>([10, 50]);
   const [value3, setValue3] = useState(10);
   const [value4, setValue4] = useState(10);
   const [value5, setValue5] = useState(10);
   const [value6, setValue6] = useState(10);
   // const [value7, setValue7] = useState(50);
-  // const [value8, setValue8] = useState<number[]>([20, 50]);
+  // const [value8, setValue8] = useState<[number, number]>([20, 50]);
 
   return (
     <ScrollView>
@@ -45,10 +45,12 @@ const SliderExample = memo(() => {
           }
         />
       </DemoBlock>
-      {/* <DemoBlock title="垂直方向" inset>
-        <View style={{ height: 150 }}>
-          <Slider vertical style={{ marginRight: 100 }} value={value7} onChange={setValue7} />
-          <Slider range vertical value={value8} onChange={setValue8} />
+      {/* <DemoBlock title="垂直方向" inset contentStyle={styles.vertical}>
+        <View style={{ width: 50, height: 150, marginRight: 100 }}>
+          <Slider style={{ flex: 1 }} vertical value={value7} onChange={setValue7} />
+        </View>
+        <View style={{ width: 50, height: 150, marginRight: 100 }}>
+          <Slider style={{ flex: 1 }} range vertical value={value8} onChange={setValue8} />
         </View>
       </DemoBlock> */}
     </ScrollView>
@@ -67,6 +69,10 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     textAlign: 'center',
     width: 26,
+  },
+  vertical: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
   },
 });
 

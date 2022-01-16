@@ -1,8 +1,6 @@
 import type { ViewProps } from 'react-native';
 
-export type SliderValue = number | number[];
-
-export interface SliderBaseProps<T extends SliderValue> extends ViewProps {
+export interface SliderBaseProps<T = number | number[]> extends ViewProps {
   /**
    * 当前进度百分比，在双滑块模式下为数组格式
    */
@@ -63,20 +61,32 @@ export interface SliderBaseProps<T extends SliderValue> extends ViewProps {
    */
   button?: React.ReactNode;
   /**
+   * 自定义左侧滑块按钮（双滑块模式下）
+   */
+  leftButton?: React.ReactNode;
+  /**
+   * 自定义右侧滑块按钮 （双滑块模式下）
+   */
+  rightButton?: React.ReactNode;
+  /**
    * 进度变化时实时触发
    */
   onChange?: (value: T) => void;
   /**
+   * 进度变化且结束拖动后触发
+   */
+  onChangeAfter?: (value: T) => void;
+  /**
    * 开始拖动时触发
    */
-  onDragStart?: () => void;
+  onDragStart?: (value: T) => void;
   /**
    * 结束拖动时触发
    */
-  onDragEnd?: () => void;
+  onDragEnd?: (value: T) => void;
 }
 
 export type SliderSingleProps = SliderBaseProps<number>;
-export type SliderRangeProps = SliderBaseProps<number[]>;
+export type SliderRangeProps = SliderBaseProps<[number, number]>;
 
 export type SliderProps = SliderSingleProps | SliderRangeProps;

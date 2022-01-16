@@ -8,12 +8,9 @@ type ExtraParams = Pick<
 >;
 
 interface Styles {
-  container: ViewStyle;
   filledTrack: ViewStyle;
   thumb: ViewStyle;
   track: ViewStyle;
-  trackContainer: ViewStyle;
-  touchableArea: ViewStyle;
 }
 
 export const createStyle = (theme: DiceUI.Theme, params: ExtraParams): Styles => {
@@ -30,11 +27,6 @@ export const createStyle = (theme: DiceUI.Theme, params: ExtraParams): Styles =>
   const trackHeight = barHeight ?? theme.slider_bar_height;
 
   return StyleSheet.create<Styles>({
-    container: {
-      alignItems: 'center',
-      flexDirection: 'row',
-      position: 'relative',
-    },
     filledTrack: {
       backgroundColor: activeBackgroundColor,
       height: trackHeight,
@@ -45,15 +37,10 @@ export const createStyle = (theme: DiceUI.Theme, params: ExtraParams): Styles =>
       backgroundColor: theme.slider_button_background_color,
       borderRadius: buttonWidth,
       height: buttonHeight,
-      position: 'relative',
       width: buttonWidth,
-    },
-    touchableArea: {
-      ...StyleSheet.absoluteFillObject,
     },
     track: {
       backgroundColor: inactiveBackgroundColor,
-      flex: 1,
       height: trackHeight,
       opacity,
       ...Platform.select({
@@ -61,11 +48,6 @@ export const createStyle = (theme: DiceUI.Theme, params: ExtraParams): Styles =>
           cursor: 'pointer',
         },
       }),
-    },
-    trackContainer: {
-      ...StyleSheet.absoluteFillObject,
-      alignItems: 'center',
-      flexDirection: 'row',
     },
   });
 };
