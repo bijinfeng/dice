@@ -6,8 +6,8 @@ import Cell from '../pages/cell';
 import Loading from '../pages/loading';
 import Button from '../pages/button';
 import Overlay from '../pages/overlay';
-import Popup from '../pages/popup';
-import Toast from '../pages/toast';
+// import Popup from '../pages/popup';
+// import Toast from '../pages/toast';
 import Checkbox from '../pages/checkbox';
 import Image from '../pages/image';
 import Radio from '../pages/radio';
@@ -60,16 +60,16 @@ export const routes: RouteItem[] = [
     href: '/overlay',
     component: Overlay,
   },
-  {
-    name: 'Popup 弹出层',
-    href: '/popup',
-    component: Popup,
-  },
-  {
-    name: 'Toast 轻提示',
-    href: '/toast',
-    component: Toast,
-  },
+  // {
+  //   name: 'Popup 弹出层',
+  //   href: '/popup',
+  //   component: Popup,
+  // },
+  // {
+  //   name: 'Toast 轻提示',
+  //   href: '/toast',
+  //   component: Toast,
+  // },
   {
     name: 'Checkbox 复选框',
     href: '/checkbox',

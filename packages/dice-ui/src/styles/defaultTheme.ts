@@ -286,3 +286,6 @@ export const swiper_indicator_active_opacity = 1;
 export const swiper_indicator_inactive_opacity = 0.3;
 export const swiper_indicator_active_background_color = primary;
 export const swiper_indicator_inactive_background_color = border_color;
+
+// Overlay
+export const overlay_background_color = 'rgba(0, 0, 0, 0.7)';

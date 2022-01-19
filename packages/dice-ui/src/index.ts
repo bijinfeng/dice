@@ -4,6 +4,8 @@ export * from './Theme';
 export { default as Icon } from './Icon';
 export * from './Icon';
 
+export * from './Portal';
+
 export { default as Badge } from './Badge';
 export { default as Button } from './Button';
 export { default as Cell } from './Cell';
@@ -19,8 +21,7 @@ export { default as Loading } from './Loading';
 export { default as NavBar } from './NavBar';
 export { default as NoticeBar } from './NoticeBar';
 export { default as Overlay } from './Overlay';
-export { default as Popup } from './Popup';
-export { default as Portal } from './Portal';
+// export { default as Popup } from './Popup';
 export { default as Progress } from './Progress';
 export { default as Radio } from './Radio';
 export { default as Rate } from './Rate';
@@ -29,10 +30,11 @@ export { default as Swiper } from './Swiper';
 export { default as Switch } from './Switch';
 export { default as Tag } from './Tag';
 export { default as Text } from './Text';
-export { default as Toast } from './Toast';
+// export { default as Toast } from './Toast';
 export { default as TouchableRipple } from './TouchableRipple';
+export { default as Transitions } from './Transitions';
 
 export { defaultTheme, darkTheme } from './styles';
 
 /** types */
-export type { PopupProps } from './Popup';
+// export type { PopupProps } from './Popup';

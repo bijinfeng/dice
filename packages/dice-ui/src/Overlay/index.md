@@ -13,20 +13,19 @@ group:
 ## 基础用法
 
 ```jsx
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { Button, Overlay } from 'dice-ui';
 import { View } from 'react-native';
 
 const Example = memo(() => {
-  const onPress = () => {
-    Overlay.show(<Overlay.View />);
-  };
+  const [visible, setVisible] = useState(false);
 
   return (
     <View>
-      <Button type="primary" onPress={onPress}>
+      <Button type="primary" onPress={() => setVisible(true)}>
         显示遮罩层
       </Button>
+      <Overlay visible={visible} onBackdropPress={() => setVisible(false)} />
     </View>
   );
 });
@@ -39,24 +38,21 @@ export default Example;
 通过给 `Overlay.View` 添加 children 可以在遮罩层上嵌入任意内容。
 
 ```jsx
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { Button, Overlay } from 'dice-ui';
 import { View } from 'react-native';
 
 const Example = memo(() => {
-  const onPress = () => {
-    Overlay.show(
-      <Overlay.View style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <View style={{ width: 120, height: 120, backgroundColor: '#fff', borderRadius: 4 }} />
-      </Overlay.View>
-    );
-  };
+  const [visible, setVisible] = useState(false);
 
   return (
     <View>
-      <Button type="primary" onPress={onPress}>
+      <Button type="primary" onPress={() => setVisible(true)}>
         嵌入内容
       </Button>
+      <Overlay visible={visible} onBackdropPress={() => setVisible(false)}>
+        <View style={{ width: 120, height: 120, backgroundColor: '#fff', borderRadius: 4 }} />
+      </Overlay>
     </View>
   );
 });

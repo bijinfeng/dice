@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
+import React, { memo } from 'react';
 import { AccessibilityInfo, Appearance, ColorSchemeName } from 'react-native';
 import { ThemeProvider } from '../Theme';
-import PortalHost from '../Portal/PortalHost';
-import TopView from '../Overlay/TopView';
+import { PortalProvider } from '../Portal';
 import { defaultTheme, darkTheme } from '../styles';
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
   theme?: DiceUI.Theme;
 }
 
-const ConfigProvider: FC<Props> = ({ children, theme: providedTheme }) => {
+const ConfigProvider = ({ children, theme: providedTheme }: Props): JSX.Element => {
   const scheme = (!providedTheme && Appearance?.getColorScheme()) || 'light';
 
   const [reduceMotionEnabled, setReduceMotionEnabled] = React.useState<boolean>(false);
@@ -58,12 +57,12 @@ const ConfigProvider: FC<Props> = ({ children, theme: providedTheme }) => {
   }, [providedTheme]);
 
   return (
-    <PortalHost>
-      <TopView>
-        <ThemeProvider theme={getTheme()}>{children}</ThemeProvider>
-      </TopView>
-    </PortalHost>
+    <ThemeProvider theme={getTheme()}>
+      <PortalProvider>{children}</PortalProvider>
+    </ThemeProvider>
   );
 };
 
-export default ConfigProvider;
+ConfigProvider.displayName = 'ConfigProvider';
+
+export default memo(ConfigProvider);
