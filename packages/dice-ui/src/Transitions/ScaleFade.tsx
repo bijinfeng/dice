@@ -1,13 +1,13 @@
 import React, { memo, forwardRef } from 'react';
 
-import type { IScaleFadeProps } from './types';
-import PresenceTransition from './PresenceTransition';
+import type { ScaleFadeProps } from './types';
+import Transition from './Transition';
 
-const ScaleFade = forwardRef<any, IScaleFadeProps>((props, ref) => {
+const ScaleFade = forwardRef<any, ScaleFadeProps>((props, ref) => {
   const { children, initialScale, duration, in: animationState, ...rest } = props;
 
   return (
-    <PresenceTransition
+    <Transition
       initial={{ opacity: 0, scale: initialScale }}
       animate={{ opacity: 1, scale: 1, transition: { duration } }}
       exit={{ opacity: 0, scale: initialScale, transition: { duration } }}
@@ -16,7 +16,7 @@ const ScaleFade = forwardRef<any, IScaleFadeProps>((props, ref) => {
       {...rest}
     >
       {children}
-    </PresenceTransition>
+    </Transition>
   );
 });
 

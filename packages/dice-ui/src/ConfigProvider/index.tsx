@@ -1,8 +1,12 @@
-import React, { memo } from 'react';
+import React, { memo, MutableRefObject } from 'react';
 import { AccessibilityInfo, Appearance, ColorSchemeName } from 'react-native';
+
 import { ThemeProvider } from '../Theme';
-import { PortalProvider } from '../Portal';
+import { PortalProvider, usePortal } from '../Portal';
 import { defaultTheme, darkTheme } from '../styles';
+
+export type PortalService = ReturnType<typeof usePortal>;
+export const PortalRef = React.createRef<PortalService>() as MutableRefObject<PortalService>;
 
 interface Props {
   children: React.ReactNode;
@@ -58,9 +62,18 @@ const ConfigProvider = ({ children, theme: providedTheme }: Props): JSX.Element 
 
   return (
     <ThemeProvider theme={getTheme()}>
-      <PortalProvider>{children}</PortalProvider>
+      <PortalProvider>
+        <InitializePortalRef />
+        {children}
+      </PortalProvider>
     </ThemeProvider>
   );
+};
+
+const InitializePortalRef = () => {
+  const portal = usePortal();
+  PortalRef.current = portal;
+  return null;
 };
 
 ConfigProvider.displayName = 'ConfigProvider';

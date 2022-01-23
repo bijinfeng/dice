@@ -1,40 +1,10 @@
 import React, { FC, memo } from 'react';
-import { View, Text, ViewProps, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+
 import { useThemeFactory } from '../Theme';
 import Circular from './Circular';
 import Spinner from './Spinner';
-
-export interface LoadingProps extends ViewProps {
-  /**
-   * 颜色
-   * @default #c8c9cc
-   */
-  color?: string;
-  /**
-   * 加载图标大小
-   * @default 30
-   */
-  size?: number;
-  /**
-   * 类型
-   * @default circular
-   */
-  type?: 'spinner' | 'circular';
-  /**
-   * 文字大小
-   */
-  textSize?: number;
-  /**
-   * 文字颜色
-   * @default #c8c9cc
-   */
-  textColor?: string;
-  /**
-   * 是否垂直排列图标和文字内容
-   * @default false
-   */
-  vertical?: boolean;
-}
+import type { LoadingProps } from './type';
 
 const Loading: FC<LoadingProps> = memo(props => {
   const {

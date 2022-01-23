@@ -7,7 +7,7 @@ import Loading from '../pages/loading';
 import Button from '../pages/button';
 import Overlay from '../pages/overlay';
 // import Popup from '../pages/popup';
-// import Toast from '../pages/toast';
+import Toast from '../pages/toast';
 import Checkbox from '../pages/checkbox';
 import Image from '../pages/image';
 import Radio from '../pages/radio';
@@ -22,6 +22,7 @@ import Badge from '../pages/badge';
 import Circle from '../pages/circle';
 import Slider from '../pages/slider';
 import Swiper from '../pages/swiper';
+import Transitions from '../pages/transitions';
 
 export type RouteItem = {
   name: string;
@@ -30,6 +31,11 @@ export type RouteItem = {
 };
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Transitions 过渡动画',
+    href: '/transitions',
+    component: Transitions,
+  },
   {
     name: 'Cell 单元格',
     href: '/cell',
@@ -65,11 +71,11 @@ export const routes: RouteItem[] = [
   //   href: '/popup',
   //   component: Popup,
   // },
-  // {
-  //   name: 'Toast 轻提示',
-  //   href: '/toast',
-  //   component: Toast,
-  // },
+  {
+    name: 'Toast 轻提示',
+    href: '/toast',
+    component: Toast,
+  },
   {
     name: 'Checkbox 复选框',
     href: '/checkbox',

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Animated } from 'react-native';
-import type { ISupportedTransitions, ITransitionConfig, ITransitionProps } from './types';
+import type { SupportedTransitions, TransitionConfig, TransitionProps } from './types';
 
 const transformStylesMap = {
   translateY: true,
@@ -22,7 +22,7 @@ const defaultStyles = {
 };
 
 const getAnimatedStyles =
-  (animateValue: Animated.Value) => (initial: ISupportedTransitions, to: ISupportedTransitions) => {
+  (animateValue: Animated.Value) => (initial: SupportedTransitions, to: SupportedTransitions) => {
     const styles: any = {
       transform: [],
     };
@@ -49,14 +49,14 @@ const getAnimatedStyles =
     return styles;
   };
 
-const defaultTransitionConfig: ITransitionConfig = {
+const defaultTransitionConfig: TransitionConfig = {
   type: 'timing',
   useNativeDriver: true,
   duration: 250,
   delay: 0,
 };
 
-const Transition = forwardRef<any, ITransitionProps>((props, ref) => {
+const Transition = forwardRef<any, TransitionProps>((props, ref) => {
   const {
     children,
     onTransitionComplete,
@@ -140,8 +140,8 @@ const Transition = forwardRef<any, ITransitionProps>((props, ref) => {
   const styles = React.useMemo(() => {
     return [
       getAnimatedStyles(animateValue)(
-        initialState as ISupportedTransitions,
-        animateState as ISupportedTransitions
+        initialState as SupportedTransitions,
+        animateState as SupportedTransitions
       ),
       style,
     ];

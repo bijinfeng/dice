@@ -1,11 +1,17 @@
 import Fade from './Fade';
 import ScaleFade from './ScaleFade';
-import PresenceTransition from './PresenceTransition';
+import Transition from './Transition';
+import SlideFade from './SlideFade';
+import Stagger from './Stagger';
+import Slide from './Slide';
 
 const Transitions = {
   Fade,
   ScaleFade,
-  PresenceTransition,
+  Transition,
+  SlideFade,
+  Stagger,
+  Slide,
 };
 
 export default Transitions;

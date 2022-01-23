@@ -1,5 +1,9 @@
 /* eslint-disable camelcase */
+import { Dimensions } from 'react-native';
 import type { TextStyle } from 'react-native';
+
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 
 export const dark = false;
 
@@ -289,3 +293,21 @@ export const swiper_indicator_inactive_background_color = border_color;
 
 // Overlay
 export const overlay_background_color = 'rgba(0, 0, 0, 0.7)';
+
+// Toast
+export const toast_max_width = 0.7 * windowWidth;
+export const toast_font_size = font_size_md;
+export const toast_text_color = white;
+export const toast_loading_icon_color = white;
+export const toast_line_height = line_height_md;
+export const toast_border_radius = border_radius_lg;
+export const toast_background_color = 'rgba(0, 0, 0, 0.7)';
+export const toast_icon_size = 36;
+export const toast_text_min_width = 96;
+export const toast_text_padding_vertical = padding_xs;
+export const toast_text_padding_horizontal = padding_sm;
+export const toast_default_padding = padding_md;
+export const toast_default_width = 88;
+export const toast_default_min_height = 88;
+export const toast_position_top_distance = 0.2 * windowHeight;
+export const toast_position_bottom_distance = 0.2 * windowHeight;

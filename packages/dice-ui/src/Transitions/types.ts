@@ -1,21 +1,20 @@
-import type { ReactNode } from 'react';
 import type { ViewProps } from 'react-native';
 
 export type Placement = 'top' | 'bottom' | 'right' | 'left';
 
-export type IFadeProps = ViewProps & {
+export type FadeProps = TransitionProps & {
   in?: boolean;
   entryDuration?: number;
   exitDuration?: number;
   delay?: number;
 };
-export type IScaleFadeProps = ViewProps & {
+export type ScaleFadeProps = TransitionProps & {
   in?: boolean;
   duration?: number;
   delay?: number;
   initialScale?: number;
 };
-export type ISlideProps = ViewProps & {
+export type SlideProps = TransitionProps & {
   in?: boolean;
   duration?: number;
   delay?: number;
@@ -23,7 +22,15 @@ export type ISlideProps = ViewProps & {
   overlay?: boolean;
 };
 
-export interface ISupportedTransitions {
+export type SlideFadeProps = TransitionProps & {
+  in?: boolean;
+  delay?: number;
+  duration?: number;
+  offsetX?: number;
+  offsetY?: number;
+};
+
+export interface SupportedTransitions {
   opacity?: number;
   translateY?: number;
   translateX?: number;
@@ -33,7 +40,36 @@ export interface ISupportedTransitions {
   rotate?: string;
 }
 
-export interface ITransitionConfig {
+export interface StaggerConfig {
+  offset: number;
+  reverse?: boolean;
+}
+
+export interface StaggerStyleProps extends SupportedTransitions {
+  transition?: TransitionConfig & { stagger?: StaggerConfig };
+}
+
+export interface StaggerProps {
+  children: any;
+  /**
+   * Initial styles before the transition starts
+   */
+  initial?: SupportedTransitions;
+  /**
+   * The styles to which each child should animate to while entering.
+   */
+  animate?: StaggerStyleProps;
+  /**
+   * The styles to which each child should animate to while exiting.
+   */
+  exit?: StaggerStyleProps;
+  /**
+   * Determines whether to start the animation
+   */
+  visible?: boolean;
+}
+
+export interface TransitionConfig {
   type?: 'timing' | 'spring';
   easing?: (value: number) => number;
   overshootClamping?: boolean;
@@ -52,11 +88,11 @@ export interface ITransitionConfig {
   useNativeDriver?: boolean;
 }
 
-export interface ITransitionStyleProps extends ISupportedTransitions {
-  transition?: ITransitionConfig;
+export interface TransitionStyleProps extends SupportedTransitions {
+  transition?: TransitionConfig;
 }
 
-export interface ITransitionProps extends ViewProps {
+export interface TransitionProps extends ViewProps {
   /**
    * Callback invoked when transition is completed
    * 动画结束的回调
@@ -66,17 +102,17 @@ export interface ITransitionProps extends ViewProps {
    * Styles before the transition starts
    * 动画开始之前的样式
    */
-  initial?: ISupportedTransitions;
+  initial?: SupportedTransitions;
   /**
    * Entry animation styles
    * 进入的动画样式
    */
-  animate?: ITransitionStyleProps;
+  animate?: TransitionStyleProps;
   /**
    * Exit animation styles
    * 离开时的动画样式
    */
-  exit?: ITransitionStyleProps;
+  exit?: TransitionStyleProps;
   /**
    * Determines whether to start the animation
    */
@@ -85,32 +121,4 @@ export interface ITransitionProps extends ViewProps {
   animationExited?: boolean;
   children?: any;
   as?: any;
-}
-
-export interface IPresenceTransitionProps extends ViewProps {
-  /**
-   * Callback invoked when transition is completed
-   */
-  onTransitionComplete?: (s: 'entered' | 'exited') => any;
-  /**
-   * Styles before the transition starts
-   */
-  initial?: ISupportedTransitions;
-  /**
-   * Entry animation styles
-   */
-  animate?: ITransitionStyleProps;
-  /**
-   * Exit animation styles
-   */
-  exit?: ITransitionStyleProps;
-  /**
-   * Determines whether to start the animation
-   */
-  visible?: boolean;
-  children?: ReactNode;
-  /**
-   * Accepts a Component to be rendered as Wrapper. Defaults to `View`
-   */
-  as?: ReactNode;
 }

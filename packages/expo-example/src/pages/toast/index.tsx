@@ -8,7 +8,7 @@ const ToastDemo: FC = () => {
     <ScrollView>
       <DemoBlock title="基础用法">
         <Cell.Group inset>
-          <Cell title="文字提示" isLink onPress={() => Toast.message('提示内容')} />
+          <Cell title="文字提示" isLink onPress={() => Toast('提示内容')} />
           <Cell title="加载提示" isLink onPress={() => Toast.loading('加载中...')} />
           <Cell title="成功提示" isLink onPress={() => Toast.success('成功文案')} />
           <Cell title="失败提示" isLink onPress={() => Toast.fail('失败文案')} />
@@ -20,8 +20,8 @@ const ToastDemo: FC = () => {
             title="自定义图标"
             isLink
             onPress={() =>
-              Toast.show({
-                text: '自定义图标',
+              Toast({
+                message: '自定义图标',
                 icon: 'like-o',
               })
             }
@@ -31,7 +31,7 @@ const ToastDemo: FC = () => {
             isLink
             onPress={() =>
               Toast.loading({
-                text: '加载中...',
+                message: '加载中...',
                 loadingType: 'spinner',
               })
             }
@@ -44,8 +44,8 @@ const ToastDemo: FC = () => {
             title="顶部展示"
             isLink
             onPress={() =>
-              Toast.message({
-                text: '提示内容',
+              Toast({
+                message: '提示内容',
                 position: 'top',
               })
             }
@@ -54,8 +54,8 @@ const ToastDemo: FC = () => {
             title="底部展示"
             isLink
             onPress={() =>
-              Toast.message({
-                text: '提示内容',
+              Toast({
+                message: '提示内容',
                 position: 'bottom',
               })
             }

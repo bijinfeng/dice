@@ -30,7 +30,7 @@ export { default as Swiper } from './Swiper';
 export { default as Switch } from './Switch';
 export { default as Tag } from './Tag';
 export { default as Text } from './Text';
-// export { default as Toast } from './Toast';
+export { default as Toast } from './Toast';
 export { default as TouchableRipple } from './TouchableRipple';
 export { default as Transitions } from './Transitions';
 
@@ -38,3 +38,6 @@ export { defaultTheme, darkTheme } from './styles';
 
 /** types */
 // export type { PopupProps } from './Popup';
+
+/** hooks */
+export { useSetState } from './hooks';

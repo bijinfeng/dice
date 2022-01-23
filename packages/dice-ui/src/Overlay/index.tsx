@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Pressable, View, StyleSheet, Platform } from 'react-native';
+import { Modal, Pressable, View, StyleSheet } from 'react-native';
 
 import { useTheme } from '../Theme';
 import type { OverlayProps } from './type';
@@ -34,13 +34,7 @@ const Overlay = ({
       />
       {children && (
         <View style={styles.container} pointerEvents="box-none">
-          <View
-            style={StyleSheet.flatten([
-              styles.overlay,
-              fullScreen && styles.fullscreen,
-              overlayStyle,
-            ])}
-          >
+          <View style={StyleSheet.flatten([fullScreen && styles.fullscreen, overlayStyle])}>
             {children}
           </View>
         </View>
@@ -67,21 +61,6 @@ const styles = StyleSheet.create({
   fullscreen: {
     height: '100%',
     width: '100%',
-  },
-  overlay: {
-    backgroundColor: 'white',
-    borderRadius: 3,
-    padding: 10,
-    ...Platform.select({
-      android: {
-        elevation: 2,
-      },
-      default: {
-        shadowColor: 'rgba(0, 0, 0, .3)',
-        shadowOffset: { width: 0, height: 1 },
-        shadowRadius: 4,
-      },
-    }),
   },
 });
 

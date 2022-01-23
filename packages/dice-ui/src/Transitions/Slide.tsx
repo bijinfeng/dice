@@ -1,7 +1,7 @@
 import React, { forwardRef, memo } from 'react';
 import { View } from 'react-native';
-import type { ISlideProps, Placement } from './types';
-import PresenceTransition from './PresenceTransition';
+import type { SlideProps, Placement } from './types';
+import Transition from './Transition';
 import Overlay from '../Overlay';
 
 const holderStyle: Record<Placement, any> = {
@@ -27,7 +27,7 @@ const holderStyle: Record<Placement, any> = {
   },
 };
 
-const Slide = forwardRef<any, ISlideProps>((props, ref) => {
+const Slide = forwardRef<any, SlideProps>((props, ref) => {
   const { in: visible, duration, delay, placement = 'bottom', overlay, children, ...rest } = props;
 
   const [containerOpacity, setContainerOpacity] = React.useState(0);
@@ -85,7 +85,7 @@ const Slide = forwardRef<any, ISlideProps>((props, ref) => {
   };
 
   const slideComponent = (
-    <PresenceTransition
+    <Transition
       visible={visible}
       {...animationStyle[placement]}
       style={[{ position: 'absolute' }, holderStyle[placement], { height: '100%' }]}
@@ -99,12 +99,12 @@ const Slide = forwardRef<any, ISlideProps>((props, ref) => {
       >
         {children}
       </View>
-    </PresenceTransition>
+    </Transition>
   );
 
   if (overlay) {
     return (
-      <Overlay visible>
+      <Overlay visible={visible}>
         <View pointerEvents="box-none">{slideComponent}</View>
       </Overlay>
     );
