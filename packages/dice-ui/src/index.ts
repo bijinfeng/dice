@@ -5,6 +5,7 @@ export { default as Icon } from './Icon';
 export * from './Icon';
 
 export * from './Portal';
+export * from './PanningViews';
 
 export { default as Badge } from './Badge';
 export { default as Button } from './Button';

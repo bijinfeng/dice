@@ -23,6 +23,7 @@ import Circle from '../pages/circle';
 import Slider from '../pages/slider';
 import Swiper from '../pages/swiper';
 import Transitions from '../pages/transitions';
+import PanningViews from '../pages/panningViews';
 
 export type RouteItem = {
   name: string;
@@ -145,5 +146,10 @@ export const routes: RouteItem[] = [
     name: 'Swiper 轮播',
     href: '/swiper',
     component: Swiper,
+  },
+  {
+    name: 'PanningViews',
+    href: '/panning-views',
+    component: PanningViews,
   },
 ];

@@ -311,3 +311,14 @@ export const toast_default_width = 88;
 export const toast_default_min_height = 88;
 export const toast_position_top_distance = 0.2 * windowHeight;
 export const toast_position_bottom_distance = 0.2 * windowHeight;
+
+// Popup
+export const popup_background_color = white;
+export const popup_round_border_radius = 16;
+export const popup_close_icon_size = 22;
+export const popup_close_icon_color = gray_5;
+export const popup_close_icon_active_color = gray_6;
+export const popup_close_icon_margin = 16;
+export const popup_title_font_size = font_size_lg;
+export const popup_descrition_font_size = font_size_md;
+export const popup_descrition_color = gray_6;
