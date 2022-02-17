@@ -1,6 +1,5 @@
 import React, { FC, memo, useMemo } from 'react';
-import { View, ViewStyle, StyleSheet, StyleProp, TouchableOpacity } from 'react-native';
-import Text from '../Text';
+import { View, ViewStyle, StyleSheet, StyleProp, TouchableOpacity, Text } from 'react-native';
 import Icon, { IconNames, isIcon } from '../Icon';
 import { useTheme } from '../Theme';
 import Loading from '../Loading';

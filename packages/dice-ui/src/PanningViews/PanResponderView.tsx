@@ -1,14 +1,15 @@
 import React, { memo, useRef, useEffect, useContext } from 'react';
 import { View, Animated } from 'react-native';
-import type { ViewProps } from 'react-native';
+import type { ViewProps, StyleProp, ViewStyle } from 'react-native';
 import PanningContext from './PanningContext';
 import type { PanLocationProps, PanAmountsProps } from './PanningContext';
 import { useUpdateEffect } from '../hooks';
 
-export interface PanResponderViewProps extends ViewProps {
+export interface PanResponderViewProps extends Omit<ViewProps, 'style'> {
   onPanLocationChanged?: (location: PanLocationProps) => void;
   ignorePanning?: boolean;
   isAnimated?: boolean;
+  style?: StyleProp<ViewStyle | Animated.AnimatedProps<ViewStyle>>;
 }
 
 const PanResponderView = (props: PanResponderViewProps): JSX.Element => {
@@ -69,6 +70,8 @@ const PanResponderView = (props: PanResponderViewProps): JSX.Element => {
   const Container = isAnimated ? Animated.View : View;
 
   return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     <Container ref={containerRef} pointerEvents="box-none" {...others}>
       {children}
     </Container>

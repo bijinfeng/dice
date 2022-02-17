@@ -11,11 +11,8 @@ export type OverlayProps = ModalProps & {
    */
   overlayStyle?: StyleProp<ViewStyle>;
   /**
-   * 点击背景容器时触发的事件（只在 fullScreen 为 false 时生效）
+   * 点击背景容器时触发的事件
    */
   onBackdropPress?(): void;
-  /**
-   * 为 true 时，Modal 将铺满整个屏幕
-   */
-  fullScreen?: boolean;
+  useSafeArea?: boolean;
 } & Omit<InlinePressableProps, 'onPress'>;

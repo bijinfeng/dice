@@ -322,3 +322,16 @@ export const popup_close_icon_margin = 16;
 export const popup_title_font_size = font_size_lg;
 export const popup_descrition_font_size = font_size_md;
 export const popup_descrition_color = gray_6;
+
+// Typography
+export const typography_color = text_color;
+export const typography_link_color = primary;
+export const typography_font_size = font_size_md;
+export const typography_line_height = line_height_md;
+export const typography_primary_color = primary;
+export const typography_danger_color = danger;
+export const typography_success_color = success;
+export const typography_warning_color = warning;
+export const typography_secondary_color = gray_6;
+export const typography_disabled_color = gray_5;
+export const typography_light_color = white;

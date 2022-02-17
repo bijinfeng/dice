@@ -1,22 +1,25 @@
 import React from 'react';
-import { Modal, Pressable, View, StyleSheet } from 'react-native';
+import { Modal, Pressable, StyleSheet } from 'react-native';
 
+import View from '../View';
 import { useTheme } from '../Theme';
 import type { OverlayProps } from './type';
 
-const Overlay = ({
-  children,
-  backdropStyle,
-  overlayStyle,
-  onBackdropPress = () => null,
-  fullScreen = false,
-  visible,
-  pressableProps,
-  onPressOut,
-  onPressIn,
-  onLongPress,
-  ...rest
-}: OverlayProps) => {
+const Overlay = (props: OverlayProps) => {
+  const {
+    children,
+    backdropStyle,
+    overlayStyle,
+    useSafeArea,
+    onBackdropPress = () => null,
+    visible,
+    pressableProps,
+    onPressOut,
+    onPressIn,
+    onLongPress,
+    ...rest
+  } = props;
+
   const theme = useTheme();
 
   return (
@@ -33,10 +36,12 @@ const Overlay = ({
         {...{ onPressOut, onPressIn, onLongPress }}
       />
       {children && (
-        <View style={styles.container} pointerEvents="box-none">
-          <View style={StyleSheet.flatten([fullScreen && styles.fullscreen, overlayStyle])}>
-            {children}
-          </View>
+        <View
+          useSafeArea={useSafeArea}
+          style={[styles.container, overlayStyle]}
+          pointerEvents="box-none"
+        >
+          {children}
         </View>
       )}
     </Modal>
@@ -45,22 +50,14 @@ const Overlay = ({
 
 const styles = StyleSheet.create({
   backdrop: {
+    ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
-    height: '100%',
     justifyContent: 'center',
-    left: 0,
-    position: 'absolute',
-    top: 0,
-    width: '100%',
   },
   container: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-  },
-  fullscreen: {
-    height: '100%',
-    width: '100%',
   },
 });
 
