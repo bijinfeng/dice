@@ -12,31 +12,31 @@ group:
 
 ## 基础用法
 
-执行 `Popup.open` 即可展示弹出层。
+通过 `visible` 控制弹出层是否展示。
 
 ```jsx
+import React, { useState } from 'react';
 import { Popup } from 'dice-ui';
 
-Popup.open(
-  <View>
-    <Text>demo</Text>
-  </View>,
-);
+export default () => {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <Popup visible={visible}>
+      <Text>demo</Text>
+    </Popup>
+  );
+}
 ```
 
 ## 弹出位置
 
-通过 `side` 属性设置弹出位置, 默认为 `bottom`, 可以设置为 `top`、`bottom`、`left`、`right`。
+通过 `position` 属性设置弹出位置，默认居中弹出，可以设置为 `top`、`bottom`、`left`、`right`。
 
 ```jsx
-Popup.open(
-  <View>
-    <Text>demo</Text>
-  </View>,
-  {
-    side: 'top',
-  }
-);
+<Popup visible={visible} position="top">
+  <Text>demo</Text>
+</Popup>
 ```
 
 ## 关闭图标
@@ -44,16 +44,15 @@ Popup.open(
 设置 `closeable` 属性后，会在弹出层的右上角显示关闭图标，并且可以通过 `closeIcon` 属性自定义图标，使用 `closeIconPosition` 属性可以自定义图标位置。
 
 ```jsx
-Popup.open(
-  <View>
-    <Text>demo</Text>
-  </View>,
-  {
-    closeable: true,
-    closeIcon: 'close',
-    closeIconPosition: 'top-left'
-  }
-);
+<Popup
+  visible={visible}
+  position="top"
+  closeable
+  closeIcon="close"
+  closeIconPosition="top-left"
+>
+  <Text>demo</Text>
+</Popup>
 ```
 
 ## 圆角弹窗
@@ -61,12 +60,7 @@ Popup.open(
 设置 `round` 属性后，弹窗会根据弹出位置添加不同的圆角样式。
 
 ```jsx
-Popup.open(
-  <View>
-    <Text>demo</Text>
-  </View>,
-  {
-    round: true,
-  }
-);
+<Popup visible={visible} round>
+  <Text>demo</Text>
+</Popup>
 ```
