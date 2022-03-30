@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import type { ViewStyle } from 'react-native';
+import type { ViewStyle, TextStyle } from 'react-native';
 import constants from '../utils/constants';
 import type { PopupProps, IconPosition } from './type';
 
@@ -7,6 +7,7 @@ interface Styles {
   wrapper: ViewStyle;
   icon: ViewStyle;
   round: ViewStyle;
+  title: TextStyle;
 }
 
 type Params = Pick<PopupProps, 'position' | 'closeIconPosition'>;
@@ -57,7 +58,16 @@ export const createStyle = (theme: DiceUI.Theme, params: Params): Styles => {
       zIndex: 1,
       ...iconPosition,
     },
-    round: roundRadius,
+    round: {
+      ...roundRadius,
+      overflow: 'hidden',
+    },
+    title: {
+      fontSize: theme.popup_header_font_size,
+      fontWeight: theme.font_weight_bold,
+      lineHeight: theme.popup_header_height,
+      textAlign: 'center',
+    },
     wrapper: {
       backgroundColor: theme.popup_background_color,
       position: 'relative',

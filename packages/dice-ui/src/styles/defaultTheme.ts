@@ -318,10 +318,12 @@ export const popup_round_border_radius = 16;
 export const popup_close_icon_size = 22;
 export const popup_close_icon_color = gray_5;
 export const popup_close_icon_active_color = gray_6;
-export const popup_close_icon_margin = 16;
+export const popup_close_icon_margin = 13;
 export const popup_title_font_size = font_size_lg;
 export const popup_descrition_font_size = font_size_md;
 export const popup_descrition_color = gray_6;
+export const popup_header_font_size = font_size_lg;
+export const popup_header_height = 48;
 
 // Typography
 export const typography_color = text_color;
@@ -335,3 +337,25 @@ export const typography_warning_color = warning;
 export const typography_secondary_color = gray_6;
 export const typography_disabled_color = gray_5;
 export const typography_light_color = white;
+
+// ActionSheet
+export const action_sheet_max_height = 0.8 * windowHeight;
+export const action_sheet_description_color = text_color_2;
+export const action_sheet_description_font_size = font_size_md;
+export const action_sheet_description_line_height = line_height_md;
+export const action_sheet_item_background = background_color_light;
+export const action_sheet_item_font_size = font_size_lg;
+export const action_sheet_item_line_height = line_height_lg;
+export const action_sheet_item_text_color = text_color;
+export const action_sheet_item_disabled_text_color = text_color_3;
+export const action_sheet_subname_color = text_color_2;
+export const action_sheet_subname_font_size = font_size_sm;
+export const action_sheet_subname_line_height = line_height_sm;
+export const action_sheet_close_icon_size = 22;
+export const action_sheet_close_icon_color = gray_5;
+export const action_sheet_close_icon_padding_vertical = 0;
+export const action_sheet_close_icon_padding_horizontal = padding_md;
+export const action_sheet_cancel_text_color = gray_7;
+export const action_sheet_cancel_padding_top = padding_xs;
+export const action_sheet_cancel_padding_color = background_color;
+export const action_sheet_loading_icon_size = 22;

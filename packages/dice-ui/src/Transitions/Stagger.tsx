@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash.clonedeep';
+import cloneDeep from 'lodash-es/cloneDeep';
 import React from 'react';
 
 import Transition from './Transition';

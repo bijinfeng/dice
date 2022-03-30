@@ -24,6 +24,7 @@ import Slider from '../pages/slider';
 import Swiper from '../pages/swiper';
 import Transitions from '../pages/transitions';
 import PanningViews from '../pages/panningViews';
+import ActionSheet from '../pages/actionSheet';
 
 export type RouteItem = {
   name: string;
@@ -151,5 +152,10 @@ export const routes: RouteItem[] = [
     name: 'PanningViews',
     href: '/panning-views',
     component: PanningViews,
+  },
+  {
+    name: 'ActionSheet 动作面板',
+    href: '/action-sheet',
+    component: ActionSheet,
   },
 ];

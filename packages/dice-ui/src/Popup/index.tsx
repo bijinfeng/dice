@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Pressable } from 'react-native';
+import { View, Pressable, Text } from 'react-native';
 import Dialog from './Dialog';
 import Icon from '../Icon';
 import { useThemeFactory } from '../Theme';
@@ -16,6 +16,7 @@ const Popup = (props: PopupProps): JSX.Element => {
     position,
     onClose,
     visible,
+    title,
     ...rest
   } = props;
 
@@ -24,6 +25,7 @@ const Popup = (props: PopupProps): JSX.Element => {
   return (
     <Dialog {...rest} position={position} visible={visible} onClose={onClose}>
       <View style={[styles.wrapper, round && styles.round]}>
+        {!!title && <Text style={styles.title}>{title}</Text>}
         {closeable && (
           <Pressable style={styles.icon} onPress={onClose}>
             <Icon

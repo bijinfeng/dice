@@ -49,6 +49,8 @@ export interface DialogProps {
 }
 
 export interface PopupProps extends DialogProps {
+  // 顶部标题
+  title?: string | React.ReactElement;
   /**
    * 是否显示圆角
    */

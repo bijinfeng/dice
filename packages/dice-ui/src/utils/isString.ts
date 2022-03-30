@@ -15,7 +15,7 @@ function getTag(value: any) {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const isString = (value: any): boolean => {
+const isString = (value: any): value is string => {
   const type = typeof value;
   return (
     type === 'string' ||
