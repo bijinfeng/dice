@@ -10,7 +10,7 @@ export type TuyaThemeConfig = IThemeContext['config']['theme'] & {
 // 兜底默认值
 const defaults = {};
 
-export const useThemeConfig = () => {
+export const useThemeConfig = (): TuyaThemeConfig => {
   const { config } = useContext(context);
   const ctxConfig = config?.theme ?? {};
 

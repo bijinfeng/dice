@@ -15,10 +15,6 @@ export default defineConfig({
   favicon: 'https://img01.yzcdn.cn/vant/logo.png',
   logo: 'https://img01.yzcdn.cn/vant/logo.png',
   themeConfig: {
-    xx: {
-      logo: 'https://b.yzcdn.cn/vant/logo/github.svg',
-      path: 'https://github.com/bijinfeng/dice',
-    },
     demoUrl: isDev ? 'http://localhost:19006' : 'https://bijinfeng.github.io/dice/example',
   },
   navs: [

@@ -1,16 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { FC, useContext } from 'react';
 import { context, Link, NavLink } from 'dumi/theme';
-
 import type { Location } from '../../interface';
 import SearchInput from '../SearchInput';
+import { useColor } from '../../hooks';
 import './index.less';
 
 export interface HeaderProps {
   location: Location;
 }
 
+const sunIcon = 'https://b.yzcdn.cn/vant/light-theme.svg';
+const moonIcon = 'https://b.yzcdn.cn/vant/dark-theme.svg';
+
 const Header: FC<HeaderProps> = ({ location }) => {
+  const [color, setColor] = useColor();
   const { base, config, nav: navItems, locale } = useContext(context);
   const firstDiffLocale = config?.locales.find(({ name }) => name !== locale);
 
@@ -55,6 +59,17 @@ const Header: FC<HeaderProps> = ({ location }) => {
                 </span>
               </li>
             ))}
+            {/* dark switch */}
+            <li className="van-doc-header__top-nav-item">
+              <a
+                className="van-doc-header__link"
+                target="_blank"
+                onClick={() => setColor(color === 'dark' ? 'light' : 'dark')}
+                aria-hidden="true"
+              >
+                <img src={color === 'dark' ? sunIcon : moonIcon} alt={color} />
+              </a>
+            </li>
             {/* versions */}
             {/* local select */}
             {firstDiffLocale && (

@@ -1,15 +1,13 @@
-@import '../../style/var';
-
 .van-doc-header {
   width: 100%;
-  background-color: #001938;
+  background-color: var(--van-doc-header-background);
   user-select: none;
 
   &__top {
     display: flex;
     align-items: center;
-    height: @van-doc-header-top-height;
-    padding: 0 @van-doc-padding;
+    height: var(--van-doc-header-top-height);
+    padding: 0 var(--van-doc-padding);
 
     &-nav {
       flex: 1;
@@ -85,7 +83,7 @@
         transition: 0.2s;
 
         &:hover {
-          color: @van-doc-blue;
+          color: var(--van-doc-link-color);
           background-color: #f7f8fa;
         }
       }
@@ -113,6 +111,8 @@
   }
 
   &__link {
+    cursor: pointer;
+
     span {
       color: #fff;
       font-size: 16px;
