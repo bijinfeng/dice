@@ -8,18 +8,18 @@ import Container from './components/Container';
 import Simulator from './components/Simulator';
 import { Renderer } from './pages';
 
-import { useMeta, useThemeConfig, useHandlePostPath } from './hooks';
+import { useMeta, useThemeConfig, useHandleIframePost } from './hooks';
 import './style/layout.less';
 
 const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
-  const { meta, locale } = useContext(context);
+  const { meta } = useContext(context);
   const { title, desc, demo } = useMeta();
   const { demoUrl } = useThemeConfig();
 
   const showSideMenu = meta.sidemenu !== false;
   const hasSimulator = !!demoUrl && !!demo;
 
-  useHandlePostPath();
+  useHandleIframePost();
 
   return (
     <div className="vant-doc">
@@ -34,7 +34,7 @@ const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
         </Renderer>
       </Container>
 
-      {hasSimulator && <Simulator src={`${demoUrl}?locale=${locale}`} path={demo} />}
+      {hasSimulator && <Simulator src={demoUrl} path={demo} />}
     </div>
   );
 };

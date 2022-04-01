@@ -1,10 +1,11 @@
 import React, { FC, useEffect } from 'react';
 import * as Linking from 'expo-linking';
-import { ColorSchemeName, Text, Platform } from 'react-native';
+import { ColorSchemeName, Text } from 'react-native';
 import { NavigationContainer, DefaultTheme, DarkTheme, useLinkTo } from '@react-navigation/native';
 import { HeaderBackButton } from '@react-navigation/elements';
 import { createStackNavigator } from '@react-navigation/stack';
 import { routes } from './routes';
+import { listenerMessage } from '../utils';
 
 import Home from '../pages/index';
 
@@ -21,14 +22,14 @@ const StackNavigator = () => {
   const linkTo = useLinkTo();
 
   useEffect(() => {
-    if (Platform.OS === 'web') {
-      window.addEventListener('message', (event: MessageEvent<any>) => {
-        const { method, data } = event?.data ?? {};
-        if (method === 'navigate') {
-          linkTo(data);
-        }
-      });
-    }
+    listenerMessage('navigate', (data: string) => {
+      /**
+       * 判断 iframe 接收到的 href 是否有效
+       */
+      if (data && routes.find(it => it.href === data)) {
+        linkTo(data);
+      }
+    });
   }, []);
 
   return (

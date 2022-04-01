@@ -1,15 +1,14 @@
 import React from 'react';
-import { View, ScrollView, Image, StyleSheet, Text, Platform } from 'react-native';
+import { View, ScrollView, Image, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Link } from '@react-navigation/native';
 import { Icon } from 'dice-ui';
 import { routes, RouteItem } from '../navigation/routes';
+import { postMessage } from '../utils';
 
 const Home = () => {
   const onLinkPress = (item: RouteItem) => {
-    if (Platform.OS === 'web') {
-      window.parent.postMessage({ method: 'navigate', data: item.href }, '*');
-    }
+    postMessage('navigate', item.href);
   };
 
   return (
@@ -77,7 +76,6 @@ const styles = StyleSheet.create({
     marginLeft: 16,
   },
   wrapper: {
-    backgroundColor: '#fff',
     flex: 1,
   },
 });

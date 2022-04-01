@@ -3,16 +3,16 @@ import { useContext } from 'react';
 
 import { IThemeContext } from '@umijs/preset-dumi/lib/theme/context';
 
-export type TuyaThemeConfig = IThemeContext['config']['theme'] & {
+export type VantThemeConfig = IThemeContext['config']['theme'] & {
   demoUrl: string;
 };
 
 // 兜底默认值
 const defaults = {};
 
-export const useThemeConfig = (): TuyaThemeConfig => {
+export const useThemeConfig = (): VantThemeConfig => {
   const { config } = useContext(context);
   const ctxConfig = config?.theme ?? {};
 
-  return Object.assign(ctxConfig, defaults) as TuyaThemeConfig;
+  return Object.assign(ctxConfig, defaults) as VantThemeConfig;
 };

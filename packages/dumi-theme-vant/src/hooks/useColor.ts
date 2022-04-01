@@ -1,5 +1,6 @@
 import { usePrefersColor } from 'dumi/theme';
 import { useMemo } from 'react';
+import { iframeMessageSwap } from '../utils';
 
 // 系统是否使用暗黑模式
 const useDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -13,6 +14,8 @@ export const useColor = (): ['light' | 'dark', SetColorFunc] => {
     if (color === 'auto') {
       return useDark ? 'light' : 'dark';
     }
+
+    iframeMessageSwap.postMessage('theme', color);
 
     return color;
   }, [color]);

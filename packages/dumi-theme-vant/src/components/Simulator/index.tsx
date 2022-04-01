@@ -1,6 +1,6 @@
-import React, { FC, useState, useEffect, useMemo, useRef } from 'react';
+import React, { FC, useState, useEffect, useMemo } from 'react';
 import clsx from 'clsx';
-
+import { iframeMessageSwap } from '../../utils';
 import './index.less';
 
 export interface SimulatorProps {
@@ -11,7 +11,6 @@ export interface SimulatorProps {
 const Simulator: FC<SimulatorProps> = ({ src, path }) => {
   const [windowHeight, setWindowHeight] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
-  const iframeRef = useRef<HTMLIFrameElement>();
 
   const simulatorStyle = useMemo(() => {
     const height = Math.min(640, window.innerHeight - 90);
@@ -31,22 +30,14 @@ const Simulator: FC<SimulatorProps> = ({ src, path }) => {
 
   useEffect(() => {
     // 切换 iframe 内部的路径
-    const win = iframeRef?.current?.contentWindow;
-    if (win) {
-      win.postMessage(
-        {
-          method: 'navigate',
-          data: path,
-        },
-        '*'
-      );
-    }
+    iframeMessageSwap.postMessage('navigate', path);
   }, [path]);
 
   return (
     <div className={clsx('van-doc-simulator', { 'van-doc-simulator-fixed': scrollTop > 60 })}>
       <iframe
-        ref={iframeRef}
+        id="simulator"
+        ref={iframeMessageSwap.setRef}
         title="vant-ui-iframe"
         src={src}
         style={simulatorStyle}

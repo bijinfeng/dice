@@ -2,20 +2,23 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router';
 
 import { scrollDoc } from '../utils/scrollDoc';
+import { iframeMessageSwap } from '../utils';
 
-export const useHandlePostPath = () => {
+/**
+ * 监听 iframe 内部事件
+ */
+export const useHandleIframePost = (): void => {
   const history = useHistory();
 
   useEffect(() => {
-    const handle = (event: MessageEvent<any>) => {
-      const { method, data: href } = event?.data ?? {};
-      if (method === 'navigate' && href) {
-        history.push(href);
+    const listenerEvent = iframeMessageSwap.addListener('navigate', (url?: string) => {
+      if (url) {
+        // 切换路由
+        history.push(url);
         const scrollElement = scrollDoc();
         scrollElement.scrollTop = 0;
       }
-    };
-    window.addEventListener('message', handle);
-    return () => window.removeEventListener('message', handle);
+    });
+    return listenerEvent.off;
   }, [history]);
 };
