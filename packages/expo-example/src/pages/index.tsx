@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, ScrollView, Image, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Link } from '@react-navigation/native';
 import { Icon } from 'dice-ui';
 import { routes, RouteItem } from '../navigation/routes';
 import { postMessage } from '../utils';
+import { GlobalContext } from '../GlobalContext';
 
 const Home = () => {
+  const { themeVars } = useContext(GlobalContext);
+
   const onLinkPress = (item: RouteItem) => {
     postMessage('navigate', item.href);
   };
@@ -16,7 +19,7 @@ const Home = () => {
       <ScrollView style={{ padding: 20 }}>
         <View style={styles.header}>
           <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
-          <Text style={styles.title}>Dice</Text>
+          <Text style={[styles.title, { color: themeVars.text_color_2 }]}>Dice</Text>
         </View>
         <View>
           {routes.map(item => (
@@ -26,9 +29,9 @@ const Home = () => {
               to={{ screen: item.href, params: {} }}
               onPress={() => onLinkPress(item)}
             >
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-                <Icon name="arrow" size={16} />
+              <View style={[styles.item, { backgroundColor: themeVars.background_3 }]}>
+                <Text style={[styles.text, { color: themeVars.text_color_3 }]}>{item.name}</Text>
+                <Icon name="arrow" size={16} color="#B6C3D2" />
               </View>
             </Link>
           ))}
@@ -46,7 +49,6 @@ const styles = StyleSheet.create({
   },
   item: {
     alignItems: 'center',
-    backgroundColor: '#f7f8fa',
     borderRadius: 99,
     display: 'flex',
     flexDirection: 'row',
@@ -65,7 +67,6 @@ const styles = StyleSheet.create({
     width: 32,
   },
   text: {
-    color: '#323233',
     fontSize: 14,
     fontWeight: '600',
     lineHeight: 40,

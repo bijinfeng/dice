@@ -1,11 +1,12 @@
 import React, { FC, useEffect } from 'react';
 import * as Linking from 'expo-linking';
 import { ColorSchemeName, Text } from 'react-native';
-import { NavigationContainer, DefaultTheme, DarkTheme, useLinkTo } from '@react-navigation/native';
+import { NavigationContainer, useLinkTo } from '@react-navigation/native';
 import { HeaderBackButton } from '@react-navigation/elements';
 import { createStackNavigator } from '@react-navigation/stack';
 import { routes } from './routes';
 import { listenerMessage } from '../utils';
+import { DarkTheme, LightTheme } from './navigationTheme';
 
 import Home from '../pages/index';
 
@@ -55,7 +56,7 @@ const StackNavigator = () => {
 
 const Navigation: FC<{ colorScheme: ColorSchemeName }> = ({ colorScheme }) => (
   <NavigationContainer
-    theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+    theme={colorScheme === 'dark' ? DarkTheme : LightTheme}
     fallback={<Text>Loading...</Text>}
     linking={{
       prefixes: [prefix],

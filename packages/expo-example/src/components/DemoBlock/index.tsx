@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import { View, Text, StyleSheet, ViewProps } from 'react-native';
+import { GlobalContext } from '../../GlobalContext';
 
 interface Props extends ViewProps {
   title?: string;
@@ -9,11 +10,13 @@ interface Props extends ViewProps {
 }
 
 const DemoBlock: FC<Props> = ({ title, card, children, contentStyle, inset, ...rest }) => {
+  const { themeVars } = useContext(GlobalContext);
+
   return (
     <View {...rest}>
       {title && (
         <View style={styles.title}>
-          <Text style={{ color: '#455a6499' }}>{title}</Text>
+          <Text style={{ color: themeVars.text_color_4 }}>{title}</Text>
         </View>
       )}
       <View style={[inset && styles.contentInset, contentStyle]}>
