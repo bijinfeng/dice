@@ -3,7 +3,7 @@ import { useColorScheme, StatusBar, View, ColorSchemeName } from 'react-native';
 import { ConfigProvider, defaultTheme, darkTheme } from 'dice-ui';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Navigation from './navigation';
-import { listenerMessage, postMessage } from './utils';
+import { listenerMessage, listenerIframeLoaded } from './utils';
 import { lightTheme, darkTheme as darkThemeVars } from './style/vars';
 import { GlobalContext, GlobalState } from './GlobalContext';
 
@@ -13,14 +13,15 @@ const Layout: FC = () => {
   const isDarkMode = themeMode === 'dark';
 
   useEffect(() => {
-    listenerMessage('theme', (theme: ColorSchemeName) => {
+    const { cancel } = listenerMessage('theme', (theme: ColorSchemeName) => {
       setThemeMode(theme);
     });
-    // 发送事件给父页面，告知 iframe 已经准备好了
-    postMessage('ready');
-    setTimeout(() => {
+
+    listenerIframeLoaded().then(() => {
       setReady(true);
-    }, 100);
+    });
+
+    return cancel;
   }, []);
 
   const globalState = useMemo<GlobalState>(

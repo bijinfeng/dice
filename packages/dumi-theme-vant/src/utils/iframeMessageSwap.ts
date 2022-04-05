@@ -13,6 +13,7 @@ class IframeMessageSwap {
     const listernerReady = this.addListener('ready', () => {
       this.iframeRef = ref;
       this.taskList.forEach(it => it());
+      this.postMessage('ready');
       listernerReady.off();
     });
   };

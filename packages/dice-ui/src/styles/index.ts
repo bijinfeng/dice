@@ -1,7 +1,7 @@
-import type * as DefaultVar from './defaultTheme';
+import type { defaultTheme } from './defaultTheme';
 
 /** 默认变量类型 */
-export type ThemeVarType = typeof DefaultVar;
+export type ThemeVarType = typeof defaultTheme;
 
-export * as defaultTheme from './defaultTheme';
-export * as darkTheme from './defaultTheme';
+export { defaultTheme } from './defaultTheme';
+export { darkTheme } from './darkTheme';
