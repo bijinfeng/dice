@@ -3,8 +3,9 @@ import { StyleSheet } from 'react-native';
 export const createStyle = (theme: DiceUI.Theme) => {
   return StyleSheet.create({
     inset: {
-      borderRadius: theme.border_radius_lg,
-      margin: theme.padding_md,
+      borderRadius: theme.cell_group_inset_radius,
+      marginHorizontal: theme.cell_group_inset_padding_horizontal,
+      marginVertical: theme.cell_group_inset_padding_vertical,
       overflow: 'hidden',
     },
     title: {
@@ -16,10 +17,8 @@ export const createStyle = (theme: DiceUI.Theme) => {
       paddingTop: theme.cell_group_title_padding_top,
     },
     titleInset: {
-      paddingBottom: theme.padding_xs,
-      paddingLeft: theme.padding_xl,
-      paddingRight: theme.padding_md,
-      paddingTop: theme.padding_md,
+      paddingHorizontal: theme.cell_group_inset_title_padding_horizontal,
+      paddingVertical: theme.cell_group_inset_title_padding_vertical,
     },
     wrapper: {
       backgroundColor: theme.cell_group_background_color,

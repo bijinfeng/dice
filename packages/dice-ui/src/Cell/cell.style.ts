@@ -39,9 +39,6 @@ export const createStyle = (theme: DiceUI.Theme) => {
       ...text,
       color: theme.cell_value_color,
     },
-    valueAlone: {
-      color: theme.cell_background_color,
-    },
     wrapper: {
       backgroundColor: theme.cell_background_color,
       display: 'flex',
@@ -49,13 +46,15 @@ export const createStyle = (theme: DiceUI.Theme) => {
       justifyContent: 'space-between',
       paddingHorizontal: theme.cell_padding_horizontal,
       paddingVertical: theme.cell_padding_vertical,
+      position: 'relative',
     },
     wrapperBorder: {
-      borderTopColor: theme.cell_border_color,
-      borderTopWidth: 1,
-      flex: 1,
-      height: 0,
+      backgroundColor: theme.cell_border_color,
+      height: 1,
       marginHorizontal: theme.cell_padding_horizontal,
+      position: 'absolute',
+      top: 0,
+      width: '100%',
     },
     wrapperLarge: {
       paddingVertical: theme.cell_large_padding_vertical,

@@ -2,8 +2,7 @@ import React, { FC, memo } from 'react';
 import { View, Text } from 'react-native';
 import { useThemeFactory } from '../Theme';
 import Icon, { IconNames } from '../Icon';
-import TouchableRipple from '../TouchableRipple';
-import { isString } from '../utils/typeof';
+import TouchableOpacity from '../TouchableOpacity';
 import { createStyle } from './cell.style';
 
 type Direction = 'left' | 'right' | 'up' | 'down';
@@ -73,55 +72,47 @@ const Cell: FC<CellProps> = memo(props => {
     center,
     onPress,
   } = props;
-  const hasTitle = !!title;
   const isLarge = size === 'large';
-  const { styles } = useThemeFactory(createStyle);
-
-  // value 是文本的话，需要用 Text 包裹一下
-  const getValue = () => {
-    if (isString(value)) {
-      return <Text style={[styles.value, hasTitle ? undefined : styles.valueAlone]}>{value}</Text>;
-    }
-    return value;
-  };
+  const { styles, theme } = useThemeFactory(createStyle);
 
   return (
-    <>
+    <TouchableOpacity
+      onPress={onPress}
+      activeBackgroundColor={theme.cell_active_color}
+      style={[
+        styles.wrapper,
+        isLarge ? styles.wrapperLarge : undefined,
+        center ? { alignItems: 'center' } : { alignItems: 'flex-start' },
+      ]}
+    >
       {border && <View style={styles.wrapperBorder} />}
-      <TouchableRipple onPress={onPress}>
-        <View
-          style={[
-            styles.wrapper,
-            isLarge ? styles.wrapperLarge : undefined,
-            center ? { alignItems: 'center' } : { alignItems: 'flex-start' },
-          ]}
-        >
-          {icon && (
-            <View style={[styles.icon, { marginRight: 4 }]}>
-              <Icon name={icon} />
-            </View>
-          )}
-          {title && (
-            <View style={styles.left}>
-              <Text style={[styles.title, isLarge ? styles.titleLarge : undefined]}>{title}</Text>
-              {label && (
-                <Text style={[styles.label, isLarge ? styles.larbelLarge : undefined]}>
-                  {label}
-                </Text>
-              )}
-            </View>
-          )}
-          <View style={styles.right}>
-            {value && getValue()}
-            {isLink && (
-              <View style={[styles.icon, { marginLeft: 4 }]}>
-                <Icon name={directionIcons[arrowDirection]} />
-              </View>
-            )}
-          </View>
+
+      {icon && (
+        <View style={[styles.icon, { marginRight: 4 }]}>
+          <Icon name={icon} size={theme.cell_icon_size} color={theme.cell_text_color} />
         </View>
-      </TouchableRipple>
-    </>
+      )}
+      {title && (
+        <View style={styles.left}>
+          <Text style={[styles.title, isLarge ? styles.titleLarge : undefined]}>{title}</Text>
+          {label && (
+            <Text style={[styles.label, isLarge ? styles.larbelLarge : undefined]}>{label}</Text>
+          )}
+        </View>
+      )}
+      <View style={styles.right}>
+        {value && <Text style={styles.value}>{value}</Text>}
+        {isLink && (
+          <View style={[styles.icon, { marginLeft: 4 }]}>
+            <Icon
+              name={directionIcons[arrowDirection]}
+              size={theme.cell_icon_size}
+              color={theme.cell_right_icon_color}
+            />
+          </View>
+        )}
+      </View>
+    </TouchableOpacity>
   );
 });
 
