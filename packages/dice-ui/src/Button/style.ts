@@ -1,8 +1,24 @@
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import type { Type, Size } from './index';
+import { StyleSheet } from 'react-native';
+import type { ViewStyle, TextStyle } from 'react-native';
+import type { ButtonType, ButtonSize } from './type';
 
-const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolean) => {
-  const buttonTypeStyleMaps: Record<Type, ViewStyle> = {
+type Params = {
+  type: ButtonType;
+  size: ButtonSize;
+  plain?: boolean;
+};
+
+type Styles = {
+  button: ViewStyle;
+  disabled: ViewStyle;
+  plain: ViewStyle;
+  round: ViewStyle;
+  square: ViewStyle;
+  text: TextStyle;
+};
+
+const createStyle = (theme: DiceUI.Theme, { type, size, plain }: Params): Styles => {
+  const buttonTypeStyleMaps: Record<ButtonType, ViewStyle> = {
     default: {
       backgroundColor: theme.button_default_background_color,
       borderColor: theme.button_default_border_color,
@@ -35,7 +51,7 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
     },
   };
 
-  const buttonSizeStyleMaps: Record<Size, ViewStyle> = {
+  const buttonSizeStyleMaps: Record<ButtonSize, ViewStyle> = {
     normal: {},
     small: {
       height: theme.button_small_height,
@@ -49,7 +65,7 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
     },
   };
 
-  const contentPadding: Record<Size, ViewStyle> = {
+  const contentPadding: Record<ButtonSize, ViewStyle> = {
     normal: {
       paddingHorizontal: theme.button_normal_padding_horizontal,
     },
@@ -62,7 +78,7 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
     },
   };
 
-  const textSizeStyleMaps: Record<Size, TextStyle> = {
+  const textSizeStyleMaps: Record<ButtonSize, TextStyle> = {
     normal: {
       fontSize: theme.button_normal_font_size,
     },
@@ -77,7 +93,7 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
     },
   };
 
-  const textTypeStyleMaps: Record<Type, TextStyle> = {
+  const textTypeStyleMaps: Record<ButtonType, TextStyle> = {
     default: {
       color: theme.button_default_color,
     },
@@ -95,17 +111,7 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
     },
   };
 
-  return StyleSheet.create({
-    back: {
-      backgroundColor: theme.black,
-      borderColor: theme.black,
-      height: '100%',
-      left: 0,
-      opacity: 0,
-      position: 'absolute',
-      right: 0,
-      width: '100%',
-    },
+  return StyleSheet.create<Styles>({
     button: {
       alignItems: 'center',
       borderRadius: theme.button_border_radius,
@@ -116,21 +122,10 @@ const createStyle = (theme: DiceUI.Theme, type: Type, size: Size, plain?: boolea
       position: 'relative',
       ...buttonTypeStyleMaps[type],
       ...buttonSizeStyleMaps[size],
-    },
-    content: {
-      alignItems: 'center',
-      flexDirection: 'row',
-      justifyContent: 'center',
       ...contentPadding[size],
     },
     disabled: {
       opacity: theme.button_disabled_opacity,
-    },
-    icon: {
-      color: textTypeStyleMaps[type].color,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      fontSize: textSizeStyleMaps[size].fontSize * 1.2,
     },
     plain: {
       backgroundColor: theme.button_plain_background_color,

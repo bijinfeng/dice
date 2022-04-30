@@ -4,9 +4,11 @@ export * from './Theme';
 export { default as Icon } from './Icon';
 export * from './Icon';
 
+export * from './ActionBar';
 export * from './Portal';
 export * from './PanningViews';
 export * from './ActionSheet';
+export * from './Tabs';
 
 export { default as Badge } from './Badge';
 export { default as Button } from './Button';
@@ -16,6 +18,7 @@ export { default as Circle } from './Circle';
 export { default as ConfigProvider } from './ConfigProvider';
 export { default as Dash } from './Dash';
 export { default as Divider } from './Divider';
+export { default as Dialog } from './Dialog';
 export { default as Image } from './Image';
 export { default as KeyboardSpace } from './KeyboardSpace';
 export { default as Layout } from './Layout';

@@ -143,7 +143,7 @@ const constants = {
   },
   /* Dimensions */
   removeDimensionsEventListener: (callback: any) => {
-    if (callback.remove) {
+    if (callback?.remove) {
       callback.remove();
     } else {
       Dimensions.removeEventListener('change', callback);

@@ -19,7 +19,7 @@ const items = colors.map((color, index) => (
   <Swiper.Item key={color}>
     <Pressable
       onPress={() => {
-        Toast.message(`你点击了卡片 ${index + 1}`);
+        Toast.info(`你点击了卡片 ${index + 1}`);
       }}
       style={{
         backgroundColor: index % 2 === 0 ? '#3f45ff' : '#686dff',
@@ -40,7 +40,7 @@ const SwiperExample = memo(() => {
         <Swiper autoplay={5000}>{items}</Swiper>
       </DemoBlock>
       <DemoBlock title="监听onChange事件" contentStyle={styles.contentStyle}>
-        <Swiper onChange={i => Toast.message(`当前索引${i}`)}>{items}</Swiper>
+        <Swiper onChange={i => Toast.info(`当前索引${i}`)}>{items}</Swiper>
       </DemoBlock>
       <DemoBlock title="纵向滚动" contentStyle={styles.contentStyle}>
         <Swiper autoplay={5000} vertical>

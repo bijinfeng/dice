@@ -25,6 +25,9 @@ import Swiper from '../pages/swiper';
 import Transitions from '../pages/transitions';
 import PanningViews from '../pages/panningViews';
 import ActionSheet from '../pages/actionSheet';
+import Tab from '../pages/tab';
+import Dialog from '../pages/dialog';
+import ActionBar from '../pages/actionBar';
 
 export type RouteItem = {
   name: string;
@@ -33,6 +36,21 @@ export type RouteItem = {
 };
 
 export const routes: RouteItem[] = [
+  {
+    name: 'ActionBar 动作栏',
+    href: '/action-bar',
+    component: ActionBar,
+  },
+  {
+    name: 'Dialog 弹出框',
+    href: '/dialog',
+    component: Dialog,
+  },
+  {
+    name: 'Tabs 标签页',
+    href: '/tabs',
+    component: Tab,
+  },
   {
     name: 'Transitions 过渡动画',
     href: '/transitions',

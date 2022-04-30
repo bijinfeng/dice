@@ -4,6 +4,7 @@ import * as _vars from './variables';
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const createDefaultTheme = (vars: typeof _vars) => ({
   ...vars,
   dark: false,
@@ -297,6 +298,78 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   action_sheet_cancel_padding_top: vars.padding_xs,
   action_sheet_cancel_padding_color: vars.background,
   action_sheet_loading_icon_size: 22,
+
+  // Tabs
+  tab_text_color: vars.gray_7,
+  tab_active_text_color: vars.text_color,
+  tab_disabled_text_color: vars.text_color_3,
+  tab_font_size: vars.font_size_md,
+  tab_line_height: vars.line_height_md,
+  tabs_default_color: vars.primary_color,
+  tabs_line_height: 44,
+  tabs_card_height: 30,
+  tabs_nav_background: vars.background_2,
+  tabs_bottom_bar_width: 40,
+  tabs_bottom_bar_height: 3,
+  tabs_bottom_bar_color: vars.primary_color,
+
+  // Field
+  field_label_width: 6.2 * 14,
+  field_label_color: vars.text_color,
+  field_label_margin_right: vars.padding_sm,
+  field_input_text_color: vars.text_color,
+  field_input_error_text_color: vars.danger_color,
+  field_input_disabled_text_color: vars.text_color_3,
+  field_placeholder_text_color: vars.text_color_3,
+  field_icon_size: 16,
+  field_clear_icon_size: 16,
+  field_clear_icon_color: vars.gray_5,
+  field_right_icon_color: vars.gray_6,
+  field_error_message_color: vars.danger_color,
+  field_error_message_font_size: 12,
+  field_text_area_min_height: 60,
+  field_word_limit_color: vars.gray_7,
+  field_word_limit_font_size: vars.font_size_sm,
+  field_word_limit_line_height: 16,
+  field_disabled_text_color: vars.text_color_3,
+  field_required_mark_color: vars.red,
+
+  // Dialog
+  dialog_width: 320,
+  dialog_small_screen_width: 0.9 * windowWidth,
+  dialog_font_size: vars.font_size_lg,
+  dialog_transition: vars.animation_duration_base,
+  dialog_radius: 16,
+  dialog_background: vars.background_2,
+  dialog_header_font_weight: vars.font_weight_bold,
+  dialog_header_line_height: 24,
+  dialog_header_padding_top: 26,
+  dialog_header_isolated_padding_vertical: vars.padding_lg,
+  dialog_header_isolated_padding_horizontal: 0,
+  dialog_message_padding: vars.padding_lg,
+  dialog_message_font_size: vars.font_size_md,
+  dialog_message_line_height: vars.line_height_md,
+  dialog_message_max_height: 0.6 * windowHeight,
+  dialog_has_title_message_text_color: vars.gray_7,
+  dialog_has_title_message_padding_top: vars.padding_xs,
+  dialog_button_height: 48,
+  dialog_round_button_height: 36,
+  dialog_confirm_button_text_color: vars.primary_color,
+
+  // ActionBar
+  action_bar_background: vars.background_2,
+  action_bar_height: 50,
+  action_bar_icon_width: 48,
+  action_bar_icon_height: '100%',
+  action_bar_icon_color: vars.text_color,
+  action_bar_icon_size: 18,
+  action_bar_icon_font_size: vars.font_size_xs,
+  action_bar_icon_active_color: vars.active_color,
+  action_bar_icon_text_color: vars.text_color,
+  action_bar_icon_background: vars.background_2,
+  action_bar_button_height: 40,
+  action_bar_button_warning_color: vars.orange, // TODO: 需要为过渡色
+  action_bar_button_danger_color: vars.red, // TODO: 需要为过渡色
 });
 
 export const defaultTheme = createDefaultTheme(_vars);
