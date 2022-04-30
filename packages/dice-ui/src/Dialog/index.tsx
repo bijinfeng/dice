@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DiceCross } from '@dice-ui/icons';
+import { Cross } from '@dice-ui/icons';
 import noop from 'lodash-es/noop';
 import BaseDialog from './Dialog';
 import { PortalRef } from '../ConfigProvider';
@@ -11,7 +11,7 @@ const show = (props: DialogProps) => {
   const defaultOptions = {
     overlay: true,
     closeable: false,
-    closeIcon: <DiceCross />,
+    closeIcon: <Cross />,
     showConfirmButton: true,
     showCancelButton: false,
     closeOnClickOverlay: false,
