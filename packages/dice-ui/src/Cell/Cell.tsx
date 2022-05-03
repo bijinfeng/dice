@@ -53,7 +53,8 @@ const Cell: FC<CellProps> = memo(props => {
     if (title) {
       const titleStyles = [styles.title, isLarge && styles.titleLarge, titleStyle];
       return (
-        <View>
+        <View style={{ position: 'relative' }}>
+          {!!props.required && <Text style={styles.required}>*</Text>}
           {isFunction(title) ? title(titleStyles) : <Text style={titleStyles}>{title}</Text>}
           {label && (
             <Text style={[styles.label, isLarge && styles.larbelLarge, labelStyle]}>{label}</Text>

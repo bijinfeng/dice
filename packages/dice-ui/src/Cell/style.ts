@@ -25,6 +25,14 @@ export const createCellStyle = (theme: DiceUI.Theme) => {
     larbelLarge: {
       fontSize: theme.cell_large_label_font_size,
     },
+    required: {
+      color: theme.cell_required_color,
+      fontSize: theme.cell_font_size,
+      left: -theme.padding_xs,
+      lineHeight: theme.cell_line_height,
+      position: 'absolute',
+      top: 0,
+    },
     title: {
       ...text,
     },

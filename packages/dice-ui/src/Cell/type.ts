@@ -50,6 +50,10 @@ export interface CellProps {
    */
   isLink?: boolean;
   /**
+   * 是否显示表单必填星号
+   */
+  required?: boolean;
+  /**
    * 箭头方向
    * @default right;
    */

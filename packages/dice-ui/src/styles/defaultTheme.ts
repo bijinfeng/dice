@@ -51,7 +51,7 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   cell_background_color: vars.background_2,
   cell_border_color: vars.border_color,
   cell_active_color: vars.active_color,
-  cell_required_color: vars.danger_color,
+  cell_required_color: vars.red,
   cell_label_color: vars.text_color_2,
   cell_label_font_size: vars.font_size_sm,
   cell_label_line_height: vars.line_height_sm,
@@ -332,7 +332,7 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   field_word_limit_font_size: vars.font_size_sm,
   field_word_limit_line_height: 16,
   field_disabled_text_color: vars.text_color_3,
-  field_required_mark_color: vars.red,
+  field_intro_color: vars.gray_6,
 
   // Dialog
   dialog_width: 320,

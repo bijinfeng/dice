@@ -70,3 +70,68 @@ group:
   <Field clearable label="文本" leftIcon={<MusicO />} placeholder="显示清除图标" />
 </Cell.Group>
 ```
+
+### 错误提示
+
+设置 `required` 属性表示这是一个必填项，可以配合 `error` 或 `errorMessage` 属性显示对应的错误提示。
+
+```jsx
+<Cell.Group inset>
+  <Field error required label="用户名" placeholder="请输入用户名" />
+  <Field required label="手机号" placeholder="请输入手机号" errorMessage="手机号格式错误" />
+</Cell.Group>
+```
+
+### 插入按钮
+
+通过 button 插槽可以在输入框尾部插入按钮。
+
+```jsx
+ <Field
+  center
+  clearable
+  label="短信验证码"
+  placeholder="请输入短信验证码"
+  button={
+    <Button size="small" type="primary">
+      发送
+    </Button>
+  }
+/>
+```
+
+### 格式化输入内容
+
+通过 `formatter` 属性可以对输入的内容进行格式化，通过 `formatTrigger` 属性可以指定执行格式化的时机，默认在输入时进行格式化。
+
+```jsx
+import React, { useState } from 'react';
+import { Field, Cell } from 'dice-ui';
+
+export default () => {
+  const [value1, setValue1] = useState('');
+  const [value2, setValue2] = useState('');
+
+  const formatter = (val: string | number) => val.toString().replace(/\d/g, '');
+
+  return (
+    <Cell.Group inset>
+      <Field
+        value={value1}
+        label="文本"
+        formatter={formatter}
+        placeholder="在输入时执行格式化"
+        onChange={setValue1}
+      />
+      <Field
+        value={value2}
+        label="文本"
+        formatter={formatter}
+        formatTrigger="onBlur"
+        placeholder="在失焦时执行格式化"
+        onChange={setValue2}
+      />
+    </Cell.Group>
+  );
+}
+```
