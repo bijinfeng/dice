@@ -9,6 +9,7 @@ export * from './Portal';
 export * from './PanningViews';
 export * from './ActionSheet';
 export * from './Tabs';
+export * from './Field';
 
 export { default as Badge } from './Badge';
 export { default as Button } from './Button';

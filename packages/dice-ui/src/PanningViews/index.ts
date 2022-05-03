@@ -5,7 +5,7 @@ export { default as PanResponderView } from './PanResponderView';
 export { default as PanningContext } from './PanningContext';
 export { default as PanningProvider } from './PanningProvider';
 
-export {
+export type {
   PanningDirections,
   PanLocationProps,
   PanDirectionsProps,

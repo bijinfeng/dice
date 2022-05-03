@@ -28,6 +28,7 @@ import ActionSheet from '../pages/actionSheet';
 import Tab from '../pages/tab';
 import Dialog from '../pages/dialog';
 import ActionBar from '../pages/actionBar';
+import Field from '../pages/field';
 
 export type RouteItem = {
   name: string;
@@ -36,6 +37,11 @@ export type RouteItem = {
 };
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Field 输入框',
+    href: '/field',
+    component: Field,
+  },
   {
     name: 'ActionBar 动作栏',
     href: '/action-bar',

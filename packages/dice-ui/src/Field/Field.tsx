@@ -1,0 +1,170 @@
+import React, { forwardRef, useState, useMemo } from 'react';
+import { View, Pressable, TextInput, Text, StyleSheet, ColorValue } from 'react-native';
+import type { StyleProp, TextStyle, TextInputIOSProps, KeyboardTypeOptions } from 'react-native';
+import { Clear, QuestionO } from '@dice-ui/icons';
+import { useControllableValue, useMemoizedFn } from '../hooks';
+import { cloneReactNode } from '../utils/cloneReactNode';
+import Cell from '../Cell';
+import Dialog from '../Dialog';
+import type { FieldInstance, FieldProps, FieldTooltipProps, InputEvent } from './type';
+import { useThemeFactory } from '../Theme';
+import { createStyle } from './style';
+
+const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
+  const { clearIcon = <Clear />, clearTrigger = 'focus' } = props;
+  const [value, setValue] = useControllableValue<string>(props);
+  const [inputFocus, setInputFocus] = useState(false);
+  const inputRef = React.useRef<TextInput>(null);
+  const { styles, theme } = useThemeFactory(createStyle);
+
+  React.useImperativeHandle(ref, () => inputRef.current!);
+
+  // 是否显示清楚按钮
+  const showClear = useMemo(() => {
+    if (props.clearable && !props?.readonly) {
+      const hasValue = value !== '';
+      const trigger = clearTrigger === 'always' || (clearTrigger === 'focus' && inputFocus);
+      return hasValue && trigger;
+    }
+    return false;
+  }, [value, clearTrigger, inputFocus]);
+
+  const renderTooltip = (iconColor?: ColorValue, iconSize?: number) => {
+    const { tooltip } = props;
+    if (tooltip) {
+      let icon = (<QuestionO />) as React.ReactNode;
+      let dialogProps = { message: tooltip };
+      if (!(React.isValidElement(tooltip) || typeof tooltip === 'string')) {
+        const { icon: customIcon, ...customDialogProps } = tooltip as FieldTooltipProps;
+        icon = customIcon || icon;
+        dialogProps = customDialogProps as typeof dialogProps;
+      }
+
+      return (
+        <Pressable style={{ marginLeft: 2 }} onPress={() => Dialog.show(dialogProps)}>
+          {cloneReactNode(icon, { color: iconColor, size: iconSize })}
+        </Pressable>
+      );
+    }
+    return null;
+  };
+
+  const renderLabel = (defaultStyles: StyleProp<TextStyle>) => {
+    const { label, colon, disabled } = props;
+    const textStyle = StyleSheet.flatten<TextStyle>([
+      defaultStyles,
+      styles.label,
+      !!disabled && styles.disabledLabel,
+      props.titleStyle,
+    ]);
+
+    if (label) {
+      return (
+        <View style={[styles.labelWrapper, !!props.labelWidth && { width: props.labelWidth }]}>
+          <Text style={textStyle}>
+            {label}
+            {colon && ':'}
+          </Text>
+          {renderTooltip(textStyle.color, textStyle.fontSize)}
+        </View>
+      );
+    }
+    return null;
+  };
+
+  const renderLeftIcon = () => {
+    const { leftIcon, onClickLeftIcon } = props;
+    if (!leftIcon) return undefined;
+    return <Pressable onPress={onClickLeftIcon}>{leftIcon}</Pressable>;
+  };
+
+  const renderRightIcon = () => {
+    const { rightIcon, onClickRightIcon } = props;
+    if (!rightIcon) return undefined;
+    return (
+      <Pressable onPress={onClickRightIcon} style={{ marginLeft: theme.padding_xs }}>
+        {cloneReactNode(rightIcon, {
+          size: theme.field_icon_size,
+          color: theme.field_right_icon_color,
+        })}
+      </Pressable>
+    );
+  };
+
+  const renderClearIcon = () => {
+    return (
+      <Pressable onPress={() => inputRef.current?.clear()} style={{ marginLeft: theme.padding_xs }}>
+        {cloneReactNode(clearIcon, {
+          size: theme.field_clear_icon_size,
+          color: theme.field_clear_icon_color,
+        })}
+      </Pressable>
+    );
+  };
+
+  const handleFocus = (e: InputEvent) => {
+    setInputFocus(true);
+    props.onFocus?.(e);
+  };
+  const handleBulr = (e: InputEvent) => {
+    setInputFocus(false);
+    props.onBlur?.(e);
+  };
+
+  const renderInput = useMemoizedFn(() => {
+    const getTextContentType = (): TextInputIOSProps['textContentType'] => {
+      if (props.type === 'tel') return 'telephoneNumber';
+      if (props.type === 'password') return 'password';
+      return undefined;
+    };
+
+    const getKeyboardType = (): KeyboardTypeOptions | undefined => {
+      if (props.type === 'digit' || props.type === 'number') return 'numeric';
+      if (props.type === 'tel') return 'phone-pad';
+      return undefined;
+    };
+
+    return (
+      <TextInput
+        ref={inputRef}
+        value={value}
+        onChangeText={setValue}
+        placeholder={props.placeholder}
+        placeholderTextColor={theme.field_placeholder_text_color}
+        autoFocus={props.autoFocus}
+        editable={!props.disabled && !props.readonly}
+        maxLength={props.maxLength}
+        numberOfLines={props.rows}
+        textAlign={props.inputAlign}
+        textContentType={getTextContentType()}
+        keyboardType={getKeyboardType()}
+        style={[styles.control, !!props.disabled && styles.disabledControl]}
+        onBlur={handleBulr}
+        onFocus={handleFocus}
+        onKeyPress={props.onKeyPress}
+        secureTextEntry={props.type === 'password'}
+      />
+    );
+  });
+
+  return (
+    <Cell
+      title={renderLabel}
+      size={props.size}
+      icon={renderLeftIcon()}
+      center={props.center}
+      isLink={props.isLink}
+      valueStyle={styles.value}
+      arrowDirection={props.arrowDirection}
+      style={props.style}
+    >
+      <View style={styles.body}>
+        {renderInput()}
+        {showClear && renderClearIcon()}
+        {renderRightIcon()}
+      </View>
+    </Cell>
+  );
+});
+
+export default Field;

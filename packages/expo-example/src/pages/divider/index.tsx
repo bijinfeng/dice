@@ -5,7 +5,7 @@ import { DemoBlock } from '../../components';
 
 const DividerExample = memo(() => {
   return (
-    <ScrollView style={{ backgroundColor: '#fff' }}>
+    <ScrollView>
       <DemoBlock title="基础用法">
         <Divider />
       </DemoBlock>

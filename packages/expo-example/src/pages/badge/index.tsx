@@ -5,7 +5,7 @@ import { DemoBlock } from '../../components';
 
 const BadgeExample = memo(() => {
   return (
-    <ScrollView style={styles.wrapper}>
+    <ScrollView>
       <DemoBlock title="基础用法" contentStyle={styles.content} inset>
         <Badge content={5} style={styles.badge}>
           <View style={styles.child} />
@@ -85,9 +85,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginVertical: 2,
-  },
-  wrapper: {
-    backgroundColor: '#fff',
   },
 });
 
