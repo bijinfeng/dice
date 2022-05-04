@@ -1,8 +1,14 @@
-import type { NativeSyntheticEvent, TextInputFocusEventData, TextInput } from 'react-native';
+import type {
+  NativeSyntheticEvent,
+  TextInputFocusEventData,
+  TextInput,
+  TextInputContentSizeChangeEventData,
+} from 'react-native';
 import type { DialogProps } from '../Dialog/type';
 import type { CellProps } from '../Cell/type';
 
 export type InputEvent = NativeSyntheticEvent<TextInputFocusEventData>;
+export type ContentSizeChangeEvent = NativeSyntheticEvent<TextInputContentSizeChangeEventData>;
 
 export type FieldType = 'tel' | 'text' | 'digit' | 'number' | 'search' | 'password' | 'textarea';
 
@@ -120,11 +126,8 @@ export interface FieldProps extends FieldCommonProps, Partial<CellProps> {
   onFocus?: (e: InputEvent) => void;
   onBlur?: (e: InputEvent) => void;
   onKeyPress?: () => void;
-  onClickInput?: () => void;
   onClickLeftIcon?: () => void;
   onClickRightIcon?: () => void;
-  getFieldRef?: (ref: any) => void;
-  getInputRef?: (ref: any) => void;
 }
 
 export type FieldInstance = TextInput;

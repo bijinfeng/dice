@@ -1,11 +1,11 @@
-import React, { FC, memo } from 'react';
+import React, { forwardRef } from 'react';
 import { View, Text } from 'react-native';
 import { useThemeFactory } from '../Theme';
 import { createCellGroupStyle } from './style';
 import type { CellGroupProps } from './type';
 
-const CellGroup: FC<CellGroupProps> = memo(props => {
-  const { children, title, border = true, inset } = props;
+const CellGroup = forwardRef<View, CellGroupProps>((props, ref) => {
+  const { children, title, border = true, inset, ...rest } = props;
   const { styles } = useThemeFactory(createCellGroupStyle);
   const hasBorder = border && !inset;
 
@@ -19,7 +19,7 @@ const CellGroup: FC<CellGroupProps> = memo(props => {
   };
 
   return (
-    <View>
+    <View ref={ref} {...rest}>
       {title && <Text style={[styles.title, inset ? styles.titleInset : undefined]}>{title}</Text>}
       <View
         style={[

@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import type { StyleProp, TextStyle, ViewStyle, ViewProps } from 'react-native';
 import type { IconNames } from '../Icon';
 
 export type Direction = 'left' | 'right' | 'up' | 'down';
@@ -12,6 +12,7 @@ export const directionIcons: Record<Direction, IconNames> = {
 };
 
 export interface CellProps {
+  children?: React.ReactNode;
   style?: StyleProp<ViewStyle>;
   /**
    * 左侧标题
@@ -68,7 +69,7 @@ export interface CellProps {
   onPress?: () => void;
 }
 
-export interface CellGroupProps {
+export interface CellGroupProps extends ViewProps {
   /**
    * 分组标题
    */

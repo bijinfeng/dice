@@ -4,6 +4,7 @@ import type { StyleProp, TextStyle, TextInputIOSProps, KeyboardTypeOptions } fro
 import { Clear, QuestionO } from '@dice-ui/icons';
 import toString from 'lodash-es/toString';
 import isFunction from 'lodash-es/isFunction';
+import isObject from 'lodash-es/isObject';
 import { formatNumber } from '../utils/number';
 import { useControllableValue, useMemoizedFn } from '../hooks';
 import { cloneReactNode } from '../utils/cloneReactNode';
@@ -15,6 +16,7 @@ import type {
   FieldTooltipProps,
   InputEvent,
   FieldFormatTrigger,
+  ContentSizeChangeEvent,
 } from './type';
 import { useThemeFactory } from '../Theme';
 import { createStyle } from './style';
@@ -28,11 +30,18 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     inputAlign = 'left',
     formatTrigger = 'onChange',
     formatter,
+    rows = 1,
+    autosize,
   } = props;
   const [value, setValue] = useControllableValue<string | number>(props);
   const [inputFocus, setInputFocus] = useState(false);
   const inputRef = React.useRef<TextInput>(null);
+  const contentChanged = React.useRef<boolean>(false);
   const { styles, theme } = useThemeFactory(createStyle);
+  // 单行的高度
+  const singleRowHeight = theme.cell_line_height ?? 24;
+  // input 高度
+  const [inputHeight, setInputHeight] = useState<number>();
 
   React.useImperativeHandle(ref, () => inputRef.current!);
 
@@ -65,6 +74,7 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
   });
 
   const handleChange = useMemoizedFn((text: string, trigger?: FieldFormatTrigger) => {
+    contentChanged.current = true;
     let finalValue: string | number = text;
     if (type === 'number' || type === 'digit') {
       const isNumber = type === 'number';
@@ -72,6 +82,26 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     }
     finalValue = formatValue(finalValue, trigger);
     setValue(finalValue);
+  });
+
+  const handleContentSizeChange = useMemoizedFn((event: ContentSizeChangeEvent) => {
+    if (!contentChanged.current) return;
+    let _height: number;
+    if (autosize) {
+      const { minHeight = singleRowHeight, maxHeight = event.nativeEvent.contentSize.height } =
+        isObject(autosize) ? autosize : {};
+      _height = Math.max(minHeight, maxHeight);
+    } else if (rows > 1) {
+      _height = rows * singleRowHeight;
+    } else {
+      _height = singleRowHeight;
+    }
+    setInputHeight(_height);
+  });
+
+  const getHeight = useMemoizedFn(() => {
+    if (inputHeight) return inputHeight;
+    return rows * singleRowHeight;
   });
 
   const renderTooltip = (iconColor?: ColorValue, iconSize?: number) => {
@@ -153,6 +183,20 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     return null;
   };
 
+  const renderWordLimit = () => {
+    const { showWordLimit, maxLength } = props;
+    if (showWordLimit && maxLength) {
+      const count = (value ? `${value}` : '').length;
+      return (
+        <Text style={styles.wordLimit}>
+          {count}/{maxLength}
+        </Text>
+      );
+    }
+
+    return null;
+  };
+
   const renderInput = useMemoizedFn(() => {
     const inputStyles = StyleSheet.flatten<TextStyle>([
       styles.control,
@@ -164,20 +208,21 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
       : theme.field_placeholder_text_color;
 
     const getTextContentType = (): TextInputIOSProps['textContentType'] => {
-      if (props.type === 'tel') return 'telephoneNumber';
-      if (props.type === 'password') return 'password';
+      if (type === 'tel') return 'telephoneNumber';
+      if (type === 'password') return 'password';
       return undefined;
     };
 
     const getKeyboardType = (): KeyboardTypeOptions | undefined => {
-      if (props.type === 'digit' || props.type === 'number') return 'numeric';
-      if (props.type === 'tel') return 'phone-pad';
+      if (type === 'digit' || type === 'number') return 'numeric';
+      if (type === 'tel') return 'phone-pad';
       return undefined;
     };
 
     return (
       <TextInput
         ref={inputRef}
+        underlineColorAndroid="transparent"
         value={toString(value)}
         onChangeText={handleChange}
         placeholder={props.placeholder}
@@ -186,15 +231,17 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
         autoFocus={props.autoFocus}
         editable={!props.disabled && !props.readonly}
         maxLength={props.maxLength}
-        numberOfLines={props.rows}
+        numberOfLines={rows}
+        multiline={!!autosize || rows > 1}
         textAlign={props.inputAlign}
         textContentType={getTextContentType()}
         keyboardType={getKeyboardType()}
-        style={inputStyles}
+        style={[inputStyles, { height: getHeight() }]}
         onBlur={handleBulr}
         onFocus={handleFocus}
         onKeyPress={props.onKeyPress}
-        secureTextEntry={props.type === 'password'}
+        onContentSizeChange={handleContentSizeChange}
+        secureTextEntry={type === 'password'}
       />
     );
   });
@@ -242,6 +289,7 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
           {renderRightIcon()}
           {renderButton()}
         </View>
+        {renderWordLimit()}
         {renderMessage()}
         {renderIntro()}
       </View>

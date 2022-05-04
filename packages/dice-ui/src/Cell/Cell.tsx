@@ -1,5 +1,5 @@
-import React, { FC, memo } from 'react';
-import { View, Text } from 'react-native';
+import React, { forwardRef } from 'react';
+import { View, Text, TouchableOpacity as RNTouchableOpacity } from 'react-native';
 import isFunction from 'lodash-es/isFunction';
 import { useMemoizedFn } from '../hooks';
 import { useThemeFactory } from '../Theme';
@@ -8,7 +8,7 @@ import TouchableOpacity from '../TouchableOpacity';
 import { createCellStyle } from './style';
 import { CellProps, directionIcons } from './type';
 
-const Cell: FC<CellProps> = memo(props => {
+const Cell = forwardRef<RNTouchableOpacity, CellProps>((props, ref) => {
   const {
     title,
     value,
@@ -94,6 +94,7 @@ const Cell: FC<CellProps> = memo(props => {
 
   return (
     <TouchableOpacity
+      ref={ref}
       onPress={onPress}
       activeBackgroundColor={theme.cell_active_color}
       style={[

@@ -12,6 +12,7 @@ interface Styles {
   container: ViewStyle;
   errorMessage: TextStyle;
   intro: TextStyle;
+  wordLimit: TextStyle;
 }
 
 export const createStyle = (theme: DiceUI.Theme): StyleSheet.NamedStyles<Styles> => {
@@ -27,7 +28,8 @@ export const createStyle = (theme: DiceUI.Theme): StyleSheet.NamedStyles<Styles>
     control: {
       color: theme.field_input_text_color,
       flex: 1,
-      height: theme.cell_line_height,
+      fontSize: theme.cell_font_size,
+      paddingTop: 3,
       textAlignVertical: 'top',
     },
     disabledControl: {
@@ -63,6 +65,13 @@ export const createStyle = (theme: DiceUI.Theme): StyleSheet.NamedStyles<Styles>
     },
     value: {
       overflow: 'visible',
+    },
+    wordLimit: {
+      color: theme.field_word_limit_color,
+      fontSize: theme.field_word_limit_font_size,
+      lineHeight: theme.field_word_limit_line_height,
+      marginTop: theme.padding_base,
+      textAlign: 'right',
     },
   });
 };
