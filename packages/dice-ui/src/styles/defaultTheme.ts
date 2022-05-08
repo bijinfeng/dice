@@ -370,6 +370,18 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   action_bar_button_height: 40,
   action_bar_button_warning_color: vars.orange, // TODO: 需要为过渡色
   action_bar_button_danger_color: vars.red, // TODO: 需要为过渡色
+
+  // Empty
+  empty_padding_vertical: vars.padding_xl,
+  empty_padding_horizontal: 0,
+  empty_image_size: 160,
+  empty_description_margin_top: vars.padding_md,
+  empty_description_padding_vertical: 0,
+  empty_description_padding_horizontal: 60,
+  empty_description_color: vars.text_color_2,
+  empty_description_font_size: vars.font_size_md,
+  empty_description_line_height: vars.line_height_md,
+  empty_bottom_margin_top: 24,
 });
 
 export const defaultTheme = createDefaultTheme(_vars);

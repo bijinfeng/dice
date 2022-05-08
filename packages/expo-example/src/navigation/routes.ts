@@ -29,6 +29,7 @@ import Tab from '../pages/tab';
 import Dialog from '../pages/dialog';
 import ActionBar from '../pages/actionBar';
 import Field from '../pages/field';
+import Empty from '../pages/empty';
 
 export type RouteItem = {
   name: string;
@@ -37,6 +38,11 @@ export type RouteItem = {
 };
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Empty 空状态',
+    href: '/empty',
+    component: Empty,
+  },
   {
     name: 'Field 输入框',
     href: '/field',
