@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
-import type { ViewStyle, StyleProp } from 'react-native';
+import type { ViewProps, StyleProp, ViewStyle } from 'react-native';
 
-export interface TabsProps extends ViewStyle {
+export interface TabsProps extends ViewProps {
   // 绑定当前选中标签的标识符
   active?: number | string;
   // 样式风格类型
@@ -52,7 +52,7 @@ export interface TabsProps extends ViewStyle {
   onScroll?: (params: { scrollTop: number; isFixed: boolean }) => void;
 }
 
-export interface TabPaneProps extends ViewStyle {
+export interface TabPaneProps extends ViewProps {
   key?: React.Key;
   index?: number;
   // 标题

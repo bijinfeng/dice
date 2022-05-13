@@ -36,7 +36,6 @@ const createStyle = (theme: DiceUI.Theme): Styles => {
     },
     navLine: {
       height: theme.tabs_line_height,
-      marginBottom: 15,
     },
     tab: {
       alignItems: 'center',

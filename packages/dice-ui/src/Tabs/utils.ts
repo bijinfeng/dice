@@ -1,5 +1,4 @@
 import React from 'react';
-import Constants from '../utils/constants';
 
 export function parseChildList<T, R = { key?: string; node: React.ReactElement<T> } & T>(
   children: React.ReactNode
@@ -16,8 +15,3 @@ export function parseChildList<T, R = { key?: string; node: React.ReactElement<T
     return result;
   }, []);
 }
-
-export const getScreenWidth = (useSafeArea?: boolean): number => {
-  const { left, right } = Constants.getSafeAreaInsets();
-  return Constants.windowWidth - (useSafeArea && Constants.isIphoneX ? left + right : 0);
-};

@@ -4,7 +4,7 @@ import { TabsContext } from '../TabsContext';
 import type { TabPaneProps } from '../type';
 
 export const TabPane = forwardRef<View, TabPaneProps>((props, ref) => {
-  const { children, index } = props;
+  const { children, index, style } = props;
   const parent = useContext(TabsContext);
   const { animated, swipeable, scrollspy, lazyRender, lazyRenderPlaceholder } = parent.props;
 
@@ -28,7 +28,7 @@ export const TabPane = forwardRef<View, TabPaneProps>((props, ref) => {
   }
 
   return (
-    <View ref={ref} style={{ display: show ? 'flex' : 'none' }}>
+    <View ref={ref} style={[style, { display: show ? 'flex' : 'none' }]}>
       {Content}
     </View>
   );

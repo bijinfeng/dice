@@ -3,8 +3,7 @@ import type { TabsProps } from './type';
 
 export interface TabsContextState {
   props: React.PropsWithChildren<TabsProps>;
-  selectedIndex?: number;
-  containerWidth: number;
+  selectedIndex: number;
   setCurrentIndex: (index: number) => void;
 }
 

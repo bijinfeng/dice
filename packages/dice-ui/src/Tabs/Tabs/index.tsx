@@ -3,43 +3,33 @@ import { View } from 'react-native';
 import { TabsContext, TabsContextState } from '../TabsContext';
 import TabsBar from '../TabsBar';
 import TabsContent from '../TabsContent';
-import { useOrientation } from '../../hooks';
-import { parseChildList, getScreenWidth } from '../utils';
+import { parseChildList } from '../utils';
 import type { TabsProps, TabPaneProps } from '../type';
 
 const Tabs = forwardRef<View, TabsProps>((props, ref) => {
-  const { type, children } = props;
-  const [selectedIndex, setCurrentIndex] = useState<number>(0);
-  const [screenWidth, setScreenWidth] = useState<number>(getScreenWidth());
+  const { type, children, style } = props;
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const childrenList = useMemo(() => parseChildList<TabPaneProps>(children), [children]);
-
-  useOrientation({
-    // 监听屏幕方向的变化，获取屏幕最新的宽度
-    onOrientationChange: () => {
-      setScreenWidth(getScreenWidth());
-    },
-  });
 
   const contextState = useMemo<TabsContextState>(
     () => ({
       props,
-      selectedIndex,
+      selectedIndex: currentIndex,
       setCurrentIndex,
-      containerWidth: screenWidth,
     }),
-    [selectedIndex, screenWidth, props]
+    [currentIndex, props]
   );
 
   return (
     <TabsContext.Provider value={contextState}>
-      <View ref={ref}>
-        <TabsBar navs={childrenList} type={type} />
+      <View style={style} ref={ref}>
+        <TabsBar navs={childrenList} type={type} duration={props.duration} />
         <TabsContent
           animated={props.animated}
           swipeable={props.swipeable}
           duration={props.duration}
-          currentIndex={selectedIndex}
+          currentIndex={currentIndex}
           onChange={setCurrentIndex}
         >
           {childrenList.map((item, index) => React.cloneElement(item.node, { index }))}
@@ -48,5 +38,9 @@ const Tabs = forwardRef<View, TabsProps>((props, ref) => {
     </TabsContext.Provider>
   );
 });
+
+Tabs.defaultProps = {
+  duration: 300,
+};
 
 export default Tabs;

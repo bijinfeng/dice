@@ -3,7 +3,6 @@ import times from 'lodash-es/times';
 import isUndefined from 'lodash-es/isUndefined';
 import includes from 'lodash-es/includes';
 import isEmpty from 'lodash-es/isEmpty';
-import { Animated } from 'react-native';
 import type { LayoutChangeEvent } from 'react-native';
 import useScrollTo from '../../hooks/useScrollTo';
 import type { ScrollToSupportedViews, ScrollToResultProps } from '../../hooks/useScrollTo';
@@ -68,11 +67,11 @@ export type ScrollToItemResultProps<T extends ScrollToSupportedViews> = Pick<
   /**
    * The items' width as share animated value
    */
-  itemsWidthsAnimated: any; // TODO: should be SharedValue<number[]>
+  itemsWidths: number[];
   /**
    * The items' offsets as share animated value
    */
-  itemsOffsetsAnimated: any; // TODO: should be SharedValue<number[]>
+  itemsOffsets: number[];
   /**
    * Use in order to focus the item with the specified index (use when the selectedIndex is not changed)
    */
@@ -106,9 +105,10 @@ const useScrollToItem = <T extends ScrollToSupportedViews>(
     outerSpacing = 0,
     innerSpacing = 0,
   } = props;
-  const itemsWidths = useRef<(number | null)[]>(times(itemsCount, () => null));
-  const itemsWidthsAnimated = useRef(times(itemsCount, () => new Animated.Value(0))).current;
-  const itemsOffsetsAnimated = useRef(times(itemsCount, () => new Animated.Value(0))).current;
+  const itemsWidthsRef = useRef<(number | null)[]>(times(itemsCount, () => null));
+  const itemsOffsetsRef = useRef<number[]>(times(itemsCount, () => 0));
+  const [itemsWidths, setItemsWidths] = useState<number[]>(times(itemsCount, () => 0));
+  const [itemsOffsets, setItemsOffset] = useState<number[]>(times(itemsCount, () => 0));
   const currentIndex = useRef<number>(selectedIndex || 0);
   const [offsets, setOffsets] = useState<Offsets>({ CENTER: [], LEFT: [], RIGHT: [] });
   const { scrollViewRef, scrollTo, onContentSizeChange, onLayout } = useScrollTo<T>({
@@ -130,14 +130,8 @@ const useScrollToItem = <T extends ScrollToSupportedViews>(
       const rightOffsets = [];
       rightOffsets.push(-containerWidth + widths[0] + outerSpacing + innerSpacing);
       while (index < itemsCount) {
-        /* map animated widths and offsets */
-        itemsWidthsAnimated[index].setValue(widths[index]);
         if (index > 0) {
-          itemsOffsetsAnimated[index].setValue(
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            itemsOffsetsAnimated[index - 1]._value + itemsWidthsAnimated[index - 1]._value
-          );
+          itemsOffsetsRef.current[index] = itemsOffsetsRef.current[index - 1] + widths[index - 1];
         }
 
         /* calc center, left and right offsets */
@@ -158,10 +152,6 @@ const useScrollToItem = <T extends ScrollToSupportedViews>(
       }
 
       setOffsets({ CENTER: centeredOffsets, LEFT: leftOffsets, RIGHT: rightOffsets }); // default for DYNAMIC is CENTER
-
-      // trigger value change
-      // itemsWidthsAnimated.value = [...itemsWidthsAnimated.value];
-      // itemsOffsetsAnimated.value = [...itemsOffsetsAnimated.value];
     },
     [itemsCount, outerSpacing, innerSpacing, addOffsetMargin, containerWidth]
   );
@@ -169,9 +159,11 @@ const useScrollToItem = <T extends ScrollToSupportedViews>(
   const onItemLayout = useCallback(
     (event: LayoutChangeEvent, index: number) => {
       const { width } = event.nativeEvent.layout;
-      itemsWidths.current[index] = width;
-      if (!includes(itemsWidths.current, null)) {
-        setSnapBreakpoints(itemsWidths.current as number[]);
+      itemsWidthsRef.current[index] = width;
+      if (!includes(itemsWidthsRef.current, null)) {
+        setSnapBreakpoints(itemsWidthsRef.current as number[]);
+        setItemsWidths(itemsWidthsRef.current as number[]);
+        setItemsOffset(itemsOffsetsRef.current);
       }
     },
     [setSnapBreakpoints]
@@ -202,20 +194,17 @@ const useScrollToItem = <T extends ScrollToSupportedViews>(
   }, [selectedIndex, focusIndex]);
 
   const reset = useCallback(() => {
-    for (let i = 0; i < itemsCount; ++i) {
-      itemsWidths.current[i] = null;
-      itemsWidthsAnimated[i].setValue(0);
-      itemsOffsetsAnimated[i].setValue(0);
-    }
-
+    itemsWidthsRef.current = times(itemsCount, () => null);
+    setItemsWidths(times(itemsCount, () => 0));
+    setItemsOffset(times(itemsCount, () => 0));
     setOffsets({ CENTER: [], LEFT: [], RIGHT: [] });
   }, [itemsCount]);
 
   return {
     scrollViewRef,
     onItemLayout,
-    itemsWidthsAnimated,
-    itemsOffsetsAnimated,
+    itemsWidths,
+    itemsOffsets,
     focusIndex,
     reset,
     onContentSizeChange,
