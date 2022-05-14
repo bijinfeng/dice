@@ -1,4 +1,4 @@
-# `React Native Vant`
+# React Native Vant
 
 <p>
   <a href="https://npmjs.org/package/rn-vant" target="_blank" referrerpolicy="no-referrer">
