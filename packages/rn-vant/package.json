@@ -1,13 +1,13 @@
 {
   "name": "rn-vant",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "React Native UI Components",
   "keywords": [
     "react-native",
     "Components"
   ],
   "author": "bijinfeng <bijinfeng@bytedance.com>",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
