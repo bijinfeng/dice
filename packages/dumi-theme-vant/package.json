@@ -1,6 +1,6 @@
 {
   "name": "@rn-vant/dumi-theme-vant",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The vant theme of vant",
   "files": [
     "src"
