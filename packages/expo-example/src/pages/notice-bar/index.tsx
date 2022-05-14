@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { NoticeBar } from 'dice-ui';
+import { NoticeBar } from 'rn-vant';
 import { ScrollView, View } from 'react-native';
 import { DemoBlock } from '../../components';
 

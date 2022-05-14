@@ -1,11 +1,11 @@
-# `dice-ui`
+# `rn-vant`
 
 > TODO: description
 
 ## Usage
 
 ```
-const diceUi = require('dice-ui');
+const diceUi = require('rn-vant');
 
 // TODO: DEMONSTRATE API
 ```

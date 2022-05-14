@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Cross } from '@dice-ui/icons';
+import { Cross } from '@rn-vant/icons';
 import noop from 'lodash-es/noop';
 import BaseDialog from './Dialog';
 import { PortalRef } from '../ConfigProvider';

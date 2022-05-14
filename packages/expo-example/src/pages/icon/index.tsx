@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react';
-import { Icon, Tabs, Layout } from 'dice-ui';
+import { Icon, Tabs, Layout } from 'rn-vant';
 import { View, ScrollView, Text, StyleSheet, ViewStyle, StyleProp } from 'react-native';
 import { basicArray, list, list1 } from './icons';
 import { DemoBlock } from '../../components';

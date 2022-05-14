@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, useMemo } from 'react';
 import { useColorScheme, StatusBar, View, ColorSchemeName } from 'react-native';
-import { ConfigProvider, defaultTheme, darkTheme } from 'dice-ui';
+import { ConfigProvider, defaultTheme, darkTheme } from 'rn-vant';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Navigation from './navigation';
 import { listenerMessage, listenerIframeLoaded } from './utils';

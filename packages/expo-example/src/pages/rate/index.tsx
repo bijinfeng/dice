@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { ScrollView } from 'react-native';
-import { Rate } from 'dice-ui';
+import { Rate } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 const CheckboxExample = memo(() => {

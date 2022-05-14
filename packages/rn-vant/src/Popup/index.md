@@ -16,7 +16,7 @@ group:
 
 ```jsx
 import React, { useState } from 'react';
-import { Popup } from 'dice-ui';
+import { Popup } from 'rn-vant';
 
 export default () => {
   const [visible, setVisible] = useState(false);

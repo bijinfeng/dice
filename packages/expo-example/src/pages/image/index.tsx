@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { ScrollView, StyleSheet, View, Text, ImageResizeMode } from 'react-native';
-import { Image, useTheme, Loading } from 'dice-ui';
+import { Image, useTheme, Loading } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 const resizeMode: ImageResizeMode[] = ['center', 'contain', 'cover', 'repeat', 'stretch'];

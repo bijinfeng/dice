@@ -19,7 +19,7 @@ group:
 ```jsx
 import React from 'react';
 import { Text } from 'react-native';
-import { Tabs } from 'dice-ui';
+import { Tabs } from 'rn-vant';
 
 export default () => {
   reutrn (
@@ -41,7 +41,7 @@ export default () => {
 ```jsx
 import React from 'react';
 import { Text } from 'react-native';
-import { Tabs } from 'dice-ui';
+import { Tabs } from 'rn-vant';
 
 export default () => {
   reutrn (
@@ -63,7 +63,7 @@ export default () => {
 ```jsx
 import React from 'react';
 import { Text } from 'react-native';
-import { Tabs } from 'dice-ui';
+import { Tabs } from 'rn-vant';
 
 export default () => {
   return (

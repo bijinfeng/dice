@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { ScrollView, View, Text } from 'react-native';
-import { Cell, ActionSheet, ActionSheetAction } from 'dice-ui';
+import { Cell, ActionSheet, ActionSheetAction } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 const defaultActions: ActionSheetAction[] = [

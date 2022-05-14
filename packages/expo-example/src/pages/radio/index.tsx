@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { ScrollView, Image, StyleSheet } from 'react-native';
-import { Radio, Cell } from 'dice-ui';
+import { Radio, Cell } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 const activeIcon = 'https://img.yzcdn.cn/vant/user-active.png';

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { ScrollView } from 'react-native';
-import { Cell } from 'dice-ui';
+import { Cell } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 const CellExample = memo(() => {

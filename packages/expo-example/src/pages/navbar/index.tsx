@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { NavBar, Toast, Icon } from 'dice-ui';
+import { NavBar, Toast, Icon } from 'rn-vant';
 import { ScrollView } from 'react-native';
 import { DemoBlock } from '../../components';
 

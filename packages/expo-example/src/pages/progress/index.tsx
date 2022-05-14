@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Progress, Button } from 'dice-ui';
+import { Progress, Button } from 'rn-vant';
 import { View, ScrollView, Text } from 'react-native';
 import { DemoBlock } from '../../components';
 

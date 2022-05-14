@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { ScrollView, Image, StyleSheet, View } from 'react-native';
-import { Checkbox, Button, Cell } from 'dice-ui';
+import { Checkbox, Button, Cell } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 const activeIcon = 'https://img.yzcdn.cn/vant/user-active.png';

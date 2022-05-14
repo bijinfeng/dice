@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { Button } from 'dice-ui';
+import { Button } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 const ButtonExample = memo(() => {

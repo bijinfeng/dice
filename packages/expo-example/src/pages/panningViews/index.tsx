@@ -5,7 +5,7 @@ import {
   PanDismissibleView,
   useThemeFactory,
   PanResponderView,
-} from 'dice-ui';
+} from 'rn-vant';
 import { View, Text, StyleSheet } from 'react-native';
 import { DemoBlock } from '../../components';
 

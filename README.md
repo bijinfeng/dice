@@ -1,2 +1,2 @@
-## dice-ui
+## rn-vant
 

@@ -1,10 +1,10 @@
 {
-  "name": "@dice-ui/icons",
-  "version": "0.2.0",
-  "description": "dice-ui icons for react-native",
+  "name": "@rn-vant/icons",
+  "version": "0.0.1",
+  "description": "rn-vant icons for react-native",
   "keywords": [
     "react-native",
-    "dice-ui",
+    "rn-vant",
     "icon"
   ],
   "author": "bijinfeng <bijinfeng@bytedance.com>",

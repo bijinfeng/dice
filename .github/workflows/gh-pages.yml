@@ -18,12 +18,12 @@ jobs:
       - run: yarn install
       - run: yarn build:site
       - run: yarn build:expo-example
-      - run: mv packages/expo-example/web-build/ packages/dice-ui/dist/example
+      - run: mv packages/expo-example/web-build/ packages/rn-vant/dist/example
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./packages/dice-ui/dist
+          publish_dir: ./packages/rn-vant/dist
 
   docsearch:
     needs: deploy

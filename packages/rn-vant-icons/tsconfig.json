@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
-      "@dice-ui/icons": ["./src/index"],
+      "@rn-vant/icons": ["./src/index"],
     },
     "allowUnreachableCode": true,
     "importsNotUsedAsValues": "remove"

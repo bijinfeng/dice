@@ -1,5 +1,5 @@
 {
-  "name": "@dice-ui/dumi-theme-vant",
+  "name": "@rn-vant/dumi-theme-vant",
   "version": "0.0.1",
   "description": "The vant theme of vant",
   "files": [

@@ -13,7 +13,7 @@ group:
 ## 引入
 
 ```jsx
-import { Toast } from 'dice-ui';
+import { Toast } from 'rn-vant';
 ```
 
 ## 文字提示

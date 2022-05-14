@@ -14,5 +14,5 @@ order: 2
 ## 安装
 
 ```sh
-$ yarn add dice-ui
+$ yarn add rn-vant
 ```

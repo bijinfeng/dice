@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react';
-import { Cell, Transitions, useTheme, Portal, useSetState } from 'dice-ui';
+import { Cell, Transitions, useTheme, Portal, useSetState } from 'rn-vant';
 import { ScrollView, View, ViewStyle, Dimensions } from 'react-native';
 import { DemoBlock } from '../../components';
 

@@ -1,7 +1,7 @@
-## @dice-ui/dumi-theme-vant
+## @rn-vant/dumi-theme-vant
 
 The vant theme of dumi
 
 ```
-yarn add @dice-ui/dumi-theme-vant
+yarn add @rn-vant/dumi-theme-vant
 ```

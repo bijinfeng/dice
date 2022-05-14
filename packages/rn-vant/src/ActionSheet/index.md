@@ -17,7 +17,7 @@ group:
 ```typescript
 import React, { memo, useState } from 'react';
 import { ScrollView, View, Text } from 'react-native';
-import { Cell, ActionSheet, ActionSheetAction } from 'dice-ui';
+import { Cell, ActionSheet, ActionSheetAction } from 'rn-vant';
 
 const defaultActions: ActionSheetAction[] = [
   { name: '选项一' },

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { ScrollView } from 'react-native';
-import { ActionBar, Icon } from 'dice-ui';
+import { ActionBar, Icon } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 const ActionBarExample = memo(() => {

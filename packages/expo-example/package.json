@@ -12,13 +12,13 @@
     "postinstall": "expo-yarn-workspaces postinstall",
     "build:ios-simulator": "expo build:ios -t simulator"
   },
-  "homepage": "/dice/example/",
+  "homepage": "/rn-vant/example/",
   "dependencies": {
     "@expo/webpack-config": "~0.16.2",
     "@react-navigation/elements": "^1.2.1",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
-    "dice-ui": "^0.2.0",
+    "rn-vant": "^0.0.1",
     "expo": "^44.0.0",
     "expo-linking": "~3.0.0",
     "expo-status-bar": "~1.2.0",

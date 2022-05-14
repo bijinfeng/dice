@@ -1,8 +1,8 @@
 import React, { memo, useState } from 'react';
 import { ScrollView, Text, KeyboardAvoidingView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Field, Cell, Toast, Button } from 'dice-ui';
-import { SmileO, MusicO, WarningO } from '@dice-ui/icons';
+import { Field, Cell, Toast, Button } from 'rn-vant';
+import { SmileO, MusicO, WarningO } from '@rn-vant/icons';
 import { DemoBlock } from '../../components';
 
 const FieldExample = memo(() => {

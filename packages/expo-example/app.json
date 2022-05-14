@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "dice-expo-demo",
-    "description": "DiceUI + Expo Example",
-    "slug": "dice-example",
+    "name": "rn-vant-expo-demo",
+    "description": "Rn Vant + Expo Example",
+    "slug": "rn-vant-example",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

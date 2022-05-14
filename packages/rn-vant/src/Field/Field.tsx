@@ -1,7 +1,7 @@
 import React, { forwardRef, useState, useMemo } from 'react';
 import { View, Pressable, TextInput, Text, StyleSheet, ColorValue } from 'react-native';
 import type { StyleProp, TextStyle, TextInputIOSProps, KeyboardTypeOptions } from 'react-native';
-import { Clear, QuestionO } from '@dice-ui/icons';
+import { Clear, QuestionO } from '@rn-vant/icons';
 import toString from 'lodash-es/toString';
 import isFunction from 'lodash-es/isFunction';
 import isObject from 'lodash-es/isObject';

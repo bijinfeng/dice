@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
-      "dice-ui": ["./src/index"],
+      "rn-vant": ["./src/index"],
     },
   },
   "exclude": ["lib/**/*"]

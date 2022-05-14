@@ -1,4 +1,4 @@
-import type { IconNames } from 'dice-ui';
+import type { IconNames } from 'rn-vant';
 
 export const basicArray: IconNames[] = [
   'arrow',

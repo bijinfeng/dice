@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
-import { Cell, Popup, IconNames } from 'dice-ui';
-import type { IconPosition } from 'dice-ui/lib/typescript/Popup/type';
+import { Cell, Popup, IconNames } from 'rn-vant';
+import type { IconPosition } from 'rn-vant/lib/typescript/Popup/type';
 import { View, ScrollView, Dimensions } from 'react-native';
 import { DemoBlock } from '../../components';
 

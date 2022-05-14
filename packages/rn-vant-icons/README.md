@@ -5,13 +5,13 @@
 #### NPM
 
 ```shell
-npm i @dice-ui/icons
+npm i @rn-vant/icons
 ```
 
 #### YARN
 
 ```shell
-yarn add @dice-ui/icons
+yarn add @rn-vant/icons
 ```
 
 ## Document

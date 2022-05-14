@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Loading } from 'dice-ui';
+import { Loading } from 'rn-vant';
 import { View, StyleSheet } from 'react-native';
 import { DemoBlock } from '../../components';
 

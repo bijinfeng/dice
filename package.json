@@ -1,12 +1,11 @@
 {
-  "name": "dice",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "build:expo-example": "lerna run build:web --scope=expo-example",
-    "build:site": "yarn run build && lerna run build:site --scope=dice-ui",
+    "build:site": "yarn run build && lerna run build:site --scope=rn-vant",
     "build": "lerna run build",
     "bootstrap": "lerna bootstrap",
     "commit": "git cz",

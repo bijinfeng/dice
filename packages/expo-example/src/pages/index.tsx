@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { View, ScrollView, Image, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Link } from '@react-navigation/native';
-import { Icon } from 'dice-ui';
+import { Icon } from 'rn-vant';
 import { routes, RouteItem } from '../navigation/routes';
 import { postMessage } from '../utils';
 import { GlobalContext } from '../GlobalContext';
@@ -19,7 +19,7 @@ const Home = () => {
       <ScrollView style={{ padding: 20 }}>
         <View style={styles.header}>
           <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
-          <Text style={[styles.title, { color: themeVars.text_color_2 }]}>Dice</Text>
+          <Text style={[styles.title, { color: themeVars.text_color_2 }]}>React Native Vant</Text>
         </View>
         <View>
           {routes.map(item => (

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
-import { Layout } from 'dice-ui';
+import { Layout } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 type Props = { isEven?: boolean };
