@@ -5,7 +5,7 @@ const isProd = process.env.NODE_ENV === 'production' && process.env.PREVIEW_PR !
 
 export default defineConfig({
   exportStatic: isProd ? {} : false,
-  title: 'React Native Vant',
+  title: 'RN Vant',
   mode: 'site',
   algolia: {
     appId: 'TM4VZTMTDL',

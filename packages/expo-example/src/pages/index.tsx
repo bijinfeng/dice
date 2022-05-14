@@ -19,7 +19,7 @@ const Home = () => {
       <ScrollView style={{ padding: 20 }}>
         <View style={styles.header}>
           <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
-          <Text style={[styles.title, { color: themeVars.text_color_2 }]}>React Native Vant</Text>
+          <Text style={[styles.title, { color: themeVars.text_color_2 }]}>RN Vant</Text>
         </View>
         <View>
           {routes.map(item => (

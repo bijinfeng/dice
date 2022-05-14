@@ -3,10 +3,10 @@
 {
   "index_name": "docsearch",
   "start_urls": [
-    "https://bijinfeng.github.io/dice/"
+    "https://bijinfeng.github.io/rn-vant/"
   ],
   "sitemap_urls": [
-    "https://bijinfeng.github.io/dice/sitemap.xml"
+    "https://bijinfeng.github.io/rn-vant/sitemap.xml"
   ],
   "stop_urls": [
     "/search",
@@ -17,12 +17,11 @@
   "sitemap_alternate_links": true,
   "selectors": {
     "lvl0": {
-      "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
-      "type": "xpath",
+      "selector": ".van-doc-nav van-doc-nav__item a",
       "global": true,
       "default_value": "Documentation"
     },
-    "lvl1": "header h1",
+    "lvl1": "article h1",
     "lvl2": "article h2",
     "lvl3": "article h3",
     "lvl4": "article h4",
