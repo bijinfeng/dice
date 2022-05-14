@@ -7,10 +7,26 @@ type Styles = {
   navCard: ViewStyle;
   tab: ViewStyle;
   text: TextStyle;
+  textActive: TextStyle;
+  textDisabled: TextStyle;
   line: ViewStyle;
 };
 
-const createStyle = (theme: DiceUI.Theme): Styles => {
+const createStyle = (theme: DiceUI.Theme, shrink: boolean, scrollable: boolean): Styles => {
+  const tabRow = scrollable ? { paddingHorizontal: theme.padding_sm } : {};
+  const tabShrink = shrink
+    ? {
+        flex: 0,
+        paddingHorizontal: theme.padding_xs,
+      }
+    : null;
+  const navPadding =
+    scrollable || shrink
+      ? {
+          paddingHorizontal: theme.padding_xs,
+        }
+      : null;
+
   return StyleSheet.create<Styles>({
     line: {
       backgroundColor: theme.tabs_bottom_bar_color,
@@ -23,8 +39,7 @@ const createStyle = (theme: DiceUI.Theme): Styles => {
     },
     nav: {
       backgroundColor: theme.tabs_nav_background,
-      display: 'flex',
-      flexDirection: 'row',
+      minWidth: '100%',
       position: 'relative',
     },
     navCard: {
@@ -36,6 +51,7 @@ const createStyle = (theme: DiceUI.Theme): Styles => {
     },
     navLine: {
       height: theme.tabs_line_height,
+      ...navPadding,
     },
     tab: {
       alignItems: 'center',
@@ -43,11 +59,20 @@ const createStyle = (theme: DiceUI.Theme): Styles => {
       justifyContent: 'center',
       paddingHorizontal: theme.padding_base,
       position: 'relative',
+      ...tabRow,
+      ...tabShrink,
     },
     text: {
       color: theme.tab_text_color,
       fontSize: theme.tab_font_size,
       lineHeight: theme.tab_line_height,
+    },
+    textActive: {
+      color: theme.tab_active_text_color,
+      fontWeight: theme.font_weight_bold,
+    },
+    textDisabled: {
+      color: theme.tab_disabled_text_color,
     },
   });
 };

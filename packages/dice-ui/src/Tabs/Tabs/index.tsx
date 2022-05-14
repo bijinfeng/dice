@@ -7,7 +7,7 @@ import { parseChildList } from '../utils';
 import type { TabsProps, TabPaneProps } from '../type';
 
 const Tabs = forwardRef<View, TabsProps>((props, ref) => {
-  const { type, children, style } = props;
+  const { children, style } = props;
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const childrenList = useMemo(() => parseChildList<TabPaneProps>(children), [children]);
@@ -24,7 +24,7 @@ const Tabs = forwardRef<View, TabsProps>((props, ref) => {
   return (
     <TabsContext.Provider value={contextState}>
       <View style={style} ref={ref}>
-        <TabsBar navs={childrenList} type={type} duration={props.duration} />
+        <TabsBar navs={childrenList} />
         <TabsContent
           animated={props.animated}
           swipeable={props.swipeable}
@@ -40,7 +40,13 @@ const Tabs = forwardRef<View, TabsProps>((props, ref) => {
 });
 
 Tabs.defaultProps = {
+  type: 'line',
   duration: 300,
+  offsetTop: 0,
+  ellipsis: true,
+  lazyRender: true,
+  active: 0,
+  align: 'center',
 };
 
 export default Tabs;

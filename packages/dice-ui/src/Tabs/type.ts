@@ -14,9 +14,9 @@ export interface TabsProps extends ViewProps {
   background?: string;
   // 动画时间, 单位秒
   duration?: number;
-  // 底部条宽度，默认单位 px
-  lineWidth?: number;
-  // 底部条高度，默认单位 px
+  // 底部条宽度
+  lineWidth?: number | 'auto';
+  // 底部条高度
   lineHeight?: number;
   // 是否开启切换标签内容时的转场动画
   animated?: boolean;
@@ -26,6 +26,8 @@ export interface TabsProps extends ViewProps {
   ellipsis?: boolean;
   // 是否使用粘性定位布局
   sticky?: boolean;
+  // 是否开启左侧收缩布局
+  shrink?: boolean;
   // 是否开启手势滑动切换
   swipeable?: boolean;
   // 是否开启延迟渲染（首次切换到标签时才触发内容渲染）
