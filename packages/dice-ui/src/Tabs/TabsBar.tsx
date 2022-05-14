@@ -1,14 +1,14 @@
-import React, { memo, useContext, useRef, useMemo, useEffect } from 'react';
+import React, { memo, useContext, useRef, useMemo, useEffect, useCallback } from 'react';
 import { ScrollView, View, Text, Pressable, Animated } from 'react-native';
 import type { ViewStyle } from 'react-native';
 import isFunction from 'lodash-es/isFunction';
 import isEmpty from 'lodash-es/isEmpty';
-import { useUpdateEffect } from '../../hooks';
-import { TabsContext } from '../TabsContext';
-import { useThemeFactory } from '../../Theme';
-import Badge from '../../Badge';
+import { useUpdateEffect } from '../hooks';
+import { TabsContext } from './TabsContext';
+import { useThemeFactory } from '../Theme';
+import Badge from '../Badge';
 import createStyle from './style';
-import type { TabPaneProps } from '../type';
+import type { TabPaneProps } from './type';
 import useScrollItem, { ItemLayout } from './useScrollItem';
 
 interface TabBarProps {
@@ -24,6 +24,7 @@ const TabBar = ({ navs }: TabBarProps): JSX.Element => {
     ellipsis,
     shrink = false,
     lineWidth = 40,
+    onClickTab,
   } = props;
   const targetPage = useRef(new Animated.Value(selectedIndex)).current;
 
@@ -59,11 +60,21 @@ const TabBar = ({ navs }: TabBarProps): JSX.Element => {
 
   const { styles } = useThemeFactory(createStyle, shrink, scrollable);
 
+  const handleClickTab = useCallback(
+    (item: TabPaneProps, idx: number) => {
+      onClickTab?.(idx, !!item.disabled);
+      !item.disabled && setCurrentIndex(idx);
+    },
+    [setCurrentIndex]
+  );
+
   const renderText = (item: TabPaneProps, idx: number) => {
     const isActive = idx === selectedIndex;
 
     const text = (
       <Text
+        numberOfLines={1}
+        ellipsizeMode={ellipsis ? 'tail' : undefined}
         style={[
           styles.text,
           isActive && styles.textActive,
@@ -75,6 +86,7 @@ const TabBar = ({ navs }: TabBarProps): JSX.Element => {
               color: props.titleActiveColor,
             },
           item.disabled && styles.textDisabled,
+          item.titleStyle,
         ]}
       >
         {isFunction(item.title) ? item.title(isActive) : item.title}
@@ -136,13 +148,13 @@ const TabBar = ({ navs }: TabBarProps): JSX.Element => {
       showsHorizontalScrollIndicator={false}
       scrollEventThrottle={16}
       decelerationRate="fast"
+      alwaysBounceHorizontal={false}
     >
       {navs.map((item, idx) => (
         <Pressable
           key={item.key}
-          disabled={item.disabled}
           style={styles.tab}
-          onPress={() => setCurrentIndex(idx)}
+          onPress={() => handleClickTab(item, idx)}
           onLayout={e => onItemContainerLayout(e, idx)}
         >
           <View onLayout={e => onItemLayout(e, idx)}>{renderText(item, idx)}</View>

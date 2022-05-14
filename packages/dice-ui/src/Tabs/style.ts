@@ -14,18 +14,8 @@ type Styles = {
 
 const createStyle = (theme: DiceUI.Theme, shrink: boolean, scrollable: boolean): Styles => {
   const tabRow = scrollable ? { paddingHorizontal: theme.padding_sm } : {};
-  const tabShrink = shrink
-    ? {
-        flex: 0,
-        paddingHorizontal: theme.padding_xs,
-      }
-    : null;
-  const navPadding =
-    scrollable || shrink
-      ? {
-          paddingHorizontal: theme.padding_xs,
-        }
-      : null;
+  const tabShrink = shrink ? { paddingHorizontal: theme.padding_xs } : { flex: 1 };
+  const navPadding = scrollable || shrink ? { paddingHorizontal: theme.padding_xs } : null;
 
   return StyleSheet.create<Styles>({
     line: {
@@ -55,7 +45,6 @@ const createStyle = (theme: DiceUI.Theme, shrink: boolean, scrollable: boolean):
     },
     tab: {
       alignItems: 'center',
-      flex: 1,
       justifyContent: 'center',
       paddingHorizontal: theme.padding_base,
       position: 'relative',

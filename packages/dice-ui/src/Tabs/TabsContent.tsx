@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { View } from 'react-native';
-import Swiper, { SwiperInstance } from '../../Swiper';
-import type { TabsProps } from '../type';
+import Swiper, { SwiperInstance } from '../Swiper';
+import type { TabsProps } from './type';
 
 export type TabsContentProps = Pick<TabsProps, 'animated' | 'swipeable' | 'duration'> & {
   onChange?: (index: number) => void;

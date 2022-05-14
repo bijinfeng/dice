@@ -1,8 +1,8 @@
 import { useCallback, useState, useRef } from 'react';
 import times from 'lodash-es/times';
 import type { LayoutChangeEvent } from 'react-native';
-import useScrollTo from '../../hooks/useScrollTo';
-import type { ScrollToSupportedViews } from '../../hooks/useScrollTo';
+import useScrollTo from '../hooks/useScrollTo';
+import type { ScrollToSupportedViews } from '../hooks/useScrollTo';
 
 export interface ItemLayout {
   containerWidth: number;
