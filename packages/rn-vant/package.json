@@ -19,7 +19,8 @@
   },
   "files": [
     "lib",
-    "src"
+    "src",
+    "docs"
   ],
   "scripts": {
     "build": "bob build",
@@ -64,5 +65,6 @@
         }
       ]
     ]
-  }
+  },
+  "gitHead": "38c04917b2fa4ecc4227d7f3e201786b4e0e48f0"
 }

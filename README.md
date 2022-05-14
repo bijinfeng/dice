@@ -1,2 +1,1 @@
-## rn-vant
-
+./packages/rn-vant/README.md
