@@ -17,7 +17,6 @@ const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
   const { demoUrl } = useThemeConfig();
 
   const showSideMenu = meta.sidemenu !== false;
-  const hasSimulator = !!demoUrl && !!demo;
 
   useHandleIframePost();
 
@@ -28,13 +27,13 @@ const Layout: FC<IRouteComponentProps> = ({ children, location }) => {
       {/* 侧边栏 */}
       {showSideMenu && <SideMenu />}
 
-      <Container hasSimulator={hasSimulator}>
-        <Renderer title={title} desc={desc}>
+      <Container hasSimulator>
+        <Renderer title={title} desc={desc} location={location}>
           {children}
         </Renderer>
       </Container>
 
-      {hasSimulator && <Simulator src={demoUrl} path={demo} />}
+      <Simulator src={demoUrl} path={demo} />
     </div>
   );
 };

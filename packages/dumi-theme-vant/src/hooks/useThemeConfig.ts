@@ -5,6 +5,7 @@ import { IThemeContext } from '@umijs/preset-dumi/lib/theme/context';
 
 export type VantThemeConfig = IThemeContext['config']['theme'] & {
   demoUrl: string;
+  base: string;
 };
 
 // 兜底默认值
