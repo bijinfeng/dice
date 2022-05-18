@@ -30,6 +30,7 @@ import Dialog from '../pages/dialog';
 import ActionBar from '../pages/actionBar';
 import Field from '../pages/field';
 import Empty from '../pages/empty';
+import Typography from '../pages/typography';
 
 export type RouteItem = {
   name: string;
@@ -38,6 +39,11 @@ export type RouteItem = {
 };
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Typography 文本',
+    href: 'typography',
+    component: Typography,
+  },
   {
     name: 'Empty 空状态',
     href: '/empty',

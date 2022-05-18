@@ -1,4 +1,3 @@
-import type React from 'react';
 import type { TextProps } from 'react-native';
 
 export type TypographyType = 'danger' | 'secondary' | 'light' | 'primary' | 'success' | 'warning';
@@ -16,7 +15,6 @@ export interface TypographyBaseProps extends TextProps {
   strong?: boolean;
   ellipsis?: boolean | number;
   onPress?: () => void;
-  children?: React.ReactNode;
 }
 
 export type TypographyTextProps = Omit<TypographyBaseProps, 'level'>;
