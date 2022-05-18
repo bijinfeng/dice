@@ -1,6 +1,6 @@
 {
   "name": "rn-vant",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "React Native UI Components",
   "keywords": [
     "react-native",
@@ -31,7 +31,7 @@
     "@callstack/react-theme-provider": "^3.0.6",
     "@gorhom/portal": "^1.0.12",
     "@ptomasroos/react-native-multi-slider": "^2.2.2",
-    "@rn-vant/icons": "^0.0.2",
+    "@rn-vant/icons": "^0.1.0",
     "color": "^3.1.2",
     "lodash-es": "^4.17.21",
     "react-native-gesture-handler": "^2.4.2",
@@ -40,7 +40,7 @@
     "react-native-swiper": "^1.6.0"
   },
   "devDependencies": {
-    "@rn-vant/dumi-theme-vant": "^0.0.2",
+    "@rn-vant/dumi-theme-vant": "^0.1.0",
     "@types/color": "^3.0.2",
     "@types/lodash-es": "^4.17.6",
     "@types/react-native": "^0.65.5",
