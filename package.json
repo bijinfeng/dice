@@ -40,6 +40,9 @@
   "dependencies": {
     "react-native-web": "0.17.1"
   },
+  "resolutions": {
+    "@types/react": "^17.0.21"
+  },
   "config": {
 		"commitizen": {
 			"path": "node_modules/cz-conventional-changelog"

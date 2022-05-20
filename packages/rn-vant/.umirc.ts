@@ -3,7 +3,7 @@ import { defineConfig, IConfig } from 'dumi';
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production' && process.env.PREVIEW_PR !== 'true';
 
-const base = isProd ? '/rn-vant/' : '/';
+const publicPath = isProd ? '/rn-vant/' : '/';
 
 export default defineConfig({
   exportStatic: isProd ? {} : false,
@@ -22,7 +22,7 @@ export default defineConfig({
   logo: 'https://img01.yzcdn.cn/vant/logo.png',
   themeConfig: {
     demoUrl: isDev ? 'http://localhost:19006' : 'https://bijinfeng.github.io/rn-vant/example',
-    base,
+    base: publicPath,
   },
   navs: [
     null,
@@ -35,8 +35,8 @@ export default defineConfig({
     passivePreview: true,
   },
   hash: isProd,
-  base,
-  publicPath: isProd ? 'https://cdn.jsdelivr.net/gh/bijinfeng/rn-vant@gh-pages/' : '/',
+  base: publicPath,
+  publicPath,
   sitemap: {
     hostname: 'https://bijinfeng.github.io/rn-vant/',
   }
