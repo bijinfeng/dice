@@ -28,8 +28,7 @@ const Toast = (opts: ToastProps): ToastReturnType => {
   // 清楚上一个 toast （如果有）
   clearAll();
 
-  currentKey += 1;
-  const key = currentKey.toString();
+  const key = `toast_${++currentKey}`;
   const clearTimer = React.createRef<TimoutTimer>() as React.MutableRefObject<TimoutTimer>;
   let options = { ...opts };
 

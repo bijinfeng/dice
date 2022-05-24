@@ -40,7 +40,6 @@ const PopupDemo: FC = () => {
 
   const onClose = () => {
     setVisible(false);
-    setPosition('bottom');
     setCloseable(false);
     setCloseIcon(undefined);
     setCloseIconPosition(undefined);

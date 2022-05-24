@@ -22,7 +22,6 @@ import Badge from '../pages/badge';
 import Circle from '../pages/circle';
 import Slider from '../pages/slider';
 import Swiper from '../pages/swiper';
-import Transitions from '../pages/transitions';
 import PanningViews from '../pages/panningViews';
 import ActionSheet from '../pages/actionSheet';
 import Tab from '../pages/tab';
@@ -31,6 +30,7 @@ import ActionBar from '../pages/actionBar';
 import Field from '../pages/field';
 import Empty from '../pages/empty';
 import Typography from '../pages/typography';
+import Notify from '../pages/notify';
 
 export type RouteItem = {
   name: string;
@@ -40,8 +40,13 @@ export type RouteItem = {
 
 export const routes: RouteItem[] = [
   {
+    name: 'Notify 消息提示',
+    href: '/notify',
+    component: Notify,
+  },
+  {
     name: 'Typography 文本',
-    href: 'typography',
+    href: '/typography',
     component: Typography,
   },
   {
@@ -68,11 +73,6 @@ export const routes: RouteItem[] = [
     name: 'Tabs 标签页',
     href: '/tabs',
     component: Tab,
-  },
-  {
-    name: 'Transitions 过渡动画',
-    href: '/transitions',
-    component: Transitions,
   },
   {
     name: 'Cell 单元格',

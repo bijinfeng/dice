@@ -1,65 +1,77 @@
-import React from 'react';
-import { Modal, Pressable, StyleSheet } from 'react-native';
-
-import View from '../View';
-import { useTheme } from '../Theme';
+import React, { useRef, useEffect, useState } from 'react';
+import { Modal, Pressable, Animated } from 'react-native';
+import Fade from '../Transitions/Fade';
+import { Portal } from '../Portal';
+import { useMemoizedFn } from '../hooks';
+import { useThemeFactory } from '../Theme';
+import { createStyle } from './style';
 import type { OverlayProps } from './type';
 
-const Overlay = (props: OverlayProps) => {
-  const {
-    children,
-    backdropStyle,
-    overlayStyle,
-    useSafeArea,
-    onBackdropPress = () => null,
-    visible,
-    pressableProps,
-    onPressOut,
-    onPressIn,
-    onLongPress,
-    ...rest
-  } = props;
+const PressableAnimated = Animated.createAnimatedComponent(Pressable);
 
-  const theme = useTheme();
+const Overlay = (props: OverlayProps): JSX.Element => {
+  const { children, visible = false, duration = 300 } = props;
+  const [modalVisible, setModalVisible] = useState<boolean>(visible);
+  const fadeAnimation = useRef(new Animated.Value(0));
+  const { styles } = useThemeFactory(createStyle);
 
-  return (
-    <Modal visible={visible} onRequestClose={onBackdropPress} transparent {...rest}>
-      <Pressable
-        style={StyleSheet.flatten([
-          styles.backdrop,
-          { backgroundColor: theme.overlay_background_color },
-          backdropStyle,
-        ])}
-        onPress={onBackdropPress}
-        testID="RNE__Overlay__backdrop"
-        {...pressableProps}
-        {...{ onPressOut, onPressIn, onLongPress }}
-      />
+  const animateFading = useMemoizedFn((toValue: number) => {
+    return Animated.timing(fadeAnimation.current, {
+      toValue,
+      duration,
+      useNativeDriver: true,
+    });
+  });
+
+  const handleClose = useMemoizedFn(() => {
+    props.onBackdropPress?.();
+  });
+
+  const handleClosed = useMemoizedFn(() => {
+    props.onFadeDone?.();
+  });
+
+  useEffect(() => {
+    visible && setModalVisible(true);
+    const timingEvent = animateFading(visible ? 1 : 0);
+    timingEvent.start(() => {
+      !visible && setModalVisible(false);
+      handleClosed();
+    });
+    return () => timingEvent.stop();
+  }, [visible]);
+
+  const renderContent = () => (
+    <>
+      {!props.transparent && (
+        <PressableAnimated
+          style={[styles.backdrop, { opacity: fadeAnimation.current }, props.backdropStyle]}
+          onPress={handleClose}
+        />
+      )}
       {children && (
-        <View
-          useSafeArea={useSafeArea}
-          style={[styles.container, overlayStyle]}
-          pointerEvents="box-none"
+        <Fade
+          in={visible}
+          entryDuration={duration}
+          exitDuration={duration}
+          style={[styles.container, props.overlayStyle]}
         >
           {children}
-        </View>
+        </Fade>
       )}
+    </>
+  );
+
+  if (props.transparent) {
+    return modalVisible ? <Portal>{renderContent()}</Portal> : <></>;
+  }
+
+  return (
+    <Modal visible={modalVisible} onRequestClose={handleClose} transparent>
+      {renderContent()}
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  backdrop: {
-    ...StyleSheet.absoluteFillObject,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  container: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
 
 Overlay.displayName = 'Overlay';
 

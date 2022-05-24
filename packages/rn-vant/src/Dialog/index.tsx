@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Cross } from '@rn-vant/icons';
 import noop from 'lodash-es/noop';
 import BaseDialog from './Dialog';
@@ -23,13 +23,9 @@ const show = (props: DialogProps) => {
   const key = `dialog_${++currentKey}`;
 
   const TempDialog = () => {
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(true);
     const [cancelLoading, setCancelLoading] = useState(false);
     const [okLoading, setOkLoading] = useState(false);
-
-    useEffect(() => {
-      setVisible(true);
-    }, []);
 
     destroy = () => {
       setVisible(false);

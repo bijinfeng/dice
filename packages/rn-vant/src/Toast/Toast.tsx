@@ -99,7 +99,7 @@ const Toast = (
         visible={visible}
         entryDuration={300}
         exitDuration={300}
-        onTransitionComplete={status => {
+        onTransitionComplete={(status: any) => {
           if (status === 'exited') {
             props.onClose?.();
           } else {

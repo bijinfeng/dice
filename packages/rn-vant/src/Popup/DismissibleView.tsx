@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback, useContext } from 'react';
-import { Animated, Easing, StyleProp, ViewStyle, LayoutChangeEvent, View } from 'react-native';
+import { Animated, Easing, LayoutChangeEvent, View } from 'react-native';
 import {
   PanResponderView,
   PanningProvider,
@@ -9,18 +9,18 @@ import {
   PanDirectionsProps,
   PanningContextState,
   PanAmountsProps,
-} from '../../PanningViews';
-import constants from '../../utils/constants';
+} from '../PanningViews';
+import constants from '../utils/constants';
 
 const MAXIMUM_DRAGS_AFTER_SWIPE = 2;
 
 interface Props {
+  duration: number;
   children?: React.ReactNode | React.ReactNode[];
-  style?: StyleProp<ViewStyle>;
   direction?: PanningDirections;
   onDismiss?: () => void;
-  containerStyle?: StyleProp<ViewStyle>;
   visible?: boolean;
+  ignorePanning?: boolean;
 }
 
 interface LocationProps {
@@ -28,8 +28,13 @@ interface LocationProps {
   top: number;
 }
 
+// eslint-disable-next-line prettier/prettier
+const TOP_INSET = constants.isIphoneX ? constants.getSafeAreaInsets().top : constants.isIOS ? 20 : 0;
+// eslint-disable-next-line prettier/prettier
+const BOTTOM_INSET = constants.isIphoneX ? constants.getSafeAreaInsets().bottom : constants.isIOS ? 20 : 0;
+
 const DialogDismissibleView = (props: Props): JSX.Element => {
-  const { children, style, direction, onDismiss, containerStyle, visible: propsVisible } = props;
+  const { children, direction, onDismiss, visible: propsVisible } = props;
   const { isPanning, dragDeltas, swipeDirections } =
     useContext<PanningContextState>(PanningContext);
 
@@ -38,17 +43,9 @@ const DialogDismissibleView = (props: Props): JSX.Element => {
   const thresholdX = useRef<number>(0);
   const thresholdY = useRef<number>(0);
   const dragsCounter = useRef<number>(0);
-  const containerRef = useRef<View>(null);
   const animatedValue = useRef<Animated.AnimatedValue>(new Animated.Value(0));
   const mutableSwipeDirections = useRef<PanDirectionsProps>({});
-  const TOP_INSET = useRef<number>(
-    constants.isIphoneX ? constants.getSafeAreaInsets().top : constants.isIOS ? 20 : 0
-  );
-  const BOTTOM_INSET = useRef<number>(
-    constants.isIphoneX ? constants.getSafeAreaInsets().bottom : constants.isIOS ? 20 : 0
-  );
   const prevDragDeltas = useRef<PanAmountsProps>();
-  const prevSwipeDirections = useRef<PanDirectionsProps>();
   const visible = useRef<boolean>(Boolean(propsVisible));
 
   const getHiddenLocation = useCallback(
@@ -62,11 +59,11 @@ const DialogDismissibleView = (props: Props): JSX.Element => {
           result.left = constants.screenWidth - left;
           break;
         case PanningProvider.Directions.UP:
-          result.top = -top - height.current - TOP_INSET.current;
+          result.top = -top - height.current - TOP_INSET;
           break;
         case PanningProvider.Directions.DOWN:
         default:
-          result.top = constants.screenHeight - top + BOTTOM_INSET.current;
+          result.top = constants.screenHeight - top + BOTTOM_INSET;
           break;
       }
 
@@ -77,14 +74,17 @@ const DialogDismissibleView = (props: Props): JSX.Element => {
 
   const hiddenLocation = useRef<LocationProps>(getHiddenLocation(0, 0));
 
-  const animateTo = useCallback((toValue: number, animationEndCallback?: Animated.EndCallback) => {
-    Animated.timing(animatedValue.current, {
-      toValue,
-      duration: 300,
-      easing: Easing.bezier(0.2, 0, 0.35, 1),
-      useNativeDriver: true,
-    }).start(animationEndCallback);
-  }, []);
+  const animateTo = useCallback(
+    (toValue: number, animationEndCallback?: Animated.EndCallback) => {
+      Animated.timing(animatedValue.current, {
+        toValue,
+        duration: props.duration,
+        easing: Easing.bezier(0.2, 0, 0.35, 1),
+        useNativeDriver: true,
+      }).start(animationEndCallback);
+    },
+    [props.duration]
+  );
 
   const isSwiping = useCallback(() => {
     return (
@@ -130,8 +130,8 @@ const DialogDismissibleView = (props: Props): JSX.Element => {
     if (
       isPanning &&
       (swipeDirections.x || swipeDirections.y) &&
-      (swipeDirections.x !== prevSwipeDirections.current?.x ||
-        swipeDirections.y !== prevSwipeDirections.current?.y)
+      (swipeDirections.x !== mutableSwipeDirections.current?.x ||
+        swipeDirections.y !== mutableSwipeDirections.current?.y)
     ) {
       mutableSwipeDirections.current = swipeDirections;
     }
@@ -145,16 +145,17 @@ const DialogDismissibleView = (props: Props): JSX.Element => {
 
   const onLayout = useCallback(
     (event: LayoutChangeEvent) => {
-      const { layout } = event.nativeEvent;
-      width.current = layout.width;
-      height.current = layout.height;
-      thresholdX.current = width.current / 2;
-      thresholdY.current = height.current / 2;
-
-      hiddenLocation.current = getHiddenLocation(layout.x, layout.y);
-      animateTo(1);
+      if (propsVisible) {
+        const { layout } = event.nativeEvent;
+        width.current = layout.width;
+        height.current = layout.height;
+        thresholdX.current = width.current / 2;
+        thresholdY.current = height.current / 2;
+        hiddenLocation.current = getHiddenLocation(layout.x, layout.y);
+        animateTo(1);
+      }
     },
-    [getHiddenLocation]
+    [getHiddenLocation, propsVisible]
   );
 
   const getAnimationStyle = useCallback(() => {
@@ -178,13 +179,12 @@ const DialogDismissibleView = (props: Props): JSX.Element => {
 
   const resetToShown = useCallback(
     (left: number, top: number, _direction?: PanningDirections) => {
-      const toValue = [PanningProvider.Directions.LEFT, PanningProvider.Directions.RIGHT].includes(
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        _direction
-      )
-        ? 1 + left / hiddenLocation.current.left
-        : 1 + top / hiddenLocation.current.top;
+      const toValue =
+        _direction &&
+        (_direction === PanningProvider.Directions.LEFT ||
+          _direction === PanningProvider.Directions.RIGHT)
+          ? 1 + left / hiddenLocation.current.left
+          : 1 + top / hiddenLocation.current.top;
 
       animateTo(toValue);
     },
@@ -214,11 +214,12 @@ const DialogDismissibleView = (props: Props): JSX.Element => {
   );
 
   return (
-    <View ref={containerRef} style={containerStyle} onLayout={onLayout}>
+    <View onLayout={onLayout}>
       <PanResponderView
-        style={[style, getAnimationStyle(), !visible.current && { opacity: 0 }]}
+        style={getAnimationStyle()}
         isAnimated
         onPanLocationChanged={onPanLocationChanged}
+        ignorePanning={props.ignorePanning}
       >
         {children}
       </PanResponderView>

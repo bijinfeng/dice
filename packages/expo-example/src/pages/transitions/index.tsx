@@ -22,7 +22,7 @@ const TransitionsDemo: FC = () => {
     () => ({
       width: 100,
       height: 100,
-      backgroundColor: theme.primary,
+      backgroundColor: theme.primary_color,
       borderRadius: theme.border_radius_md,
       position: 'absolute',
       left: windowWidth / 2 - 50,

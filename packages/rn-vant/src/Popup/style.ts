@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import type { ViewStyle, TextStyle } from 'react-native';
 import constants from '../utils/constants';
-import type { PopupProps, IconPosition } from './type';
+import type { PopupProps, IconPosition, Position } from './type';
 
 interface Styles {
   wrapper: ViewStyle;
@@ -74,4 +74,23 @@ export const createStyle = (theme: DiceUI.Theme, params: Params): Styles => {
       ...layout,
     },
   });
+};
+
+export const getOverlayStyle = (position: Position): ViewStyle => {
+  const alignments: ViewStyle = {};
+
+  if (position === 'center') {
+    alignments.justifyContent = 'center';
+    alignments.alignItems = 'center';
+  } else if (position === 'top') {
+    alignments.justifyContent = 'flex-start';
+  } else if (position === 'left') {
+    alignments.alignItems = 'flex-start';
+  } else if (position === 'bottom') {
+    alignments.justifyContent = 'flex-end';
+  } else if (position === 'right') {
+    alignments.alignItems = 'flex-end';
+  }
+
+  return alignments;
 };

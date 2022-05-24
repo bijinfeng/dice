@@ -29,6 +29,8 @@ export interface DialogProps {
    * 是否开启安全区适配
    */
   useSafeArea?: boolean;
+  // 禁止手势操作
+  ignorePanning?: boolean;
   /**
    * 打开弹出层时触发
    */

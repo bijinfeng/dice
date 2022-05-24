@@ -1,3 +1,4 @@
+import type React from 'react';
 import type { ViewProps } from 'react-native';
 
 export type Placement = 'top' | 'bottom' | 'right' | 'left';
@@ -92,7 +93,7 @@ export interface TransitionStyleProps extends SupportedTransitions {
   transition?: TransitionConfig;
 }
 
-export interface TransitionProps extends ViewProps {
+export interface TransitionProps<T = any> extends ViewProps {
   /**
    * Callback invoked when transition is completed
    * 动画结束的回调
@@ -119,6 +120,7 @@ export interface TransitionProps extends ViewProps {
   visible?: boolean;
 
   animationExited?: boolean;
-  children?: any;
-  as?: any;
+  children?: React.ReactNode;
+  as?: React.ComponentType<T>;
+  [key: string]: any;
 }

@@ -42,12 +42,12 @@ const styleFactory = (theme: DiceUI.Theme) =>
       margin: 20,
     },
     panDismissible: {
-      backgroundColor: theme.primary,
+      backgroundColor: theme.primary_color,
       height: 250,
       width: 250,
     },
     panListener: {
-      backgroundColor: theme.danger,
+      backgroundColor: theme.danger_color,
       justifyContent: 'center',
       width: '100%',
     },

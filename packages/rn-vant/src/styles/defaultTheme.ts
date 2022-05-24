@@ -382,6 +382,17 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   empty_description_font_size: vars.font_size_md,
   empty_description_line_height: vars.line_height_md,
   empty_bottom_margin_top: 24,
+
+  // Notify
+  notify_text_color: vars.white,
+  notify_padding_horizontal: vars.padding_md,
+  notify_padding_vertical: vars.padding_xs,
+  notify_font_size: vars.font_size_md,
+  notify_line_height: vars.line_height_md,
+  notify_primary_background_color: vars.primary_color,
+  notify_success_background_color: vars.success_color,
+  notify_danger_background_color: vars.danger_color,
+  notify_warning_background_color: vars.warning_color,
 });
 
 export const defaultTheme = createDefaultTheme(_vars);
