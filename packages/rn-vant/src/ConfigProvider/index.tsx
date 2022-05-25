@@ -1,6 +1,6 @@
 import React, { memo, MutableRefObject } from 'react';
 import { Appearance, ColorSchemeName } from 'react-native';
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from '../Theme';
 import { PortalProvider, usePortal } from '../Portal';
 import { defaultTheme, darkTheme } from '../styles';
@@ -38,12 +38,14 @@ const ConfigProvider = ({ children, theme: providedTheme }: Props): JSX.Element 
   }, [providedTheme]);
 
   return (
-    <ThemeProvider theme={getTheme()}>
-      <PortalProvider>
-        <InitializePortalRef />
-        {children}
-      </PortalProvider>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider theme={getTheme()}>
+        <PortalProvider>
+          <InitializePortalRef />
+          {children}
+        </PortalProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 };
 

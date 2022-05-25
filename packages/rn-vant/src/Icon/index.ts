@@ -1,5 +1,5 @@
 import Icon, { IconNames } from '@rn-vant/icons';
-import isString from '../utils/isString';
+import isString from 'lodash-es/isString';
 
 export const isIcon = (icon: IconNames | React.ReactNode): icon is IconNames => isString(icon);
 
