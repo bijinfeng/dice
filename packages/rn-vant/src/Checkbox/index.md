@@ -7,7 +7,8 @@ nav:
   path: /
 
 group:
-  title: 基础组件
+  order: 2
+  title: 表单组件
 ---
 
 ## 基础用法

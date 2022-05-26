@@ -2,12 +2,12 @@
 title: NoticeBar 通知栏
 desc: 用于循环播放展示一组消息通知。
 demo: /notice-bar
+
 nav:
   path: /
 
 group:
-  title: 基础组件
-  order: 1
+  title: 展示组件
 ---
 
 ### 基础用法

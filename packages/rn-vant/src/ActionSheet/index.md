@@ -7,7 +7,8 @@ nav:
   path: /
 
 group:
-  title: 基础组件
+  order: 3
+  title: 反馈组件
 ---
 
 ## 基础用法

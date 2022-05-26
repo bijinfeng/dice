@@ -2,12 +2,12 @@
 title: Layout 布局
 desc: Layout 提供了 Layout.Row 和 Layout.Col 两个组件来进行行列布局。
 demo: /layout
+
 nav:
   path: /
 
 group:
   title: 基础组件
-  order: 1
 ---
 
 ## 基础用法

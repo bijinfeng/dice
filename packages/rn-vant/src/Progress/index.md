@@ -7,7 +7,7 @@ nav:
   path: /
 
 group:
-  title: 基础组件
+  title: 展示组件
 ---
 
 ## 基础用法

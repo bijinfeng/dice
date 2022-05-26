@@ -2,12 +2,12 @@
 title: NavBar 导航栏
 desc: 为页面提供导航功能，常用于页面顶部。
 demo: /nav-bar
+
 nav:
   path: /
 
 group:
-  title: 基础组件
-  order: 1
+  title: 导航组件
 ---
 
 ### 基础用法

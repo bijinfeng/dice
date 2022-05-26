@@ -7,7 +7,8 @@ nav:
   path: /
 
 group:
-  title: 基础组件
+  order: 5
+  title: 导航组件
 ---
 
 ## 代码演示

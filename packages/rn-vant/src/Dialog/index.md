@@ -7,7 +7,7 @@ nav:
   path: /
 
 group:
-  title: 基础组件
+  title: 反馈组件
 ---
 
 ## 代码演示

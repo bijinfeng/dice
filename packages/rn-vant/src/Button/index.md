@@ -7,6 +7,7 @@ nav:
   path: /
 
 group:
+  order: 1
   title: 基础组件
 ---
 

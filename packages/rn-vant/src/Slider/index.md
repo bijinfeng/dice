@@ -7,7 +7,7 @@ nav:
   path: /
 
 group:
-  title: 基础组件
+  title: 表单组件
 ---
 
 ## 代码演示

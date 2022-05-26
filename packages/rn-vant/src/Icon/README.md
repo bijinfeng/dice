@@ -7,7 +7,6 @@ nav:
 
 group:
   title: 基础组件
-  order: 2
 ---
 
 ## 代码演示
