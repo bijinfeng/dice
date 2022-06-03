@@ -5,3 +5,4 @@ export type ThemeVarType = typeof defaultTheme;
 
 export { defaultTheme } from './defaultTheme';
 export { darkTheme } from './darkTheme';
+export * from './shortHand';

@@ -43,22 +43,13 @@ const BadgeExample = memo(() => {
         </Badge>
       </DemoBlock>
       <DemoBlock title="自定义徽标内容" contentStyle={styles.content} inset>
-        <Badge
-          content={<Icon name="success" size={12} color="#fff" style={styles.icon} />}
-          style={styles.badge}
-        >
+        <Badge content={<Icon name="success" size={12} color="#fff" />} style={styles.badge}>
           <View style={styles.child} />
         </Badge>
-        <Badge
-          content={<Icon name="cross" size={12} color="#fff" style={styles.icon} />}
-          style={styles.badge}
-        >
+        <Badge content={<Icon name="cross" size={12} color="#fff" />} style={styles.badge}>
           <View style={styles.child} />
         </Badge>
-        <Badge
-          content={<Icon name="down" size={12} color="#fff" style={styles.icon} />}
-          style={styles.badge}
-        >
+        <Badge content={<Icon name="down" size={12} color="#fff" />} style={styles.badge}>
           <View style={styles.child} />
         </Badge>
       </DemoBlock>
@@ -82,9 +73,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flexDirection: 'row',
-  },
-  icon: {
-    marginVertical: 2,
   },
 });
 

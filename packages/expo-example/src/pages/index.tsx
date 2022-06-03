@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.wrapper}>
-      <ScrollView style={{ padding: 20 }}>
+      <ScrollView style={{ paddingHorizontal: 20 }}>
         <View style={styles.header}>
           <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
           <Text style={[styles.title, { color: themeVars.text_color_2 }]}>RN Vant</Text>
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
     flexDirection: 'row',
+    paddingLeft: 16,
   },
   item: {
     alignItems: 'center',
@@ -80,11 +81,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    lineHeight: 32,
     marginLeft: 16,
   },
   wrapper: {
-    flex: 1,
+    paddingBottom: 20,
+    paddingTop: 46,
   },
 });
 

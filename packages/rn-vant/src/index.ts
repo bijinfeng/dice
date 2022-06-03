@@ -13,8 +13,9 @@ export * from './Field';
 export * from './Empty';
 export * from './Typography';
 export * from './Notify';
+export * from './Grid';
+export * from './Badge';
 
-export { default as Badge } from './Badge';
 export { default as Button } from './Button';
 export { default as Cell } from './Cell';
 export { default as Checkbox } from './Checkbox';

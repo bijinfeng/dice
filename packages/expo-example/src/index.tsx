@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, useMemo } from 'react';
-import { useColorScheme, StatusBar, View, ColorSchemeName } from 'react-native';
+import { useColorScheme, StatusBar, ColorSchemeName } from 'react-native';
 import { ConfigProvider, defaultTheme, darkTheme } from 'rn-vant';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Navigation from './navigation';
@@ -39,9 +39,7 @@ const Layout: FC = () => {
         {isReady && (
           <ConfigProvider theme={isDarkMode ? darkTheme : defaultTheme}>
             <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-            <View style={{ flex: 1 }}>
-              <Navigation colorScheme={themeMode} />
-            </View>
+            <Navigation colorScheme={themeMode} />
           </ConfigProvider>
         )}
       </SafeAreaProvider>

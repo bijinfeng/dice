@@ -19,9 +19,9 @@ export const createStyle = (theme: DiceUI.Theme, { color }: ExtraParams): Styles
     badge: {
       alignItems: 'center',
       color: theme.badge_color,
-      display: 'flex',
       fontSize: theme.badge_font_size,
       fontWeight: theme.badge_font_weight,
+      height: theme.badge_font_size * 1.2,
       justifyContent: 'center',
       lineHeight: theme.badge_font_size * 1.2,
       minWidth: theme.badge_size,

@@ -30,6 +30,7 @@ import Field from '../pages/field';
 import Empty from '../pages/empty';
 import Typography from '../pages/typography';
 import Notify from '../pages/notify';
+import Grid from '../pages/grid';
 
 export type RouteItem = {
   name: string;
@@ -48,6 +49,12 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Grid 宫格',
+    href: '/grid',
+    component: Grid,
+    group: EnumGroup.navigation,
+  },
   {
     name: 'Notify 消息提示',
     href: '/notify',
