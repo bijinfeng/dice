@@ -5,3 +5,4 @@ export { default as useSetState } from './useSetState';
 export { default as useUpdate } from './useUpdate';
 export { default as useOrientation } from './useOrientation';
 export { default as useScrollTo } from './useScrollTo';
+export { default as useRefState } from './useRefState';

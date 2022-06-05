@@ -68,8 +68,8 @@ const Cell = forwardRef<RNTouchableOpacity, CellProps>((props, ref) => {
   const renderValue = useMemoizedFn(() => {
     const hasValue = !!children || !!value;
 
-    if (React.isValidElement(children)) {
-      return children;
+    if (React.isValidElement(children) || React.isValidElement(value)) {
+      return children || value;
     }
     if (hasValue) {
       return <Text style={[styles.value, valueStyle]}>{children ?? value}</Text>;

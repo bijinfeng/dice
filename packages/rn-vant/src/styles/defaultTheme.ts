@@ -402,6 +402,20 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   grid_item_item_icon_size: 28,
   grid_item_text_color: vars.text_color,
   grid_item_text_font_size: vars.font_size_sm,
+
+  // Stepper
+  stepper_background: vars.active_color,
+  stepper_button_icon_color: vars.text_color,
+  stepper_button_disabled_color: vars.background,
+  stepper_button_disabled_icon_color: vars.gray_5,
+  stepper_button_round_theme_color: vars.primary_color,
+  stepper_input_width: 32,
+  stepper_input_height: 28,
+  stepper_input_font_size: vars.font_size_md,
+  stepper_input_text_color: vars.text_color,
+  stepper_input_disabled_text_color: vars.text_color_3,
+  stepper_input_disabled_background: vars.active_color,
+  stepper_radius: vars.border_radius_md,
 });
 
 export const defaultTheme = createDefaultTheme(_vars);

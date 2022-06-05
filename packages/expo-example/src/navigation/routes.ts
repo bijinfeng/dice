@@ -31,6 +31,7 @@ import Empty from '../pages/empty';
 import Typography from '../pages/typography';
 import Notify from '../pages/notify';
 import Grid from '../pages/grid';
+import Stepper from '../pages/stepper';
 
 export type RouteItem = {
   name: string;
@@ -49,6 +50,12 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Stepper 步进器',
+    href: '/stepper',
+    component: Stepper,
+    group: EnumGroup.form,
+  },
   {
     name: 'Grid 宫格',
     href: '/grid',

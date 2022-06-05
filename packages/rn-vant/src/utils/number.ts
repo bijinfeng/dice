@@ -21,6 +21,13 @@ function trimExtraChar(value: string, char: string, regExp: RegExp) {
   return value.slice(0, index + 1) + value.slice(index).replace(regExp, '');
 }
 
+/**
+ * 将字符串格式化成数字样式
+ * @param value
+ * @param allowDot 是否允许逗号
+ * @param allowMinus 是否允许「-」号
+ * @returns
+ */
 export function formatNumber(value: string, allowDot = true, allowMinus = true): string {
   let _value = value;
   if (allowDot) {

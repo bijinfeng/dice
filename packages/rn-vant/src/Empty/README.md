@@ -15,7 +15,7 @@ group:
 ### 基础用法
 
 ```html
-  <Empty description="描述文字" />
+<Empty description="描述文字" />
 ```
 
 ### 图片类型
@@ -46,7 +46,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 ```html
 <Empty
   image="https://cdn.jsdelivr.net/npm/@vant/assets/custom-empty-image.png"
-  imageSize={80}
+  imageSize="{80}"
   description="描述文字"
 />
 ```
@@ -67,8 +67,8 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| image | 图片类型，可选值为 `error` `network` `search`，支持传入图片 URL | _string\|ReactNode_ | `default` |
-| imageSize | 图片大小 | _number_ | - |
-| description | 图片下方的描述文字 | _ReactNode_ | - |
+| 参数        | 说明                                                            | 类型                | 默认值    |
+| ----------- | --------------------------------------------------------------- | ------------------- | --------- |
+| image       | 图片类型，可选值为 `error` `network` `search`，支持传入图片 URL | _string\|ReactNode_ | `default` |
+| imageSize   | 图片大小                                                        | _number_            | -         |
+| description | 图片下方的描述文字                                              | _ReactNode_         | -         |

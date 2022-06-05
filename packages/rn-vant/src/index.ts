@@ -15,6 +15,7 @@ export * from './Typography';
 export * from './Notify';
 export * from './Grid';
 export * from './Badge';
+export * from './Stepper';
 
 export { default as Button } from './Button';
 export { default as Cell } from './Cell';
