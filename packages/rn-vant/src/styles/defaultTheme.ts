@@ -434,6 +434,8 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   picker_option_disabled_opacity: 0.3,
   picker_loading_icon_color: vars.primary_color,
   picker_loading_mask_color: 'rgba(255, 255, 255, 0.9)',
+  picker_mask_top_color: ['rgba(255, 255, 255, 0.9)', 'rgba(255, 255, 255, 0.4)'],
+  picker_mask_bottom_color: ['rgba(255, 255, 255, 0.4)', 'rgba(255, 255, 255, 0.9)'],
 
   // Calendar
   calendar_background: vars.background_2,

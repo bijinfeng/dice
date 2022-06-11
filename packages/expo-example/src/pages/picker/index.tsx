@@ -120,7 +120,6 @@ const PickerDemo: FC = () => {
             columns={columns}
             onCancel={() => setShowPicker(false)}
             onConfirm={handleFileChange}
-            style={cardStyle}
             value={pickerValue}
           />
         </Popup>

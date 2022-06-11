@@ -11,8 +11,6 @@ import { createStyle } from './style';
 import type { PickerProps, PickerFieldNames, State } from './type';
 import { isPlain, flateColumns, DataType, getDateType } from './utils';
 
-const TOP_LINER_GRADIENT_COLOR = ['rgba(255, 255, 255, 0.9)', 'rgba(255, 255, 255, 0.4)'];
-const BOTTOM_LINER_GRADIENT_COLOR = ['rgba(255, 255, 255, 0.4)', 'rgba(255, 255, 255, 0.9)'];
 const DEFAULT_PICKER_FIELD_NAMES: Required<PickerFieldNames> = {
   text: 'text',
   value: 'value',
@@ -162,12 +160,12 @@ const LocalePicker = forwardRef<any, PickerProps>((props, ref) => {
           />
         ))}
         <LinearGradient
-          colors={TOP_LINER_GRADIENT_COLOR}
+          colors={theme.picker_mask_top_color}
           style={[styles.maskTop, { height: maskHeight }]}
           pointerEvents="none"
         />
         <LinearGradient
-          colors={BOTTOM_LINER_GRADIENT_COLOR}
+          colors={theme.picker_mask_bottom_color}
           style={[styles.maskBottom, { height: maskHeight }]}
           pointerEvents="none"
         />

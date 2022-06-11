@@ -24,6 +24,10 @@ const createDarkTheme = (vars: typeof _vars) => ({
   // Calendar
   calendar_month_mark_color: 'rgba(100, 101, 102, 0.2)',
   calendar_day_disabled_color: vars.gray_7,
+
+  // Picker
+  picker_mask_top_color: ['rgba(0, 0, 0, 0.6)', 'rgba(0, 0, 0, 0.1)'],
+  picker_mask_bottom_color: ['rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.6)'],
 });
 
 export const darkTheme = createDarkTheme(darkVars as typeof _vars);
