@@ -16,12 +16,15 @@ export * from './Notify';
 export * from './Grid';
 export * from './Badge';
 export * from './Stepper';
+export * from './Picker';
+export * from './ConfigProvider';
+// export * from './Calendar';
+export * from './LinearGradient';
 
 export { default as Button } from './Button';
 export { default as Cell } from './Cell';
 export { default as Checkbox } from './Checkbox';
 export { default as Circle } from './Circle';
-export { default as ConfigProvider } from './ConfigProvider';
 export { default as Dash } from './Dash';
 export { default as Divider } from './Divider';
 export { default as Dialog } from './Dialog';

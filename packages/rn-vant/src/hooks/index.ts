@@ -6,3 +6,4 @@ export { default as useUpdate } from './useUpdate';
 export { default as useOrientation } from './useOrientation';
 export { default as useScrollTo } from './useScrollTo';
 export { default as useRefState } from './useRefState';
+export { default as useRefs } from './useRefs';

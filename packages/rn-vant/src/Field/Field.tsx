@@ -281,6 +281,7 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
       valueStyle={styles.value}
       arrowDirection={props.arrowDirection}
       style={props.style}
+      onPress={props.onPress}
     >
       <View style={styles.container}>
         <View style={styles.body}>

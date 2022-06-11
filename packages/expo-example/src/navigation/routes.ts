@@ -32,6 +32,8 @@ import Typography from '../pages/typography';
 import Notify from '../pages/notify';
 import Grid from '../pages/grid';
 import Stepper from '../pages/stepper';
+import Picker from '../pages/picker';
+import Calendar from '../pages/calendar';
 
 export type RouteItem = {
   name: string;
@@ -51,6 +53,12 @@ enum EnumGroup {
 
 export const routes: RouteItem[] = [
   {
+    name: 'Picker 选择器',
+    href: '/picker',
+    component: Picker,
+    group: EnumGroup.form,
+  },
+  {
     name: 'Stepper 步进器',
     href: '/stepper',
     component: Stepper,
@@ -61,6 +69,12 @@ export const routes: RouteItem[] = [
     href: '/grid',
     component: Grid,
     group: EnumGroup.navigation,
+  },
+  {
+    name: 'Calendar 日历',
+    href: '/calendar',
+    component: Calendar,
+    group: EnumGroup.form,
   },
   {
     name: 'Notify 消息提示',

@@ -20,6 +20,10 @@ const createDarkTheme = (vars: typeof _vars) => ({
 
   // Button
   button_plain_background_color: 'transparent',
+
+  // Calendar
+  calendar_month_mark_color: 'rgba(100, 101, 102, 0.2)',
+  calendar_day_disabled_color: vars.gray_7,
 });
 
 export const darkTheme = createDarkTheme(darkVars as typeof _vars);

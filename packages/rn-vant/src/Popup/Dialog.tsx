@@ -4,10 +4,10 @@ import View from '../View';
 import DismissibleView from './DismissibleView';
 import { useMemoizedFn } from '../hooks';
 import { PanningProvider, PanListenerView, PanningDirections } from '../PanningViews';
-import type { DialogProps, Position } from './type';
+import type { DialogProps, PopupPosition } from './type';
 import { getOverlayStyle } from './style';
 
-const DirecationMap: Record<Exclude<Position, 'center'>, PanningDirections> = {
+const DirecationMap: Record<Exclude<PopupPosition, 'center'>, PanningDirections> = {
   bottom: PanningProvider.Directions.DOWN,
   left: PanningProvider.Directions.LEFT,
   right: PanningProvider.Directions.RIGHT,

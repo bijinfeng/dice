@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import type { ViewStyle, TextStyle } from 'react-native';
 import constants from '../utils/constants';
-import type { PopupProps, IconPosition, Position } from './type';
+import type { PopupProps, IconPosition, PopupPosition } from './type';
 
 interface Styles {
   wrapper: ViewStyle;
@@ -76,7 +76,7 @@ export const createStyle = (theme: DiceUI.Theme, params: Params): Styles => {
   });
 };
 
-export const getOverlayStyle = (position: Position): ViewStyle => {
+export const getOverlayStyle = (position: PopupPosition): ViewStyle => {
   const alignments: ViewStyle = {};
 
   if (position === 'center') {

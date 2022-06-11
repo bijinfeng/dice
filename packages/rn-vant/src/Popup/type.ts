@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
+import type { StyleProp, ViewStyle } from 'react-native';
 import type { IconNames } from '../Icon';
 
-export type Position = 'top' | 'bottom' | 'right' | 'left' | 'center';
+export type PopupPosition = 'top' | 'bottom' | 'right' | 'left' | 'center';
 export type IconPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 export interface DialogProps {
@@ -19,7 +20,7 @@ export interface DialogProps {
    * 弹出位置
    * @default cener
    */
-  position?: Position;
+  position?: PopupPosition;
   /**
    * 动画时长（单位毫秒）
    * @default 300
@@ -70,4 +71,5 @@ export interface PopupProps extends DialogProps {
    * @default top-right
    */
   closeIconPosition?: IconPosition;
+  style?: StyleProp<ViewStyle>;
 }

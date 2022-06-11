@@ -17,6 +17,7 @@ const Popup = (props: PopupProps): JSX.Element => {
     onClose,
     visible,
     title,
+    style,
     ...rest
   } = props;
 
@@ -24,7 +25,7 @@ const Popup = (props: PopupProps): JSX.Element => {
 
   return (
     <Dialog {...rest} position={position} visible={visible} onClose={onClose}>
-      <View style={[styles.wrapper, round && styles.round]}>
+      <View style={[styles.wrapper, round && styles.round, style]}>
         {!!title && <Text style={styles.title}>{title}</Text>}
         {closeable && (
           <Pressable style={styles.icon} onPress={onClose}>
