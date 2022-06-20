@@ -1,6 +1,6 @@
-import React, { useCallback, useMemo, useRef, useEffect, memo } from 'react';
+import React, { useCallback, useMemo, useRef, useLayoutEffect, memo } from 'react';
 import isObject from 'lodash-es/isObject';
-import { FlatList, ListRenderItem, Text, Pressable } from 'react-native';
+import { Text, Pressable, ScrollView } from 'react-native';
 import type { ViewStyle, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import { useThemeFactory } from '../Theme';
 import type { PickerColumnProps, PickerOption } from './type';
@@ -9,15 +9,8 @@ import { createItemStyle } from './style';
 const WheelPicker = (props: PickerColumnProps): JSX.Element => {
   const { options, itemHeight, wrapHeight } = props;
   const { styles } = useThemeFactory(createItemStyle);
-  const flatListRef = useRef<FlatList>(null);
-  const prevIndex = useRef(props.index);
-
-  const getItemLayout = useCallback(
-    (_data: any, index: number) => {
-      return { length: itemHeight, offset: itemHeight * index, index };
-    },
-    [itemHeight]
-  );
+  const flatListRef = useRef<ScrollView>(null);
+  const prevIndex = useRef<number | null>(null);
 
   const contentContainerStyle = useMemo<ViewStyle>(() => {
     return {
@@ -25,9 +18,17 @@ const WheelPicker = (props: PickerColumnProps): JSX.Element => {
     };
   }, [wrapHeight, itemHeight]);
 
-  const scrollToIndex = useCallback((index: number, animated = true) => {
-    flatListRef.current?.scrollToIndex({ index, animated });
-  }, []);
+  const scrollToIndex = useCallback(
+    (index: number, animated = true) => {
+      setTimeout(() => {
+        flatListRef.current?.scrollTo({
+          y: index * itemHeight,
+          animated,
+        });
+      }, 0);
+    },
+    [itemHeight]
+  );
 
   const handleChange = useCallback(
     (index: number) => {
@@ -54,40 +55,36 @@ const WheelPicker = (props: PickerColumnProps): JSX.Element => {
     return option;
   };
 
-  const renderItem: ListRenderItem<PickerOption> = ({ item, index }) => {
-    const text = getOptionText(item);
-
-    return (
-      <Pressable style={[styles.item, { height: itemHeight }]} onPress={() => scrollToIndex(index)}>
-        {props.optionRender ? (
-          props.optionRender(item)
-        ) : (
-          <Text style={styles.itemText}>{text}</Text>
-        )}
-      </Pressable>
-    );
-  };
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (prevIndex.current !== props.index) {
-      scrollToIndex(props.index);
+      scrollToIndex(props.index, prevIndex.current !== null);
       prevIndex.current = props.index;
     }
   }, [props.index, scrollToIndex]);
 
   return (
-    <FlatList<PickerOption>
+    <ScrollView
       ref={flatListRef}
       showsVerticalScrollIndicator={false}
-      data={options}
-      renderItem={renderItem}
-      keyExtractor={(_, index) => `key-${index}`}
-      getItemLayout={getItemLayout}
       onMomentumScrollEnd={onValueChange}
       snapToInterval={itemHeight}
       contentContainerStyle={contentContainerStyle}
-      initialScrollIndex={props.index}
-    />
+    >
+      {options?.map((item, index) => (
+        <Pressable
+          style={[styles.item, { height: itemHeight }]}
+          onPress={() => scrollToIndex(index)}
+          // eslint-disable-next-line react/no-array-index-key
+          key={index}
+        >
+          {props.optionRender ? (
+            props.optionRender(item)
+          ) : (
+            <Text style={styles.itemText}>{getOptionText(item)}</Text>
+          )}
+        </Pressable>
+      ))}
+    </ScrollView>
   );
 };
 

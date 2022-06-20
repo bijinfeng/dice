@@ -17,6 +17,7 @@ import CalendarDay from './CalendarDay';
 
 const CalendarMonth = forwardRef<unknown, CalendarMonthProps>((props, ref) => {
   const { rowHeight, showMonthTitle, showMark } = props;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setVisible] = useState();
   const { locale } = useContext(ConfigProviderContext);
   const { styles } = useThemeFactory(createMonthStyle);

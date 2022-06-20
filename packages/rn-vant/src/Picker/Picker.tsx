@@ -17,7 +17,7 @@ const DEFAULT_PICKER_FIELD_NAMES: Required<PickerFieldNames> = {
   children: 'children',
 };
 
-const LocalePicker = forwardRef<any, PickerProps>((props, ref) => {
+const Picker = forwardRef<View, PickerProps>((props, ref) => {
   const {
     toolbarPosition = 'top',
     showToolbar = true,
@@ -184,4 +184,4 @@ const LocalePicker = forwardRef<any, PickerProps>((props, ref) => {
   );
 });
 
-export default LocalePicker;
+export default Picker;

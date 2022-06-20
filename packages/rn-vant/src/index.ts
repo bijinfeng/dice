@@ -17,6 +17,7 @@ export * from './Grid';
 export * from './Badge';
 export * from './Stepper';
 export * from './Picker';
+export * from './DatetimePicker';
 export * from './ConfigProvider';
 // export * from './Calendar';
 export * from './LinearGradient';

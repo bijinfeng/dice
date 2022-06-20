@@ -34,6 +34,7 @@ import Grid from '../pages/grid';
 import Stepper from '../pages/stepper';
 import Picker from '../pages/picker';
 import Calendar from '../pages/calendar';
+import DateTimePicker from '../pages/dateTimePicker';
 
 export type RouteItem = {
   name: string;
@@ -52,6 +53,12 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'DatetimePicker 时间选择',
+    href: '/datetime-picker',
+    component: DateTimePicker,
+    group: EnumGroup.form,
+  },
   {
     name: 'Picker 选择器',
     href: '/picker',

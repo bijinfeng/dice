@@ -23,33 +23,6 @@ export type PickerFieldNames = {
   children?: string;
 };
 
-export type PickerExpose = {
-  /** 停止惯性滚动并触发 onConfirm 事件	 */
-  confirm: () => void;
-  /** 获取所有列选中的值	 */
-  getValues: <T = PickerOption>() => T[];
-  /** 设置所有列选中的值	 */
-  setValues: (values: string[]) => void;
-  /** 获取所有列选中值对应的索引	 */
-  getIndexes: () => number[];
-  /** 设置所有列选中值对应的索引	 */
-  setIndexes: (indexes: number[]) => void;
-  /** 获取对应列选中项的索引	 */
-  getColumnIndex: (index: number) => number;
-  /** 设置对应列选中项的索引	 */
-  setColumnIndex: (columnIndex: number, optionIndex: number) => void;
-  /** 获取对应列选中的值	 */
-  getColumnValue: <T = PickerOption>(index: number) => T;
-  /** 设置对应列选中的值	 */
-  setColumnValue: (index: number, value: string) => void;
-  /** 获取对应列中所有选项	 */
-  getColumnValues: <T = PickerOption>(index: number) => T[];
-  /** 设置对应列中所有选项	 */
-  setColumnValues: (index: number, options: PickerOption[]) => void;
-};
-
-export type PickerInstance = PickerExpose;
-
 export interface PickerCommonProps<T> extends Pick<ViewProps, 'style'> {
   /** 对象数组，配置每一列显示的数据	 */
   columns: T[] | T[][];
