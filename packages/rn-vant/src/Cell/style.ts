@@ -1,12 +1,12 @@
 import { StyleSheet, StyleProp, TextStyle } from 'react-native';
 
-export const createCellStyle = (theme: DiceUI.Theme) => {
+export const createCellStyle = (theme: DiceUI.Theme, disabled = false) => {
   const text: StyleProp<TextStyle> = {
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: theme.cell_line_height,
     lineHeight: theme.cell_line_height,
-    color: theme.cell_text_color,
+    color: disabled ? theme.cell_disabled_text_color : theme.cell_text_color,
     fontSize: theme.cell_font_size,
     textAlignVertical: 'center',
   };

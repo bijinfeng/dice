@@ -9,15 +9,6 @@ const CellGroup = forwardRef<View, CellGroupProps>((props, ref) => {
   const { styles } = useThemeFactory(createCellGroupStyle);
   const hasBorder = border && !inset;
 
-  const renderChildren = () => {
-    return React.Children.map(children, (child, i) => (
-      <View style={styles.item}>
-        {i !== 0 && <View style={styles.divide} />}
-        {child}
-      </View>
-    ));
-  };
-
   return (
     <View ref={ref} {...rest}>
       {title && <Text style={[styles.title, inset ? styles.titleInset : undefined]}>{title}</Text>}
@@ -28,7 +19,12 @@ const CellGroup = forwardRef<View, CellGroupProps>((props, ref) => {
           inset ? styles.inset : undefined,
         ]}
       >
-        {renderChildren()}
+        {React.Children.map(children, (child, i) => (
+          <View style={styles.item}>
+            {i !== 0 && <View style={styles.divide} />}
+            {child}
+          </View>
+        ))}
       </View>
     </View>
   );

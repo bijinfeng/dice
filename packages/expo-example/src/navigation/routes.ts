@@ -35,6 +35,7 @@ import Stepper from '../pages/stepper';
 import Picker from '../pages/picker';
 import Calendar from '../pages/calendar';
 import DateTimePicker from '../pages/dateTimePicker';
+import Collapse from '../pages/collapse';
 
 export type RouteItem = {
   name: string;
@@ -53,6 +54,12 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Collapse 折叠面板',
+    href: '/collapse',
+    component: Collapse,
+    group: EnumGroup.exhibit,
+  },
   {
     name: 'DatetimePicker 时间选择',
     href: '/datetime-picker',

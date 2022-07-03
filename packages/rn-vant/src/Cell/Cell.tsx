@@ -1,12 +1,19 @@
 import React, { forwardRef } from 'react';
-import { View, Text, TouchableOpacity as RNTouchableOpacity } from 'react-native';
+import { View, Text, Animated, TouchableOpacity as RNTouchableOpacity } from 'react-native';
 import isFunction from 'lodash-es/isFunction';
-import { useMemoizedFn } from '../hooks';
+import { useMemoizedFn, useAnimatedValue, useUpdateEffect } from '../hooks';
 import { useThemeFactory } from '../Theme';
 import Icon from '../Icon';
 import TouchableOpacity from '../TouchableOpacity';
 import { createCellStyle } from './style';
-import { CellProps, directionIcons } from './type';
+import type { CellProps, Direction } from './type';
+
+const directionRotates: Record<Direction, number> = {
+  left: 0.5,
+  right: 0,
+  up: -0.25,
+  down: 0.25,
+};
 
 const Cell = forwardRef<RNTouchableOpacity, CellProps>((props, ref) => {
   const {
@@ -14,6 +21,7 @@ const Cell = forwardRef<RNTouchableOpacity, CellProps>((props, ref) => {
     value,
     label,
     size = 'default',
+    pressable = true,
     icon,
     isLink,
     arrowDirection = 'right',
@@ -25,8 +33,23 @@ const Cell = forwardRef<RNTouchableOpacity, CellProps>((props, ref) => {
     labelStyle,
     titleStyle,
   } = props;
+
+  const arrowRotate = useAnimatedValue(directionRotates[arrowDirection]);
+  const { styles, theme } = useThemeFactory(createCellStyle, props.disabled);
   const isLarge = size === 'large';
-  const { styles, theme } = useThemeFactory(createCellStyle);
+
+  useUpdateEffect(() => {
+    Animated.timing(arrowRotate, {
+      toValue: directionRotates[arrowDirection],
+      duration: theme.animation_duration_base,
+      useNativeDriver: true,
+    }).start();
+  }, [arrowDirection]);
+
+  const spin = arrowRotate.interpolate({
+    inputRange: [-1, 0, 1],
+    outputRange: ['-360deg', '0deg', '360deg'],
+  });
 
   const renderLeftIcon = () => {
     let iconComponent: React.ReactNode;
@@ -79,13 +102,15 @@ const Cell = forwardRef<RNTouchableOpacity, CellProps>((props, ref) => {
 
   const renderRightIcon = () => {
     if (isLink) {
+      const iconColor = props.disabled
+        ? theme.cell_disabled_text_color
+        : theme.cell_right_icon_color;
+
       return (
         <View style={[styles.icon, { marginLeft: 4 }]}>
-          <Icon
-            name={directionIcons[arrowDirection]}
-            size={theme.cell_icon_size}
-            color={theme.cell_right_icon_color}
-          />
+          <Animated.View style={{ transform: [{ rotate: spin }] }}>
+            <Icon name="arrow" size={theme.cell_icon_size} color={iconColor} />
+          </Animated.View>
         </View>
       );
     }
@@ -96,6 +121,7 @@ const Cell = forwardRef<RNTouchableOpacity, CellProps>((props, ref) => {
     <TouchableOpacity
       ref={ref}
       onPress={onPress}
+      disabled={props.disabled || !pressable}
       activeBackgroundColor={theme.cell_active_color}
       style={[
         styles.wrapper,

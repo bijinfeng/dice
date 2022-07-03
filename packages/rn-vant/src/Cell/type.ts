@@ -4,13 +4,6 @@ import type { IconNames } from '../Icon';
 
 export type Direction = 'left' | 'right' | 'up' | 'down';
 
-export const directionIcons: Record<Direction, IconNames> = {
-  left: 'arrow-left',
-  right: 'arrow',
-  up: 'arrow-up',
-  down: 'arrow-down',
-};
-
 export interface CellProps {
   children?: React.ReactNode;
   style?: StyleProp<ViewStyle>;
@@ -63,6 +56,9 @@ export interface CellProps {
    * 是否使内容垂直居中
    */
   center?: boolean;
+  /** 是否开启点击反馈	 */
+  pressable?: boolean;
+  disabled?: boolean;
   /**
    * 点击事件
    */

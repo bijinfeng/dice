@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const useUnmountedRef = () => {
+const useUnmountedRef = (): React.MutableRefObject<boolean> => {
   const unmountedRef = useRef(false);
   useEffect(() => {
     unmountedRef.current = false;

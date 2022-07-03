@@ -62,6 +62,7 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   cell_large_padding_vertical: vars.padding_sm,
   cell_large_title_font_size: vars.font_size_lg,
   cell_large_label_font_size: vars.font_size_md,
+  cell_disabled_text_color: vars.text_color_3,
 
   // CellGroup
   cell_group_background_color: vars.background_2,
@@ -464,6 +465,14 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   calendar_confirm_button_height: 36,
   calendar_confirm_button_margin_vertical: 7,
   calendar_confirm_button_margin_horizontal: 7,
+
+  // Collapse
+  collapse_item_content_padding_vertical: vars.padding_sm,
+  collapse_item_content_padding_horizontal: vars.padding_md,
+  collapse_item_content_font_size: vars.font_size_md,
+  collapse_item_content_line_height: 1.5 * vars.font_size_md,
+  collapse_item_content_text_color: vars.text_color_2,
+  collapse_item_content_background_color: vars.background_2,
 });
 
 export const defaultTheme = createDefaultTheme(_vars);

@@ -7,3 +7,8 @@ export { default as useOrientation } from './useOrientation';
 export { default as useScrollTo } from './useScrollTo';
 export { default as useRefState } from './useRefState';
 export { default as useRefs } from './useRefs';
+export { default as useLazyRender } from './useLazyRender';
+export { default as useLazyRef } from './useLazyRef';
+export { default as useAnimatedValue } from './useAnimatedValue';
+export { default as useAnimatedValueArray } from './useAnimatedValueArray';
+export { default as useLayout } from './useLayout';

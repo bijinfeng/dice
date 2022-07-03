@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Animated } from 'react-native';
 
-export default function useAnimatedValueArray(initialValues: number[]) {
+export default function useAnimatedValueArray(initialValues: number[]): Animated.Value[] {
   const refs = React.useRef<Animated.Value[]>([]);
 
   refs.current.length = initialValues.length;
