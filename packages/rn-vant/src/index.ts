@@ -22,6 +22,7 @@ export * from './ConfigProvider';
 // export * from './Calendar';
 export * from './LinearGradient';
 export * from './Collapse';
+export * from './SwipeCell';
 
 export { default as Button } from './Button';
 export { default as Cell } from './Cell';
