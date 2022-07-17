@@ -12,7 +12,7 @@ interface CheckboxProps extends CheckboxType {
   __ANT_CHECKBOX: boolean;
 }
 
-const Checkbox = InternalCheckbox as CheckboxProps;
+export const Checkbox = InternalCheckbox as CheckboxProps;
 
 Checkbox.Group = Group;
 Checkbox.__ANT_CHECKBOX = true;

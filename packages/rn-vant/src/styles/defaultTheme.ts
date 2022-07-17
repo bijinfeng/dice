@@ -473,6 +473,21 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   collapse_item_content_line_height: 1.5 * vars.font_size_md,
   collapse_item_content_text_color: vars.text_color_2,
   collapse_item_content_background_color: vars.background_2,
+
+  // Popover
+  popover_arrow_size: 6,
+  popover_radius: vars.border_radius_lg,
+  popover_action_width: 128,
+  popover_action_height: 44,
+  popover_action_font_size: vars.font_size_md,
+  popover_action_line_height: vars.line_height_md,
+  popover_action_icon_size: 20,
+  popover_light_text_color: vars.text_color,
+  popover_light_background: vars.background_2,
+  popover_light_action_disabled_text_color: vars.text_color_3,
+  popover_dark_text_color: vars.white,
+  popover_dark_background: '#4a4a4a',
+  popover_dark_action_disabled_text_color: vars.text_color_2,
 });
 
 export const defaultTheme = createDefaultTheme(_vars);

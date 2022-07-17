@@ -37,6 +37,7 @@ import Calendar from '../pages/calendar';
 import DateTimePicker from '../pages/dateTimePicker';
 import Collapse from '../pages/collapse';
 import SwipeCell from '../pages/swipeCell';
+import Popover from '../pages/popover';
 
 export type RouteItem = {
   name: string;
@@ -55,6 +56,12 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Popover 气泡弹出框',
+    href: '/popover',
+    component: Popover,
+    group: EnumGroup.exhibit,
+  },
   {
     name: 'SwipeCell 滑动单元格',
     href: '/swipe-cell',
