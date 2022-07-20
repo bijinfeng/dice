@@ -27,6 +27,7 @@ export * from './Popover';
 export * from './Cell';
 export * from './Checkbox';
 export * from './Space';
+export * from './Input';
 
 export { default as Button } from './Button';
 export { default as Circle } from './Circle';
