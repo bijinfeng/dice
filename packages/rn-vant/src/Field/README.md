@@ -48,7 +48,7 @@ group:
 
 ```jsx
 <Cell.Group inset>
-  <Field label="文本" value="输入框只读" readonly />
+  <Field label="文本" value="输入框只读" readOnly />
   <Field label="文本" value="输入框已禁用" disabled />
 </Cell.Group>
 ```

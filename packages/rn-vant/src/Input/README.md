@@ -22,7 +22,7 @@ import { Input } from 'rn-vant';
 
 可以通过 `value` 和 `onChange` 双向绑定输入框的值，通过 `placeholder` 设置占位提示文字。
 
-```tsx
+```jsx
 import React from 'react';
 import { Cell, Input } from 'rn-vant';
 
@@ -51,7 +51,7 @@ export default () => (
 
 可以通过 `clearable` `clearIcon` `clearTrigger` 可以控制清除按钮的展示时机以及自定义按钮内容。
 
-```tsx
+```jsx
 import React from 'react';
 import { Cell, Input } from 'rn-vant';
 
@@ -66,7 +66,7 @@ export default () => (
 
 `Input.TextArea` 可用于多行输入， `autoSize` 可以使文本域自适应高度，还能设置其最小和最大高度。
 
-```tsx
+```jsx
 import React from 'react';
 import { Cell, Input } from 'rn-vant';
 
@@ -92,7 +92,7 @@ export default () => (
 
 通过 `maxLength` 和 `showWordLimit` 可以开启输入框字数显示。
 
-```tsx
+```jsx
 import React from 'react';
 import { Cell, Input, Toast } from 'rn-vant';
 
@@ -122,7 +122,7 @@ export default () => (
 
 可以通过 `align` 属性可以控制输入框内容对齐方式。
 
-```tsx
+```jsx
 import React from 'react';
 import { Cell, Input } from 'rn-vant';
 
@@ -143,7 +143,7 @@ export default () => (
 - `readOnly` 控制只读状态
 - `disabled` 控制禁用状态
 
-```tsx
+```jsx
 import React from 'react';
 import { Cell, Input } from 'rn-vant';
 

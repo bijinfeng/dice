@@ -31,7 +31,7 @@ interface BaseInputProps extends InputProps, TextAreaProps {}
 
 const BaseInput = forwardRef<InputInstance, BaseInputProps>((props, ref) => {
   const {
-    type,
+    type = 'text',
     formatter,
     clearIcon = <Clear />,
     clearTrigger = 'focus',
@@ -57,7 +57,7 @@ const BaseInput = forwardRef<InputInstance, BaseInputProps>((props, ref) => {
 
   // 是否显示清楚按钮
   const showClear = useMemo(() => {
-    if (props.clearable && !props?.readonly) {
+    if (props.clearable && !props?.readOnly) {
       const hasValue = value !== '' && value !== undefined;
       const trigger = clearTrigger === 'always' || (clearTrigger === 'focus' && inputFocus);
       return hasValue && trigger;
@@ -152,7 +152,7 @@ const BaseInput = forwardRef<InputInstance, BaseInputProps>((props, ref) => {
         placeholderTextColor={placeholderTextColor}
         selectionColor={inputStyles.color}
         autoFocus={props.autoFocus}
-        editable={!props.disabled && !props.readonly}
+        editable={!props.disabled && !props.readOnly}
         maxLength={props.maxLength}
         numberOfLines={rows}
         multiline={!!autoSize || rows > 1}

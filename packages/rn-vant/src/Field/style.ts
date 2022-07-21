@@ -5,14 +5,13 @@ interface Styles {
   disabledLabel: TextStyle;
   value: TextStyle;
   body: ViewStyle;
-  control: TextStyle;
-  disabledControl: TextStyle;
   labelWrapper: ViewStyle;
-  errorControl: ViewStyle;
   container: ViewStyle;
   errorMessage: TextStyle;
   intro: TextStyle;
-  wordLimit: TextStyle;
+  prefix: ViewStyle;
+  suffix: ViewStyle;
+  children: ViewStyle;
 }
 
 export const createStyle = (theme: DiceUI.Theme): StyleSheet.NamedStyles<Styles> => {
@@ -22,24 +21,17 @@ export const createStyle = (theme: DiceUI.Theme): StyleSheet.NamedStyles<Styles>
       flexDirection: 'row',
       flex: 1,
     },
+    children: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      minHeight: theme.cell_line_height,
+      textAlign: 'left',
+    },
     container: {
       flex: 1,
     },
-    control: {
-      color: theme.field_input_text_color,
-      flex: 1,
-      fontSize: theme.cell_font_size,
-      paddingTop: 3,
-      textAlignVertical: 'top',
-    },
-    disabledControl: {
-      color: theme.field_input_disabled_text_color,
-    },
     disabledLabel: {
       color: theme.field_disabled_text_color,
-    },
-    errorControl: {
-      color: theme.field_input_error_text_color,
     },
     errorMessage: {
       color: theme.field_error_message_color,
@@ -63,15 +55,14 @@ export const createStyle = (theme: DiceUI.Theme): StyleSheet.NamedStyles<Styles>
       marginRight: theme.field_label_margin_right,
       width: theme.field_label_width,
     },
+    prefix: {
+      paddingRight: theme.padding_xs,
+    },
+    suffix: {
+      paddingLeft: theme.padding_xs,
+    },
     value: {
       overflow: 'visible',
-    },
-    wordLimit: {
-      color: theme.field_word_limit_color,
-      fontSize: theme.field_word_limit_font_size,
-      lineHeight: theme.field_word_limit_line_height,
-      marginTop: theme.padding_base,
-      textAlign: 'right',
     },
   });
 };

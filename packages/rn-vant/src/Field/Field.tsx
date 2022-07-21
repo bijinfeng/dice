@@ -1,108 +1,20 @@
-import React, { forwardRef, useState, useMemo } from 'react';
-import { View, Pressable, TextInput, Text, StyleSheet, ColorValue } from 'react-native';
-import type { StyleProp, TextStyle, TextInputIOSProps, KeyboardTypeOptions } from 'react-native';
-import { Clear, QuestionO } from '@rn-vant/icons';
-import toString from 'lodash-es/toString';
-import isFunction from 'lodash-es/isFunction';
-import isObject from 'lodash-es/isObject';
-import { formatNumber } from '../utils/number';
-import { useControllableValue, useMemoizedFn } from '../hooks';
+import React, { forwardRef } from 'react';
+import { View, Pressable, Text, StyleSheet, ColorValue } from 'react-native';
+import type { StyleProp, TextStyle } from 'react-native';
+import { QuestionO } from '@rn-vant/icons';
+import pick from 'lodash-es/pick';
+import Input, { InputSharedProps } from '../Input';
+import { useMemoizedFn } from '../hooks';
 import { cloneReactNode } from '../utils/cloneReactNode';
 import Cell from '../Cell';
 import Dialog from '../Dialog';
-import type {
-  FieldInstance,
-  FieldProps,
-  FieldTooltipProps,
-  InputEvent,
-  FieldFormatTrigger,
-  ContentSizeChangeEvent,
-} from './type';
+import type { FieldInstance, FieldProps, FieldTooltipProps } from './type';
 import { useThemeFactory } from '../Theme';
 import { createStyle } from './style';
 
 const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
-  const {
-    type = 'text',
-    clearIcon = <Clear />,
-    clearTrigger = 'focus',
-    errorMessageAlign = 'left',
-    inputAlign = 'left',
-    formatTrigger = 'onChange',
-    formatter,
-    rows = 1,
-    autosize,
-  } = props;
-  const [value, setValue] = useControllableValue<string | number>(props);
-  const [inputFocus, setInputFocus] = useState(false);
-  const inputRef = React.useRef<TextInput>(null);
-  const contentChanged = React.useRef<boolean>(false);
+  const { errorMessageAlign = 'left', align = 'left' } = props;
   const { styles, theme } = useThemeFactory(createStyle);
-  // 单行的高度
-  const singleRowHeight = theme.cell_line_height ?? 24;
-  // input 高度
-  const [inputHeight, setInputHeight] = useState<number>();
-
-  React.useImperativeHandle(ref, () => inputRef.current!);
-
-  // 是否显示清楚按钮
-  const showClear = useMemo(() => {
-    if (props.clearable && !props?.readonly) {
-      const hasValue = value !== '' && value !== undefined;
-      const trigger = clearTrigger === 'always' || (clearTrigger === 'focus' && inputFocus);
-      return hasValue && trigger;
-    }
-    return false;
-  }, [value, clearTrigger, inputFocus]);
-
-  const formatValue = useMemoizedFn((inputValue: string | number, trigger = 'onChange') => {
-    if (isFunction(formatter) && trigger === formatTrigger) {
-      return formatter(inputValue);
-    }
-
-    return inputValue;
-  });
-
-  const handleFocus = useMemoizedFn((e: InputEvent) => {
-    setInputFocus(true);
-    props.onFocus?.(e);
-  });
-  const handleBulr = useMemoizedFn((e: InputEvent) => {
-    setInputFocus(false);
-    handleChange(toString(value), 'onBlur');
-    props.onBlur?.(e);
-  });
-
-  const handleChange = useMemoizedFn((text: string, trigger?: FieldFormatTrigger) => {
-    contentChanged.current = true;
-    let finalValue: string | number = text;
-    if (type === 'number' || type === 'digit') {
-      const isNumber = type === 'number';
-      finalValue = formatNumber(finalValue, isNumber, isNumber);
-    }
-    finalValue = formatValue(finalValue, trigger);
-    setValue(finalValue);
-  });
-
-  const handleContentSizeChange = useMemoizedFn((event: ContentSizeChangeEvent) => {
-    if (!contentChanged.current) return;
-    let _height: number;
-    if (autosize) {
-      const { minHeight = singleRowHeight, maxHeight = event.nativeEvent.contentSize.height } =
-        isObject(autosize) ? autosize : {};
-      _height = Math.max(minHeight, maxHeight);
-    } else if (rows > 1) {
-      _height = rows * singleRowHeight;
-    } else {
-      _height = singleRowHeight;
-    }
-    setInputHeight(_height);
-  });
-
-  const getHeight = useMemoizedFn(() => {
-    if (inputHeight) return inputHeight;
-    return rows * singleRowHeight;
-  });
 
   const renderTooltip = (iconColor?: ColorValue, iconSize?: number) => {
     const { tooltip } = props;
@@ -148,17 +60,17 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
   };
 
   const renderLeftIcon = () => {
-    const { leftIcon, onClickLeftIcon } = props;
-    if (!leftIcon) return undefined;
-    return <Pressable onPress={onClickLeftIcon}>{leftIcon}</Pressable>;
+    if (!props.leftIcon) return undefined;
+
+    return <Pressable onPress={props.onClickLeftIcon}>{props.leftIcon}</Pressable>;
   };
 
   const renderRightIcon = () => {
-    const { rightIcon, onClickRightIcon } = props;
-    if (!rightIcon) return undefined;
+    if (!props.rightIcon) return undefined;
+
     return (
-      <Pressable onPress={onClickRightIcon} style={{ marginLeft: theme.padding_xs }}>
-        {cloneReactNode(rightIcon, {
+      <Pressable onPress={props.onClickRightIcon} style={{ marginLeft: theme.padding_xs }}>
+        {cloneReactNode(props.rightIcon, {
           size: theme.field_icon_size,
           color: theme.field_right_icon_color,
         })}
@@ -166,84 +78,43 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     );
   };
 
-  const renderClearIcon = () => {
-    if (showClear) {
-      return (
-        <Pressable
-          onPress={() => inputRef.current?.clear()}
-          style={{ marginLeft: theme.padding_xs }}
-        >
-          {cloneReactNode(clearIcon, {
-            size: theme.field_clear_icon_size,
-            color: theme.field_clear_icon_color,
-          })}
-        </Pressable>
-      );
-    }
-    return null;
-  };
-
-  const renderWordLimit = () => {
-    const { showWordLimit, maxLength } = props;
-    if (showWordLimit && maxLength) {
-      const count = (value ? `${value}` : '').length;
-      return (
-        <Text style={styles.wordLimit}>
-          {count}/{maxLength}
-        </Text>
-      );
-    }
-
-    return null;
-  };
-
   const renderInput = useMemoizedFn(() => {
-    const inputStyles = StyleSheet.flatten<TextStyle>([
-      styles.control,
-      !!props.disabled && styles.disabledControl,
-      !!props.error && styles.errorControl,
+    if (props.children) {
+      return <View style={styles.children}>{props.children}</View>;
+    }
+
+    const commonProps: InputSharedProps = pick(props, [
+      'value',
+      'onChange',
+      'placeholder',
+      'name',
+      'defaultValue',
+      'disabled',
+      'clearable',
+      'clearIcon',
+      'clearTrigger',
+      'onClear',
+      'onBlur',
+      'onFocus',
+      'onKeyPress',
+      'onOverlimit',
+      'autoFocus',
+      'readOnly',
+      'maxLength',
     ]);
-    const placeholderTextColor = props.error
-      ? inputStyles.color
-      : theme.field_placeholder_text_color;
 
-    const getTextContentType = (): TextInputIOSProps['textContentType'] => {
-      if (type === 'tel') return 'telephoneNumber';
-      if (type === 'password') return 'password';
-      return undefined;
-    };
+    if (props.type === 'textarea') {
+      return (
+        <Input.TextArea
+          ref={ref}
+          showWordLimit={props.showWordLimit}
+          rows={props.rows}
+          {...commonProps}
+        />
+      );
+    }
 
-    const getKeyboardType = (): KeyboardTypeOptions | undefined => {
-      if (type === 'digit' || type === 'number') return 'numeric';
-      if (type === 'tel') return 'phone-pad';
-      return undefined;
-    };
-
-    return (
-      <TextInput
-        ref={inputRef}
-        underlineColorAndroid="transparent"
-        value={toString(value)}
-        onChangeText={handleChange}
-        placeholder={props.placeholder}
-        placeholderTextColor={placeholderTextColor}
-        selectionColor={inputStyles.color}
-        autoFocus={props.autoFocus}
-        editable={!props.disabled && !props.readonly}
-        maxLength={props.maxLength}
-        numberOfLines={rows}
-        multiline={!!autosize || rows > 1}
-        textAlign={props.inputAlign}
-        textContentType={getTextContentType()}
-        keyboardType={getKeyboardType()}
-        style={[inputStyles, { height: getHeight() }]}
-        onBlur={handleBulr}
-        onFocus={handleFocus}
-        onKeyPress={props.onKeyPress}
-        onContentSizeChange={handleContentSizeChange}
-        secureTextEntry={type === 'password'}
-      />
-    );
+    return <Input ref={ref} type={props.type} align={props.align} {...commonProps} />;
   });
 
   const renderMessage = () => {
@@ -255,17 +126,9 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     return null;
   };
 
-  const renderButton = () => {
-    if (props.button) {
-      return <View style={{ marginLeft: theme.padding_xs }}>{props.button}</View>;
-    }
-
-    return null;
-  };
-
   const renderIntro = () => {
     if (props.intro) {
-      return <Text style={[styles.intro, { textAlign: inputAlign }]}>{props.intro}</Text>;
+      return <Text style={[styles.intro, { textAlign: align }]}>{props.intro}</Text>;
     }
     return null;
   };
@@ -285,12 +148,11 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     >
       <View style={styles.container}>
         <View style={styles.body}>
+          {props.prefix && <View style={styles.prefix}>{props.prefix}</View>}
           {renderInput()}
-          {renderClearIcon()}
           {renderRightIcon()}
-          {renderButton()}
+          {props.suffix && <View style={styles.suffix}>{props.suffix}</View>}
         </View>
-        {renderWordLimit()}
         {renderMessage()}
         {renderIntro()}
       </View>

@@ -36,7 +36,7 @@ const FieldExample = memo(() => {
         </DemoBlock>
         <DemoBlock title="禁用输入框">
           <Cell.Group inset>
-            <Field label="文本" value="输入框只读" readonly />
+            <Field label="文本" value="输入框只读" readOnly />
             <Field label="文本" value="输入框已禁用" disabled />
           </Cell.Group>
         </DemoBlock>
@@ -71,7 +71,7 @@ const FieldExample = memo(() => {
               clearable
               label="短信验证码"
               placeholder="请输入短信验证码"
-              button={
+              suffix={
                 <Button size="small" type="primary">
                   发送
                 </Button>
@@ -100,14 +100,14 @@ const FieldExample = memo(() => {
         </DemoBlock>
         <DemoBlock title="高度自适应">
           <Cell.Group inset>
-            <Field rows={1} autosize label="留言" type="textarea" placeholder="请输入留言" />
+            <Field rows={1} autoSize label="留言" type="textarea" placeholder="请输入留言" />
           </Cell.Group>
         </DemoBlock>
         <DemoBlock title="显示字数统计">
           <Cell.Group inset>
             <Field
               rows={2}
-              autosize
+              autoSize
               label="留言"
               type="textarea"
               placeholder="请输入留言"
@@ -118,7 +118,7 @@ const FieldExample = memo(() => {
         </DemoBlock>
         <DemoBlock title="输入框内容对齐">
           <Cell.Group inset>
-            <Field label="文本" placeholder="输入框内容右对齐" inputAlign="right" />
+            <Field label="文本" placeholder="输入框内容右对齐" align="right" />
           </Cell.Group>
         </DemoBlock>
       </ScrollView>

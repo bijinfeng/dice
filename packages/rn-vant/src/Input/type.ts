@@ -37,7 +37,7 @@ export interface InputSharedProps {
   /** 名称，提交表单的标识符	 */
   name?: string;
   /** 是否为只读状态，只读状态下无法输入内容	 */
-  readonly?: boolean;
+  readOnly?: boolean;
   /**  是否自动聚焦	 */
   autoFocus?: boolean;
   /** 是否启用清除图标，点击清除图标后会清空输入框	 */

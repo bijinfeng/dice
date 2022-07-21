@@ -5,4 +5,10 @@ const Input = Object.assign(_Input, { TextArea });
 
 export default Input;
 export { Input };
-export type { InputProps, InputInstance, TextAreaProps } from './type';
+export type {
+  InputProps,
+  InputInstance,
+  TextAreaProps,
+  InputTextAlign,
+  InputSharedProps,
+} from './type';

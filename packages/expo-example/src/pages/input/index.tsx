@@ -75,7 +75,7 @@ const InputExample = memo(() => {
       <DemoBlock title="输入框状态">
         <Cell.Group>
           <Cell>
-            <Input value="只读模式" readonly />
+            <Input value="只读模式" readOnly />
           </Cell>
           <Cell>
             <Input value="禁用模式" disabled />
