@@ -488,6 +488,18 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   popover_dark_text_color: vars.white,
   popover_dark_background: '#4a4a4a',
   popover_dark_action_disabled_text_color: vars.text_color_2,
+
+  // Selector
+  selector_color: vars.gray_2,
+  selector_checkd_color: '#ecf9ff',
+  selector_text_color: vars.text_color,
+  selector_checked_text_color: vars.primary_color,
+  selector_border_width: 0,
+  selector_border_color: 'transparent',
+  selector_checkedborder_color: 'transparent',
+  selector_border_radius: vars.border_radius_sm,
+  selector_padding_horizontal: vars.padding_md,
+  selector_padding_vertical: vars.padding_xs,
 });
 
 export const defaultTheme = createDefaultTheme(_vars);

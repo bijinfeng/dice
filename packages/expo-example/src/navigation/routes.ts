@@ -39,6 +39,7 @@ import Collapse from '../pages/collapse';
 import SwipeCell from '../pages/swipeCell';
 import Popover from '../pages/popover';
 import Input from '../pages/input';
+import Selector from '../pages/selector';
 
 export type RouteItem = {
   name: string;
@@ -57,6 +58,12 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Selector 选择组',
+    href: '/selector',
+    component: Selector,
+    group: EnumGroup.form,
+  },
   {
     name: 'Input 输入框',
     href: '/input',
