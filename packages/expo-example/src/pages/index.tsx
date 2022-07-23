@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <ScrollView style={{ paddingHorizontal: 20 }}>
-      <SafeAreaView>
+      <SafeAreaView style={{ paddingTop: 46, paddingBottom: 20 }}>
         <View style={styles.header}>
           <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
           <Text style={[styles.title, { color: themeVars.text_color_2 }]}>RN Vant</Text>
