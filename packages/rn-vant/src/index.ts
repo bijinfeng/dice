@@ -29,6 +29,7 @@ export * from './Checkbox';
 export * from './Space';
 export * from './Input';
 export * from './Selector';
+export * from './Form';
 
 export { default as Button } from './Button';
 export { default as Circle } from './Circle';
