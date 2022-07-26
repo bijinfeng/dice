@@ -33,7 +33,7 @@ import Notify from '../pages/notify';
 import Grid from '../pages/grid';
 import Stepper from '../pages/stepper';
 import Picker from '../pages/picker';
-import Calendar from '../pages/calendar';
+// import Calendar from '../pages/calendar';
 import DateTimePicker from '../pages/dateTimePicker';
 import Collapse from '../pages/collapse';
 import SwipeCell from '../pages/swipeCell';
@@ -119,12 +119,12 @@ export const routes: RouteItem[] = [
     component: Grid,
     group: EnumGroup.navigation,
   },
-  {
-    name: 'Calendar 日历',
-    href: '/calendar',
-    component: Calendar,
-    group: EnumGroup.form,
-  },
+  // {
+  //   name: 'Calendar 日历',
+  //   href: '/calendar',
+  //   component: Calendar,
+  //   group: EnumGroup.form,
+  // },
   {
     name: 'Notify 消息提示',
     href: '/notify',
