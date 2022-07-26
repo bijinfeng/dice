@@ -12,8 +12,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@docsearch/react": "^3.0.0-alpha.42",
-    "clsx": "^1.1.1",
-    "react-highlight": "^0.14.0"
+    "@docsearch/react": "3.1.1",
+    "clsx": "1.2.1",
+    "react-highlight": "0.14.0"
   }
 }
