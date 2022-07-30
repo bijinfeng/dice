@@ -7,19 +7,37 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: expo/expo-github-action@v7
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v2
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v2
         with:
-          expo-version: 4.x
-          expo-cache: true
+          node-version: 16.x
+          cache: yarn
+
+      - name: 🏗 Setup Expo and EAS
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
-      - run: yarn install
-      - run: yarn build:site
-      - run: yarn build:expo-example
-      - run: mv packages/expo-example/web-build/ packages/rn-vant/dist/example
-      - name: Deploy
+
+      - name: 📦 Install dependencies
+        run: yarn install
+
+      - name: 🚀 Build site
+        run: yarn build:site
+      
+      - name: 🚀 Build example
+        run: yarn build:expo-example
+
+      - name: 🚀 Move bild product
+        run: mv packages/expo-example/web-build/ packages/rn-vant/dist/example
+      
+      - name: 🚀 Deploy    
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

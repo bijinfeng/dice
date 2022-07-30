@@ -1,12 +1,11 @@
 on:
   push:
     branches:
-      - chore/expo-eas
+      - master # default branch
+
 jobs:
-  preview:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write # Allow comments on PRs
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v2
@@ -17,21 +16,15 @@ jobs:
           node-version: 16.x
           cache: yarn
 
-      - name: 🏗 Setup Expo
+      - name: 🏗 Setup Expo and EAS
         uses: expo/expo-github-action@v7
         with:
           expo-version: latest
+          eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
         run: yarn install
 
-      - name: 🚀 Publish to Expo
-        run: cd packages/expo-example/ && expo publish --release-channel=production --non-interactive
-
-      - name: 👷 Create preview comment
-        uses: expo/expo-github-action/preview-comment@v7
-        id: preview
-        with:
-          comment: false
-          channel: production
+      - name: 🚀 Build app
+        run: cd packages/expo-example/ && eas build -p android --profile preview --non-interactive
