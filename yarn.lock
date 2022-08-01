@@ -3694,19 +3694,12 @@
   dependencies:
     "@types/react" "^16"
 
-"@types/react-native@^0.65.5":
-  version "0.65.24"
-  resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.65.24.tgz#bd34f64b7a124f46e3d5b23bb255f4dbd03d23ae"
-  integrity sha512-yzAy5i2IS8co/ZdCwgop+ka76yLIseKyNoGfzwVaNAIxvxfME0qVwmkJsWCJpymSoT3y0brwMqCPFQJxqdkxlw==
+"@types/react-native@0.69.5":
+  version "0.69.5"
+  resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.69.5.tgz#7709fdbff031a5ecf1956705e6c4a07cdfe6867c"
+  integrity sha512-mSUCuGUsW2kJlZiu4GmdYVDKZX/52iyC9rm6dxAmflJj1b7kSO/CMSDy5WbcfS8QerxTqbYGTrIwHD0GnXHzbQ==
   dependencies:
-    "@types/react" "^17"
-
-"@types/react-native@~0.67.6":
-  version "0.67.12"
-  resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.67.12.tgz#bcb55fcdc1fa8136face21aeef5ba0728b7cdd6e"
-  integrity sha512-2ee/MhGWpOLJML2YSgHymAf+FOyGQ6T/CmM94AoQr8Rdm9u7PfzIr5gVS7iMuDPyZpwKdtQFhOE26QFGD/AD4A==
-  dependencies:
-    "@types/react" "^17"
+    "@types/react" "*"
 
 "@types/react-router-config@5.0.2":
   version "5.0.2"
@@ -3751,7 +3744,7 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16", "@types/react@^16.9.43", "@types/react@^17", "@types/react@^17.0.21", "@types/react@~17.0.21":
+"@types/react@*", "@types/react@^16", "@types/react@^16.9.43", "@types/react@^17.0.21", "@types/react@~17.0.21":
   version "17.0.48"
   resolved "https://registry.npmjs.org/@types/react/-/react-17.0.48.tgz#a4532a8b91d7b27b8768b6fc0c3bccb760d15a6c"
   integrity sha512-zJ6IYlJ8cYYxiJfUaZOQee4lh99mFihBoqkOSEGV+dFi9leROW6+PgstzQ+w3gWTnUfskALtQPGHK6dYmPj+2A==
@@ -19366,10 +19359,8 @@ watchpack@^1.6.1:
   resolved "https://registry.npmjs.org/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
