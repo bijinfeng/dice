@@ -34,7 +34,7 @@
     "rn-vant": "^0.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "7.18.10",
     "@babel/plugin-proposal-export-namespace-from": "^7.16.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.67.6",
