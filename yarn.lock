@@ -1877,7 +1877,7 @@
     json5 "^1.0.1"
     write-file-atomic "^2.3.0"
 
-"@expo/metro-config@0.3.21", "@expo/metro-config@~0.3.16", "@expo/metro-config@~0.3.7":
+"@expo/metro-config@0.3.21", "@expo/metro-config@~0.3.16", "@expo/metro-config@~0.3.18", "@expo/metro-config@~0.3.7":
   version "0.3.21"
   resolved "https://registry.npmjs.org/@expo/metro-config/-/metro-config-0.3.21.tgz#f0ac853aa43291b678a26d9f3d7b5f873ed794dc"
   integrity sha512-z3vaB+He/hvO3F65hdpmYjB2y969UtzB8u7M1y91AURDemsMT82xri7fjNxx6R4EVNzhr5a3PG93kArEDnuBfw==
@@ -8582,12 +8582,12 @@ expo-updates@~0.13.3:
     resolve-from "^5.0.0"
     uuid "^3.4.0"
 
-expo-yarn-workspaces@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/expo-yarn-workspaces/-/expo-yarn-workspaces-2.0.0.tgz#047c20bf6ff3911f34fff48f961a1235eaeef1c6"
-  integrity sha512-X3sqbuYhPDeIccdomP941QemRq8MvVVj9MGjJ4qLfkZ/dnN0m6kxk3MuyFUbd7ELyjl4e1RIJEqe2eQ/FLkD+w==
+expo-yarn-workspaces@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/expo-yarn-workspaces/-/expo-yarn-workspaces-2.0.2.tgz#744d03684d21661aedc6af97df1ef46811b375ff"
+  integrity sha512-wpNDZCtct+74a0SpTNhEWRPREXCMANn8+aIHonqBf2hp+bFf3lDmyquH1flreVvB5hmBo5/ytWPb7McGkAXmJw==
   dependencies:
-    "@expo/metro-config" "~0.3.7"
+    "@expo/metro-config" "~0.3.18"
     "@expo/webpack-config" "~0.16.14"
     debug "^4.3.2"
     find-yarn-workspace-root "^2.0.0"
@@ -19366,10 +19366,8 @@ watchpack@^1.6.1:
   resolved "https://registry.npmjs.org/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
