@@ -11,22 +11,27 @@
     {
       "platform": "itunes",
       "id": "com.dice.www"
+    },
+    {
+      "platform": "play",
+      "url": "http://play.google.com/store/apps/details?id=com.dice.www",
+      "id": "com.dice.www"
     }
   ],
   "prefer_related_applications": true,
   "icons": [
     {
-      "src": "/rn-vant/example/pwa/chrome-icon/chrome-icon-144.png",
+      "src": "/pwa/chrome-icon/chrome-icon-144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "/rn-vant/example/pwa/chrome-icon/chrome-icon-192.png",
+      "src": "/pwa/chrome-icon/chrome-icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/rn-vant/example/pwa/chrome-icon/chrome-icon-512.png",
+      "src": "/pwa/chrome-icon/chrome-icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
