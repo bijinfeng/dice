@@ -50,7 +50,7 @@
     "@types/lodash-es": "^4.17.6",
     "@types/react": "17.0.2",
     "@types/react-native": "^0.69.5",
-    "dumi": "^1.1.37",
+    "dumi": "1.1.47",
     "react": "17.0.2",
     "react-native": "^0.69.3",
     "react-native-builder-bob": "^0.18.2",
