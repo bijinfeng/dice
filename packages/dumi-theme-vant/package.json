@@ -12,7 +12,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@docsearch/react": "^3.0.0-alpha.42",
+    "@docsearch/react": "3.2.0",
     "clsx": "^1.1.1",
     "react-highlight": "^0.14.0"
   }
