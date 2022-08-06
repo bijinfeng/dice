@@ -34,7 +34,7 @@ jobs:
       - name: 🚀 Build example
         run: yarn build:example
 
-      - name: 🚀 Move bild product
+      - name: 🚀 Move build product
         run: mv example/web-build/ packages/rn-vant/dist/example
       
       - name: 🚀 Deploy    
