@@ -110,7 +110,7 @@ const PickerDemo: FC = () => {
           label="城市"
           placeholder="选择城市"
           isLink
-          readonly
+          readOnly
           onPress={() => setShowPicker(true)}
           value={pickerValue}
         />

@@ -1,6 +1,9 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "paths": {
+      "rn-vant": ["../packages/rn-vant/src/index"]
+    },
     "strict": true
   }
 }

@@ -1,5 +1,5 @@
 import type { ViewProps } from 'react-native';
-import type { Linecap } from 'react-native-svg';
+import type { PathProps } from 'react-native-svg';
 
 export type CircleStartPosition = 'top' | 'right' | 'bottom' | 'left';
 
@@ -19,7 +19,7 @@ export interface CircleProps extends ViewProps {
   /** 进度条宽度	 */
   strokeWidth?: number;
   /** 进度条端点的形状，可选值为 square butt	 */
-  strokeLinecap?: Linecap;
+  strokeLinecap?: PathProps['strokeLinecap'];
   /** 是否顺时针增加	 */
   clockwise?: boolean;
   /** 进度起始位置 */

@@ -4,21 +4,13 @@
     "packages/*"
   ],
   "scripts": {
-    "build:expo-example": "lerna run build:web --scope=expo-example",
+    "build:example": "yarn --cwd example build:web",
     "build:site": "yarn run build && lerna run build:site --scope=rn-vant",
     "build": "lerna run build",
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "yarn --cwd example && yarn",
     "commit": "git cz",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "versionup": "lerna version",
-    "versionup:patch": "yarn versionup patch",
-    "versionup:minor": "yarn versionup minor",
-    "versionup:major": "yarn versionup major",
-    "versionup:prepatch": "yarn versionup prepatch",
-    "versionup:preminor": "yarn versionup preminor",
-    "versionup:premajor": "yarn versionup premajor",
-    "versionup:prerelease": "yarn versionup --conventional-prerelease"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.0",
@@ -36,12 +28,6 @@
     "lint-staged": "^11.2.0",
 		"husky": "^3.1.0",
     "typescript": "^4.4.3"
-  },
-  "dependencies": {
-    "react-native-web": "0.17.1"
-  },
-  "resolutions": {
-    "@types/react": "^17.0.21"
   },
   "config": {
 		"commitizen": {

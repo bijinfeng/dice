@@ -1,4 +1,4 @@
 {
   "extends": ["config:base"],
-  "ignorePaths": ["**/packages/expo-example/**"]
+  "ignorePaths": ["**/example/**"]
 }

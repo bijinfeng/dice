@@ -26,16 +26,16 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
-        run: yarn install
+        run: yarn bootstrap
 
       - name: 🚀 Build site
         run: yarn build:site
       
       - name: 🚀 Build example
-        run: yarn build:expo-example
+        run: yarn build:example
 
       - name: 🚀 Move bild product
-        run: mv packages/expo-example/web-build/ packages/rn-vant/dist/example
+        run: mv example/web-build/ packages/rn-vant/dist/example
       
       - name: 🚀 Deploy    
         uses: peaceiris/actions-gh-pages@v3

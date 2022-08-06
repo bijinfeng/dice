@@ -29,10 +29,13 @@ const ConfigProvider = (props: ConfigProviderProps): JSX.Element => {
   };
 
   React.useEffect(() => {
-    if (!providedTheme) Appearance?.addChangeListener(handleAppearanceChange);
-    return () => {
-      if (!providedTheme) Appearance?.removeChangeListener(handleAppearanceChange);
-    };
+    let linstener: ReturnType<typeof Appearance.addChangeListener>;
+
+    if (!providedTheme) {
+      linstener = Appearance.addChangeListener(handleAppearanceChange);
+    }
+
+    return () => linstener?.remove();
   }, [providedTheme]);
 
   return (

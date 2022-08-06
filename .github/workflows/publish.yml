@@ -1,3 +1,5 @@
+name: Expo Publish
+
 on:
   push:
     branches:
@@ -24,7 +26,8 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
-        run: yarn install
+        run: yarn bootstrap
 
-      - name: 🚀 Build app
-        run: cd packages/expo-example/ && eas build -p android --profile preview --non-interactive
+      - name: 🚀 Publish Expo app
+        working-directory: ./example
+        run: expo publish
