@@ -41,7 +41,6 @@ export interface FormProps<V extends FieldValues> extends UseFormProps<V> {
   colon?: boolean;
   /** 是否显示验证信息 */
   showValidateMessage?: boolean;
-  border?: boolean;
   form?: RefObject<FormInstance<V>>;
   children?: ReactNode;
   style?: StyleProp<ViewStyle>;

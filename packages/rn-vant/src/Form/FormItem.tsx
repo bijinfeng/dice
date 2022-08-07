@@ -18,8 +18,8 @@ const FormItem = (props: FormItemProps) => {
   const isRequired = !isUndefined(required) ? required : rules && !!rules?.required;
 
   const renderChildren = (child: React.ReactElement) => {
-    const childProps = { ...child.props, ...field };
-    return React.cloneElement(child, childProps);
+    const { onChange, onBlur, value } = field;
+    return React.cloneElement(child, { ...child.props, onChange, onBlur, value });
   };
 
   return (

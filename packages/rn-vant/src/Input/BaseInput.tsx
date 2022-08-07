@@ -21,7 +21,8 @@ import type {
   InputProps,
   TextAreaProps,
   InputInstance,
-  InputEvent,
+  InputFousEvent,
+  InputChangeEvent,
   InputFormatTrigger,
   ContentSizeChangeEvent,
   KeyPressEvent,
@@ -73,12 +74,12 @@ const BaseInput = forwardRef<InputInstance, BaseInputProps>((props, ref) => {
     return inputValue;
   });
 
-  const handleFocus = useMemoizedFn((e: InputEvent) => {
+  const handleFocus = useMemoizedFn((e: InputFousEvent) => {
     setInputFocus(true);
     props.onFocus?.(e);
   });
 
-  const handleBulr = useMemoizedFn((e: InputEvent) => {
+  const handleBulr = useMemoizedFn((e: InputFousEvent) => {
     setInputFocus(false);
     handleChange(toString(value), 'onBlur');
     props.onBlur?.(e);
@@ -97,6 +98,10 @@ const BaseInput = forwardRef<InputInstance, BaseInputProps>((props, ref) => {
     }
     finalValue = formatValue(finalValue, trigger);
     setValue(finalValue);
+  });
+
+  const onChange = useMemoizedFn(({ nativeEvent }: InputChangeEvent) => {
+    handleChange(nativeEvent.text, 'onChange');
   });
 
   const handleContentSizeChange = useMemoizedFn((event: ContentSizeChangeEvent) => {
@@ -146,7 +151,7 @@ const BaseInput = forwardRef<InputInstance, BaseInputProps>((props, ref) => {
         ref={inputRef}
         underlineColorAndroid="transparent"
         value={toString(value)}
-        onChangeText={handleChange}
+        onChange={onChange}
         placeholder={props.placeholder}
         defaultValue={props.defaultValue}
         placeholderTextColor={placeholderTextColor}

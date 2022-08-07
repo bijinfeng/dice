@@ -1,6 +1,6 @@
 import React, { useImperativeHandle } from 'react';
+import { View } from 'react-native';
 import { useForm, FieldValues, FormProvider } from 'react-hook-form';
-import Cell from '../Cell';
 import { FormContext } from './FormContext';
 import type { FormProps } from './type';
 
@@ -11,7 +11,6 @@ const Form = <V extends FieldValues>(props: FormProps<V>) => {
     layout,
     colon,
     style,
-    border,
     form,
     mode = 'onChange',
     ...formProps
@@ -23,9 +22,7 @@ const Form = <V extends FieldValues>(props: FormProps<V>) => {
   return (
     <FormProvider<V> {...methods}>
       <FormContext.Provider value={{ showValidateMessage, layout, colon }}>
-        <Cell.Group style={style} border={border}>
-          {children}
-        </Cell.Group>
+        <View style={style}>{children}</View>
       </FormContext.Provider>
     </FormProvider>
   );

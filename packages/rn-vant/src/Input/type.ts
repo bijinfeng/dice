@@ -3,11 +3,13 @@ import type {
   StyleProp,
   TextInputContentSizeChangeEventData,
   TextInputFocusEventData,
+  TextInputChangeEventData,
   TextInputKeyPressEventData,
   TextStyle,
 } from 'react-native';
 
-export type InputEvent = NativeSyntheticEvent<TextInputFocusEventData>;
+export type InputFousEvent = NativeSyntheticEvent<TextInputFocusEventData>;
+export type InputChangeEvent = NativeSyntheticEvent<TextInputChangeEventData>;
 export type ContentSizeChangeEvent = NativeSyntheticEvent<TextInputContentSizeChangeEventData>;
 export type KeyPressEvent = NativeSyntheticEvent<TextInputKeyPressEventData>;
 
@@ -61,8 +63,8 @@ export interface InputSharedProps {
   clearTrigger?: InputClearTrigger;
   onChange?: (val: string) => void;
   onClear?: () => void;
-  onFocus?: (e: InputEvent) => void;
-  onBlur?: (e: InputEvent) => void;
+  onFocus?: (e: InputFousEvent) => void;
+  onBlur?: (e: InputFousEvent) => void;
   onKeyPress?: (e: KeyPressEvent) => void;
   /** 当输入值超出maxLength时触发 */
   onOverlimit?: () => void;

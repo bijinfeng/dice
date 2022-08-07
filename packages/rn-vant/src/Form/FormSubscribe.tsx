@@ -1,14 +1,15 @@
-import React, { FC } from 'react';
-import { useWatch, useFormContext, FieldPath } from 'react-hook-form';
+import React from 'react';
+import { useWatch, useFormContext } from 'react-hook-form';
+import type { DeepPartialSkipArrayKey } from 'react-hook-form';
 
-type ChildrenType = (changedValues: ReturnType<typeof useWatch>) => React.ReactNode;
+type ChildrenType = (changedValues: DeepPartialSkipArrayKey<any>) => React.ReactNode;
 
-export interface FormSubscribeProps<V = any> {
-  to: FieldPath<V>;
+export interface FormSubscribeProps {
+  to: any;
   children: ChildrenType;
 }
 
-const FormSubscribe: FC<FormSubscribeProps> = props => {
+const FormSubscribe = (props: FormSubscribeProps): JSX.Element => {
   const { control } = useFormContext();
   const watch = useWatch({ control, name: props.to });
 
