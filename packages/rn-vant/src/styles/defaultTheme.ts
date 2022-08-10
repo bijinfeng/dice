@@ -500,6 +500,15 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   selector_border_radius: vars.border_radius_sm,
   selector_padding_horizontal: vars.padding_md,
   selector_padding_vertical: vars.padding_xs,
+
+  // ImagePreview
+  image_preview_index_text_color: vars.white,
+  image_preview_index_font_size: vars.font_size_md,
+  image_preview_index_line_height: vars.line_height_md,
+  image_preview_overlay_background: 'rgba(0, 0, 0, 0.9)',
+  image_preview_close_icon_size: 22,
+  image_preview_close_icon_color: vars.gray_5,
+  image_preview_close_icon_margin: vars.padding_md,
 });
 
 export const defaultTheme = createDefaultTheme(_vars);

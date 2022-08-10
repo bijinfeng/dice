@@ -3,7 +3,7 @@ import type { StyleProp, ViewStyle } from 'react-native';
 import type { IconNames } from '../Icon';
 
 export type PopupPosition = 'top' | 'bottom' | 'right' | 'left' | 'center';
-export type IconPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+export type PopupCloseIconPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 export interface DialogProps {
   children?: ReactNode;
@@ -70,6 +70,6 @@ export interface PopupProps extends DialogProps {
    * 关闭图标位置
    * @default top-right
    */
-  closeIconPosition?: IconPosition;
+  closeIconPosition?: PopupCloseIconPosition;
   style?: StyleProp<ViewStyle>;
 }

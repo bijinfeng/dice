@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import type { ViewStyle, TextStyle } from 'react-native';
 import constants from '../utils/constants';
-import type { PopupProps, IconPosition, PopupPosition } from './type';
+import type { PopupProps, PopupCloseIconPosition, PopupPosition } from './type';
 
 interface Styles {
   wrapper: ViewStyle;
@@ -12,7 +12,7 @@ interface Styles {
 
 type Params = Pick<PopupProps, 'position' | 'closeIconPosition'>;
 
-const IconPositionMap: Record<IconPosition, ('bottom' | 'left' | 'top' | 'right')[]> = {
+const IconPositionMap: Record<PopupCloseIconPosition, ('bottom' | 'left' | 'top' | 'right')[]> = {
   'bottom-left': ['bottom', 'left'],
   'bottom-right': ['bottom', 'right'],
   'top-left': ['top', 'left'],

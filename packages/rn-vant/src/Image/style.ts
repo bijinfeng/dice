@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import type { ImageProps } from './interface';
+import type { ImageProps } from './type';
 
 type ExtraProps = Pick<ImageProps, 'round' | 'radius'>;
 
@@ -36,12 +36,15 @@ const createStyles = (themeVar: DiceUI.Theme, { round, radius }: ExtraProps) => 
     },
 
     wrapper: {
-      backgroundColor: themeVar.image_placeholder_background_color,
       borderRadius: round ? 9999 : radius,
       height: themeVar.image_default_size,
       overflow: 'hidden',
       position: 'relative',
       width: themeVar.image_default_size,
+    },
+
+    wrapperBg: {
+      backgroundColor: themeVar.image_placeholder_background_color,
     },
   });
 };

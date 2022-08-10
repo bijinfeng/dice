@@ -1,9 +1,9 @@
-import React, { useRef, memo, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import type { NativeSyntheticEvent, ImageLoadEventData, ImageErrorEventData } from 'react-native';
 import { View, Text, Animated, TouchableOpacity, Platform } from 'react-native';
 
 import Icon from '../Icon';
-import type { ImageProps } from './interface';
+import type { ImageProps } from './type';
 import createStyles from './style';
 import { useTheme } from '../Theme';
 
@@ -12,9 +12,9 @@ import { useTheme } from '../Theme';
  * 参考代码：https://github.com/HandlebarLabs/react-native-examples-and-tutorials/blob/master/tutorials/progressive-image-loading/ProgressiveImage.js
  * @description 增强版的 img 标签，提供多种图片填充模式，支持图片懒加载、加载中提示、加载失败提示。
  */
-const Image: React.FC<ImageProps> = props => {
+const Image = (props: ImageProps): JSX.Element => {
   const {
-    wrapperStyle,
+    imageStyle,
     style,
     onLoad,
     onError,
@@ -68,21 +68,29 @@ const Image: React.FC<ImageProps> = props => {
     onError && onError(event);
   };
 
+  // 是否展示 loading
+  const _showLoading = !isLoaded && showLoading;
+  // 是否展示 error
+  const _showError = isError && showError;
+  // 是否展示背景颜色
+  const _showBackground = _showLoading || _showError;
+
   return (
     <TouchableOpacity
-      style={[Styles.wrapper, wrapperStyle]}
+      style={[Styles.wrapper, _showBackground && Styles.wrapperBg, style]}
       activeOpacity={theme.active_opacity}
+      disabled={!onPress}
       onPress={onPress}
     >
       <Animated.Image
         {...resetProps}
-        style={[Styles.image, { opacity: ImageAnimated }, style]}
+        style={[Styles.image, { opacity: ImageAnimated }, imageStyle]}
         fadeDuration={fadeDuration}
         onLoad={onLoadImage}
         onError={onErrorImage}
       />
 
-      {!isLoaded && showLoading ? (
+      {_showLoading && (
         <View style={Styles.hintWrapper}>
           {loading || (
             <Icon
@@ -92,9 +100,9 @@ const Image: React.FC<ImageProps> = props => {
             />
           )}
         </View>
-      ) : null}
+      )}
 
-      {isError && showError ? (
+      {_showError && (
         <View style={Styles.hintWrapper}>
           {alt ? (
             <Text style={Styles.hintText}>{alt}</Text>
@@ -106,9 +114,9 @@ const Image: React.FC<ImageProps> = props => {
             />
           )}
         </View>
-      ) : null}
+      )}
     </TouchableOpacity>
   );
 };
 
-export default memo(Image);
+export default Image;

@@ -4,6 +4,7 @@ import type {
   ViewStyle,
   StyleProp,
   GestureResponderEvent,
+  Omit,
 } from 'react-native';
 import type { SvgProps } from 'react-native-svg';
 
@@ -18,8 +19,9 @@ export interface IconCommonOutlineProps extends IconCommonProps {
 
 export type IconCommonFillProps = IconCommonProps;
 
-export interface ImageProps extends ImageReactNativeProps {
-  wrapperStyle?: StyleProp<ViewStyle>;
+export interface ImageProps extends Omit<ImageReactNativeProps, 'style'> {
+  style?: StyleProp<ViewStyle>;
+  imageStyle?: ImageReactNativeProps['style'];
 
   /**
    * 点击图片的事件

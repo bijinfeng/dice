@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Cell, Popup, IconNames } from 'rn-vant';
-import type { IconPosition } from 'rn-vant/lib/typescript/Popup/type';
+import { Cell, Popup, IconNames, PopupCloseIconPosition } from 'rn-vant';
 import { View, ScrollView, Dimensions } from 'react-native';
 import { DemoBlock } from '../../components';
 
@@ -11,7 +10,7 @@ type Params = {
   side?: Position;
   close?: boolean;
   iconName?: IconNames;
-  iconPosition?: IconPosition;
+  iconPosition?: PopupCloseIconPosition;
   isRound?: boolean;
 };
 
@@ -20,7 +19,7 @@ const PopupDemo: FC = () => {
   const [position, setPosition] = useState<Position>();
   const [closeable, setCloseable] = useState<boolean>(false);
   const [closeIcon, setCloseIcon] = useState<IconNames>();
-  const [closeIconPosition, setCloseIconPosition] = useState<IconPosition>();
+  const [closeIconPosition, setCloseIconPosition] = useState<PopupCloseIconPosition>();
   const [round, setRound] = useState<boolean>(false);
 
   const onPress = ({
