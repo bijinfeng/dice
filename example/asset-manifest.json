@@ -1,22 +1,22 @@
 {
   "files": {
-    "app.js": "/rn-vant/example/static/js/app.a6deeaf8.chunk.js",
-    "app.js.map": "/rn-vant/example/static/js/app.a6deeaf8.chunk.js.map",
+    "app.js": "/rn-vant/example/static/js/app.7f7ee200.chunk.js",
+    "app.js.map": "/rn-vant/example/static/js/app.7f7ee200.chunk.js.map",
     "runtime~app.js": "/rn-vant/example/static/js/runtime~app.788fe24b.js",
     "runtime~app.js.map": "/rn-vant/example/static/js/runtime~app.788fe24b.js.map",
-    "static/js/2.dea7cfed.chunk.js": "/rn-vant/example/static/js/2.dea7cfed.chunk.js",
-    "static/js/2.dea7cfed.chunk.js.map": "/rn-vant/example/static/js/2.dea7cfed.chunk.js.map",
+    "static/js/2.3b1b9ece.chunk.js": "/rn-vant/example/static/js/2.3b1b9ece.chunk.js",
+    "static/js/2.3b1b9ece.chunk.js.map": "/rn-vant/example/static/js/2.3b1b9ece.chunk.js.map",
     "favicon-16.png": "/rn-vant/example/favicon-16.png",
     "favicon-32.png": "/rn-vant/example/favicon-32.png",
     "favicon.ico": "/rn-vant/example/favicon.ico",
     "index.html": "/rn-vant/example/index.html",
     "manifest.json": "/rn-vant/example/manifest.json",
     "serve.json": "/rn-vant/example/serve.json",
-    "static/js/2.dea7cfed.chunk.js.LICENSE.txt": "/rn-vant/example/static/js/2.dea7cfed.chunk.js.LICENSE.txt"
+    "static/js/2.3b1b9ece.chunk.js.LICENSE.txt": "/rn-vant/example/static/js/2.3b1b9ece.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime~app.788fe24b.js",
-    "static/js/2.dea7cfed.chunk.js",
-    "static/js/app.a6deeaf8.chunk.js"
+    "static/js/2.3b1b9ece.chunk.js",
+    "static/js/app.7f7ee200.chunk.js"
   ]
 }
