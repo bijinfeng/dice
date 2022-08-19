@@ -36,13 +36,13 @@ const items = colors.map((color, index) => (
 const SwiperExample = memo(() => {
   return (
     <ScrollView>
-      <DemoBlock title="基础用法" contentStyle={styles.contentStyle}>
+      {/* <DemoBlock title="基础用法" contentStyle={styles.contentStyle}>
         <Swiper autoplay={5000}>{items}</Swiper>
-      </DemoBlock>
+      </DemoBlock> */}
       <DemoBlock title="监听onChange事件" contentStyle={styles.contentStyle}>
         <Swiper onChange={i => Toast.info(`当前索引${i}`)}>{items}</Swiper>
       </DemoBlock>
-      <DemoBlock title="纵向滚动" contentStyle={styles.contentStyle}>
+      {/* <DemoBlock title="纵向滚动" contentStyle={styles.contentStyle}>
         <Swiper autoplay={5000} vertical>
           {items}
         </Swiper>
@@ -59,7 +59,7 @@ const SwiperExample = memo(() => {
         >
           {items}
         </Swiper>
-      </DemoBlock>
+      </DemoBlock> */}
     </ScrollView>
   );
 });

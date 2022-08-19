@@ -8,6 +8,10 @@ export type PageIndicatorProps = {
 } & Pick<SwiperProps, 'vertical'>;
 
 export interface SwiperProps extends ViewProps {
+  /** 滑块宽度 */
+  width?: number;
+  /** 滑块高度 */
+  height?: number;
   /** 初始位置索引值 */
   initialSwipe?: number;
   /** 是否允许手势滑动 */
