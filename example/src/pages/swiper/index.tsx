@@ -36,19 +36,24 @@ const items = colors.map((color, index) => (
 const SwiperExample = memo(() => {
   return (
     <ScrollView>
-      <DemoBlock title="基础用法" contentStyle={styles.contentStyle}>
-        <Swiper autoplay={5000}>{items}</Swiper>
-      </DemoBlock>
-      <DemoBlock title="监听onChange事件" contentStyle={styles.contentStyle}>
-        <Swiper onChange={i => Toast.info(`当前索引${i}`)}>{items}</Swiper>
-      </DemoBlock>
-      <DemoBlock title="纵向滚动" contentStyle={styles.contentStyle}>
-        <Swiper autoplay={5000} vertical>
+      <DemoBlock title="基础用法">
+        <Swiper style={styles.contentStyle} autoplay={5000}>
           {items}
         </Swiper>
       </DemoBlock>
-      <DemoBlock title="自定义指示器" contentStyle={styles.contentStyle}>
+      <DemoBlock title="监听onChange事件">
+        <Swiper style={styles.contentStyle} onChange={i => Toast.info(`当前索引${i}`)}>
+          {items}
+        </Swiper>
+      </DemoBlock>
+      <DemoBlock title="纵向滚动">
+        <Swiper autoplay={5000} style={styles.contentStyle} vertical>
+          {items}
+        </Swiper>
+      </DemoBlock>
+      <DemoBlock title="自定义指示器">
         <Swiper
+          style={styles.contentStyle}
           indicator={(total, current) => (
             <View style={styles.indicator}>
               <Text style={{ color: '#fff' }}>
@@ -66,6 +71,7 @@ const SwiperExample = memo(() => {
 
 const styles = StyleSheet.create({
   contentStyle: {
+    backgroundColor: 'red',
     height: 150,
   },
   indicator: {

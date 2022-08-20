@@ -4,10 +4,10 @@ import { View, Pressable } from 'react-native';
 import type { SwiperItemProps } from './type';
 
 const SwiperItem = forwardRef<View, SwiperItemProps>((props, ref) => {
-  const { children, onPress, style, ...rest } = props;
+  const { children, ...rest } = props;
 
   return (
-    <Pressable ref={ref} onPress={onPress} style={style} {...rest}>
+    <Pressable ref={ref} collapsable={false} {...rest}>
       {children}
     </Pressable>
   );
