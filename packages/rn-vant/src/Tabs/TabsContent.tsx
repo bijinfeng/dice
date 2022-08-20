@@ -9,7 +9,7 @@ export type TabsContentProps = Pick<TabsProps, 'animated' | 'swipeable' | 'durat
 };
 
 const TabsContent: React.FC<TabsContentProps> = props => {
-  const { children, animated, swipeable, duration } = props;
+  const { children, animated, swipeable } = props;
   const innerEffect = useRef(false);
   const swiperRef = useRef<SwiperInstance>(null);
 
@@ -21,7 +21,6 @@ const TabsContent: React.FC<TabsContentProps> = props => {
           loop={false}
           autoplay={false}
           touchable={!!swipeable}
-          duration={duration}
           indicator={false}
           onChange={idx => {
             if (innerEffect.current) {
