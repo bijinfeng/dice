@@ -38,7 +38,7 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^12.1.1 || ^13.0.0"
   },
   "react-native-builder-bob": {
     "source": "src",
