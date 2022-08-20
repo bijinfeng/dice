@@ -1,13 +1,12 @@
-import React, { forwardRef, useImperativeHandle, useEffect, useRef, useState, Key } from 'react';
+import React, { forwardRef, useEffect, useRef, Key, useMemo } from 'react';
 import { View, ScrollView } from 'react-native';
+import isFunction from 'lodash-es/isFunction';
 import type { LayoutChangeEvent, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 import isNumber from 'lodash-es/isNumber';
-import inRange from 'lodash-es/inRange';
-import Constants from '../utils/constants';
+import { useRefState } from '../hooks';
 import { useThemeFactory } from '../Theme';
 import type { SwiperProps, SwiperInstance } from './type';
 import { createStyle } from './style';
-import { calcPageIndex } from './utils';
 
 const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
   const {
@@ -20,72 +19,47 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
     autoplay = false,
     initialSwipe = 0,
     onChange,
+    ...rest
   } = props;
   const { styles } = useThemeFactory(createStyle);
-  const currentPage = useRef<number>(initialSwipe);
-  const currentStandingPage = useRef<number>(initialSwipe);
-  const skippedInitialScroll = useRef<boolean>(false);
   const swiperRef = useRef<ScrollView>(null);
-  const isAutoScrolled = useRef<boolean>(false);
   const autoplayTimer = useRef<ReturnType<typeof setTimeout>>();
-  const dimensionsChangeListener =
-    useRef<ReturnType<typeof Constants.addDimensionsEventListener>>();
-  const orientationChange = useRef<boolean>(false);
-  const [containerWidth, setContainerWidth] = useState<number | undefined>(undefined);
-  const [pageWidth, setPageWidth] = useState<number>(props.width || 0);
-  const [pageHeight, setPageHeight] = useState<number>(props.height || 0);
-  const pagesCount = React.Children.count(children);
+  const [pageWidth, setPageWidth, pageWidthRef] = useRefState<number>(props.width || 0);
+  const [pageHeight, setPageHeight, setPageHeightRef] = useRefState<number>(props.height || 0);
+  const [currentIndex, setCurrentIndex, currentPageIndex] = useRefState<number>(() =>
+    loop ? initialSwipe + 1 : initialSwipe
+  );
 
-  const calcOffset = () => {
-    const containerMarginHorizontal = 0;
-    // 循环模式下，第一页和最后一页是多出来的，所以当前 page 应该 +1
-    const actualCurrentPage = loop ? currentPage.current + 1 : currentPage.current;
-    const nonLoopAdjustment = !loop && currentPage.current > 0 ? containerMarginHorizontal : 0;
-    const pageSize = vertical ? pageHeight : pageWidth;
-    const offset = pageSize * actualCurrentPage - nonLoopAdjustment;
-    return {
-      x: vertical ? 0 : offset,
-      y: vertical ? offset : 0,
-    };
-  };
+  const pagesCount = useMemo(() => React.Children.count(children), [children]);
+  const actualCurrentIndex = useMemo(
+    () => (loop ? currentIndex - 1 : currentIndex),
+    [loop, currentIndex]
+  );
 
-  const updateOffset = (animated = false) => {
-    const { x, y } = calcOffset();
-
-    if (swiperRef.current) {
-      swiperRef.current.scrollTo({ x, y, animated });
-      if (Constants.isAndroid) {
-        onMomentumScrollEnd();
-      }
-    }
+  const updateOffset = (pageIndex: number, animated = false) => {
+    const pageSize = vertical ? setPageHeightRef.current : pageWidthRef.current;
+    const offset = pageSize * pageIndex;
+    const x = vertical ? 0 : offset;
+    const y = vertical ? offset : 0;
+    swiperRef.current?.scrollTo({ x, y, animated });
   };
 
   const goToPage = (pageIndex: number, animated = true) => {
-    currentPage.current = getCalcIndex(pageIndex);
-    updateOffset(animated);
+    setCurrentIndex(pageIndex);
+    updateOffset(pageIndex, animated);
   };
 
   const goToNextPage = () => {
-    let nextPageIndex;
+    goToPage(currentPageIndex.current + 1, true);
+  };
 
-    if (loop) {
-      nextPageIndex = currentPage.current + 1;
-    } else {
-      // 如果不是循环模式，pageIndex 不能大于最大页数
-      nextPageIndex = Math.min(pagesCount - 1, currentPage.current + 1);
-    }
-
-    goToPage(nextPageIndex, true);
-
-    if (loop && currentPage.current === pagesCount) {
-      goToPage(0, false);
-    }
+  const goToPrevPage = () => {
+    goToPage(currentPageIndex.current - 1, true);
   };
 
   const startAutoPlay = () => {
     if (isNumber(autoplay)) {
       autoplayTimer.current = setInterval(() => {
-        isAutoScrolled.current = true;
         goToNextPage();
       }, autoplay);
     }
@@ -102,101 +76,77 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
     startAutoPlay();
   };
 
+  const contentOffset = React.useMemo(() => {
+    const pageSize = vertical ? pageHeight : pageWidth;
+    const pageIndex = loop ? initialSwipe + 1 : initialSwipe;
+    const offset = pageSize * pageIndex;
+
+    return {
+      x: vertical ? 0 : offset,
+      y: vertical ? offset : 0,
+    };
+  }, [initialSwipe, loop, pageWidth, pageHeight, vertical]);
+
   const onContainerLayout = ({ nativeEvent }: LayoutChangeEvent) => {
     const { layout } = nativeEvent;
 
     if ((vertical && layout.height) || (!vertical && layout.width)) {
-      setContainerWidth(layout.width);
       // 没有设置滑块的宽高时，使用容器的宽高
       setPageWidth(props.width || layout.width);
       setPageHeight(props.height || layout.height);
     }
   };
 
-  // 屏幕方向变动时，重新计算容器宽高
-  const onOrientationChanged = () => {
-    if (!pageWidth || loop) {
-      orientationChange.current = true;
-      setPageWidth(containerWidth || Constants.screenWidth);
-    }
+  // 用户拖拽时停止自动轮播
+  const onScrollBeginDrag = () => {
+    stopAutoPlay();
   };
 
-  // 判断是否超出边界
-  const isOutOfBounds = (offset: number) => {
-    const minLimit = 1;
-    const maxLimit = (pagesCount + 1) * pageWidth - 1;
-
-    return !inRange(offset, minLimit, maxLimit);
-  };
-
-  const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    if (!skippedInitialScroll.current) {
-      skippedInitialScroll.current = true;
-      return;
-    }
-
-    const offsetX = event.nativeEvent.contentOffset.x;
-    const offsetY = event.nativeEvent.contentOffset.y;
-    const offset = vertical ? offsetY : offsetX;
-
-    if (offset > 0) {
-      if (!orientationChange.current) {
-        console.log(11111, offset);
-      }
-      orientationChange.current = false;
-    }
-
-    if (loop && isOutOfBounds(offsetX)) {
-      console.log(22222222, offset);
-      // updateOffset();
-    }
-
-    if (autoplay !== false) {
-      resetAutoPlay();
-    }
-  };
-
-  const getCalcIndex = (index: number): number => {
-    // to handle scrollView index issue in Android's RTL layout
-    if (Constants.isRTL && Constants.isAndroid) {
-      return pagesCount - 1 - index;
-    }
-    return index;
+  // 拖拽结束后开始自动切换
+  const onScrollEndDrag = () => {
+    resetAutoPlay();
   };
 
   // 滚动动画结束时调用此函数
-  const onMomentumScrollEnd = () => {
-    const index = getCalcIndex(currentPage.current);
+  const onMomentumScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const offsetX = event.nativeEvent.contentOffset.x;
+    const offsetY = event.nativeEvent.contentOffset.y;
+    const offset = vertical ? offsetY : offsetX;
+    const pageSize = vertical ? setPageHeightRef.current : pageWidthRef.current;
+    const scrolledIndex = offset / pageSize;
 
-    if (index < pagesCount) {
-      if (currentStandingPage.current !== index) {
-        isAutoScrolled.current = false;
-        onChange && onChange(index);
-      }
-      currentStandingPage.current = index;
+    onChange?.(loop ? scrolledIndex - 1 : scrolledIndex);
+
+    if (loop && scrolledIndex === 0) {
+      goToPage(pagesCount, false);
+      return;
     }
+    if (loop && scrolledIndex === pagesCount + 1) {
+      goToPage(1, false);
+      return;
+    }
+
+    setCurrentIndex(scrolledIndex);
   };
 
   const renderChild = (child: React.ReactNode, key: Key): JSX.Element | undefined => {
-    if (child) {
-      return (
-        <View
-          style={{
-            width: pageWidth,
-            height: vertical ? pageHeight : undefined,
-          }}
-          key={key}
-          collapsable={false}
-        >
-          {child}
-        </View>
-      );
-    }
-    return undefined;
+    if (!child) return undefined;
+
+    return (
+      <View
+        style={{
+          width: pageWidth,
+          height: vertical ? pageHeight : undefined,
+        }}
+        key={key}
+        collapsable={false}
+      >
+        {child}
+      </View>
+    );
   };
 
   const renderChildren = () => {
-    const length = pagesCount;
     const childrenArray = React.Children.map(children, (child, index) =>
       renderChild(child, `${index}`)
     );
@@ -205,7 +155,7 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
       // 循环滚动时，clone 第一个和最后一个子元素
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      childrenArray.unshift(renderChild(children[length - 1], `${length - 1}-clone`));
+      childrenArray.unshift(renderChild(children[pagesCount - 1], `${pagesCount - 1}-clone`));
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       childrenArray.push(renderChild(children[0], `0-clone`));
@@ -214,21 +164,45 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
     return childrenArray;
   };
 
-  useEffect(() => {
-    dimensionsChangeListener.current = Constants.addDimensionsEventListener(onOrientationChanged);
+  const renderIndicator = () => {
+    if (indicator === false) return null;
 
-    if (autoplay !== false) {
-      startAutoPlay();
+    if (isFunction(indicator)) {
+      return indicator(pagesCount, actualCurrentIndex);
     }
 
-    return () => {
-      Constants.removeDimensionsEventListener(dimensionsChangeListener.current);
-      stopAutoPlay();
-    };
+    return (
+      <View style={[styles.indicator, vertical ? styles.indicatorY : styles.indicatorX]}>
+        {Array.from({ length: pagesCount }).map((_, index) => (
+          <View
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            style={[
+              styles.dot,
+              index === actualCurrentIndex && styles.activeDot,
+              vertical ? styles.dotY : styles.dotX,
+            ]}
+          />
+        ))}
+      </View>
+    );
+  };
+
+  useEffect(() => {
+    startAutoPlay();
+
+    return () => stopAutoPlay();
   }, []);
 
+  React.useImperativeHandle(ref, () => ({
+    activeIndex: actualCurrentIndex,
+    swipeNext: goToNextPage,
+    swipePrev: goToPrevPage,
+    swipeTo: (index: number) => goToPage(loop ? index + 1 : index),
+  }));
+
   return (
-    <View style={style} onLayout={onContainerLayout}>
+    <View {...rest} style={[styles.wrapper, style]} onLayout={onContainerLayout}>
       <ScrollView
         ref={swiperRef}
         showsHorizontalScrollIndicator={false}
@@ -237,11 +211,15 @@ const Swiper = forwardRef<SwiperInstance, SwiperProps>((props, ref) => {
         decelerationRate="fast"
         scrollEventThrottle={200}
         horizontal={!vertical}
-        onScroll={onScroll}
+        contentOffset={contentOffset}
+        scrollEnabled={touchable}
+        onScrollBeginDrag={onScrollBeginDrag}
+        onScrollEndDrag={onScrollEndDrag}
         onMomentumScrollEnd={onMomentumScrollEnd}
       >
         {renderChildren()}
       </ScrollView>
+      {renderIndicator()}
     </View>
   );
 });
