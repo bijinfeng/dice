@@ -3,10 +3,10 @@
 {
   "index_name": "docsearch",
   "start_urls": [
-    "https://bijinfeng.github.io/rn-vant/"
+    "https://rn-vant.vercel.app/"
   ],
   "sitemap_urls": [
-    "https://bijinfeng.github.io/rn-vant/sitemap.xml"
+    "https://rn-vant.vercel.app/sitemap.xml"
   ],
   "stop_urls": [
     "/search",
