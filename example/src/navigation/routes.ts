@@ -289,7 +289,7 @@ export const routes: RouteItem[] = [
     group: EnumGroup.exhibit,
   },
   {
-    name: 'Circle  环形进度条',
+    name: 'Circle 环形进度条',
     href: '/circle',
     component: Circle,
     group: EnumGroup.exhibit,

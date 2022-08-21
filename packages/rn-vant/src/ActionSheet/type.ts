@@ -33,8 +33,6 @@ export interface ActionSheetProps extends PopupProps {
   cancelText?: string | React.ReactElement;
   // 选项上方的描述信息
   description?: string | React.ReactElement;
-  // 使用原生的 iOS 控件
-  useNativeIOS?: boolean;
   // 点击选项时触发，禁用或加载状态下不会触发
   onSelect?: (action: ActionSheetAction, index: number) => void;
   // 点击取消按钮时触发

@@ -19,6 +19,6 @@ export const useHandleIframePost = (): void => {
         scrollElement.scrollTop = 0;
       }
     });
-    return listenerEvent.off;
+    return () => listenerEvent.off();
   }, [history]);
 };

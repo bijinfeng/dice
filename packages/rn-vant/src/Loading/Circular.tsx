@@ -1,18 +1,14 @@
-import React, { FC, memo, useRef, useEffect } from 'react';
-import Svg, { Circle } from 'react-native-svg';
+import React, { memo, useRef, useEffect } from 'react';
+import { Svg, Circle } from 'react-native-svg';
 import { Animated, Platform, Easing } from 'react-native';
+import type { LoadingIconProps } from './type';
 
 const AnimateCircle = Animated.createAnimatedComponent(Circle);
 const AnimateSvg = Animated.createAnimatedComponent(Svg);
 
-interface Props {
-  color: string;
-  size: number;
-}
-
 const DURATION = 1400;
 
-const Circular: FC<Props> = memo(({ color, size }) => {
+const Circular = ({ color, size }: LoadingIconProps) => {
   const strokeDash = useRef(new Animated.Value(0)).current;
   const rotate = useRef(new Animated.Value(0)).current;
 
@@ -87,6 +83,6 @@ const Circular: FC<Props> = memo(({ color, size }) => {
       </AnimateSvg>
     </Animated.View>
   );
-});
+};
 
-export default Circular;
+export default memo(Circular);

@@ -23,7 +23,6 @@ type OpenParams = {
   list?: ActionSheetAction[];
   cancel?: string;
   desc?: string;
-  useNative?: boolean;
 };
 
 const ActionSheetExample = memo(() => {
@@ -32,13 +31,11 @@ const ActionSheetExample = memo(() => {
   const [visible1, setVisible1] = useState(false);
   const [cancelText, setCancelText] = useState('');
   const [description, setDescription] = useState('');
-  const [useNativeIOS, setUseNativeIOS] = useState(false);
 
   const onOpen = (params?: OpenParams) => {
     setCancelText(params?.cancel ?? '');
     setDescription(params?.desc ?? '');
     setActions(params?.list ?? defaultActions);
-    setUseNativeIOS(params?.useNative ?? false);
     setVisible(true);
   };
 
@@ -46,7 +43,6 @@ const ActionSheetExample = memo(() => {
     setCancelText('');
     setDescription('');
     setActions(defaultActions);
-    setUseNativeIOS(false);
     setVisible(false);
   };
 
@@ -77,15 +73,6 @@ const ActionSheetExample = memo(() => {
           <Cell title="自定义面板" isLink onPress={() => setVisible1(true)} />
         </Cell.Group>
       </DemoBlock>
-      <DemoBlock title="IOS 原生动作面板">
-        <Cell.Group inset>
-          <Cell
-            title="IOS 原生动作面板"
-            isLink
-            onPress={() => onOpen({ useNative: true, cancel: '取消', desc: '这是一段描述信息' })}
-          />
-        </Cell.Group>
-      </DemoBlock>
 
       <ActionSheet
         visible={visible}
@@ -93,7 +80,6 @@ const ActionSheetExample = memo(() => {
         onClose={onClose}
         cancelText={cancelText}
         description={description}
-        useNativeIOS={useNativeIOS}
       />
 
       <ActionSheet visible={visible1} onClose={() => setVisible1(false)} title="标题" closeable>

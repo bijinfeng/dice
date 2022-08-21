@@ -1,14 +1,10 @@
-import React, { FC, memo, useRef, useEffect } from 'react';
+import React, { memo, useRef, useEffect } from 'react';
 import { View, Animated, Platform, Easing } from 'react-native';
-
-interface Props {
-  color: string;
-  size: number;
-}
+import type { LoadingIconProps } from './type';
 
 const DURATION = 800;
 
-const Spinner: FC<Props> = memo(({ color, size }) => {
+const Spinner = ({ color, size }: LoadingIconProps) => {
   const rotate = useRef(new Animated.Value(0)).current;
 
   const startRotation = React.useCallback(() => {
@@ -57,7 +53,8 @@ const Spinner: FC<Props> = memo(({ color, size }) => {
               width: size,
               height: size,
             }}
-            key={index.toString()}
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
           >
             <View
               style={{
@@ -72,6 +69,6 @@ const Spinner: FC<Props> = memo(({ color, size }) => {
         ))}
     </Animated.View>
   );
-});
+};
 
-export default Spinner;
+export default memo(Spinner);

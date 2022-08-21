@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ActionSheetIOS } from 'react-native';
+import { View, ActionSheetIOS } from 'react-native';
 import isString from 'lodash-es/isString';
 import type { ActionSheetProps } from './type';
 
@@ -8,7 +8,7 @@ import type { ActionSheetProps } from './type';
  * @param props ActionSheetProps
  * @returns JSX.Element
  */
-const NativeIOSActionSheet = (props: ActionSheetProps): JSX.Element => {
+const ActionSheet = (props: ActionSheetProps): JSX.Element => {
   const {
     visible,
     actions = [],
@@ -46,7 +46,7 @@ const NativeIOSActionSheet = (props: ActionSheetProps): JSX.Element => {
     if (visible) handleOpen();
   }, [visible]);
 
-  return <></>;
+  return <View />;
 };
 
-export default NativeIOSActionSheet;
+export default ActionSheet;

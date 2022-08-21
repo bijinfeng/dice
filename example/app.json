@@ -30,7 +30,7 @@
       "package": "com.dice.www"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "https://img01.yzcdn.cn/vant/logo.png"
     },
     "packagerOpts": {
       "config": "metro.config.js"

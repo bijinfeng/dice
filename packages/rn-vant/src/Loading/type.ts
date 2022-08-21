@@ -33,3 +33,8 @@ export interface LoadingProps extends ViewProps {
    */
   vertical?: boolean;
 }
+
+export interface LoadingIconProps {
+  color: string;
+  size: number;
+}

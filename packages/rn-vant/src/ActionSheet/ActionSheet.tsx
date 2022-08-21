@@ -1,20 +1,18 @@
 import React, { memo } from 'react';
 import { View, Text } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import TouchableOpacity from '../TouchableOpacity';
 import Popup from '../Popup';
 import Loading from '../Loading';
 import { useThemeFactory } from '../Theme';
 import { createStyle } from './style';
 import type { ActionSheetProps, ActionSheetAction } from './type';
-import constants from '../utils/constants';
-import NativeIOSActionSheet from './NativeIOSActionSheet';
 
-export const ActionSheet = memo((props: ActionSheetProps): JSX.Element => {
+const ActionSheet = (props: ActionSheetProps): JSX.Element => {
   const {
     actions = [],
     cancelText,
     description,
-    useNativeIOS,
     children,
     onSelect,
     onCancel,
@@ -22,6 +20,7 @@ export const ActionSheet = memo((props: ActionSheetProps): JSX.Element => {
     ...rest
   } = props;
   const { styles, theme } = useThemeFactory(createStyle);
+  const insets = useSafeAreaInsets();
   const activeBackground = theme.active_color;
 
   const handleCancel = () => {
@@ -59,14 +58,10 @@ export const ActionSheet = memo((props: ActionSheetProps): JSX.Element => {
     </TouchableOpacity>
   );
 
-  if (useNativeIOS && constants.isIOS) {
-    return <NativeIOSActionSheet {...props} />;
-  }
-
   return (
     <Popup round position="bottom" onClose={onClose} {...rest}>
       {children || (
-        <View>
+        <View style={{ paddingBottom: insets.bottom }}>
           {!!description && (
             <>
               <Text style={styles.description}>{description}</Text>
@@ -92,4 +87,6 @@ export const ActionSheet = memo((props: ActionSheetProps): JSX.Element => {
       )}
     </Popup>
   );
-});
+};
+
+export default memo(ActionSheet);

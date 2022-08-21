@@ -1,12 +1,13 @@
 import React, { FC, memo } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-
+import { View, Text } from 'react-native';
 import { useThemeFactory } from '../Theme';
 import Circular from './Circular';
 import Spinner from './Spinner';
 import type { LoadingProps } from './type';
+import { createStyle } from './style';
 
-const Loading: FC<LoadingProps> = memo(props => {
+const Loading: FC<LoadingProps> = props => {
+  const { styles, theme } = useThemeFactory(createStyle);
   const {
     children,
     size = 30,
@@ -15,10 +16,9 @@ const Loading: FC<LoadingProps> = memo(props => {
     textColor,
     textSize,
     style,
+    color = theme.gray_5,
     ...rest
   } = props;
-  const { styles, theme } = useThemeFactory(createStyle);
-  const color = props.color ?? theme.gray_5;
 
   return (
     <View
@@ -42,21 +42,6 @@ const Loading: FC<LoadingProps> = memo(props => {
       )}
     </View>
   );
-});
-
-const createStyle = (theme: DiceUI.Theme) => {
-  const textFontSize = theme.font_size_md;
-
-  return StyleSheet.create({
-    text: {
-      fontSize: textFontSize,
-      marginLeft: theme.padding_xs,
-    },
-    verticalText: {
-      fontSize: textFontSize,
-      marginTop: theme.padding_xs,
-    },
-  });
 };
 
-export default Loading;
+export default memo(Loading);

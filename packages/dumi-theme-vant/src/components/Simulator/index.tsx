@@ -1,11 +1,11 @@
-import React, { FC, useState, useEffect, useMemo } from 'react';
+import React, { FC, useState, useEffect, useMemo, memo } from 'react';
 import clsx from 'clsx';
 import { iframeMessageSwap } from '../../utils';
 import './index.less';
 
 export interface SimulatorProps {
   src: string;
-  path: string;
+  path?: string;
 }
 
 const Simulator: FC<SimulatorProps> = ({ src, path }) => {
@@ -47,4 +47,4 @@ const Simulator: FC<SimulatorProps> = ({ src, path }) => {
   );
 };
 
-export default Simulator;
+export default memo(Simulator);
