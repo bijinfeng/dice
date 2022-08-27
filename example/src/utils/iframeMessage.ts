@@ -1,6 +1,11 @@
 import { Platform } from 'react-native';
 
 /**
+ * 判断是不是在 iframe 里
+ */
+export const isInIframe = Platform.OS === 'web' ? window.self !== window.top : false;
+
+/**
  * 监听 iframe 通信
  * @param _method 事件名
  * @param callback 回调
@@ -10,7 +15,7 @@ export const listenerMessage = <T>(
   callback: (data: T) => void
 ): { cancel: () => void } => {
   let cancel = () => {};
-  if (Platform.OS === 'web') {
+  if (isInIframe) {
     const callbackEvent = (event: MessageEvent<any>) => {
       const { method, data } = event?.data ?? {};
       if (method === _method) {
@@ -29,23 +34,7 @@ export const listenerMessage = <T>(
  * @param data 信息
  */
 export const postMessage = <T>(method: string, data?: T): void => {
-  if (Platform.OS === 'web') {
+  if (isInIframe) {
     window.parent.postMessage({ method, data }, '*');
   }
-};
-
-export const listenerIframeLoaded = (): Promise<void> => {
-  return new Promise<void>(resolve => {
-    if (Platform.OS === 'web') {
-      // 发送事件给父页面，告知 iframe 已经准备好了
-      postMessage('ready');
-      const { cancel } = listenerMessage('ready', () => {
-        cancel();
-        resolve();
-      });
-      setTimeout(resolve, 2000);
-    } else {
-      resolve();
-    }
-  });
 };

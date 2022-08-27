@@ -51,7 +51,8 @@ const Header: FC<HeaderProps> = ({ location }) => {
           <ul className="van-doc-header__top-nav">
             {/* nav */}
             {navItems.map((nav, index) => (
-              <li key={index.toString()} className="van-doc-header__top-nav-item">
+              // eslint-disable-next-line react/no-array-index-key
+              <li key={index} className="van-doc-header__top-nav-item">
                 <span className="van-doc-header__link">
                   <NavLink to={nav.path}>
                     {nav?.logo ? <img src={nav.logo} alt="logo" /> : <span>{nav.title}</span>}

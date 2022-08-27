@@ -1,12 +1,12 @@
 type IframeMessageEvent<T> = MessageEvent<{ method: string; data: T }>;
 
 class IframeMessageSwap {
-  private iframeRef: HTMLIFrameElement = null;
+  private iframeRef: HTMLIFrameElement | null = null;
   private taskList: Array<() => void> = [];
 
   setRef = (ref: HTMLIFrameElement) => {
     /**
-     * iframe 会向父页面发送个 ready 事件，告诉父页面，iframe 已经准备介绍消息了
+     * iframe 会向父页面发送个 ready 事件，告诉父页面，iframe 已经准备好可以接收消息了
      * 这时，才将收集到 taskList 中的被暂停的事件依次执行，这时已经建立了正常的通信
      * 设置 iframeRef，防止阻塞之后正常的通行
      */

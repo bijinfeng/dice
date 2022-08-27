@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import { View, ScrollView, Image, StyleSheet, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Link } from '@react-navigation/native';
+import { View, Image, StyleSheet, Text, Pressable } from 'react-native';
+import { useNavigate } from 'react-router-native';
 import { Icon } from 'rn-vant';
 import { getRouteGroup, RouteItem } from '../navigation/routes';
 import { postMessage } from '../utils';
@@ -11,38 +10,36 @@ import { DemoBlock } from '../components';
 const routeGroup = getRouteGroup();
 
 const Home = () => {
-  const { themeVars } = useContext(GlobalContext);
+  const { themeVars, isInIframe } = useContext(GlobalContext);
+  const linkTo = useNavigate();
 
   const onLinkPress = (item: RouteItem) => {
+    console.log('navigate', item.href);
+    !isInIframe && linkTo(item.href);
     postMessage('navigate', item.href);
   };
 
   return (
-    <ScrollView style={{ paddingHorizontal: 20 }}>
-      <SafeAreaView style={{ paddingTop: 46, paddingBottom: 20 }}>
-        <View style={styles.header}>
-          <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
-          <Text style={[styles.title, { color: themeVars.text_color_2 }]}>RN Vant</Text>
-        </View>
-        {routeGroup.map(it => (
-          <DemoBlock title={it.name} key={it.name}>
-            {it.list.map((item, idx) => (
-              <Link
-                style={[styles.link, idx === it.list.length - 1 && styles.linkLast]}
-                key={item.href}
-                to={{ screen: item.href, params: {} }}
-                onPress={() => onLinkPress(item)}
-              >
-                <View style={[styles.item, { backgroundColor: themeVars.background_3 }]}>
-                  <Text style={[styles.text, { color: themeVars.text_color_3 }]}>{item.name}</Text>
-                  <Icon name="arrow" size={16} color="#B6C3D2" />
-                </View>
-              </Link>
-            ))}
-          </DemoBlock>
-        ))}
-      </SafeAreaView>
-    </ScrollView>
+    <View style={{ paddingTop: 46, paddingBottom: 20, paddingHorizontal: 20 }}>
+      <View style={styles.header}>
+        <Image source={{ uri: 'https://img01.yzcdn.cn/vant/logo.png' }} style={styles.logo} />
+        <Text style={[styles.title, { color: themeVars.text_color_2 }]}>RN Vant</Text>
+      </View>
+      {routeGroup.map(it => (
+        <DemoBlock title={it.name} key={it.name}>
+          {it.list.map(item => (
+            <Pressable
+              style={[styles.item, { backgroundColor: themeVars.background_3 }]}
+              key={item.href}
+              onPress={() => onLinkPress(item)}
+            >
+              <Text style={[styles.text, { color: themeVars.text_color_3 }]}>{item.name}</Text>
+              <Icon name="arrow" size={16} color="#B6C3D2" />
+            </Pressable>
+          ))}
+        </DemoBlock>
+      ))}
+    </View>
   );
 };
 
@@ -58,17 +55,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     flex: 1,
+    height: 40,
     justifyContent: 'space-between',
+    marginBottom: 12,
     paddingLeft: 20,
     paddingRight: 16,
     width: '100%',
-  },
-  link: {
-    height: 40,
-    marginBottom: 12,
-  },
-  linkLast: {
-    marginBottom: 0,
   },
   logo: {
     height: 32,

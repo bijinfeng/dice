@@ -5,6 +5,7 @@ import { lightTheme } from './style/vars';
 export interface GlobalState {
   themeMode: ColorSchemeName;
   isDarkMode: boolean;
+  isInIframe: boolean;
   themeVars: typeof lightTheme;
 }
 

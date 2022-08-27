@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Button } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
 const ButtonExample = memo(() => {
   return (
-    <ScrollView>
+    <>
       <DemoBlock title="按钮类型" contentStyle={styles.card}>
         <Button type="primary" style={styles.button}>
           主要按钮
@@ -80,7 +80,7 @@ const ButtonExample = memo(() => {
           单色按钮
         </Button>
       </DemoBlock>
-    </ScrollView>
+    </>
   );
 });
 

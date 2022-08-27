@@ -8,7 +8,7 @@ export interface RendererProps {
   desc?: string;
 }
 
-export const Renderer: FC<RendererProps> = ({ children, title, desc }) => {
+export const Renderer: FC<RendererProps> = ({ children, location, title, desc }) => {
   const { base } = useThemeConfig();
   const isHome = location?.pathname === base;
 
