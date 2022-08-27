@@ -14,7 +14,6 @@ const Home = () => {
   const linkTo = useNavigate();
 
   const onLinkPress = (item: RouteItem) => {
-    console.log('navigate', item.href);
     !isInIframe && linkTo(item.href);
     postMessage('navigate', item.href);
   };

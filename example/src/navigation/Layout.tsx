@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ArrowLeft } from '@rn-vant/icons';
 import { GlobalContext } from '../GlobalContext';
 import { routes } from './routes';
+import { isInIframe } from '../utils';
 
 const Layout: FC = () => {
   const insets = useSafeAreaInsets();
@@ -19,7 +20,7 @@ const Layout: FC = () => {
   );
 
   return (
-    <ScrollView
+    <View
       style={[
         styles.layout,
         isHome && { paddingTop: insets.top },
@@ -42,10 +43,10 @@ const Layout: FC = () => {
           </View>
         </View>
       )}
-      <View style={styles.content}>
+      <ScrollView showsVerticalScrollIndicator={!isInIframe} style={styles.content}>
         <Outlet />
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
