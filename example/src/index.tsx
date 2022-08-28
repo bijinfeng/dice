@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, useMemo } from 'react';
-import { useColorScheme, ColorSchemeName } from 'react-native';
+import { useColorScheme, ColorSchemeName, View } from 'react-native';
 import { ConfigProvider, defaultTheme, darkTheme } from 'rn-vant';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Navigation from './navigation';
@@ -45,13 +45,15 @@ const Layout: FC = () => {
   );
 
   return (
-    <GlobalContext.Provider value={globalState}>
-      <SafeAreaProvider>
-        <ConfigProvider theme={isDarkMode ? darkTheme : defaultTheme}>
-          {isReady && <Navigation />}
-        </ConfigProvider>
-      </SafeAreaProvider>
-    </GlobalContext.Provider>
+    <View style={{ display: isReady ? 'flex' : 'none' }}>
+      <GlobalContext.Provider value={globalState}>
+        <SafeAreaProvider>
+          <ConfigProvider theme={isDarkMode ? darkTheme : defaultTheme}>
+            <Navigation />
+          </ConfigProvider>
+        </SafeAreaProvider>
+      </GlobalContext.Provider>
+    </View>
   );
 };
 

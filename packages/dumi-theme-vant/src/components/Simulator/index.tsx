@@ -14,8 +14,6 @@ const Simulator: FC<SimulatorProps> = ({ src, path }) => {
   const [scrollTop, setScrollTop] = useState(0);
   const [theme] = useColor();
 
-  const simulator = useMemo(() => `${src}${path || ''}`, [src]);
-
   const simulatorStyle = useMemo(() => {
     const height = Math.min(640, window.innerHeight - 90);
 
@@ -47,7 +45,7 @@ const Simulator: FC<SimulatorProps> = ({ src, path }) => {
         id="simulator"
         ref={iframeMessageSwap.setRef}
         title="vant-ui-iframe"
-        src={simulator}
+        src={src}
         style={simulatorStyle}
         frameBorder="0"
       />
