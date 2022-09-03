@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
+import type { IconNames } from '@rn-vant/icons';
 import type { StyleProp, ViewStyle } from 'react-native';
-import type { IconNames } from '../Icon';
 
 export type PopupPosition = 'top' | 'bottom' | 'right' | 'left' | 'center';
 export type PopupCloseIconPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';

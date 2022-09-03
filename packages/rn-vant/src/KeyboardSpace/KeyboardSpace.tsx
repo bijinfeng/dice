@@ -4,7 +4,7 @@
 import React, { PureComponent } from 'react';
 import { StyleSheet, Platform, View, Keyboard, KeyboardEvent, LayoutAnimation } from 'react-native';
 
-type Props = {
+export type KeyboardSpaceProps = {
   topInsets?: number;
 };
 
@@ -12,7 +12,7 @@ type State = {
   keyboardHeight: number;
 };
 
-export default class KeyboardSpace extends PureComponent<Props, State> {
+export default class KeyboardSpace extends PureComponent<KeyboardSpaceProps, State> {
   static defaultProps = {
     topInsets: 0,
   };
@@ -20,7 +20,7 @@ export default class KeyboardSpace extends PureComponent<Props, State> {
   private showListener: ReturnType<typeof Keyboard.addListener> | null;
   private hideListener: ReturnType<typeof Keyboard.addListener> | null;
 
-  constructor(props: Props) {
+  constructor(props: KeyboardSpaceProps) {
     super(props);
     this.showListener = null;
     this.hideListener = null;
@@ -40,7 +40,7 @@ export default class KeyboardSpace extends PureComponent<Props, State> {
     }
   }
 
-  componentDidUpdate(_: Props, prevState: State): void {
+  componentDidUpdate(_: KeyboardSpaceProps, prevState: State): void {
     if (prevState.keyboardHeight !== this.state.keyboardHeight) {
       LayoutAnimation.configureNext({
         duration: 500,

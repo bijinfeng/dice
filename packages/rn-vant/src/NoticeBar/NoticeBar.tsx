@@ -1,7 +1,7 @@
 import React, { forwardRef, useState } from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
+import Icon, { IconNames } from '@rn-vant/icons';
 
-import Icon, { IconNames } from '../Icon';
 import { useThemeFactory } from '../Theme';
 import { createStyle } from './style';
 import Marquee from './Marquee';

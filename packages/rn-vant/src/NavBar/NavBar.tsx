@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text, SafeAreaView } from 'react-native';
 import type { ViewStyle, TextStyle } from 'react-native';
+import Icon from '@rn-vant/icons';
 
 import type { NavBarProps } from './interface';
 import { useThemeFactory } from '../Theme';
-import Icon from '../Icon';
 import { isDef } from '../utils/typeof';
 import { createStyle } from './style';
 

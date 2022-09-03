@@ -45,7 +45,7 @@ const Layout: FC = () => {
   );
 
   return (
-    <View style={{ display: isReady ? 'flex' : 'none' }}>
+    <View style={{ display: isReady ? 'flex' : 'none', flex: 1 }}>
       <GlobalContext.Provider value={globalState}>
         <SafeAreaProvider>
           <ConfigProvider theme={isDarkMode ? darkTheme : defaultTheme}>

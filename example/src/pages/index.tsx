@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { View, Image, StyleSheet, Text, Pressable } from 'react-native';
 import { useNavigate } from 'react-router-native';
-import { Icon } from 'rn-vant';
+import Icon from '@rn-vant/icons';
 import { getRouteGroup, RouteItem } from '../navigation/routes';
 import { postMessage } from '../utils';
 import { GlobalContext } from '../GlobalContext';

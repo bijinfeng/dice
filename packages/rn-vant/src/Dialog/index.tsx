@@ -118,3 +118,5 @@ const confirm = (props: DialogProps): Promise<boolean> => {
 const Dialog = Object.assign(BaseDialog, { show, alert, confirm });
 
 export default Dialog;
+export { Dialog };
+export type { DialogProps } from './type';

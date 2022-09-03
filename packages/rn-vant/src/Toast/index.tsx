@@ -24,7 +24,7 @@ const clearAll = () => {
   });
 };
 
-const Toast = (opts: ToastProps): ToastReturnType => {
+const ToastInner = (opts: ToastProps): ToastReturnType => {
   // 清楚上一个 toast （如果有）
   clearAll();
 
@@ -74,21 +74,21 @@ const parseOptions = (opts: ToastProps | string): ToastProps => {
 };
 
 const InternalToast = (opts: ToastProps | string) =>
-  Toast({
+  ToastInner({
     ...parseOptions(opts),
   });
 
-const toast = InternalToast as ToastInstance;
+const Toast = InternalToast as ToastInstance;
 
 (['info', 'loading', 'success', 'fail'] as ToastType[]).forEach(method => {
-  toast[method] = (opts: ToastOptions) =>
-    Toast({
+  Toast[method] = (opts: ToastOptions) =>
+    ToastInner({
       ...parseOptions(opts),
       type: method,
     });
 });
 
-toast.setDefaultOptions = (type: ToastType | ToastProps, options?: ToastProps) => {
+Toast.setDefaultOptions = (type: ToastType | ToastProps, options?: ToastProps) => {
   if (typeof type === 'string' && options) {
     defaultOptionsMap.set(type, options);
   } else {
@@ -96,7 +96,7 @@ toast.setDefaultOptions = (type: ToastType | ToastProps, options?: ToastProps) =
   }
 };
 
-toast.resetDefaultOptions = (type?: ToastType) => {
+Toast.resetDefaultOptions = (type?: ToastType) => {
   if (typeof type === 'string') {
     defaultOptionsMap.delete(type);
   } else {
@@ -105,6 +105,8 @@ toast.resetDefaultOptions = (type?: ToastType) => {
   }
 };
 
-toast.clear = clearAll;
+Toast.clear = clearAll;
 
-export default toast;
+export default Toast;
+export { Toast };
+export type { ToastProps } from './type';

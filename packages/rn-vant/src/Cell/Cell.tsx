@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 import { View, Text, Animated, TouchableOpacity as RNTouchableOpacity } from 'react-native';
 import isFunction from 'lodash-es/isFunction';
+import Icon from '@rn-vant/icons';
 import { useMemoizedFn, useAnimatedValue, useUpdateEffect } from '../hooks';
 import { useThemeFactory } from '../Theme';
-import Icon from '../Icon';
 import TouchableOpacity from '../TouchableOpacity';
 import { createCellStyle } from './style';
 import type { CellProps, Direction } from './type';

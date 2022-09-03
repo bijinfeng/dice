@@ -1,5 +1,6 @@
 import React, { memo, useState } from 'react';
-import { Notify, Cell, Icon } from 'rn-vant';
+import Icon from '@rn-vant/icons';
+import { Notify, Cell } from 'rn-vant';
 import { ScrollView, Text } from 'react-native';
 import { DemoBlock } from '../../components';
 

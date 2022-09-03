@@ -1,5 +1,5 @@
 import type { ViewStyle, StyleProp, TextStyle } from 'react-native';
-import type { IconNames } from '../Icon';
+import type { IconNames } from '@rn-vant/icons';
 import type Loading from '../Loading';
 
 export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'default';

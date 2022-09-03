@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { StyleProp, TextStyle, ViewStyle, ViewProps } from 'react-native';
-import type { IconNames } from '../Icon';
+import type { IconNames } from '@rn-vant/icons';
 
 export type Direction = 'left' | 'right' | 'up' | 'down';
 
@@ -38,7 +38,7 @@ export interface CellProps {
   /**
    * 左侧图标名称或图标自定义图标组件
    */
-  icon?: IconNames | React.ReactElement;
+  icon?: IconNames | React.ReactElement<{ size: number; color: string }>;
   /**
    * 是否展示右侧箭头
    */

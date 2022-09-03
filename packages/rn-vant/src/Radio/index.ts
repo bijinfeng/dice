@@ -12,7 +12,7 @@ interface RadioProps extends RadioType {
   __ANT_CHECKBOX: boolean;
 }
 
-const Radio = InternalRadio as RadioProps;
+export const Radio = InternalRadio as RadioProps;
 
 Radio.Group = Group;
 Radio.__ANT_CHECKBOX = true;

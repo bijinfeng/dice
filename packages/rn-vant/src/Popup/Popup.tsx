@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Pressable, Text } from 'react-native';
+import Icon from '@rn-vant/icons';
 import Dialog from './Dialog';
-import Icon from '../Icon';
 import { useThemeFactory } from '../Theme';
 import { createStyle } from './style';
 import type { PopupProps } from './type';

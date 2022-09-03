@@ -1,7 +1,8 @@
 import React, { FC, memo } from 'react';
 import { View, ViewStyle, StyleSheet, Text, TextStyle } from 'react-native';
+import Icon from '@rn-vant/icons';
+import { isIcon } from '../utils/isIcon';
 import TouchableOpacity from '../TouchableOpacity';
-import Icon, { isIcon } from '../Icon';
 import { useThemeFactory } from '../Theme';
 import Loading from '../Loading';
 import createStyle from './style';

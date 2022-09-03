@@ -5,7 +5,7 @@ import SlideFade from './SlideFade';
 import Stagger from './Stagger';
 import Slide from './Slide';
 
-const Transitions = {
+export const Transitions = {
   Fade,
   ScaleFade,
   Transition,
