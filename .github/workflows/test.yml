@@ -1,0 +1,32 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master # default branch
+
+jobs:
+  upload-test-coverage:
+    name: test-coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v2
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: yarn
+
+      - name: 📦 Install dependencies
+        run: yarn bootstrap
+
+      - name: 📦 Test
+        run: yarn test --maxWorkers=2 --coverage
+      
+      - name: 🚀 Upload coverage to codecov
+        uses: codecov/codecov-action@v3
+        with:
+          # use own token to upload coverage reports
+          token: ${{ secrets.CODECOV_TOKEN }}
