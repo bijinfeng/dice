@@ -7,7 +7,7 @@
   <a href="https://npmjs.org/package/rn-vant" target="_blank" referrerpolicy="no-referrer">
     <img src="https://img.shields.io/npm/dm/rn-vant.svg?style=flat-square" alt="npm download" />
   </a>
-  <a href="https://codecov.io/gh/bijinfeng/react-vant" target="_blank" referrerpolicy="no-referrer">
+  <a href="https://codecov.io/gh/bijinfeng/react-vant/branch/master" target="_blank" referrerpolicy="no-referrer">
     <img src="https://codecov.io/gh/bijinfeng/react-vant/branch/master/graph/badge.svg?token=QC9OV9ZMTV" alt="codecov" />
   </a>
   <a href="https://github.com/3lang3/rn-vant/discussions" target="_blank" referrerpolicy="no-referrer">
