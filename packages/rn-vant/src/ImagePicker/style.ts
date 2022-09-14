@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native';
 import type { Vars } from '../styles';
 
 export const imagePickerDefaultVars = (vars: Vars) => ({
@@ -28,3 +29,63 @@ export const imagePickerDefaultVars = (vars: Vars) => ({
   image_picker_loading_icon_color: vars.white,
   image_picker_disabled_opacity: vars.disabled_opacity,
 });
+
+export const createItemStyles = (theme: DiceUI.Theme) => {
+  return StyleSheet.create({
+    delete: {
+      alignItems: 'center',
+      backgroundColor: theme.image_picker_delete_background,
+      borderBottomLeftRadius: 12,
+      height: theme.image_picker_delete_icon_size,
+      justifyContent: 'center',
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      width: theme.image_picker_delete_icon_size,
+    },
+    mask: {
+      ...StyleSheet.absoluteFillObject,
+      alignItems: 'center',
+      backgroundColor: theme.image_picker_mask_background,
+      flexDirection: 'column',
+      justifyContent: 'center',
+    },
+    maskMessage: {
+      color: theme.image_picker_mask_text_color,
+      fontSize: theme.image_picker_mask_message_font_size,
+      lineHeight: theme.image_picker_mask_message_line_height,
+      marginTop: 6,
+      paddingHorizontal: theme.padding_base,
+    },
+    preview: {
+      marginBottom: theme.padding_xs,
+      marginRight: theme.padding_xs,
+      position: 'relative',
+    },
+  });
+};
+
+export const createStyles = (theme: DiceUI.Theme) => {
+  return StyleSheet.create({
+    container: {
+      position: 'relative',
+    },
+    upload: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
+    },
+    uploadText: {
+      color: theme.image_picker_text_color,
+      fontSize: theme.image_picker_text_font_size,
+      marginTop: theme.padding_xs,
+    },
+    wrapper: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    },
+    wrapperDisabled: {
+      opacity: theme.image_picker_disabled_opacity,
+    },
+  });
+};
