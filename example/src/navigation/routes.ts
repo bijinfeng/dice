@@ -42,6 +42,7 @@ import Input from '../pages/input';
 import Selector from '../pages/selector';
 import Form from '../pages/form';
 import ImagePreview from '../pages/imagePreview';
+import ImagePicker from '../pages/image-picker';
 
 export type RouteItem = {
   name: string;
@@ -60,6 +61,12 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'ImagePicker 图片选择器',
+    href: '/image-picker',
+    component: ImagePicker,
+    group: EnumGroup.form,
+  },
   {
     name: 'ImagePreview 图片预览',
     href: '/image-preview',

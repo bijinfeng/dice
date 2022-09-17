@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 import { Cell, ImagePreview } from 'rn-vant';
 import { DemoBlock } from '../../components';
 
@@ -13,7 +13,7 @@ const ImagePreviewExample = () => {
   const [visible1, setVisible1] = useState(false);
 
   return (
-    <ScrollView>
+    <View>
       <DemoBlock title="基础用法">
         <Cell
           title="预览图片"
@@ -35,7 +35,7 @@ const ImagePreviewExample = () => {
           showIndicators
         />
       </DemoBlock>
-    </ScrollView>
+    </View>
   );
 };
 

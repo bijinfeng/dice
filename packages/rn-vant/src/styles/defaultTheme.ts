@@ -1,5 +1,6 @@
 import { Dimensions } from 'react-native';
 import * as _vars from './variables';
+import { imagePickerDefaultVars } from '../ImagePicker/style';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -509,6 +510,9 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
   image_preview_close_icon_size: 22,
   image_preview_close_icon_color: vars.gray_5,
   image_preview_close_icon_margin: vars.padding_md,
+
+  // ImagePicker
+  ...imagePickerDefaultVars(vars),
 });
 
 export const defaultTheme = createDefaultTheme(_vars);

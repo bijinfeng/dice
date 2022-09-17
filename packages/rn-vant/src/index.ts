@@ -51,6 +51,7 @@ export * from './Tag';
 export * from './Toast';
 export * from './TouchableRipple';
 export * from './Transitions';
+export * from './ImagePicker';
 
 export { defaultTheme, darkTheme } from './styles';
 
