@@ -28,6 +28,7 @@ const Image = (props: ImageProps): JSX.Element => {
     animated = true,
     duration = 200,
     fadeDuration = 0,
+    children,
     ...resetProps
   } = props;
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
@@ -115,6 +116,8 @@ const Image = (props: ImageProps): JSX.Element => {
           )}
         </View>
       )}
+
+      {children}
     </TouchableOpacity>
   );
 };

@@ -77,4 +77,5 @@ export interface ImageProps extends Omit<ImageReactNativeProps, 'style'> {
    * @default `300`
    */
   duration?: number;
+  children?: React.ReactNode;
 }

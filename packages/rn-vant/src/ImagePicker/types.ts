@@ -1,10 +1,13 @@
 import type React from 'react';
+import type { ImageInfo } from 'expo-image-picker';
 import type { ImagePreviewProps } from '../ImagePreview/type';
 import type { ImageProps } from '../Image/type';
 
 type ImageFit = ImageProps['resizeMode'];
 
 type PromiseOrNot<T> = T | Promise<T>;
+
+export type PickerImageInfo = ImageInfo;
 
 export type UploaderResultType = 'dataUrl' | 'text' | 'file';
 
@@ -13,30 +16,25 @@ export type UploaderValueItem = {
   key?: string | number;
   /** 资源地址 */
   url?: string;
+  /** 图片名称 */
+  fileName?: string;
   /** 预览图 */
   thumbnail?: string;
   /** 原始文件 */
-  file?: File;
+  file?: PickerImageInfo;
 } & Record<string, any>;
 
 type TaskStatus = 'pending' | 'failed';
 
-export type UploaderTask = {
-  id: number;
-  url?: string;
-  status: TaskStatus;
-  file: File;
-};
-
-export type UploaderMaxSize = number | string | ((file: File) => boolean);
+export type UploaderMaxSize = number | string | ((file: PickerImageInfo) => boolean);
 
 export type UploaderBeforeRead = (
-  file: File | File[],
+  file: PickerImageInfo | PickerImageInfo[],
   detail: {
     name: string | number;
     index: number;
   }
-) => PromiseOrNot<File | File[] | undefined | boolean | void>;
+) => PromiseOrNot<PickerImageInfo | PickerImageInfo[] | undefined | boolean | void>;
 
 export interface UploaderPrviewItemProps
   extends Pick<
@@ -49,11 +47,15 @@ export interface UploaderPrviewItemProps
   onPreview?: () => void;
   onClick?: () => void;
   previewCoverRender?: () => React.ReactNode;
-  file?: File;
+  file?: PickerImageInfo;
   url?: string;
 }
 
 export interface ImagePickerProps {
+  /** 上传的地址 */
+  action?: string;
+  /** 设置上传的请求头部 */
+  headers?: Record<string, string>;
   /** 图片选取模式，可选值为 camera (直接调起摄像头)	 */
   capture?: string;
   /** 是否开启图片多选，部分安卓机型不支持	 */
@@ -68,8 +70,11 @@ export interface ImagePickerProps {
   deletable?: boolean;
   /** 是否展示上传区域	 */
   showUpload?: boolean;
-  /** 文件读取前的回调函数，返回 false 可终止文件读取，支持返回 Promise */
-  beforeRead?: (file: File, files: File[]) => Promise<File | false> | File | false;
+  /** 文件上传前的回调函数，返回 false 可终止文件上传，支持返回 Promise */
+  beforeUpload?: (
+    file: PickerImageInfo,
+    files: PickerImageInfo[]
+  ) => Promise<PickerImageInfo | false> | PickerImageInfo | false;
   /** 预览图和上传区域的尺寸，默认单位为 px	 */
   previewSize?: number | string;
   /** 是否在上传完成后展示预览图	 */
@@ -86,12 +91,6 @@ export interface ImagePickerProps {
   deleteRender?: (del?: () => void) => React.ReactNode;
   /** 标识符，可以在回调函数的第二项参数中获取	*/
   name?: number | string;
-  /**
-   * 允许上传的文件类型
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input/file#%E9%99%90%E5%88%B6%E5%85%81%E8%AE%B8%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B
-   * @default 'image/*'
-   */
-  accept?: string;
   /**
    * 文件大小限制，单位为 byte
    * @default `Number.MAX_VALUE`
@@ -129,12 +128,12 @@ export interface ImagePickerProps {
   /** 删除文件预览时触发 */
   onDelete?: (item: UploaderValueItem) => boolean | Promise<boolean> | void;
   /** 文件大小超过限制时触发	 */
-  onOversize?: (files: File[]) => void;
+  onOversize?: (files: PickerImageInfo[]) => void;
   /** 点击预览图时触发	 */
   onClickPreview?: (item: UploaderValueItem, index: number) => void;
   /** 点击上传区域时触发	 */
-  onClickUpload?: (e: React.MouseEvent) => void;
+  onClickUpload?: () => void;
   /** 上传方法，入参是需要被上传的文件对象，经过异步处理之后，返回上传结果 */
-  upload?: (file: File) => Promise<UploaderValueItem>;
+  upload?: (file: PickerImageInfo) => Promise<UploaderValueItem>;
   children?: React.ReactNode;
 }

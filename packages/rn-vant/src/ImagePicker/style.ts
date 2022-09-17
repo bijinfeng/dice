@@ -35,13 +35,26 @@ export const createItemStyles = (theme: DiceUI.Theme) => {
     delete: {
       alignItems: 'center',
       backgroundColor: theme.image_picker_delete_background,
-      borderBottomLeftRadius: 12,
+      borderBottomStartRadius: 12,
       height: theme.image_picker_delete_icon_size,
       justifyContent: 'center',
       position: 'absolute',
       right: 0,
       top: 0,
       width: theme.image_picker_delete_icon_size,
+    },
+    deleteIcon: {
+      transform: [
+        {
+          scale: 0.7,
+        },
+        {
+          translateX: theme.image_picker_delete_icon_size * 0.1,
+        },
+        {
+          translateY: theme.image_picker_delete_icon_size * -0.1,
+        },
+      ],
     },
     mask: {
       ...StyleSheet.absoluteFillObject,
@@ -65,11 +78,8 @@ export const createItemStyles = (theme: DiceUI.Theme) => {
   });
 };
 
-export const createStyles = (theme: DiceUI.Theme) => {
+export const createUploaderStyles = (theme: DiceUI.Theme) => {
   return StyleSheet.create({
-    container: {
-      position: 'relative',
-    },
     upload: {
       alignItems: 'center',
       justifyContent: 'center',
@@ -79,6 +89,14 @@ export const createStyles = (theme: DiceUI.Theme) => {
       color: theme.image_picker_text_color,
       fontSize: theme.image_picker_text_font_size,
       marginTop: theme.padding_xs,
+    },
+  });
+};
+
+export const createStyles = (theme: DiceUI.Theme) => {
+  return StyleSheet.create({
+    container: {
+      position: 'relative',
     },
     wrapper: {
       flexDirection: 'row',

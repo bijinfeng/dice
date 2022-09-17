@@ -11,16 +11,16 @@ const ImageItem = (props: UploaderPrviewItemProps): JSX.Element => {
   const { onPreview, statusTextRender, status, url } = props;
   const { styles, theme } = useThemeFactory(createItemStyles);
 
-  const renderPreview = () => {
-    return (
-      <Image
-        resizeMode={props.imageFit}
-        source={{ uri: url }}
-        style={{ width: props.previewSize, height: props.previewSize }}
-        onPress={onPreview}
-      />
-    );
-  };
+  const renderPreview = () => (
+    <Image
+      resizeMode={props.imageFit}
+      source={{ uri: url }}
+      style={{ width: props.previewSize, height: props.previewSize }}
+      onPress={onPreview}
+    >
+      {props.previewCoverRender?.()}
+    </Image>
+  );
 
   const renderMask = () => {
     if (status === 'failed' || status === 'pending') {
@@ -53,13 +53,11 @@ const ImageItem = (props: UploaderPrviewItemProps): JSX.Element => {
         return props.deleteRender(props.onDelete);
       }
       return (
-        <Pressable style={styles.delete}>
+        <Pressable style={styles.delete} onPress={props.onDelete}>
           <Cross
-            scale={0.7}
-            translateX="10%"
-            translateY="-10%"
             color={theme.image_picker_delete_color}
             size={theme.image_picker_delete_icon_size}
+            style={styles.deleteIcon}
           />
         </Pressable>
       );
