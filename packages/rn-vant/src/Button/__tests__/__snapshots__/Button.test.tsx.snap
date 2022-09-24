@@ -1,0 +1,1222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button render button width custom color 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#7232dd",
+      "borderColor": "#7232dd",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 14,
+      }
+    }
+  >
+    单色按钮
+  </Text>
+</View>
+`;
+
+exports[`Button render button width large size 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1989fa",
+      "borderColor": "#1989fa",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 50,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "position": "relative",
+      "width": "100%",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 16,
+      }
+    }
+  >
+    大号按钮
+  </Text>
+</View>
+`;
+
+exports[`Button render button width loading 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "borderColor": "#dcdee0",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+        Object {
+          "marginRight": 4,
+        },
+      ]
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "rotate": "0deg",
+            },
+          ],
+        }
+      }
+    >
+      <RNSVGSvgView
+        align="xMidYMid"
+        bbHeight={14}
+        bbWidth={14}
+        collapsable={false}
+        focusable={false}
+        height={14}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "transform": Array [
+                Object {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+            Object {
+              "flex": 0,
+              "height": 14,
+              "width": 14,
+            },
+          ]
+        }
+        vbHeight={66}
+        vbWidth={66}
+        width={14}
+      >
+        <RNSVGGroup
+          matrix={
+            Array [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+            ]
+          }
+        >
+          <RNSVGCircle
+            cx="33"
+            cy="33"
+            fill={null}
+            propList={
+              Array [
+                "fill",
+                "stroke",
+                "strokeWidth",
+                "strokeDasharray",
+                "strokeDashoffset",
+                "strokeLinecap",
+              ]
+            }
+            r="30"
+            stroke={4281479731}
+            strokeDasharray={
+              Array [
+                187,
+                187,
+              ]
+            }
+            strokeDashoffset={187}
+            strokeLinecap={1}
+            strokeWidth="6"
+          />
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button render button width mini size 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1989fa",
+      "borderColor": "#1989fa",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 24,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 4,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 10,
+      }
+    }
+  >
+    迷你按钮
+  </Text>
+</View>
+`;
+
+exports[`Button render button width normal size 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1989fa",
+      "borderColor": "#1989fa",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 14,
+      }
+    }
+  >
+    普通按钮
+  </Text>
+</View>
+`;
+
+exports[`Button render button width small size 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1989fa",
+      "borderColor": "#1989fa",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 32,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 8,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 12,
+      }
+    }
+  >
+    小型按钮
+  </Text>
+</View>
+`;
+
+exports[`Button render button width spinner loading 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1989fa",
+      "borderColor": "#1989fa",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+        Object {
+          "marginRight": 4,
+        },
+      ]
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "height": 14,
+          "position": "relative",
+          "transform": Array [
+            Object {
+              "rotate": "0deg",
+            },
+          ],
+          "width": 14,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 1,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "30deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.9375,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "60deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.875,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "90deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.8125,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "120deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.75,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "150deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.6875,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.625,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "210deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.5625,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "240deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.5,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "270deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.4375,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "300deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.375,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "330deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 14,
+            "left": 0,
+            "opacity": 0.3125,
+            "position": "absolute",
+            "top": 0,
+            "transform": Array [
+              Object {
+                "rotate": "360deg",
+              },
+            ],
+            "width": 14,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 5.6000000000000005,
+              "height": 3.5,
+              "marginHorizontal": 6,
+              "width": 2,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button render button with custom testID 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "borderColor": "#dcdee0",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+  testID="custom:testID"
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#323233",
+        "fontSize": 14,
+      }
+    }
+  >
+    Button with custom testID
+  </Text>
+</View>
+`;
+
+exports[`Button render danger button width type 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ff976a",
+      "borderColor": "#ff976a",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 14,
+      }
+    }
+  >
+    Text Button
+  </Text>
+</View>
+`;
+
+exports[`Button render primary button in plain 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "borderColor": "#ff976a",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#ff976a",
+        "fontSize": 14,
+      }
+    }
+  >
+    Text Button
+  </Text>
+</View>
+`;
+
+exports[`Button render primary button width type 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1989fa",
+      "borderColor": "#1989fa",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 14,
+      }
+    }
+  >
+    Text Button
+  </Text>
+</View>
+`;
+
+exports[`Button render round button 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#07c160",
+      "borderColor": "#07c160",
+      "borderRadius": 999,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 14,
+      }
+    }
+  >
+    圆形按钮
+  </Text>
+</View>
+`;
+
+exports[`Button render square button 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1989fa",
+      "borderColor": "#1989fa",
+      "borderRadius": 0,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 14,
+      }
+    }
+  >
+    方形按钮
+  </Text>
+</View>
+`;
+
+exports[`Button render success button in plain 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "borderColor": "#ff976a",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#ff976a",
+        "fontSize": 14,
+      }
+    }
+  >
+    Text Button
+  </Text>
+</View>
+`;
+
+exports[`Button render success button width type 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#07c160",
+      "borderColor": "#07c160",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 14,
+      }
+    }
+  >
+    Text Button
+  </Text>
+</View>
+`;
+
+exports[`Button render text button by default 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "borderColor": "#dcdee0",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#323233",
+        "fontSize": 14,
+      }
+    }
+  >
+    Text Button
+  </Text>
+</View>
+`;
+
+exports[`Button render warning button width type 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ff976a",
+      "borderColor": "#ff976a",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "opacity": 1,
+      "overflow": "hidden",
+      "paddingHorizontal": 15,
+      "position": "relative",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    selectable={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 14,
+      }
+    }
+  >
+    Text Button
+  </Text>
+</View>
+`;

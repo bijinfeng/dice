@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button } from 'rn-vant';
+import { Plus } from '@rn-vant/icons';
 import { DemoBlock } from '../../components';
 
 const ButtonExample = memo(() => {
@@ -53,8 +54,8 @@ const ButtonExample = memo(() => {
         </Button>
       </DemoBlock>
       <DemoBlock title="图标按钮" contentStyle={styles.card}>
-        <Button icon="plus" type="primary" style={styles.button} />
-        <Button icon="plus" type="primary" style={styles.button}>
+        <Button icon={<Plus />} type="primary" style={styles.button} />
+        <Button icon={<Plus />} type="primary" style={styles.button}>
           按钮
         </Button>
       </DemoBlock>

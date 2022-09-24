@@ -11,7 +11,7 @@ import { createStyles } from './style';
 const ImagePicker = (props: ImagePickerProps): JSX.Element => {
   const [value = [], setValue] = useControllableValue<UploaderValueItem[]>(props);
   const { styles, theme } = useThemeFactory(createStyles);
-  const { maxCount = 0 } = props;
+  const { maxCount = 0, uploadIcon = <Photograph /> } = props;
   const previewSize = props.previewSize || theme.image_picker_size;
 
   const handleUpload = (files: PickerImageInfo[]) => {
@@ -54,7 +54,7 @@ const ImagePicker = (props: ImagePickerProps): JSX.Element => {
 
       return (
         <Uploader
-          uploadIcon={props.uploadIcon}
+          uploadIcon={uploadIcon}
           readOnly={props.readOnly}
           previewSize={previewSize}
           uploadText={props.uploadText}
@@ -92,7 +92,6 @@ ImagePicker.defaultProps = {
   accept: 'image/*',
   imageFit: 'cover',
   resultType: 'dataUrl',
-  uploadIcon: <Photograph />,
 };
 
 export default ImagePicker;

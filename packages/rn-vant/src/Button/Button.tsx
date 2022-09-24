@@ -1,7 +1,5 @@
 import React, { FC, memo } from 'react';
 import { View, ViewStyle, StyleSheet, Text, TextStyle } from 'react-native';
-import Icon from '@rn-vant/icons';
-import { isIcon } from '../utils/isIcon';
 import TouchableOpacity from '../TouchableOpacity';
 import { useThemeFactory } from '../Theme';
 import Loading from '../Loading';
@@ -24,6 +22,7 @@ const Button: FC<ButtonProps> = memo(props => {
     round,
     disabled,
     textStyle,
+    children,
     ...rest
   } = props;
   const { styles } = useThemeFactory(createStyle, { type, size, plain });
@@ -47,7 +46,12 @@ const Button: FC<ButtonProps> = memo(props => {
       <>
         {icon && loading !== true && (
           <View style={marginStyles}>
-            {isIcon(icon) ? <Icon name={icon} size={defaultIconSize} color={iconColor} /> : icon}
+            {React.isValidElement(icon)
+              ? React.cloneElement(icon as React.ReactElement<any, string>, {
+                  size: defaultIconSize,
+                  color: iconColor,
+                })
+              : icon}
           </View>
         )}
         {loading && (
@@ -63,17 +67,15 @@ const Button: FC<ButtonProps> = memo(props => {
   };
 
   const renderText = () => {
-    const text = loading ? loadingText : props.children;
+    const text = loading ? loadingText : children;
 
-    if (text) {
-      return (
-        <Text selectable={false} numberOfLines={1} style={textFlattenStyle}>
-          {text}
-        </Text>
-      );
-    }
+    if (!text) return null;
 
-    return null;
+    return (
+      <Text selectable={false} numberOfLines={1} style={textFlattenStyle}>
+        {text}
+      </Text>
+    );
   };
 
   return (
