@@ -7188,11 +7188,6 @@ expo-image-picker@^13.3.1:
     expo-image-loader "~3.2.0"
     uuid "7.0.2"
 
-expo-linear-gradient@^11.3.0:
-  version "11.3.0"
-  resolved "https://registry.npmjs.org/expo-linear-gradient/-/expo-linear-gradient-11.3.0.tgz#855f470c9684f5b979c3c1be0ed1fe1943d57158"
-  integrity sha512-gm0cULqE5cTP39HZHi+eCGgQ2qMcwym92DwSzRpA5nA4Ah5oKksV+PwD7zzo6YJt3X3lgqrTYEqts9VQISCTgw==
-
 expo-modules-core@^0.11.5:
   version "0.11.5"
   resolved "https://registry.npmjs.org/expo-modules-core/-/expo-modules-core-0.11.5.tgz#19d30e9b24b0b98ea614df3cb474293133a08bd4"

@@ -2,7 +2,7 @@ import * as React from 'react';
 import renderer from 'react-test-renderer';
 import { fireEvent, render } from '@testing-library/react-native';
 // import { Plus } from '@rn-vant/icons';
-import snapshotTest from '../../../tests/shared/snapshotTest';
+import snapshotTest from '../../tests/shared/snapshotTest';
 import { Button } from '../index';
 
 describe('Button', () => {
