@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/bijinfeng/rn-vant/compare/@rn-vant/dumi-theme-vant@0.1.0...@rn-vant/dumi-theme-vant@0.1.1) (2022-09-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @docsearch/react to v3.2.0 ([abe03da](https://github.com/bijinfeng/rn-vant/commit/abe03da7f9f198cf22417c32b55eacdc42c44b29))
+* **deps:** update dependency @docsearch/react to v3.2.1 ([#83](https://github.com/bijinfeng/rn-vant/issues/83)) ([a629894](https://github.com/bijinfeng/rn-vant/commit/a6298943b2002f2a2ebf8bad24444d1a72130c25))
+* fix error ([1c16c36](https://github.com/bijinfeng/rn-vant/commit/1c16c3673a38b5220e3aff785cdbc38d96e136e6))
+
+
+
+
+
 # 0.1.0 (2022-05-18)
 
 
