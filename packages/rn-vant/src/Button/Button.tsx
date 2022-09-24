@@ -26,6 +26,8 @@ const Button: FC<ButtonProps> = memo(props => {
     ...rest
   } = props;
   const { styles } = useThemeFactory(createStyle, { type, size, plain });
+  const text = loading ? loadingText : children;
+
   const textFlattenStyle = StyleSheet.flatten<TextStyle>([
     styles.text,
     !!color && { color: plain ? color : 'white' },
@@ -35,12 +37,15 @@ const Button: FC<ButtonProps> = memo(props => {
   const renderIcon = () => {
     const defaultIconSize = textFlattenStyle.fontSize;
     const iconColor = color ?? (textFlattenStyle.color as string);
-    const marginStyles: ViewStyle =
-      iconPosition === 'left'
-        ? {
-            marginRight: 4,
-          }
-        : { marginLeft: 4 };
+    let marginStyles: ViewStyle;
+
+    if (!text) {
+      marginStyles = {};
+    } else if (iconPosition === 'left') {
+      marginStyles = { marginRight: 4 };
+    } else {
+      marginStyles = { marginLeft: 4 };
+    }
 
     return (
       <>
@@ -67,8 +72,6 @@ const Button: FC<ButtonProps> = memo(props => {
   };
 
   const renderText = () => {
-    const text = loading ? loadingText : children;
-
     if (!text) return null;
 
     return (

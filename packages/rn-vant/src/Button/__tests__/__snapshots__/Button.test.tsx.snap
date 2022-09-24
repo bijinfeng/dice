@@ -127,9 +127,7 @@ exports[`Button render button width loading 1`] = `
           "alignItems": "center",
           "flexDirection": "row",
         },
-        Object {
-          "marginRight": 4,
-        },
+        Object {},
       ]
     }
   >
@@ -396,9 +394,7 @@ exports[`Button render button width spinner loading 1`] = `
           "alignItems": "center",
           "flexDirection": "row",
         },
-        Object {
-          "marginRight": 4,
-        },
+        Object {},
       ]
     }
   >
