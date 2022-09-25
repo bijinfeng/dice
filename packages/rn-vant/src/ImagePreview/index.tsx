@@ -18,6 +18,8 @@ const openImagePreview = (options: Omit<ImagePreviewProps, 'visible'>) => {
   );
 
   PortalRef.current?.addPortal(key, renderImagePreview());
+
+  return { close: handleClosed };
 };
 
 const ImagePreview = Object.assign(ImagePreviewInner, { open: openImagePreview });

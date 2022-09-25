@@ -1,4 +1,4 @@
-import type { ViewProps } from 'react-native';
+import type { PressableProps, ViewProps } from 'react-native';
 import type { ReactNode } from 'react';
 
 export interface SwiperProps extends ViewProps {
@@ -22,9 +22,7 @@ export interface SwiperProps extends ViewProps {
   indicator?: boolean | ((total: number, current: number) => ReactNode);
 }
 
-export interface SwiperItemProps extends ViewProps {
-  onPress?: () => void;
-}
+export type SwiperItemProps = PressableProps;
 
 export type SwiperInstance = {
   activeIndex: number;

@@ -41,7 +41,7 @@ import Popover from '../pages/popover';
 import Input from '../pages/input';
 import Selector from '../pages/selector';
 import Form from '../pages/form';
-import ImagePreview from '../pages/imagePreview';
+import ImagePreview from '../pages/image-preview';
 import ImagePicker from '../pages/image-picker';
 
 export type RouteItem = {

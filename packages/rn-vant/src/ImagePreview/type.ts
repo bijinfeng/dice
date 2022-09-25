@@ -1,5 +1,3 @@
-import type { PopupCloseIconPosition } from '../Popup/type';
-
 export type CloseParams = { url: string; index: number };
 
 type CouldClose = boolean | Promise<boolean>;
@@ -13,7 +11,6 @@ export interface ImagePreviewProps {
   showIndicators?: boolean;
   showIndex?: boolean;
   indexRender?: ({ index, len }: { index: number; len: number }) => React.ReactNode;
-  closeOnPopstate?: boolean;
   beforeClose?: (active: string | number) => CouldClose;
   onClose?: (p?: CloseParams) => void;
   onClosed?: () => void;
@@ -22,11 +19,9 @@ export interface ImagePreviewProps {
   swipeDuration?: number;
   startPosition?: number;
   closeIcon?: React.ReactNode;
-  closeIconPosition?: PopupCloseIconPosition;
   /** 只在点击关闭按钮时关闭ImagePreview组件 */
   closeOnlyClickCloseIcon?: boolean;
-  /** 弹出时的的父容器 */
-  teleport?: HTMLElement | (() => HTMLElement);
+  testID?: string;
 }
 
 export interface ImagePreviewItemProps {
