@@ -52,6 +52,8 @@ export * from './Toast';
 export * from './TouchableRipple';
 export * from './Transitions';
 export * from './ImagePicker';
+export * from './IndexBar';
+export * from './NumberKeyboard';
 
 export { defaultTheme, darkTheme } from './styles';
 

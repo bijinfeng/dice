@@ -43,6 +43,8 @@ import Selector from '../pages/selector';
 import Form from '../pages/form';
 import ImagePreview from '../pages/image-preview';
 import ImagePicker from '../pages/image-picker';
+import IndexBar from '../pages/index-bar';
+import NumberKeyboard from '../pages/number-keyboard';
 
 export type RouteItem = {
   name: string;
@@ -61,6 +63,18 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'NumberKeyboard 数字键盘',
+    href: '/number-keyboard',
+    component: NumberKeyboard,
+    group: EnumGroup.form,
+  },
+  {
+    name: 'IndexBar 索引栏',
+    href: '/index-bar',
+    component: IndexBar,
+    group: EnumGroup.navigation,
+  },
   {
     name: 'ImagePicker 图片选择器',
     href: '/image-picker',

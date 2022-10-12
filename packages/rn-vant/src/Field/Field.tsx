@@ -7,7 +7,7 @@ import Input, { InputSharedProps } from '../Input';
 import { useMemoizedFn } from '../hooks';
 import { cloneReactNode } from '../utils/cloneReactNode';
 import Cell from '../Cell';
-import Dialog from '../Dialog';
+import { Dialog } from '../Dialog';
 import type { FieldInstance, FieldProps, FieldTooltipProps } from './type';
 import { useThemeFactory } from '../Theme';
 import { createStyle } from './style';

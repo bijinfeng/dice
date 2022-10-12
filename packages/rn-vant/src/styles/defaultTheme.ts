@@ -2,6 +2,8 @@ import { Dimensions } from 'react-native';
 import * as _vars from './variables';
 import { imagePickerDefaultVars } from '../ImagePicker/style';
 import { imagePreviewDefaultVars } from '../ImagePreview/style';
+import { indexBarDefaultVars } from '../IndexBar/style';
+import { numberKeyBoardDefaultVars } from '../NumberKeyboard/style';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -508,6 +510,12 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
 
   // ImagePicker
   ...imagePickerDefaultVars(vars),
+
+  // IndexBar
+  ...indexBarDefaultVars(vars),
+
+  // NumberKeyboard
+  ...numberKeyBoardDefaultVars(vars),
 });
 
 export const defaultTheme = createDefaultTheme(_vars);

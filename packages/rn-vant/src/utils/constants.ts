@@ -161,4 +161,7 @@ const constants = {
 setStatusBarHeight();
 Dimensions.addEventListener('change', updateConstants);
 
+// component type key
+export const COMPONENT_TYPE_KEY = '__REACT_NATIVE_VANT_COMPONENT';
+
 export default constants;
