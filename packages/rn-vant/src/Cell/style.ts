@@ -65,20 +65,13 @@ export const createCellGroupStyle = (theme: DiceUI.Theme) => {
     divide: {
       backgroundColor: theme.cell_border_color,
       height: 1,
-      left: theme.cell_padding_horizontal,
-      position: 'absolute',
-      right: theme.cell_padding_horizontal,
-      top: 0,
-      zIndex: 1,
+      marginHorizontal: theme.cell_padding_horizontal,
     },
     inset: {
       borderRadius: theme.cell_group_inset_radius,
       marginHorizontal: theme.cell_group_inset_padding_horizontal,
       marginVertical: theme.cell_group_inset_padding_vertical,
       overflow: 'hidden',
-    },
-    item: {
-      position: 'relative',
     },
     title: {
       color: theme.cell_group_title_color,

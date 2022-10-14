@@ -16,24 +16,28 @@ const IndexBarExample = () => {
       <Tabs.TabPane title="基础用法">
         <IndexBar>
           {indexList.map(item => (
-            <View key={item}>
+            <React.Fragment key={item}>
               <IndexBar.Anchor index={item} />
-              <Cell title="文本" />
-              <Cell title="文本" />
-              <Cell title="文本" />
-            </View>
+              <Cell.Group border={false}>
+                <Cell title="文本" />
+                <Cell title="文本" />
+                <Cell title="文本" />
+              </Cell.Group>
+            </React.Fragment>
           ))}
         </IndexBar>
       </Tabs.TabPane>
       <Tabs.TabPane title="自定义索引列表">
         <IndexBar indexList={customIndexList}>
           {customIndexList.map(item => (
-            <View key={item}>
+            <React.Fragment key={item}>
               <IndexBar.Anchor index={item}>标题 {item}</IndexBar.Anchor>
-              <Cell title="文本" />
-              <Cell title="文本" />
-              <Cell title="文本" />
-            </View>
+              <Cell.Group border={false}>
+                <Cell title="文本" />
+                <Cell title="文本" />
+                <Cell title="文本" />
+              </Cell.Group>
+            </React.Fragment>
           ))}
         </IndexBar>
       </Tabs.TabPane>

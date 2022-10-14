@@ -54,6 +54,7 @@ export * from './Transitions';
 export * from './ImagePicker';
 export * from './IndexBar';
 export * from './NumberKeyboard';
+export * from './Search';
 
 export { defaultTheme, darkTheme } from './styles';
 

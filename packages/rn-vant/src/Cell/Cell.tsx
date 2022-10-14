@@ -122,7 +122,7 @@ const Cell = forwardRef<RNTouchableOpacity, CellProps>((props, ref) => {
       ref={ref}
       onPress={onPress}
       disabled={props.disabled || !pressable}
-      activeBackgroundColor={theme.cell_active_color}
+      activeBackgroundColor={onPress ? theme.cell_active_color : undefined}
       style={[
         styles.wrapper,
         isLarge && styles.wrapperLarge,

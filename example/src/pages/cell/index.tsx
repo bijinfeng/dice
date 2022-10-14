@@ -31,9 +31,11 @@ const CellExample = memo(() => {
         <Cell value="内容" />
       </DemoBlock>
       <DemoBlock title="展示箭头">
-        <Cell title="单元格" isLink />
-        <Cell title="单元格" isLink value="内容" />
-        <Cell title="单元格" isLink arrowDirection="down" value="内容" />
+        <Cell.Group border={false}>
+          <Cell title="单元格" isLink />
+          <Cell title="单元格" isLink value="内容" />
+          <Cell title="单元格" isLink arrowDirection="down" value="内容" />
+        </Cell.Group>
       </DemoBlock>
     </ScrollView>
   );

@@ -45,6 +45,7 @@ import ImagePreview from '../pages/image-preview';
 import ImagePicker from '../pages/image-picker';
 import IndexBar from '../pages/index-bar';
 import NumberKeyboard from '../pages/number-keyboard';
+import Search from '../pages/search';
 
 export type RouteItem = {
   name: string;
@@ -63,6 +64,12 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'Search 搜索',
+    href: '/search',
+    component: Search,
+    group: EnumGroup.form,
+  },
   {
     name: 'NumberKeyboard 数字键盘',
     href: '/number-keyboard',

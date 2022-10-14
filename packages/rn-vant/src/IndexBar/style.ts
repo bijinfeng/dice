@@ -44,3 +44,25 @@ export const createStyle = (theme: DiceUI.Theme): Styles => {
     },
   });
 };
+
+interface AnchoreStyles {
+  anchore: ViewStyle;
+  anchoreText: ViewStyle;
+}
+
+export const createAnchoreStyle = (theme: DiceUI.Theme): AnchoreStyles => {
+  return StyleSheet.create<AnchoreStyles>({
+    anchore: {
+      backgroundColor: theme.index_anchor_background_color,
+      paddingHorizontal: theme.index_anchor_padding_horizontal,
+      paddingVertical: theme.index_anchor_padding_vertical,
+      zIndex: theme.index_anchor_z_index,
+    },
+    anchoreText: {
+      color: theme.index_anchor_text_color,
+      fontSize: theme.index_anchor_font_size,
+      fontWeight: theme.index_anchor_font_weight,
+      lineHeight: theme.index_anchor_line_height,
+    },
+  });
+};

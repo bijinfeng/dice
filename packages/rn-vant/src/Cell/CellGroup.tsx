@@ -20,10 +20,10 @@ const CellGroup = forwardRef<View, CellGroupProps>((props, ref) => {
         ]}
       >
         {React.Children.map(children, (child, i) => (
-          <View style={styles.item}>
+          <>
             {i !== 0 && <View style={styles.divide} />}
             {child}
-          </View>
+          </>
         ))}
       </View>
     </View>

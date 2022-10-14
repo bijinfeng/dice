@@ -33,24 +33,24 @@ const IndexBar = forwardRef<IndexBarInstance, IndexBarProps>((props, ref) => {
   const { styles } = useThemeFactory(createStyle);
   const [activeAnchor, setActiveAnchor] = useState<string | number>();
 
-  // const handleMapChildren = ($children: ReactNode) => {
-  //   return React.Children.toArray($children)
-  //     .filter(Boolean)
-  //     .map((child: ReactElement) => {
-  //       if (child.type?.[COMPONENT_TYPE_KEY] === INDEX_ANCHORE_KEY) {
-  //         return React.cloneElement(child, {
-  //           ref: setRefs(child.props.index),
-  //         });
-  //       }
-  //       if (child.props?.children) {
-  //         const deepMap = handleMapChildren(child.props.children);
-  //         return deepMap.length ? deepMap : child;
-  //       }
-  //       return child;
-  //     });
-  // };
+  const handleMapChildren = ($children: ReactNode): any => {
+    return React.Children.toArray($children)
+      .filter(React.isValidElement)
+      .map((child: ReactElement) => {
+        // if (child.type?.[COMPONENT_TYPE_KEY] === INDEX_ANCHORE_KEY) {
+        //   return React.cloneElement(child, {
+        //     ref: setRefs(child.props.index),
+        //   });
+        // }
+        if (child.props?.children) {
+          const deepMap = handleMapChildren(child.props.children);
+          return deepMap.length ? deepMap : child;
+        }
+        return child;
+      });
+  };
 
-  // const memoChildren = useMemo(() => handleMapChildren(children), [children]);
+  const memoChildren = useMemo(() => handleMapChildren(children), [children]);
 
   const renderSidebar = () => {
     const sidebarHeight = styles.index.lineHeight! * indexList.length;
@@ -84,7 +84,7 @@ const IndexBar = forwardRef<IndexBarInstance, IndexBarProps>((props, ref) => {
     <IndexBarContext.Provider value={{ zIndex, highlightColor, sticky }}>
       <ScrollView {...rest}>
         <Portal>{renderSidebar()}</Portal>
-        {/* {memoChildren} */}
+        {memoChildren}
       </ScrollView>
     </IndexBarContext.Provider>
   );
