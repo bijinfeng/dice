@@ -1,6 +1,7 @@
-import type { PressableProps } from 'react-native';
+import type { PressableProps, ViewProps } from 'react-native';
 
-export interface TouchableOpacityProps extends PressableProps {
+export interface TouchableOpacityProps extends Omit<PressableProps, 'style'> {
+  style?: ViewProps['style'];
   // 背景颜色
   backgroundColor?: string;
   // onPress 回调的节流时间，单位 ms

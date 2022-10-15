@@ -1,4 +1,4 @@
-import React, { FC, useContext, useMemo } from 'react';
+import React, { FC, useContext, useEffect, useMemo, useRef } from 'react';
 import { View, Pressable, StyleSheet, Text, ScrollView } from 'react-native';
 import { Outlet, useNavigate, useLocation } from 'react-router-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -12,12 +12,22 @@ const Layout: FC = () => {
   const linkTo = useNavigate();
   const location = useLocation();
   const { themeVars, isDarkMode } = useContext(GlobalContext);
+  const scrollRef = useRef<ScrollView>(null);
 
   const isHome = location.pathname === '/';
   const title = useMemo(
     () => routes.find(it => it.href === location.pathname)?.name,
     [location.pathname]
   );
+
+  const scrollEnabled = useMemo(() => {
+    const route = routes.find(it => it.href === location.pathname);
+    return route?.scrollEnabled !== false;
+  }, [location.pathname]);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ y: 0, animated: false });
+  }, [location]);
 
   return (
     <View
@@ -32,9 +42,7 @@ const Layout: FC = () => {
     >
       {!isHome && (
         <View>
-          {!isHome && (
-            <View style={{ height: insets.top, backgroundColor: themeVars.background_3 }} />
-          )}
+          <View style={{ height: insets.top, backgroundColor: themeVars.background_3 }} />
           <View style={[styles.header, { backgroundColor: themeVars.background_3 }]}>
             <Pressable style={styles.back} onPress={() => linkTo('/')}>
               <ArrowLeft size={24} color="#969799" />
@@ -43,7 +51,12 @@ const Layout: FC = () => {
           </View>
         </View>
       )}
-      <ScrollView showsVerticalScrollIndicator={!isInIframe} style={styles.content}>
+      <ScrollView
+        ref={scrollRef}
+        showsVerticalScrollIndicator={!isInIframe}
+        scrollEnabled={scrollEnabled}
+        style={styles.content}
+      >
         <Outlet />
       </ScrollView>
     </View>

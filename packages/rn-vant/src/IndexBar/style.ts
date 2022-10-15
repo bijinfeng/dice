@@ -19,6 +19,7 @@ export const indexBarDefaultVars = (vars: Vars) => ({
 });
 
 interface Styles {
+  wrapper: ViewStyle;
   sidebar: ViewStyle;
   index: TextStyle;
   indexActive: TextStyle;
@@ -42,12 +43,17 @@ export const createStyle = (theme: DiceUI.Theme): Styles => {
       right: 0,
       textAlign: 'center',
     },
+    wrapper: {
+      position: 'relative',
+    },
   });
 };
 
 interface AnchoreStyles {
   anchore: ViewStyle;
-  anchoreText: ViewStyle;
+  anchoreText: TextStyle;
+  sticky: ViewStyle;
+  stickyText: TextStyle;
 }
 
 export const createAnchoreStyle = (theme: DiceUI.Theme): AnchoreStyles => {
@@ -63,6 +69,14 @@ export const createAnchoreStyle = (theme: DiceUI.Theme): AnchoreStyles => {
       fontSize: theme.index_anchor_font_size,
       fontWeight: theme.index_anchor_font_weight,
       lineHeight: theme.index_anchor_line_height,
+    },
+    sticky: {
+      backgroundColor: theme.index_anchor_sticky_background_color,
+      borderBottomColor: theme.gray_3,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+    stickyText: {
+      color: theme.index_anchor_sticky_text_color,
     },
   });
 };

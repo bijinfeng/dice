@@ -52,6 +52,7 @@ export type RouteItem = {
   href: string;
   component: React.FC;
   group: EnumGroup;
+  scrollEnabled?: boolean;
 };
 
 // eslint-disable-next-line no-shadow
@@ -81,6 +82,7 @@ export const routes: RouteItem[] = [
     href: '/index-bar',
     component: IndexBar,
     group: EnumGroup.navigation,
+    scrollEnabled: false,
   },
   {
     name: 'ImagePicker 图片选择器',

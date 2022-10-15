@@ -1,6 +1,23 @@
 import type React from 'react';
 import type { ViewProps } from 'react-native';
 
+export interface LayoutRectangle {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  pageX: number;
+  pageY: number;
+}
+
+export interface AnchorState {
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+  active: boolean;
+}
+
 export interface IndexBarProps extends ViewProps {
   /** z-index 层级 */
   zIndex?: number;
@@ -11,8 +28,6 @@ export interface IndexBarProps extends ViewProps {
    * @default true
    */
   sticky?: boolean;
-  /** 锚点自动吸顶时与顶部的距离	 */
-  stickyOffsetTop?: number;
   /**
    * 索引字符列表
    * @default `A-Z[]`
@@ -34,4 +49,10 @@ export interface IndexAnchorProps extends ViewProps {
 export type IndexBarInstance = {
   /** 滚动到指定锚点	 */
   scrollTo: (index: number | string) => void;
+};
+
+export type IndexAnchorInstance = {
+  getRect: () => LayoutRectangle | Promise<LayoutRectangle>;
+  state: AnchorState;
+  updateState: (state: Partial<AnchorState>) => void;
 };

@@ -1,10 +1,25 @@
-import React, { forwardRef, useState, useMemo } from 'react';
+import React, {
+  forwardRef,
+  useState,
+  useMemo,
+  useRef,
+  useImperativeHandle,
+  useEffect,
+} from 'react';
 import type { ReactNode, ReactElement } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, UIManager, findNodeHandle } from 'react-native';
+import type { ScrollViewProps } from 'react-native';
+import isNumber from 'lodash-es/isNumber';
 import { useThemeFactory } from '../Theme';
 import { Portal } from '../Portal';
+import { useRefs } from '../hooks';
 import constants, { COMPONENT_TYPE_KEY } from '../utils/constants';
-import type { IndexBarProps, IndexBarInstance } from './types';
+import type {
+  IndexBarProps,
+  IndexBarInstance,
+  IndexAnchorInstance,
+  LayoutRectangle,
+} from './types';
 import IndexBarContext from './IndexBarContext';
 import { INDEX_ANCHORE_KEY } from './IndexAnchor';
 import { createStyle } from './style';
@@ -24,24 +39,92 @@ const IndexBar = forwardRef<IndexBarInstance, IndexBarProps>((props, ref) => {
   const {
     children,
     sticky = true,
-    stickyOffsetTop = 0,
     zIndex,
     highlightColor,
     indexList = genAlphabet(),
+    onChange,
+    onSelect,
     ...rest
   } = props;
   const { styles } = useThemeFactory(createStyle);
   const [activeAnchor, setActiveAnchor] = useState<string | number>();
+  const scrollViewRef = useRef<ScrollView>(null);
+  const [refs, setRefs] = useRefs<IndexAnchorInstance>();
+
+  // 获取 ScrollView 相对屏幕的位置
+  const getScrollViewOffset = () => {
+    return new Promise<{ left: number; top: number }>(resolve => {
+      UIManager.measure(
+        findNodeHandle(scrollViewRef.current)!,
+        (_x, _y, _width, _height, pageX, pageY) => {
+          resolve({ left: pageX, top: pageY });
+        }
+      );
+    });
+  };
+
+  const getActiveAnchor = (scrollViewTop: number, rects: LayoutRectangle[]) => {
+    const relativeTops = rects.map(it => it.pageY - scrollViewTop);
+    return relativeTops.filter(it => it < 0).length - 1;
+  };
+
+  const getAnchorRects = () => Promise.all(Object.values(refs).map(anchor => anchor.getRect()));
+
+  const onScroll: ScrollViewProps['onScroll'] = async () => {
+    const rects = await getAnchorRects();
+    const { top: scrollViewTop, left: scrollViewLeft } = await getScrollViewOffset();
+
+    const active = getActiveAnchor(scrollViewTop, rects);
+    setActiveAnchor(indexList[active]);
+
+    if (sticky) {
+      Object.values(refs).forEach((item, index) => {
+        const currentRect = rects[index];
+        const currentState = item.state;
+        const isActive = active === index;
+        if (isActive === currentState.active) return;
+
+        item.updateState({
+          top: scrollViewTop,
+          left: scrollViewLeft,
+          width: currentRect.width,
+          height: currentRect.height,
+          active: isActive,
+        });
+      });
+    }
+  };
+
+  const scrollTo = async (index: number | string) => {
+    const activeIndex = indexList.findIndex(it => it === index);
+
+    if (isNumber(activeIndex)) {
+      onSelect?.(index);
+      const rects = await getAnchorRects();
+      const activeRect = rects[activeIndex];
+      scrollViewRef.current?.scrollTo({ y: activeRect.y + 1, animated: false });
+    }
+  };
+
+  useImperativeHandle(ref, () => ({
+    scrollTo,
+  }));
+
+  useEffect(() => {
+    activeAnchor && onChange?.(activeAnchor);
+  }, [activeAnchor]);
 
   const handleMapChildren = ($children: ReactNode): any => {
     return React.Children.toArray($children)
       .filter(React.isValidElement)
       .map((child: ReactElement) => {
-        // if (child.type?.[COMPONENT_TYPE_KEY] === INDEX_ANCHORE_KEY) {
-        //   return React.cloneElement(child, {
-        //     ref: setRefs(child.props.index),
-        //   });
-        // }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        if (child.type?.[COMPONENT_TYPE_KEY] === INDEX_ANCHORE_KEY) {
+          return React.cloneElement(child, {
+            ref: setRefs(child.props.index),
+          });
+        }
         if (child.props?.children) {
           const deepMap = handleMapChildren(child.props.children);
           return deepMap.length ? deepMap : child;
@@ -65,6 +148,8 @@ const IndexBar = forwardRef<IndexBarInstance, IndexBarProps>((props, ref) => {
           return (
             <Text
               key={index}
+              suppressHighlighting
+              onPress={() => scrollTo(index)}
               style={[
                 styles.index,
                 { top: offsetTop },
@@ -82,7 +167,13 @@ const IndexBar = forwardRef<IndexBarInstance, IndexBarProps>((props, ref) => {
 
   return (
     <IndexBarContext.Provider value={{ zIndex, highlightColor, sticky }}>
-      <ScrollView {...rest}>
+      <ScrollView
+        {...rest}
+        ref={scrollViewRef}
+        style={[styles.wrapper, rest.style]}
+        scrollEventThrottle={16}
+        onScroll={onScroll}
+      >
         <Portal>{renderSidebar()}</Portal>
         {memoChildren}
       </ScrollView>

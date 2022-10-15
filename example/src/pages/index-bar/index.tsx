@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import { IndexBar, Tabs, Cell } from 'rn-vant';
 
 const indexList: string[] = [];
@@ -13,7 +12,7 @@ for (let i = 0; i < 26; i += 1) {
 const IndexBarExample = () => {
   return (
     <Tabs>
-      <Tabs.TabPane title="基础用法">
+      <Tabs.TabPane title="基础用法" style={{ height: 700 }}>
         <IndexBar>
           {indexList.map(item => (
             <React.Fragment key={item}>
@@ -27,7 +26,7 @@ const IndexBarExample = () => {
           ))}
         </IndexBar>
       </Tabs.TabPane>
-      <Tabs.TabPane title="自定义索引列表">
+      <Tabs.TabPane title="自定义索引列表" style={{ height: 700 }}>
         <IndexBar indexList={customIndexList}>
           {customIndexList.map(item => (
             <React.Fragment key={item}>

@@ -5,6 +5,7 @@ import { imagePreviewDefaultVars } from '../ImagePreview/style';
 import { indexBarDefaultVars } from '../IndexBar/style';
 import { numberKeyBoardDefaultVars } from '../NumberKeyboard/style';
 import { searchDefaultVars } from '../Search/style';
+import { passwordInputDefaultVars } from '../PasswordInput/style';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -520,6 +521,9 @@ export const createDefaultTheme = (vars: typeof _vars) => ({
 
   // Search
   ...searchDefaultVars(vars),
+
+  // PasswordInput
+  ...passwordInputDefaultVars(vars),
 });
 
 export const defaultTheme = createDefaultTheme(_vars);
