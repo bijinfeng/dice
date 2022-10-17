@@ -5,7 +5,7 @@ export const numberKeyBoardDefaultVars = (vars: Vars) => ({
   number_keyboard_background_color: vars.gray_2,
   number_keyboard_key_height: 48,
   number_keyboard_key_font_size: 28,
-  number_keyboard_key_background_color: vars.white,
+  number_keyboard_key_background_color: vars.background_2,
   number_keyboard_key_active_color: vars.gray_3,
   number_keyboard_delete_font_size: vars.font_size_lg,
   number_keyboard_title_color: vars.gray_7,
@@ -18,6 +18,12 @@ export const numberKeyBoardDefaultVars = (vars: Vars) => ({
   number_keyboard_button_text_color: vars.white,
   number_keyboard_button_background_color: vars.primary_color,
   number_keyboard_z_index: 100,
+});
+
+export const numberKeyBoardDarkVars = (vars: Vars) => ({
+  number_keyboard_background_color: vars.gray_8,
+  number_keyboard_key_background_color: vars.gray_7,
+  number_keyboard_key_active_color: vars.gray_6,
 });
 
 interface Styles {

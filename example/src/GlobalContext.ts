@@ -7,6 +7,7 @@ export interface GlobalState {
   isDarkMode: boolean;
   isInIframe: boolean;
   themeVars: typeof lightTheme;
+  setThemeMode: (themeMode: ColorSchemeName) => void;
 }
 
 export const GlobalContext = React.createContext<GlobalState>({} as GlobalState);

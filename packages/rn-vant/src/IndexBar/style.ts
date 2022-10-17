@@ -3,6 +3,7 @@ import type { Vars } from '../styles';
 
 export const indexBarDefaultVars = (vars: Vars) => ({
   index_bar_sidebar_z_index: 2,
+  index_bar_sidebar_text_color: vars.text_color,
   index_bar_index_font_size: vars.font_size_xs,
   index_bar_index_line_height: vars.line_height_xs,
   index_bar_index_active_color: vars.primary_color,
@@ -15,7 +16,7 @@ export const indexBarDefaultVars = (vars: Vars) => ({
   index_anchor_line_height: 32,
   index_anchor_background_color: 'transparent',
   index_anchor_sticky_text_color: vars.primary_color,
-  index_anchor_sticky_background_color: vars.white,
+  index_anchor_sticky_background_color: vars.background_2,
 });
 
 interface Styles {
@@ -28,6 +29,7 @@ interface Styles {
 export const createStyle = (theme: DiceUI.Theme): Styles => {
   return StyleSheet.create<Styles>({
     index: {
+      color: theme.index_bar_sidebar_text_color,
       fontSize: theme.index_bar_index_font_size,
       fontWeight: theme.font_weight_bold,
       lineHeight: theme.index_bar_index_line_height,

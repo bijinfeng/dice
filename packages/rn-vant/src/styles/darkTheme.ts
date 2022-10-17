@@ -1,5 +1,6 @@
 import * as _vars from './variables';
 import { createDefaultTheme } from './defaultTheme';
+import { numberKeyBoardDarkVars } from '../NumberKeyboard/style';
 
 const darkVars = {
   ..._vars,
@@ -28,6 +29,9 @@ const createDarkTheme = (vars: typeof _vars) => ({
   // Picker
   picker_mask_top_color: ['rgba(0, 0, 0, 0.6)', 'rgba(0, 0, 0, 0.1)'],
   picker_mask_bottom_color: ['rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.6)'],
+
+  // NumberKeyboard
+  ...numberKeyBoardDarkVars(vars),
 });
 
 export const darkTheme = createDarkTheme(darkVars as typeof _vars);

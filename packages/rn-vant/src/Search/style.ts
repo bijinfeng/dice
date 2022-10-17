@@ -4,8 +4,8 @@ import type { Vars } from '../styles';
 export const searchDefaultVars = (vars: Vars) => ({
   search_padding_vertical: 10,
   search_padding_horizontal: vars.padding_sm,
-  search_background_color: vars.white,
-  search_content_background_color: vars.gray_1,
+  search_background_color: vars.background_2,
+  search_content_background_color: vars.background,
   search_input_height: 34,
   search_label_padding_vertical: 0,
   search_label_padding_horizontal: 5,

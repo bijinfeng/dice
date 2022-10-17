@@ -46,6 +46,7 @@ import ImagePicker from '../pages/image-picker';
 import IndexBar from '../pages/index-bar';
 import NumberKeyboard from '../pages/number-keyboard';
 import Search from '../pages/search';
+import ConfigProvider from '../pages/config-provider';
 
 export type RouteItem = {
   name: string;
@@ -65,6 +66,12 @@ enum EnumGroup {
 }
 
 export const routes: RouteItem[] = [
+  {
+    name: 'ConfigProvider 全局配置',
+    href: '/config-provider',
+    component: ConfigProvider,
+    group: EnumGroup.base,
+  },
   {
     name: 'Search 搜索',
     href: '/search',

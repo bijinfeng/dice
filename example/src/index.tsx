@@ -40,8 +40,9 @@ const Layout: FC = () => {
       isDarkMode,
       isInIframe,
       themeVars: isDarkMode ? darkThemeVars : lightTheme,
+      setThemeMode,
     }),
-    [themeMode, isDarkMode]
+    [themeMode, isDarkMode, setThemeMode]
   );
 
   return (
