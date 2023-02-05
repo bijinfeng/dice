@@ -29,33 +29,16 @@ jobs:
         run: yarn bootstrap
 
       - name: 🚀 Build site
-        run: yarn build:site
-      
+        run: yarn build:doc
+
       - name: 🚀 Build example
         run: yarn build:example
 
       - name: 🚀 Move build product
         run: mv example/web-build/ packages/rn-vant/dist/example
-      
-      - name: 🚀 Deploy    
+
+      - name: 🚀 Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./packages/rn-vant/dist
-
-  docsearch:
-    needs: deploy
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Get the content of algolia.json as config
-        id: algolia_config
-        run: echo "::set-output name=config::$(cat algolia/docsearch.json | jq -r tostring)"
-
-      - name: Push indices to Algolia
-        uses: signcl/docsearch-scraper-action@master
-        env:
-          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          CONFIG: ${{ steps.algolia_config.outputs.config }}

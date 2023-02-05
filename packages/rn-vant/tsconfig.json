@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "paths": {
-      "rn-vant": ["./src/index"],
-    },
-  },
-  "exclude": ["lib/**/*"]
-}
