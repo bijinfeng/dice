@@ -14,7 +14,7 @@ group:
 ## 引入
 
 ```js
-import { Typography } from 'rn-vant';
+import { Typography } from '@pingtou/rn-vant';
 ```
 
 ## 代码演示
@@ -23,7 +23,7 @@ import { Typography } from 'rn-vant';
 
 ```jsx
 import React from 'react';
-import { Typography } from 'rn-vant';
+import { Typography } from '@pingtou/rn-vant';
 
 export default () => {
   return (
@@ -46,7 +46,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Typography } from 'rn-vant';
+import { Typography } from '@pingtou/rn-vant';
 
 export default () => {
   return (
@@ -66,7 +66,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Typography } from 'rn-vant';
+import { Typography } from '@pingtou/rn-vant';
 
 export default () => {
   return (
@@ -91,7 +91,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Typography } from 'rn-vant';
+import { Typography } from '@pingtou/rn-vant';
 
 export default () => {
   return (
@@ -112,7 +112,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Typography } from 'rn-vant';
+import { Typography } from '@pingtou/rn-vant';
 
 export default () => {
   return <Typography.Link>测试Link</Typography.Link>;

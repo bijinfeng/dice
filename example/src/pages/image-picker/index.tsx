@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { View, Text } from 'react-native';
-import { ImagePicker, Toast, Form, Button, Cell, Dialog } from 'rn-vant';
-import { Fire } from '@rn-vant/icons';
+import { ImagePicker, Toast, Form, Button, Cell, Dialog } from '@pingtou/rn-vant';
+import { Fire } from '@pingtou/rn-vant-icons';
 import { DemoBlock } from '../../components';
 import { GlobalContext } from '../../GlobalContext';
 

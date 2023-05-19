@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Form, Cell, Input, FormInstance, Button } from 'rn-vant';
+import { Form, Cell, Input, FormInstance, Button } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 interface FormValue {

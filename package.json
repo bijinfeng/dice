@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "build:example": "yarn --cwd example build:web",
-    "build:site": "yarn run build && lerna run build:site --scope=rn-vant",
+    "build:site": "yarn run build && lerna run build:site --scope=@pingtou/rn-vant",
     "build": "lerna run build",
     "bootstrap": "yarn --cwd example && yarn",
     "commit": "git cz",

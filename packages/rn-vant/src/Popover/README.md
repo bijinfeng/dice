@@ -13,7 +13,7 @@ group:
 ## 引入
 
 ```js
-import { Popover } from 'rn-vant';
+import { Popover } from '@pingtou/rn-vant';
 ```
 
 ## 代码演示
@@ -24,7 +24,7 @@ import { Popover } from 'rn-vant';
 
 ```tsx
 import React from 'react';
-import { Button, Popover, Toast, PopoverAction } from 'rn-vant';
+import { Button, Popover, Toast, PopoverAction } from '@pingtou/rn-vant';
 
 const actions: PopoverAction[] = [{ text: '选项一' }, { text: '选项二' }, { text: '选项三' }];
 
@@ -48,8 +48,8 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { Button, Popover, Toast, PopoverAction, Space } from 'rn-vant';
-import { AddO, MusicO, MoreO } from '@rn-vant/icons';
+import { Button, Popover, Toast, PopoverAction, Space } from '@pingtou/rn-vant';
+import { AddO, MusicO, MoreO } from '@pingtou/rn-vant-icons';
 
 const disabledActions: PopoverAction[] = [
   { text: '选项一', disabled: true },
@@ -88,8 +88,8 @@ export default () => {
 
 ```tsx
 import React, { useRef } from 'react';
-import { Button, Popover, Grid, PopoverInstance } from 'rn-vant';
-import { PhotoO } from '@rn-vant/icons';
+import { Button, Popover, Grid, PopoverInstance } from '@pingtou/rn-vant';
+import { PhotoO } from '@pingtou/rn-vant-icons';
 
 export default () => {
   const popover = useRef<PopoverInstance>(null);

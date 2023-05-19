@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Photograph } from '@rn-vant/icons';
+import { Photograph } from '@pingtou/rn-vant-icons';
 import { useThemeFactory } from '../Theme';
 import type { ImagePickerProps, UploaderValueItem, PickerImageInfo } from './types';
 import { useControllableValue } from '../hooks';

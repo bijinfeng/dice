@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Picker, Toast, Popup, Field } from 'rn-vant';
+import { Picker, Toast, Popup, Field } from '@pingtou/rn-vant';
 import { ScrollView, ViewStyle } from 'react-native';
 import { DemoBlock } from '../../components';
 

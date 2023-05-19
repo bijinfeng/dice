@@ -1,5 +1,15 @@
 import React from 'react';
-import { Form, Cell, Switch, Checkbox, Radio, Stepper, Rate, Slider, Space } from 'rn-vant';
+import {
+  Form,
+  Cell,
+  Switch,
+  Checkbox,
+  Radio,
+  Stepper,
+  Rate,
+  Slider,
+  Space,
+} from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 export default () => {

@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { StyleProp, TextStyle, ViewStyle, ViewProps } from 'react-native';
-import type { IconNames } from '@rn-vant/icons';
+import type { IconNames } from '@pingtou/rn-vant-icons';
 
 export type Direction = 'left' | 'right' | 'up' | 'down';
 

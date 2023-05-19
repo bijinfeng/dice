@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Cell, ImagePreview, Toast } from 'rn-vant';
+import { Cell, ImagePreview, Toast } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const images = [

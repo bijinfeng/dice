@@ -13,7 +13,7 @@ group:
 ## 引入
 
 ```js
-import { Collapse } from 'rn-vant';
+import { Collapse } from '@pingtou/rn-vant';
 ```
 
 ## 代码演示
@@ -24,7 +24,7 @@ import { Collapse } from 'rn-vant';
 
 ```jsx
 import React from 'react';
-import { Collapse } from 'rn-vant';
+import { Collapse } from '@pingtou/rn-vant';
 
 export default () => {
   return (
@@ -49,9 +49,9 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Collapse } from 'rn-vant';
+import { Collapse } from '@pingtou/rn-vant';
 import { Text } from 'react-native';
-import { QuestionO } from '@rn-vant/icons';
+import { QuestionO } from '@pingtou/rn-vant-icons';
 
 export default () => {
   return (
@@ -76,7 +76,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Collapse } from 'rn-vant';
+import { Collapse } from '@pingtou/rn-vant';
 
 export default () => {
   return (

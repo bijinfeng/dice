@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { ScrollView } from 'react-native';
-import { Dialog, Cell, Toast } from 'rn-vant';
+import { Dialog, Cell, Toast } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const DialogExample = memo(() => {

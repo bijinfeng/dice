@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { NoticeBar } from 'rn-vant';
+import { NoticeBar } from '@pingtou/rn-vant';
 import { ScrollView, View } from 'react-native';
 import { DemoBlock } from '../../components';
 

@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { ScrollView } from 'react-native';
-import { Search, Toast } from 'rn-vant';
+import { Search, Toast } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const SearchExample = memo(() => {

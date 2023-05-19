@@ -13,5 +13,5 @@ group:
 ## 引入
 
 ```js
-import { Calendar } from 'rn-vant';
+import { Calendar } from '@pingtou/rn-vant';
 ```

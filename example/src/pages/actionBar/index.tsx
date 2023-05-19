@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { ScrollView } from 'react-native';
-import Icon from '@rn-vant/icons';
-import { ActionBar } from 'rn-vant';
+import Icon from '@pingtou/rn-vant-icons';
+import { ActionBar } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const ActionBarExample = memo(() => {

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Cell, Toast } from 'rn-vant';
+import { Cell, Toast } from '@pingtou/rn-vant';
 import { ScrollView } from 'react-native';
 import { DemoBlock } from '../../components';
 

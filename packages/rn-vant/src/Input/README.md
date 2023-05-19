@@ -13,7 +13,7 @@ group:
 ## 引入
 
 ```js
-import { Input } from 'rn-vant';
+import { Input } from '@pingtou/rn-vant';
 ```
 
 ## 代码演示
@@ -24,7 +24,7 @@ import { Input } from 'rn-vant';
 
 ```jsx
 import React from 'react';
-import { Cell, Input } from 'rn-vant';
+import { Cell, Input } from '@pingtou/rn-vant';
 
 export default () => (
   <Cell.Group>
@@ -53,7 +53,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Cell, Input } from 'rn-vant';
+import { Cell, Input } from '@pingtou/rn-vant';
 
 export default () => (
   <Cell>
@@ -68,7 +68,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Cell, Input } from 'rn-vant';
+import { Cell, Input } from '@pingtou/rn-vant';
 
 export default () => (
   <>
@@ -94,7 +94,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Cell, Input, Toast } from 'rn-vant';
+import { Cell, Input, Toast } from '@pingtou/rn-vant';
 
 export default () => (
   <>
@@ -124,7 +124,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Cell, Input } from 'rn-vant';
+import { Cell, Input } from '@pingtou/rn-vant';
 
 export default () => (
   <Cell.Group>
@@ -145,7 +145,7 @@ export default () => (
 
 ```jsx
 import React from 'react';
-import { Cell, Input } from 'rn-vant';
+import { Cell, Input } from '@pingtou/rn-vant';
 
 export default () => (
   <Cell.Group>

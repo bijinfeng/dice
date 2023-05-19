@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Cell, Radio, Space, Input, NoticeBar } from 'rn-vant';
+import { Form, Cell, Radio, Space, Input, NoticeBar } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 export default () => {

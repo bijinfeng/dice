@@ -13,7 +13,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { ImagePicker } from 'rn-vant';
+import { ImagePicker } from '@pingtou/rn-vant';
 
 const defaultValue = [
   {

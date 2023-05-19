@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Cell, Popup, IconNames, PopupCloseIconPosition } from 'rn-vant';
+import { Cell, Popup, IconNames, PopupCloseIconPosition } from '@pingtou/rn-vant';
 import { View, ScrollView, Dimensions } from 'react-native';
 import { DemoBlock } from '../../components';
 

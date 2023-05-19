@@ -1,4 +1,4 @@
-import type { IconNames } from '@rn-vant/icons';
+import type { IconNames } from '@pingtou/rn-vant-icons';
 
 export const basicArray: IconNames[] = [
   'arrow',

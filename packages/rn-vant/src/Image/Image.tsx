@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import type { NativeSyntheticEvent, ImageLoadEventData, ImageErrorEventData } from 'react-native';
 import { View, Text, Animated, TouchableOpacity, Platform } from 'react-native';
-import Icon from '@rn-vant/icons';
+import Icon from '@pingtou/rn-vant-icons';
 
 import type { ImageProps } from './type';
 import createStyles from './style';

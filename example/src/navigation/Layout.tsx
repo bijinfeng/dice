@@ -2,7 +2,7 @@ import React, { FC, useContext, useEffect, useMemo, useRef } from 'react';
 import { View, Pressable, StyleSheet, Text, ScrollView } from 'react-native';
 import { Outlet, useNavigate, useLocation } from 'react-router-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ArrowLeft } from '@rn-vant/icons';
+import { ArrowLeft } from '@pingtou/rn-vant-icons';
 import { GlobalContext } from '../GlobalContext';
 import { routes } from './routes';
 import { isInIframe } from '../utils';

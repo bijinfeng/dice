@@ -106,7 +106,7 @@ group:
 
 ```jsx
 import React, { useState } from 'react';
-import { Field, Cell } from 'rn-vant';
+import { Field, Cell } from '@pingtou/rn-vant';
 
 export default () => {
   const [value1, setValue1] = useState('');

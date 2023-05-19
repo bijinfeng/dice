@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { ScrollView, View, StyleSheet } from 'react-native';
-import { Circle, Button } from 'rn-vant';
+import { Circle, Button } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const format = (rate: number) => Math.min(Math.max(rate, 0), 100);

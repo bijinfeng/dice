@@ -18,7 +18,7 @@ group:
 
 ```jsx
 import React from 'react';
-import { Swiper } from 'rn-vant';
+import { Swiper } from '@pingtou/rn-vant';
 
 export default () => {
   return (
@@ -38,7 +38,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Swiper, Toast } from 'rn-vant';
+import { Swiper, Toast } from '@pingtou/rn-vant';
 
 export default () => {
   return (
@@ -58,7 +58,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Swiper } from 'rn-vant';
+import { Swiper } from '@pingtou/rn-vant';
 
 export default () => {
   return (
@@ -76,7 +76,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { Swiper } from 'rn-vant';
+import { Swiper } from '@pingtou/rn-vant';
 import { StyleSheet, View, Text } from 'react-native';
 
 const styles = StyleSheet.create({

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, LayoutChangeEvent, Dimensions } from 'react-native';
-import Icon, { IconNames } from '@rn-vant/icons';
+import Icon, { IconNames } from '@pingtou/rn-vant-icons';
 import { useThemeFactory } from '../Theme';
 import type { ToastProps } from './type';
 import createStyle from './style';

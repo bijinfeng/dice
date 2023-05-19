@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Collapse } from 'rn-vant';
+import { Collapse } from '@pingtou/rn-vant';
 import { ScrollView, Text } from 'react-native';
-import { QuestionO } from '@rn-vant/icons';
+import { QuestionO } from '@pingtou/rn-vant-icons';
 import { DemoBlock } from '../../components';
 
 const CollapseDemo: FC = () => {

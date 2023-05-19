@@ -1,7 +1,7 @@
 import React, { FC, useRef } from 'react';
-import { Button, Popover, Toast, PopoverAction, Space, Grid, PopoverInstance } from 'rn-vant';
+import { Button, Popover, Toast, PopoverAction, Space, Grid, PopoverInstance } from '@pingtou/rn-vant';
 import { ScrollView } from 'react-native';
-import { AddO, MusicO, MoreO, PhotoO } from '@rn-vant/icons';
+import { AddO, MusicO, MoreO, PhotoO } from '@pingtou/rn-vant-icons';
 import { DemoBlock } from '../../components';
 
 const actions: PopoverAction[] = [{ text: '选项一' }, { text: '选项二' }, { text: '选项三' }];

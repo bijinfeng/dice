@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Cell, NumberKeyboard, Field, useSetState, Toast } from 'rn-vant';
+import { Cell, NumberKeyboard, Field, useSetState, Toast } from '@pingtou/rn-vant';
 
 const NumberKeyboardExample = () => {
   const [text, setText] = useState('');

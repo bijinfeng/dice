@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import Icon from '@rn-vant/icons';
-import { Badge } from 'rn-vant';
+import Icon from '@pingtou/rn-vant-icons';
+import { Badge } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const BadgeExample = memo(() => {

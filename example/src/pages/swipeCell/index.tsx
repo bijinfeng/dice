@@ -1,7 +1,15 @@
 import React, { memo, useRef } from 'react';
 import { ScrollView, View } from 'react-native';
-import { SwipeCell, Button, Cell, Toast, Image, Typography, SwipeCellInstance } from 'rn-vant';
-import { Arrow, ArrowLeft, Cross } from '@rn-vant/icons';
+import {
+  SwipeCell,
+  Button,
+  Cell,
+  Toast,
+  Image,
+  Typography,
+  SwipeCellInstance,
+} from '@pingtou/rn-vant';
+import { Arrow, ArrowLeft, Cross } from '@pingtou/rn-vant-icons';
 import { DemoBlock } from '../../components';
 
 const SwipeCellExample = memo(() => {

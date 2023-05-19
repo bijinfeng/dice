@@ -1993,11 +1993,6 @@
   resolved "https://registry.npmjs.org/@react-native/polyfills/-/polyfills-2.0.0.tgz#4c40b74655c83982c8cf47530ee7dc13d957b6aa"
   integrity sha512-K0aGNn1TjalKj+65D7ycc1//H9roAQ51GJVk5ZJQFb2teECGmzd86bYDC0aYdbRf7gtovescq4Zt6FR0tgXiHQ==
 
-"@rn-vant/icons@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/@rn-vant/icons/-/icons-0.1.0.tgz#c39d1924ce840bddb09c6f75d7c691506bd0c7b2"
-  integrity sha512-7JjXXlKZWZ0oDuaqo92sl5tc7n3UmDj2oCSX1OByzwsbsaiZmEW3iGM4ZOUqr/ibciwGctQQodM/8iynf4kSuQ==
-
 "@segment/loosely-validate-event@^2.0.0":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@segment/loosely-validate-event/-/loosely-validate-event-2.0.0.tgz#87dfc979e5b4e7b82c5f1d8b722dfd5d77644681"

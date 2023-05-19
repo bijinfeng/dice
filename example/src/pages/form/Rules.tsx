@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Cell, Input } from 'rn-vant';
+import { Form, Cell, Input } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

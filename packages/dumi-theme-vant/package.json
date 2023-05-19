@@ -1,6 +1,6 @@
 {
-  "name": "@rn-vant/dumi-theme-vant",
-  "version": "0.1.1",
+  "name": "@pingtou/dumi-theme-vant",
+  "version": "0.0.1",
   "license": "MIT",
   "private": true,
   "description": "The vant theme of vant",

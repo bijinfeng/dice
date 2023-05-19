@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { IconNames } from '@rn-vant/icons';
+import type { IconNames } from '@pingtou/rn-vant-icons';
 import type { StyleProp, ViewStyle } from 'react-native';
 
 export type PopupPosition = 'top' | 'bottom' | 'right' | 'left' | 'center';

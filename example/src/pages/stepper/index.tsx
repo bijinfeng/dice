@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { ScrollView } from 'react-native';
-import { Cell, Stepper, Toast } from 'rn-vant';
+import { Cell, Stepper, Toast } from '@pingtou/rn-vant';
 
 let timer: ReturnType<typeof setTimeout>;
 

@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { ScrollView, View, StyleSheet, Text } from 'react-native';
-import { Slider } from 'rn-vant';
+import { Slider } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const SliderExample = memo(() => {

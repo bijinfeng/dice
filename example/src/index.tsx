@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, useMemo } from 'react';
 import { useColorScheme, ColorSchemeName, View } from 'react-native';
-import { ConfigProvider, defaultTheme, darkTheme } from 'rn-vant';
+import { ConfigProvider, defaultTheme, darkTheme } from '@pingtou/rn-vant';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Navigation from './navigation';
 import { listenerMessage, isInIframe, postMessage } from './utils';

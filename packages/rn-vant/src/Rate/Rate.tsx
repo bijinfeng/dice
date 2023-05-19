@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo, useRef } from 'react';
 import { View, Pressable, PanResponder } from 'react-native';
 import type { GestureResponderEvent, LayoutChangeEvent } from 'react-native';
-import Icon from '@rn-vant/icons';
+import Icon from '@pingtou/rn-vant-icons';
 import { useThemeFactory } from '../Theme';
 import type { RateProps } from './type';
 import { createStyle } from './style';

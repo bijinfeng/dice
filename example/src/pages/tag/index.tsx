@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { memo, useState } from 'react';
 import { ScrollView } from 'react-native';
-import { Tag, Cell } from 'rn-vant';
+import { Tag, Cell } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const TagExample = memo(() => {

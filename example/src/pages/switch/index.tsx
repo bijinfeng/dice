@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { ScrollView } from 'react-native';
-import { Switch, Cell } from 'rn-vant';
+import { Switch, Cell } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const SwitchExample = memo(() => {

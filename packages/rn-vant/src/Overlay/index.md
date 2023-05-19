@@ -14,7 +14,7 @@ group:
 
 ```jsx
 import React, { memo, useState } from 'react';
-import { Button, Overlay } from 'rn-vant';
+import { Button, Overlay } from '@pingtou/rn-vant';
 import { View } from 'react-native';
 
 const Example = memo(() => {
@@ -39,7 +39,7 @@ export default Example;
 
 ```jsx
 import React, { memo, useState } from 'react';
-import { Button, Overlay } from 'rn-vant';
+import { Button, Overlay } from '@pingtou/rn-vant';
 import { View } from 'react-native';
 
 const Example = memo(() => {

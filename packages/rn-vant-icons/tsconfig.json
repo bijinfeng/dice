@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
-      "@rn-vant/icons": ["./src/index"],
+      "@pingtou/rn-vant-icons": ["./src/index"],
     },
     "allowUnreachableCode": true,
     "importsNotUsedAsValues": "remove"

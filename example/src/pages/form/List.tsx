@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Form, Typography, Button, Space, Cell, Input } from 'rn-vant';
-import { AddO, Delete } from '@rn-vant/icons';
+import { Form, Typography, Button, Space, Cell, Input } from '@pingtou/rn-vant';
+import { AddO, Delete } from '@pingtou/rn-vant-icons';
 import { DemoBlock } from '../../components';
 
 export default () => {

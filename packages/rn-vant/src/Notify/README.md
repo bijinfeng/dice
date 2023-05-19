@@ -54,7 +54,7 @@ Notify.show({ message: '自定义时长', duration: 1000 })
 
 ```tsx
 import React, { useState } from 'react';
-import { Notify, Cell, Icon } from 'rn-vant';
+import { Notify, Cell, Icon } from '@pingtou/rn-vant';
 import { Text } from 'react-native';
 
 export default () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexBar, Tabs, Cell } from 'rn-vant';
+import { IndexBar, Tabs, Cell } from '@pingtou/rn-vant';
 
 const indexList: string[] = [];
 const customIndexList = [1, 2, 3, 4, 5, 6, 8, 9, 10];

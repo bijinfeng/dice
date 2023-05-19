@@ -13,7 +13,7 @@ group:
 ## 引入
 
 ```jsx
-import { Toast } from 'rn-vant';
+import { Toast } from '@pingtou/rn-vant';
 ```
 
 ## 文字提示

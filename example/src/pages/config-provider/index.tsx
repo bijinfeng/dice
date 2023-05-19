@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { View } from 'react-native';
-import { Cell, Switch, Rate, Slider, Form, Button } from 'rn-vant';
+import { Cell, Switch, Rate, Slider, Form, Button } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 import { GlobalContext } from '../../GlobalContext';
 

@@ -1,5 +1,5 @@
 import type { ViewProps, ViewStyle } from 'react-native';
-import type { IconNames } from '@rn-vant/icons';
+import type { IconNames } from '@pingtou/rn-vant-icons';
 import type { LoadingType } from '../Loading/type';
 
 export type ToastType = 'loading' | 'success' | 'fail' | 'info';

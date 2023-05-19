@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { DatetimePicker, Field, Popup } from 'rn-vant';
+import { DatetimePicker, Field, Popup } from '@pingtou/rn-vant';
 import { ScrollView, ViewStyle } from 'react-native';
 import { DemoBlock } from '../../components';
 

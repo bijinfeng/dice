@@ -1,5 +1,5 @@
 import type { StyleProp, ViewStyle } from 'react-native';
-import type { IconNames } from '@rn-vant/icons';
+import type { IconNames } from '@pingtou/rn-vant-icons';
 
 export interface RateProps {
   /**

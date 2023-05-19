@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { View, Pressable, Text, StyleSheet, ColorValue } from 'react-native';
 import type { StyleProp, TextStyle } from 'react-native';
-import { QuestionO } from '@rn-vant/icons';
+import { QuestionO } from '@pingtou/rn-vant-icons';
 import pick from 'lodash-es/pick';
 import Input, { InputSharedProps } from '../Input';
 import { useMemoizedFn } from '../hooks';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cell, Calendar } from 'rn-vant';
+import { Cell, Calendar } from '@pingtou/rn-vant';
 
 const CalendarSingle = () => {
   const [visible, setVisible] = useState(false);

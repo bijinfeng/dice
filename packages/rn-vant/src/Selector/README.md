@@ -19,7 +19,7 @@ group:
 ```jsx
 import React, { memo } from 'react';
 import { ScrollView } from 'react-native';
-import { Selector } from 'rn-vant';
+import { Selector } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const options = [

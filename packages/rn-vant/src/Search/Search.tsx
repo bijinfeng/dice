@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext, useRef, useImperativeHandle } from 'react';
 import { View, Text } from 'react-native';
-import { Search as SearchIco } from '@rn-vant/icons';
+import { Search as SearchIco } from '@pingtou/rn-vant-icons';
 import { useControllableValue } from '../hooks';
 import Field, { FieldInstance } from '../Field';
 import type { KeyPressEvent } from '../Input/type';

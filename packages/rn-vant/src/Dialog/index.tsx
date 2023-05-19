@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cross } from '@rn-vant/icons';
+import { Cross } from '@pingtou/rn-vant-icons';
 import noop from 'lodash-es/noop';
 import BaseDialog from './Dialog';
 import { PortalRef } from '../ConfigProvider';

@@ -1,7 +1,7 @@
 import React, { FC, useRef } from 'react';
 import { View, TouchableWithoutFeedback, StyleSheet, Text, Animated, Platform } from 'react-native';
 import type { TextStyle } from 'react-native';
-import Icon from '@rn-vant/icons';
+import Icon from '@pingtou/rn-vant-icons';
 
 import { useUpdateEffect } from '../hooks';
 import { useThemeFactory } from '../Theme';

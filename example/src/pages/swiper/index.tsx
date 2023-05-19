@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { ScrollView, StyleSheet, View, Pressable, Text } from 'react-native';
-import { Swiper, Toast } from 'rn-vant';
+import { Swiper, Toast } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const images = [

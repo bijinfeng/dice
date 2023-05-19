@@ -8,7 +8,7 @@ import {
   StyleSheet,
   TextStyle,
 } from 'react-native';
-import { Clear } from '@rn-vant/icons';
+import { Clear } from '@pingtou/rn-vant-icons';
 import toString from 'lodash-es/toString';
 import isFunction from 'lodash-es/isFunction';
 import isObject from 'lodash-es/isObject';

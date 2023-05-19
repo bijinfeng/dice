@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleProp, ViewStyle, Text, TouchableWithoutFeedback } from 'react-native';
-import Icon from '@rn-vant/icons';
+import Icon from '@pingtou/rn-vant-icons';
 import { GroupContext } from './content';
 import createStyle from './index.style';
 import { useThemeFactory } from '../Theme';

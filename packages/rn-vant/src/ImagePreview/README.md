@@ -15,7 +15,7 @@ group:
 
 ```jsx
 import React from 'react';
-import { Cell, ImagePreview } from 'rn-vant';
+import { Cell, ImagePreview } from '@pingtou/rn-vant';
 
 const images = [
   'https://img.yzcdn.cn/vant/apple-1.jpg',

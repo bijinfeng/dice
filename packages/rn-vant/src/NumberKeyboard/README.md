@@ -24,7 +24,7 @@ group:
 ```jsx
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Cell, NumberKeyboard, Field, useSetState, Toast } from 'rn-vant';
+import { Cell, NumberKeyboard, Field, useSetState, Toast } from '@pingtou/rn-vant';
 
 export default () => {
   const [state, set] = useSetState({
@@ -127,7 +127,7 @@ export default () => {
 ```jsx
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { NumberKeyboard, Field, Toast } from 'rn-vant';
+import { NumberKeyboard, Field, Toast } from '@pingtou/rn-vant';
 
 export default () => {
   const [text, setText] = useState('');

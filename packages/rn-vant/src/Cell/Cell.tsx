@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { View, Text, Animated, TouchableOpacity as RNTouchableOpacity } from 'react-native';
 import isFunction from 'lodash-es/isFunction';
-import Icon from '@rn-vant/icons';
+import Icon from '@pingtou/rn-vant-icons';
 import { useMemoizedFn, useAnimatedValue, useUpdateEffect } from '../hooks';
 import { useThemeFactory } from '../Theme';
 import TouchableOpacity from '../TouchableOpacity';

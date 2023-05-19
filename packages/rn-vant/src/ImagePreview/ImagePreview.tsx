@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import isFunction from 'lodash-es/isFunction';
-import { Clear } from '@rn-vant/icons';
+import { Clear } from '@pingtou/rn-vant-icons';
 import { View, Text, Modal, Pressable, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Image from '../Image';

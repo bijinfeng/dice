@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.0",
-    "@rn-vant/icons": "^0.1.0",
     "expo": "^46.0.0",
     "expo-linking": "~3.2.2",
     "expo-status-bar": "~1.4.0",

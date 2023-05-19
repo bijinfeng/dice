@@ -5,13 +5,13 @@
 #### NPM
 
 ```shell
-npm i @rn-vant/icons
+npm i @pingtou/rn-vant-icons
 ```
 
 #### YARN
 
 ```shell
-yarn add @rn-vant/icons
+yarn add @pingtou/rn-vant-icons
 ```
 
 ## Document

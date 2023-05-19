@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { ScrollView } from 'react-native';
-import { Empty, Tabs, Button } from 'rn-vant';
+import { Empty, Tabs, Button } from '@pingtou/rn-vant';
 import { DemoBlock } from '../../components';
 
 const EmptyExample = memo(() => {

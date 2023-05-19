@@ -22,7 +22,7 @@ Picker 组件通过 columns 属性配置选项数据，columns 是一个包含�
 
 ```jsx
 import React, { FC, useState } from 'react';
-import { Picker, Toast, Popup, Field } from 'rn-vant';
+import { Picker, Toast, Popup, Field } from '@pingtou/rn-vant';
 
 const columns = [
   { text: '杭州', value: 'Hangzhou' },
@@ -55,7 +55,7 @@ export default () => {
 
 ```jsx
 import React, { useState } from 'react';
-import { Picker, Toast, Popup, Field } from 'rn-vant';
+import { Picker, Toast, Popup, Field } from '@pingtou/rn-vant';
 
 const columns = [
   { text: '杭州', value: 'Hangzhou' },

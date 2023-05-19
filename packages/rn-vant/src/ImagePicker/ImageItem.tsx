@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
-import { Cross, Close } from '@rn-vant/icons';
+import { Cross, Close } from '@pingtou/rn-vant-icons';
 import Image from '../Image';
 import Loading from '../Loading';
 import { createItemStyles } from './style';
