@@ -8,11 +8,15 @@
     "build:site": "yarn run build && lerna run build:site --scope=@pingtou/rn-vant",
     "build": "lerna run build",
     "bootstrap": "yarn --cwd example && yarn",
+    "ci:publish": "changeset publish",
+    "ci:version": "changeset version",
     "commit": "git cz",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.1",
     "@commitlint/cli": "^13.2.0",
     "@types/jest": "^26.0.23",
     "@youngjuning/eslint-config": "^1.4.0",
