@@ -8,6 +8,7 @@
     "build:site": "yarn run build && lerna run build:site --scope=@pingtou/rn-vant",
     "build": "lerna run build",
     "bootstrap": "yarn --cwd example && yarn",
+    "changeset": "changeset",
     "ci:publish": "changeset publish",
     "ci:version": "changeset version",
     "commit": "git cz",
