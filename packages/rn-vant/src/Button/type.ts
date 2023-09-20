@@ -25,7 +25,7 @@ export interface ButtonProps
    */
   color?: string;
   /**
-   * 左侧图标名称或自定义图标组件
+   * 自定义图标组件
    */
   icon?: React.ReactNode;
   /**
@@ -65,5 +65,8 @@ export interface ButtonProps
    * 加载图标大小
    */
   loadingSize?: number;
+  /**
+   * 按钮文本样式
+   */
   textStyle?: StyleProp<TextStyle>;
 }

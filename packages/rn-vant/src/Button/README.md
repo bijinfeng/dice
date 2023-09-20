@@ -88,3 +88,24 @@ group:
 <Button color="#7232dd">单色按钮</Button>
 <Button color="#7232dd" plain>单色按钮</Button>
 ```
+
+## API
+
+### Props
+
+| 参数         | 说明                                                  | 类型              | 默认值  |
+| ------------ | ----------------------------------------------------- | ----------------- | ------- |
+| type         | 类型，可选值为 `primary` `success` `warning` `danger` | _string_          | default |
+| size         | 尺寸，可选值为 `large` `small` `mini`                 | _number_          | normal  |
+| color        | 按钮颜色                                              | _string_          | -       |
+| icon         | 自定义图标组件                                        | _React.ReactNode_ | -       |
+| iconPosition | 图标展示位置，可选值为 `right`                        | _left_ \| _right_     | left    |
+| plain | 是否为朴素按钮 | _boolean_ | - |
+| square | 是否为方形按钮| _boolean_ | - |
+| round | 是否为圆形按钮| _boolean_ | - |
+| disabled | 是否禁用按钮| _boolean_ | - |
+| loading | 是否显示为加载状态 | _boolean_ | - |
+| loadingText | 加载状态提示文字| _boolean_ | - |
+| loadingType | 加载图标类型 | _LoadingProps['type']_ | - |
+| loadingSize | 加载图标大小 | _number_ | -|
+| textStyle | 按钮样式 | _StyleProp\<TextStyle\>_ | - |
