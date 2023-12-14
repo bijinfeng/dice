@@ -16,7 +16,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: yarn
+
+      - name: 🏗 Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
 
       - name: 🏗 Setup Expo and EAS
         uses: expo/expo-github-action@v7
@@ -26,13 +32,13 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
-        run: yarn bootstrap
+        run: pnpm install
 
       - name: 🚀 Build site
-        run: yarn build:site
+        run: pnpm run build:site
       
       - name: 🚀 Build example
-        run: yarn build:example
+        run: pnpm run build:example
 
       - name: 🚀 Move build product
         run: mv example/web-build/ packages/rn-vant/dist/example

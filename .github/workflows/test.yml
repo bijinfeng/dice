@@ -17,13 +17,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: yarn
+
+      - name: 🏗 Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
 
       - name: 📦 Install dependencies
-        run: yarn bootstrap
+        run: pnpm install
 
       - name: 📦 Test
-        run: yarn test --maxWorkers=2 --coverage
+        run: pnpm run test --maxWorkers=2 --coverage
       
       - name: 🚀 Upload coverage to codecov
         uses: codecov/codecov-action@v3
