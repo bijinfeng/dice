@@ -7,7 +7,7 @@ import Input, { InputSharedProps } from '../Input';
 import { useMemoizedFn } from '../hooks';
 import { cloneReactNode } from '../utils/cloneReactNode';
 import Cell from '../Cell';
-import { Dialog } from '../Dialog';
+import { Dialog, DialogProps } from '../Dialog';
 import type { FieldInstance, FieldProps, FieldTooltipProps } from './type';
 import { useThemeFactory } from '../Theme';
 import { createStyle } from './style';
@@ -20,7 +20,8 @@ const Field = forwardRef<FieldInstance, FieldProps>((props, ref) => {
     const { tooltip } = props;
     if (tooltip) {
       let icon = (<QuestionO />) as React.ReactNode;
-      let dialogProps = { message: tooltip };
+      // TODO：tooltip 的类型需要收敛下
+      let dialogProps: DialogProps = { message: tooltip as React.ReactNode };
       if (!(React.isValidElement(tooltip) || typeof tooltip === 'string')) {
         const { icon: customIcon, ...customDialogProps } = tooltip as FieldTooltipProps;
         icon = customIcon || icon;

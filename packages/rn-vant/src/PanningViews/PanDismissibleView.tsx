@@ -90,7 +90,7 @@ interface State {
  *         The PanListenerView is the one that sends the drag\swipe events.
  * @gif: https://github.com/wix/react-native-ui-lib/blob/master/demo/showcase/PanDismissibleView/PanDismissibleView.gif?raw=true
  */
-class PanDismissibleView extends PureComponent<Props, State> {
+class PanDismissibleView extends PureComponent<React.PropsWithChildren<Props>, State> {
   static displayName = 'PanDismissibleView';
 
   static defaultProps: Partial<Props> = {

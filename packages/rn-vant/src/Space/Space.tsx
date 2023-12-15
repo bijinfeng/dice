@@ -15,7 +15,7 @@ const Space = (props: SpaceProps): JSX.Element => {
     ...rest
   } = props;
 
-  const childList = useMemo(
+  const childList = useMemo<React.ReactElement[]>(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     () => React.Children.map(children, c => c).filter(c => c !== null && c !== undefined),

@@ -98,7 +98,7 @@ const Popover = forwardRef<PopoverInstance, PopoverProps>((props, ref) => {
     <>
       <Pressable ref={touchable} onPress={openPopover}>
         {React.isValidElement(reference)
-          ? React.cloneElement(reference, { onPress: openPopover })
+          ? React.cloneElement<any>(reference, { onPress: openPopover })
           : reference}
       </Pressable>
       <Pop

@@ -3,7 +3,10 @@ import { View } from 'react-native';
 import Swiper, { SwiperInstance } from '../Swiper';
 import type { TabsProps } from './type';
 
-export type TabsContentProps = Pick<TabsProps, 'animated' | 'swipeable' | 'duration'> & {
+export type TabsContentProps = Pick<
+  TabsProps,
+  'animated' | 'swipeable' | 'duration' | 'children'
+> & {
   onChange?: (index: number) => void;
   currentIndex: number;
 };

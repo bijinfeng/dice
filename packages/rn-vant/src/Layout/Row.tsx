@@ -6,6 +6,7 @@ type JustifyType = 'start' | 'end' | 'center' | 'space-around' | 'space-between'
 type AlignType = 'top' | 'center' | 'bottom';
 
 interface Props {
+  children?: React.ReactNode;
   /**
    * 列元素之间的间距（单位为 px）
    */

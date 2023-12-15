@@ -3,6 +3,7 @@ import { View, ViewStyle } from 'react-native';
 import RowContext from './RowContext';
 
 interface Props {
+  children?: React.ReactNode;
   /**
    * 列元素宽度
    */

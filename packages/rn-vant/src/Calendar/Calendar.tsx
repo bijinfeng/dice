@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import pick from 'lodash-es/pick';
 import Popup from '../Popup';
 import Button from '../Button';
-import Toast from '../Toast';
+import { Toast } from '../Toast';
 import { useThemeFactory } from '../Theme';
 import { useSetState, useUpdateEffect, useRefs } from '../hooks';
 import ConfigProviderContext from '../ConfigProvider/ConfigProviderContext';
@@ -114,7 +114,7 @@ const Calendar = forwardRef<CalendarInstance, CalendarProps>(props => {
   const checkRange = (date: [Date, Date]) => {
     const { maxRange, rangePrompt, showRangePrompt } = props;
 
-    if (maxRange && calcDateNum(date) > maxRange) {
+    if (maxRange && calcDateNum(date) > Number(maxRange)) {
       if (showRangePrompt) {
         Toast.info(rangePrompt || locale.vanCalendar.rangePrompt(+maxRange));
       }

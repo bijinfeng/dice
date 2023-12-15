@@ -8,7 +8,7 @@ import { useThemeFactory } from '../Theme';
 import type { TagProps } from './interface';
 import createStyle from './style';
 
-const Tag: FC<TagProps> = props => {
+const Tag: FC<React.PropsWithChildren<TagProps>> = props => {
   const {
     onPress,
     children,

@@ -9,7 +9,7 @@ export default function useRefState<T>(
 ): [T, Dispatch<SetStateAction<T>>, MutableRefObject<T>] {
   const [state, setState] = useState<T>(initialState);
   const ref = useRef(state);
-  const setRafState = useCallback(
+  const setRafState = useCallback<Dispatch<SetStateAction<T>>>(
     patch => {
       setState(prevState => {
         // eslint-disable-next-line no-return-assign

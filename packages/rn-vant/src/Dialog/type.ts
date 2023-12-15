@@ -21,7 +21,7 @@ export interface DialogProps {
   /** 设置宽度 */
   width?: string | number;
   /** 设置主题内容 */
-  message?: string | React.ReactNode;
+  message?: React.ReactNode;
   /** message内容对齐 */
   messageAlign?: TextStyle['textAlign'];
   /** 是否显示取消按钮 */

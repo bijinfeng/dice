@@ -7,9 +7,11 @@ export interface ActionBarProps {
   /** 是否开启底部安全区适配 */
   safeAreaInsetBottom?: boolean;
   style?: StyleProp<ViewStyle>;
+  children?: React.ReactNode;
 }
 
 export interface ActionBarIconProps {
+  children?: React.ReactNode;
   /** 按钮文字	 */
   text?: React.ReactNode;
   /** 图标 */
@@ -21,6 +23,7 @@ export interface ActionBarIconProps {
 }
 
 export interface ActionBarButtonProps {
+  children?: React.ReactNode;
   /** 按钮文字 */
   text?: React.ReactNode;
   /** 按钮类型 */

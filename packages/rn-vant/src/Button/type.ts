@@ -8,7 +8,7 @@ export type ButtonSize = 'large' | 'small' | 'mini' | 'normal';
 type LoadingProps = React.ComponentProps<typeof Loading>;
 
 export interface ButtonProps
-  extends Pick<ViewProps, 'style' | 'testID'>,
+  extends Pick<ViewProps, 'style' | 'testID' | 'children'>,
     Pick<TouchableOpacityProps, 'onPress' | 'onLongPress' | 'onPressIn' | 'onPressOut'> {
   /**
    * 类型，可选值为 primary success warning danger
