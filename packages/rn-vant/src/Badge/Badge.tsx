@@ -1,12 +1,12 @@
-import React, { forwardRef, memo, useState, useCallback } from 'react';
-import { Text, View } from 'react-native';
 import isNil from 'lodash-es/isNil';
-import toNumber from 'lodash-es/toNumber';
 import isNumber from 'lodash-es/isNumber';
+import toNumber from 'lodash-es/toNumber';
+import React, { forwardRef, memo, useCallback, useState } from 'react';
 import type { LayoutChangeEvent } from 'react-native';
-import type { BadgeProps } from './type';
+import { Text, View } from 'react-native';
 import { useThemeFactory } from '../Theme';
 import { createStyle } from './style';
+import type { BadgeProps } from './type';
 
 const Badge = forwardRef<View, BadgeProps>((props, ref) => {
   const {
@@ -50,7 +50,7 @@ const Badge = forwardRef<View, BadgeProps>((props, ref) => {
 
   const renderContent = () => {
     if (!dot && hasContent()) {
-      if (!isNil(max) && isNumber(toNumber(content)) && toNumber(content) > max) {
+      if (!isNil(max) && isNumber(toNumber(content)) && toNumber(content) > Number(max)) {
         return `${max}+`;
       }
 
